@@ -1,7 +1,5 @@
-import { ChangeEvent, useState } from 'react';
+import { useState } from 'react';
 import axios from 'axios';
-import { collection, doc, getDocs, query, updateDoc, where } from 'firebase/firestore';
-import { firestore } from './utils/firebase';
 import emailjs from '@emailjs/browser';
 import Button from './components/buttons/Button';
 
@@ -33,7 +31,7 @@ const App = () => {
   };
 
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = async (e: any) => {
     e.preventDefault();
     setLoading(true);
     try {
