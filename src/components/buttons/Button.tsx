@@ -12,18 +12,10 @@ type Props = {
     imagePath?: string
     isDisabled?: boolean
 }
-const Button = ({ title, onClick, isSecondary, isDangerous, isImage, imagePath, isSocial, isDisabled }: Props) => {
-    const buttonClass = isDangerous
-        ? 'buttonDangerous'
-        : isSecondary
-            ? 'buttonSecondary'
-            : isSocial
-                ? 'buttonSocial'
-                : 'button';
+const Button = ({ title, onClick, isSecondary, isDisabled }: Props) => {
 
     return (
-        <button className={buttonClass} onClick={onClick} disabled={isDisabled}>
-            {isImage && <img src={imagePath} />}
+        <button className={isSecondary ? 'isSecondary' : 'button'} onClick={onClick} disabled={isDisabled}>
             {title}
         </button>
     )
