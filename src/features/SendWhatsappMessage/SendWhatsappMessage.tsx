@@ -11,7 +11,7 @@ const SendWhatsappMessage = () => {
       .catch(console.error);
   };
 
-  return <Button title="Send Whatsapp Message" onClick={sendMessage} />;
+  return <Button title="Send Whatsapp Message" onClick={sendMessage} type='button' />;
 };
 
 export default SendWhatsappMessage;

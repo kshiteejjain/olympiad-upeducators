@@ -68,7 +68,7 @@ const PaymentGateway = () => {
 
   return (
     <>
-      <Button title="Pay" onClick={() => openPayModal(options)}></Button>
+      <Button title="Pay" onClick={() => openPayModal(options)} type='button' />
     </>
   );
 };
