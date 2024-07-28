@@ -1,6 +1,6 @@
-import SendWhatsappMessage from './features/SendWhatsappMessage/SendWhatsappMessage';
-import SendEmail from './features/SendEmail/SendEmail';
-import PaymentGateway from './features/PaymentGateway/PaymentGateway';
+// import SendWhatsappMessage from './features/SendWhatsappMessage/SendWhatsappMessage';
+// import SendEmail from './features/SendEmail/SendEmail';
+// import PaymentGateway from './features/PaymentGateway/PaymentGateway';
 import AboutOlympiad from './features/AboutOlympiad/AboutOlympiad';
 
 import './App.css';
@@ -9,10 +9,9 @@ import './App.css';
 const App = () => {
   return (
     <>
-      <h1>Olympiad</h1>
-      <SendWhatsappMessage />
+      {/* <SendWhatsappMessage />
       <SendEmail />
-      <PaymentGateway />
+      <PaymentGateway /> */}
       <AboutOlympiad />
     </>
   );

@@ -1,0 +1,7 @@
+.header{
+    display: flex;
+    padding: 1rem 0;
+    background-color: #ebeff8;
+    border-bottom: 1px solid var(--gray);
+    margin-bottom: 40px;
+  }

@@ -1,5 +1,5 @@
 import axios from 'axios';
-import Button from '../../components/buttons/Button';
+import Button from '../../components/Buttons/Button';
 
 const SendWhatsappMessage = () => {
   const { VITE_GUPSHUP_WHATSAPP_API_URL, VITE_GUPSHUP_WHATSAPP_API_USER_ID, VITE_GUPSHUP_WHATSAPP_API_PASSWORD, VITE_GUPSHUP_WHATSAPP_API_METHOD } = import.meta.env;

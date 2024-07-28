@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import emailjs from '@emailjs/browser';
-import Button from '../../components/buttons/Button';
+import Button from '../../components/Buttons/Button';
 
 const SendEmail = () => {
     const [loading, setLoading] = useState(false);

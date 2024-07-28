@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import Button from "../../components/buttons/Button";
+import Button from "../../components/Buttons/Button";
 
 // Define types for Razorpay options and response
 type RazorpayOptions = {
