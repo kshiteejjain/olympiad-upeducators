@@ -9,13 +9,13 @@ const AboutOlympiad = () => {
             <Header />
             <div className='container-wrapper'>
                 <div className='navigation'>
-                    <Button title='About this Olympiad' />
-                    <Button title='Refer & Earn' />
-                    <Button title='Awards' />
-                    <Button title='FAQ' />
-                    <Button title='Live Masterclass' />
-                    <Button title='Report' />
-                    <Button title='About upEducators' />
+                    <Button title='About this Olympiad' type="button" />
+                    <Button title='Refer & Earn' type="button" />
+                    <Button title='Awards' type="button" />
+                    <Button title='FAQ' type="button" />
+                    <Button title='Live Masterclass' type="button" />
+                    <Button title='Report' type="button" />
+                    <Button title='About upEducators' type="button" />
                 </div>
 
                 <h2>About the Olympiad</h2>

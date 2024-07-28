@@ -9,7 +9,7 @@ type Props = {
     type?: 'button' | 'submit' | 'reset';
 }
 
-const Button: React.FC<Props> = ({ title, onClick, isSecondary, isDisabled }) => {
+const Button: React.FC<Props> = ({ title, onClick, isSecondary, isDisabled, type }) => {
     return (
         <button 
             className={isSecondary ? 'isSecondary' : 'button'} 
