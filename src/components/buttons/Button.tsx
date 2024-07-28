@@ -1,24 +1,31 @@
+import React from 'react';
+import PropTypes from 'prop-types';
 import './Button.css';
 
 type Props = {
     title?: string;
     onClick?: () => void;
-    type?: string;
     isSecondary?: boolean;
-    isDangerous?: boolean;
-    isSocial?: boolean;
-    isGoBack?: boolean;
-    isImage?: boolean;
-    imagePath?: string
-    isDisabled?: boolean
+    isDisabled?: boolean;
 }
-const Button = ({ title, onClick, isSecondary, isDisabled }: Props) => {
 
+const Button: React.FC<Props> = ({ title, onClick, isSecondary, isDisabled }) => {
     return (
-        <button className={isSecondary ? 'isSecondary' : 'button'} onClick={onClick} disabled={isDisabled}>
+        <button 
+            className={isSecondary ? 'isSecondary' : 'button'} 
+            onClick={onClick} 
+            disabled={isDisabled}
+        >
             {title}
         </button>
-    )
+    );
+};
+
+Button.propTypes = {
+    title: PropTypes.string,
+    onClick: PropTypes.func,
+    isSecondary: PropTypes.bool,
+    isDisabled: PropTypes.bool
 };
 
 export default Button;
