@@ -30,7 +30,7 @@ const SendEmail = () => {
     return (
         <>
             <form onSubmit={handleSubmit}>
-                <Button title='Send Email' type="button" />
+                <Button title='Send Email' type={'button'} />
             </form>
             {loading && 'Loading'}
         </>

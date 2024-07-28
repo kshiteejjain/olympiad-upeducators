@@ -6,7 +6,7 @@ type Props = {
     onClick?: () => void;
     isSecondary?: boolean;
     isDisabled?: boolean;
-    type?: 'button' | 'submit' | 'reset';
+    type: 'button' | 'submit' | 'reset';
 }
 
 const Button: React.FC<Props> = ({ title, onClick, isSecondary, isDisabled, type }) => {
