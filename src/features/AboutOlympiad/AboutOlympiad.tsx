@@ -11,11 +11,11 @@ const AboutOlympiad = () => {
                 <div className='navigation'>
                     <Button title='About this Olympiad' />
                     <Button title='Refer & Earn' />
-                     <Button title='Awards' />
-                     <Button title='FAQ' />
-                     <Button title='Live Masterclass' />
-                     <Button title='Report' />
-                     <Button title='About upEducators' />
+                    <Button title='Awards' />
+                    <Button title='FAQ' />
+                    <Button title='Live Masterclass' />
+                    <Button title='Report' />
+                    <Button title='About upEducators' />
                 </div>
 
                 <h2>About the Olympiad</h2>
