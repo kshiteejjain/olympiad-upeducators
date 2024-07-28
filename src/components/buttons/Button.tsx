@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import './Button.css';
 
 type Props = {
@@ -7,6 +6,7 @@ type Props = {
     onClick?: () => void;
     isSecondary?: boolean;
     isDisabled?: boolean;
+    type?: 'button' | 'submit' | 'reset';
 }
 
 const Button: React.FC<Props> = ({ title, onClick, isSecondary, isDisabled }) => {
@@ -15,17 +15,11 @@ const Button: React.FC<Props> = ({ title, onClick, isSecondary, isDisabled }) =>
             className={isSecondary ? 'isSecondary' : 'button'} 
             onClick={onClick} 
             disabled={isDisabled}
+            type={type}
         >
             {title}
         </button>
     );
-};
-
-Button.propTypes = {
-    title: PropTypes.string,
-    onClick: PropTypes.func,
-    isSecondary: PropTypes.bool,
-    isDisabled: PropTypes.bool
 };
 
 export default Button;
