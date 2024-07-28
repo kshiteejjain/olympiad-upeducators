@@ -38,7 +38,7 @@
   --baseFontSize: 16px;
   --gray: #c0c5d0;
   --mediumGray: #9599a3;
-  --darkGray: #6e7072;
+  --darkGray: #323232;
   --primary: #0e75be;
   --lightGray: #f2f6fe;
   --white: #ffffff;
@@ -66,7 +66,9 @@ body {
   margin: 0;
   min-width: 320px;
   min-height: 100vh;
-  background-color: var(--lightGray);
+  background-color: #ffffff;
+  font-size: var(--baseFontSize);
+  color: var(--darkGray);
 }
 h1 {
   font-size: 2em;
