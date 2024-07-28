@@ -1,24 +1,19 @@
-import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
-import 'react-tabs/style/react-tabs.css';
-
 import './AboutOlympiad.css';
 
 const AboutOlympiad = () => {
     return (
-        <div>
-            <Tabs>
-                <TabList>
-                    <Tab>About this Olympiad</Tab>
-                    <Tab>Refer & Earn</Tab>
-                    <Tab>Awards</Tab>
-                    <Tab>FAQ</Tab>
-                    <Tab>Live Masterclass</Tab>
-                    <Tab>Report</Tab>
-                    <Tab>About upEducators</Tab>
-                </TabList>
+        <>
+                <div className='navigation'>
+                    <button>About this Olympiad</button>
+                    <button>Refer & Earn</button>
+                    <button>Awards</button>
+                    <button>FAQ</button>
+                    <button>Live Masterclass</button>
+                    <button>Report</button>
+                    <button>About upEducators</button>
+                </div>
 
-                <TabPanel>
-                    <h2>About the Olympiad</h2>
+                <h2>About the Olympiad</h2>
                     <div className='olympiad-banner'>
                         <img src="https://images.pexels.com/photos/5538322/pexels-photo-5538322.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" />
                     </div>
@@ -109,12 +104,7 @@ const AboutOlympiad = () => {
                     <p>In case of technical difficulties, please reach out to the numbers given in Exam mail for assistance.</p>
                     <h3>Link to attempt the exam</h3>
                     <p>We will provide the link of the exam 1 day before the exam time on your registered email id.</p>
-                </TabPanel>
-                <TabPanel>
-                    <h2>Any content 2</h2>
-                </TabPanel>
-            </Tabs>
-        </div>
+        </>
     )
 };
 
