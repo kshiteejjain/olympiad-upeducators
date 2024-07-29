@@ -7,7 +7,7 @@ const PageNavigation = () => {
     const navigate = useNavigate();
     const [activeButton, setActiveButton] = useState(null);
 
-    const handleClick = (path) => {
+    const handleClick = (path: any) => {
         setActiveButton(path);
         navigate(path);
     };
