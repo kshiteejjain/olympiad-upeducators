@@ -48,7 +48,7 @@ h2 {
 
 h3 {
   margin: 6px 0 5px 0;
-  font-size: calc(var(--baseFontSize) + 8px);
+  font-size: calc(var(--baseFontSize) + 6px);
   color: var(--black);
 }
 
@@ -61,14 +61,28 @@ h3 {
   margin: 0 auto;
 }
 
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-
-  to {
-    transform: rotate(360deg);
-  }
+.table{
+  border-collapse: collapse;
+  width: 100%;
+}
+.table tr:hover{
+  background-color: var(--lightGray);
+}
+.table th{
+  font-weight: bold;
+}
+.table th, .table td{
+  text-align: left;
+  padding: 8px 16px;
+  border: 1px solid var(--grayBlue);
+  font-size: calc(var(--baseFontSize) - 2px);
+  white-space: nowrap;
+}
+.table td button{
+  margin-left: 1rem;
+}
+.table td button:first-child{
+  margin-left: 0;
 }
 
 @media (prefers-reduced-motion: no-preference) {

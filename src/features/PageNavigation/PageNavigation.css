@@ -1,0 +1,19 @@
+.navigation{
+    background-color: var(--white);
+    border-bottom: 1px solid var(--grayBlue);
+}
+.navigation button {
+    background-color: var(--white);
+    border: 0;
+    border-radius: 0;
+    color: var(--black);
+    margin: 20px 50px 0 0;
+    padding: 0 0 15px 0;
+}
+.navigation button.active{
+    border-bottom: 1px solid var(--gray);
+}
+.navigation button:focus{
+    outline: 0;
+    border: 0;
+}

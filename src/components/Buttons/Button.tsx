@@ -1,4 +1,6 @@
 import React from 'react';
+import ChevronRight from '../../assets/chevron-right.svg'
+
 import './Button.css';
 
 type Props = {
@@ -7,9 +9,12 @@ type Props = {
     isSecondary?: boolean;
     isDisabled?: boolean;
     type: 'button' | 'submit' | 'reset';
+    isArrow?: boolean,
+    isIcon?: boolean,
+    iconPath?: string
 }
 
-const Button: React.FC<Props> = ({ title, onClick, isSecondary, isDisabled, type }) => {
+const Button: React.FC<Props> = ({ title, onClick, isSecondary, isDisabled, type, isArrow, isIcon, iconPath }) => {
     return (
         <button 
             className={isSecondary ? 'isSecondary' : 'button'} 
@@ -18,6 +23,8 @@ const Button: React.FC<Props> = ({ title, onClick, isSecondary, isDisabled, type
             type={type}
         >
             {title}
+            {isArrow && <img src={ChevronRight} className='arrow' /> }
+            {isIcon && <img src={iconPath} className='icon' /> }
         </button>
     );
 };

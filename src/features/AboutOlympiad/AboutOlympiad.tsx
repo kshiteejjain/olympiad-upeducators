@@ -1,23 +1,10 @@
-import Button from '../../components/Buttons/Button';
-import Header from '../../components/Header/Header';
 
 import './AboutOlympiad.css';
 
 const AboutOlympiad = () => {
     return (
         <>
-            <Header />
             <div className='container-wrapper'>
-                <div className='navigation'>
-                    <Button title='About this Olympiad' type={'button'} />
-                    <Button title='Refer & Earn' type={'button'} />
-                    <Button title='Awards' type={'button'} />
-                    <Button title='FAQ' type={'button'} />
-                    <Button title='Live Masterclass' type={'button'} />
-                    <Button title='Report' type={'button'} />
-                    <Button title='About upEducators' type={'button'} />
-                </div>
-
                 <h2>About the Olympiad</h2>
                 <div className='olympiad-banner'>
                     <img src="https://images.pexels.com/photos/5538322/pexels-photo-5538322.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" />

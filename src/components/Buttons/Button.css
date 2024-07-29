@@ -59,3 +59,11 @@
     max-height: 25px;
     margin-right: 10px;
   }
+
+  .arrow{
+    max-width: 15px;
+  }
+  .icon{
+    max-width: 16px;
+    margin-left: 5px;
+  }

@@ -1,7 +1,11 @@
 .header{
     display: flex;
     padding: 1rem 0;
-    background-color: #ebeff8;
-    border-bottom: 1px solid var(--gray);
-    margin-bottom: 40px;
+    background-color: var(--white);
+    border-bottom: 1px solid var(--grayBlue);
+  }
+  .header .container-wrapper{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
   }

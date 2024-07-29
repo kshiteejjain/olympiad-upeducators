@@ -46,6 +46,8 @@
   --error: #e60000;
   --lightBlue: #ebf2ff;
   --grayBlue: #ebedf2;
+  --limeGreen: #1CBC79;
+  --whatsapp: #25d366
 }
 ::placeholder {
   color: var(--mediumGray);
