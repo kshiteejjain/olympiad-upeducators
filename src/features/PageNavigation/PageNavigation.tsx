@@ -52,8 +52,8 @@ const PageNavigation = () => {
                     Report
                 </button>
                 <button
-                    className={activeButton === '/AboutUpEducators' ? 'active' : ''}
-                    onClick={() => handleClick('/AboutUpEducators')}
+                    className={activeButton === '/AboutupEducators' ? 'active' : ''}
+                    onClick={() => handleClick('/AboutupEducators')}
                 >
                     About upEducators
                 </button>

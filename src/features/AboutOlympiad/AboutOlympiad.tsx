@@ -1,3 +1,4 @@
+import Banner from '../../assets/banner.jpg';
 
 import './AboutOlympiad.css';
 
@@ -7,7 +8,7 @@ const AboutOlympiad = () => {
             <div className='container-wrapper'>
                 <h2>About the Olympiad</h2>
                 <div className='olympiad-banner'>
-                    <img src="https://images.pexels.com/photos/5538322/pexels-photo-5538322.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" />
+                    <img src={Banner} />
                 </div>
                 <h3>About</h3>
                 <p><strong>The International Maths Teachers' Olympiad:</strong></p>

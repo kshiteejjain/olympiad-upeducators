@@ -5,12 +5,15 @@
 .earning-box .card{
     width: 49%;
 }
-.how-it-works{
+.earning-box .card:nth-child(2){
+    background-image: linear-gradient(120deg, #fdfbfb 0%, #ebedee 100%);
+}
+.awards{
     display: flex;
     justify-content: space-between;
 }
-.works-card{
-    width: 49%;
+.awards-card{
+    width: 32%;
     background-color: var(--white);
     border: 1px solid var(--gray);
     border-radius: 8px;
@@ -19,59 +22,15 @@
     padding: 25px;
     background: linear-gradient(90deg, rgba(105, 219, 123, 0.15) 30%, rgba(52, 109, 242, 0.15) 70%, rgba(82, 149, 252, 0.15) 100%);
 }
-.works-card h1{
-    margin:0;
+.awards-card:nth-child(2){
+    background-image: linear-gradient(60deg, #abecd6 0%, #fbed96 100%);
+}
+.awards-card h1{
+    margin: 0 0 20px 0;
     font-size: calc(var(--baseFontSize) + 5px);
     color: var(--black);
     font-weight: bold;
 }
-.works-card .number{
-    width: 35px;
-    height: 35px;
-    border-radius: 8px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background-color: var(--limeGreen);
-    color: var(--white);
-    font-size: var(--baseFontSize);
-    margin-right: 20px;
-}
-.works-card button{
-    background-color: var(--whatsapp);
-    border: 0;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    color: var(--white);
-}
-.works-card button:focus{
-    outline: 0;
-    border: 0;
-}
-.works-card button:nth-child(2){
-    background-color: var(--white);
-    color: var(--black);
-    border: 1px solid var(--gray);
-    margin-left: 15px;
-}
-.works-card button:hover{
-    background-color: var(--primary);
-    color: var(--white);
-}
-.works-card-title{
-    display: flex;
-    justify-content: flex-start;
-    align-items: flex-start;
-    margin-bottom: 10px;
-}
-.works-card-description p{
+.awards-card-description p{
     margin:5px 0 0 0;
-}
-.works-card .cta{
-    display: flex;
-    margin:15px 0 0 60px;
-}
-.works-card .cta button{
-    font-size: calc(var(--baseFontSize) - 1px);
 }

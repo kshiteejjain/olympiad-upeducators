@@ -45,7 +45,7 @@
   --black: #000000;
   --error: #e60000;
   --lightBlue: #ebf2ff;
-  --grayBlue: #ebedf2;
+  --grayBlue: #f7f7fa;
   --limeGreen: #1CBC79;
   --whatsapp: #25d366
 }
@@ -68,7 +68,7 @@ body {
   margin: 0;
   min-width: 320px;
   min-height: 100vh;
-  background-color: #ffffff;
+  background-color: var(--grayBlue);
   font-size: var(--baseFontSize);
   color: var(--darkGray);
 }

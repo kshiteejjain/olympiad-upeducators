@@ -17,6 +17,9 @@
     color: #0e75be;
     transition: all .3s;
 }
+.button:hover, .button:focus{
+  outline: 0;
+}
 .buttonSecondary{
     color: var(--mediumGray);
     font-size: 14px;
