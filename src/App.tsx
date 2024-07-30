@@ -8,12 +8,11 @@ import Awards from './features/Awards/Awards';
 import FAQ from './features/FAQ/FAQ';
 import LiveMasterClass from './features/LiveMasterClass/LiveMasterClass';
 import Report from './features/Report/Report';
-import AboutupEducators from './features/AboutupEducators/AboutupEducators';
+import AboutUpEducators from './features/AboutUpEducators/AboutUpEducators';
+import Login from './features/Login/Login';
 import Header from './components/Header/Header';
 
 import './App.css';
-
-
 
 const App = () => {
   return (
@@ -21,14 +20,14 @@ const App = () => {
       <div className="App">
       <Header />
         <Routes>
-          <Route path="/" element={<AboutOlympiad />} />
+          <Route path="/" element={<Login />} />
           <Route path="/AboutOlympiad" element={<AboutOlympiad />} />
           <Route path="/ReferEarn" element={<ReferEarn />} />
           <Route path="/Awards" element={<Awards />} />
           <Route path="/FAQ" element={<FAQ />} />
           <Route path="/LiveMasterClass" element={<LiveMasterClass />} />
           <Route path="/Report" element={<Report />} />
-          <Route path="/AboutupEducators" element={<AboutupEducators />} />
+          <Route path="/AboutUpEducators" element={<AboutUpEducators />} />
         </Routes>
       </div>
     </Router>

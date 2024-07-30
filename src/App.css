@@ -98,6 +98,36 @@ h3 {
   margin-left: 0;
 }
 
+.form-group {
+  margin-bottom: 1.5rem;
+  position: relative;
+}
+
+.form-group label {
+  font-weight: bold;
+  font-size: calc(var(--baseFontSize) - 1px);
+  margin-bottom: 0.2rem;
+  display: block;
+  text-align: left;
+}
+
+.form-control {
+  padding: 0.5rem;
+  border-radius: 0.3rem;
+  font-size: calc(var(--baseFontSize) - 1px);
+  background-color: var(--white);
+  color: var(--black);
+  width: 100%;
+  border: 1px solid var(--gray);
+  box-sizing: border-box;
+  font-family: 'Lato', sans-serif;
+  resize: none;
+}
+.form-control:disabled {
+  background-color: var(--lightGray);
+  color: var(--darkgray);
+}
+
 @media (prefers-reduced-motion: no-preference) {
   a:nth-of-type(2) .logo {
     animation: logo-spin infinite 20s linear;

@@ -1,6 +1,6 @@
-import './AboutupEducators.css';
+import './AboutUpEducators.css';
 
-const AboutupEducators = () => {
+const AboutUpEducators = () => {
     return (
         <>
             <div className='container-wrapper'>
@@ -19,4 +19,4 @@ const AboutupEducators = () => {
     )
 };
 
-export default AboutupEducators;
+export default AboutUpEducators;
