@@ -1,10 +1,10 @@
-import './AboutupEducators.css';
+import './AboutUpEducators.css';
 
 const AboutUpEducators = () => {
     return (
         <>
             <div className='container-wrapper'>
-                <h2>AboutupEducators</h2>
+                <h2>About UpEducators</h2>
                 <p>upEducators is a beacon of innovation in the educational technology sector in India. Recognized as a Google For Education Partner, we stand at the forefront of empowering educators with the most advanced and practical digital pedagogy and innovative teaching practices. Our mission is to equip teachers with the necessary tools and knowledge to thrive in an ever-evolving educational landscape.</p>
                 <p><strong>Our Impact:</strong></p>
                 <p><strong>A Thriving Community:</strong> Join over 400,000 educators across India who are part of our vibrant social media community, benefiting from shared experiences and insights.</p>

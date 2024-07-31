@@ -6,7 +6,7 @@ import Awards from './features/Awards/Awards';
 import FAQ from './features/FAQ/FAQ';
 import LiveMasterClass from './features/LiveMasterClass/LiveMasterClass';
 import Report from './features/Report/Report';
-import AboutUpEducators from './features/AboutupEducators/AboutupEducators';
+import AboutUpEducators from './features/AboutUpEducators/AboutUpEducators';
 import LoginWithEmail from './features/Login/LoginWithEmail';
 import LoginWithPhone from './features/Login/LoginWithPhone';
 import Header from './components/Header/Header';

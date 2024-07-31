@@ -12,10 +12,10 @@ const ReferEarn = () => {
                 <h2>Refer & Earn</h2>
                 <div className='earning-box'>
                     <Card title='Total Earnings' amount='500' currency='₹' />
-                    <Card title='Total Balance' amount='500' currency='₹' bgWhite isButton />
+                    <p>Note: Your earning will be deposited in your account post olympiad.</p>
                 </div>
-                <h3>How It Works?</h3>
                 <div className='how-it-works'>
+                    <h3>How It Works?</h3>
                     <div className='works-card'>
                         <div className='works-card-title'>
                             <span className='number'>1</span>
@@ -39,29 +39,30 @@ const ReferEarn = () => {
                         </div>
                     </div>
                 </div>
-
-                <h3>Referral History</h3>
-                <table className='table'>
-                    <thead>
-                        <tr>
-                            <th>Name</th>
-                            <th>Date Initiated</th>
-                            <th>Regisreation Status</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>Sushil Tiwari</td>
-                            <td>29/07/2024 13:40</td>
-                            <td>Registered</td>
-                        </tr>
-                        <tr>
-                            <td>Kshiteej Jain</td>
-                            <td>29/07/2024 13:40</td>
-                            <td>Registered</td>
-                        </tr>
-                    </tbody>
-                </table>
+                <div className='table-wrapper'>
+                    <h3>Referral History</h3>
+                    <table className='table'>
+                        <thead>
+                            <tr>
+                                <th>Name</th>
+                                <th>Date Initiated</th>
+                                <th>Regisreation Status</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Sushil Tiwari</td>
+                                <td>29/07/2024 13:40</td>
+                                <td>Registered</td>
+                            </tr>
+                            <tr>
+                                <td>Kshiteej Jain</td>
+                                <td>29/07/2024 13:40</td>
+                                <td>Registered</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
             </div>
         </>
     )

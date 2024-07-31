@@ -1,0 +1,36 @@
+.olympiad-form {
+    display: flex;
+    justify-content: space-between;
+    padding: 80px 0;
+}
+
+.olympiad-details {
+    width: 48%;
+    display: flex;
+    flex-direction: column;
+    box-sizing: border-box;
+    border-radius: 8px;
+}
+
+.olympiad-details img {
+    border-radius: 0 0 8px 8px;
+}
+
+.olympiad-details h2 {
+    margin: 20px 20px 0 20px;
+    color: var(--white);
+    text-shadow: 1px 1px 2px #5a5a5a;
+}
+
+.olympiad-details p {
+    margin: 0 20px 20px 20px;
+    color: var(--white);
+    text-shadow: 1px 1px 2px #5a5a5a;
+}
+
+.olympiad-form form {
+    width: 48%;
+}
+.olympiad-form form h2{
+    margin: 0 0 20px 0;
+}

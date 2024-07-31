@@ -3,6 +3,8 @@ import Button from "../../components/Buttons/Button";
 import { doc, setDoc } from 'firebase/firestore';
 import { firestore } from '../../utils/firebase';
 
+import './PaymentGateway.css';
+
 type RazorpayOptions = {
   key: string;
   amount: string;
@@ -38,6 +40,9 @@ const PaymentGateway = () => {
     phone: ''
   });
   const [isFormValid, setIsFormValid] = useState(false);
+  const [referralCode, setReferralCode] = useState<string | null>(null);
+  const [totalPrice, setTotalPrice] = useState<number>(2);
+  const [discountedPrice, setDiscountedPrice] = useState<number>(2);
 
   // Validate form fields
   const validateForm = () => {
@@ -48,6 +53,18 @@ const PaymentGateway = () => {
   useEffect(() => {
     validateForm();
   }, [userDetails]);
+
+  useEffect(() => {
+    const urlParams = new URLSearchParams(window.location.search);
+    const rfrlCde = urlParams.get('rfrlCde');
+    if (rfrlCde) {
+      setReferralCode(rfrlCde);
+      if (rfrlCde === 'jkdjhf87') {
+        const discount = totalPrice * 10 / 100;
+        setDiscountedPrice(totalPrice - discount);
+      }
+    }
+  }, [totalPrice]);
 
   const handleSubmit = async () => {
     try {
@@ -76,11 +93,11 @@ const PaymentGateway = () => {
 
   const options: RazorpayOptions = {
     key: import.meta.env.VITE_RAZORPAY_KEY_ID,
-    amount: "100", // = INR 1
+    amount: (discountedPrice * 100).toString(),
     name: "upEducators",
     description: "upEducators Olympiad",
     image: "https://www.upeducators.com/wp-content/uploads/2022/01/Upeducator-logo-tech-for-educators.png",
-    handler: function(response) {
+    handler: function (response) {
       alert('Payment ID: ' + response.razorpay_payment_id);
       handleSubmit(); // Call handleSubmit after successful payment
     },
@@ -90,7 +107,7 @@ const PaymentGateway = () => {
       email: userDetails.email
     },
     notes: {
-      address: "Ahmedabad"
+      address: ""
     },
     theme: {
       color: "#F37254",
@@ -115,50 +132,62 @@ const PaymentGateway = () => {
   }, []);
 
   return (
-    <div className="login-form">
-      <h1>Proceed to Payment</h1>
-      <form>
-        <div className='form-group'>
-          <label htmlFor='name'>Name</label>
-          <input
-            type='text'
-            className='form-control'
-            required
-            name="name"
-            autoFocus
-            value={userDetails.name}
-            onChange={(e) => setUserDetails({ ...userDetails, name: e.target.value })}
-          />
+    <div className="container-wrapper">
+      <div className="olympiad-form">
+        <div className="olympiad-details gradient">
+          <h2>International Maths Teachers’ Olympiad</h2>
+          <p>Shaping the Future of Education with Innovation and Excellence</p>
+          <img src="https://www.upeducators.com/wp-content/uploads/2024/07/Maths-Olympiad-upeducators-teachers-landing-page-educactors-1.jpg" />
         </div>
-        <div className='form-group'>
-          <label htmlFor='email'>Email</label>
-          <input
-            type='email'
-            className='form-control'
-            required
-            name="email"
-            value={userDetails.email}
-            onChange={(e) => setUserDetails({ ...userDetails, email: e.target.value })}
+        <form>
+        <h2>Personal Details</h2>
+          <div className='form-group'>
+            <label htmlFor='name'>Name<span className="asterisk">*</span></label>
+            <input
+              type='text'
+              className='form-control'
+              required
+              name="name"
+              autoFocus
+              autoComplete="off"
+              value={userDetails.name}
+              onChange={(e) => setUserDetails({ ...userDetails, name: e.target.value })}
+            />
+          </div>
+          <div className='form-group'>
+            <label htmlFor='email'>Email<span className="asterisk">*</span></label>
+            <input
+              type='email'
+              className='form-control'
+              required
+              name="email"
+              autoComplete="off"
+              value={userDetails.email}
+              onChange={(e) => setUserDetails({ ...userDetails, email: e.target.value })}
+            />
+          </div>
+          <div className='form-group'>
+            <label htmlFor='phone'>Phone<span className="asterisk">*</span></label>
+            <input
+              type='tel'
+              className='form-control phone'
+              required
+              name="phone"
+              autoComplete="off"
+              value={userDetails.phone}
+              onChange={(e) => setUserDetails({ ...userDetails, phone: e.target.value })}
+            />
+          </div>
+          <p>Total Payment: ₹{totalPrice}</p>
+          {referralCode === 'jkdjhf87' && <p>Amount After 10% Dicsount: ₹{discountedPrice}</p>}
+          <Button
+            title="Pay Now"
+            onClick={openPayModal}
+            type='button'
+            isDisabled={!isFormValid}
           />
-        </div>
-        <div className='form-group'>
-          <label htmlFor='phone'>Phone</label>
-          <input
-            type='tel'
-            className='form-control'
-            required
-            name="phone"
-            value={userDetails.phone}
-            onChange={(e) => setUserDetails({ ...userDetails, phone: e.target.value })}
-          />
-        </div>
-        <Button 
-          title="Pay" 
-          onClick={openPayModal} 
-          type='button' 
-          isDisabled={!isFormValid}
-        />
-      </form>
+        </form>
+      </div>
     </div>
   );
 };

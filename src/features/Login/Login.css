@@ -11,6 +11,7 @@ form {
     border-radius: .5rem;
     box-shadow: 0 0 13px #dedede;
     margin-bottom: 1rem;
+    box-sizing: border-box;
 }
 .login-visual {
     width: 50%;

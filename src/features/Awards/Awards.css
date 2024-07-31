@@ -1,9 +1,10 @@
 .earning-box{
     display: flex;
     justify-content: space-between;
+    flex-direction: column;
 }
 .earning-box .card{
-    width: 49%;
+    width:100%;
 }
 .earning-box .card:nth-child(2){
     background-image: linear-gradient(120deg, #fdfbfb 0%, #ebedee 100%);
