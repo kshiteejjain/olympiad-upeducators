@@ -1,9 +1,10 @@
-import { useState } from "react";
+import { useState, useId } from "react";
 import { collection, getDocs, query, where, doc, setDoc } from 'firebase/firestore';
 import { firestore } from '../../utils/firebase';
 import Button from '../../components/Buttons/Button';
 
 import './Login.css';
+import SendWhatsappMessage from "../SendWhatsappMessage/SendWhatsappMessage";
 
 const Login = () => {
     const [userDetails, setUserDetails] = useState({
@@ -11,16 +12,17 @@ const Login = () => {
         phone: ''
     });
     const [showPhoneInput, setShowPhoneInput] = useState(false);
-
+    const userUid = useId()
     const uploadDataToFirestore = async (e: any) => {
         e.preventDefault();
         try {
+            // Determine the login field and value
+            const field = showPhoneInput ? 'phone' : 'email';
+            const value = showPhoneInput ? userDetails.phone : userDetails.email.toLowerCase();
+
+            // Check if the user exists with either email or phone
             const collectionRef = collection(firestore, 'OlympiadUsers');
-            const q = query(
-                collectionRef,
-                where('email', '==', userDetails?.email.toLowerCase()),
-                where('phone', '==', userDetails?.phone)
-            );
+            const q = query(collectionRef, where(field, '==', value));
             const querySnapshot = await getDocs(q);
             if (!querySnapshot.empty) {
                 querySnapshot.forEach(async (doc) => {
@@ -29,30 +31,36 @@ const Login = () => {
                     const isActiveUser = data?.isActiveUser;
                     localStorage.setItem("isLoggedIn", String(true));
                     localStorage.setItem("username", data?.email);
+
+                    // Redirect based on user status
                     if (remainCredits <= 0 || isActiveUser === false) {
-                        navigate("/ContactUs");
+                        //navigate("/ContactUs");
                     } else {
                         const onboardingUserSnapshot = await getDocs(
-                            query(collection(firestore, 'OnboardingQuestions'), where('email', '==', userDetails?.email))
+                            query(collection(firestore, 'OnboardingQuestions'), where('email', '==', userDetails.email.toLowerCase()))
                         );
                         if (!onboardingUserSnapshot.empty) {
-                            navigate("/Categories");
+                            //navigate("/Categories");
                         } else {
-                            navigate("/OnBoardingQuestions");
+                            //navigate("/OnBoardingQuestions");
                         }
                     }
                 });
             } else {
-                alert('You have entered wrong username and phone');
+                // Create a new user document
+                const uid = userUid;
+                const userDocId = showPhoneInput ? userDetails.phone : userDetails.email.toLowerCase();
+                await setDoc(doc(firestore, 'OlympiadUsers', userDocId), {
+                    email: userDetails.email.toLowerCase(),
+                    phone: userDetails.phone,
+                    registrationTimestamp: new Date().toISOString(), // Store the current timestamp
+                    uid: uid // Store the generated UID
+                });
+                // Redirect to onboarding
+                //navigate("/OnBoardingQuestions");
             }
-            // Store the user's information in OlympiadUsers collection
-            const userDocId = showPhoneInput ? userDetails.phone : userDetails.email.toLowerCase();
-            await setDoc(doc(firestore, 'OlympiadUsers', userDocId), {
-                email: userDetails.email.toLowerCase(),
-                phone: userDetails.phone
-            });
         } catch (error) {
-            alert('Error querying data from Firestore: ' + error);
+            console.log('Error querying data from Firestore: ' + error);
         }
     };
 
@@ -67,7 +75,6 @@ const Login = () => {
                             <label htmlFor='email'>Email</label>
                             <input
                                 type='email'
-                                autoComplete="off"
                                 className='form-control'
                                 required
                                 name="email"
@@ -94,6 +101,7 @@ const Login = () => {
                     </div>
                     <Button title='Submit' type='submit' />
                 </form>
+                <SendWhatsappMessage />
             </div>
         </div>
     );

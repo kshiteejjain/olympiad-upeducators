@@ -1,4 +1,4 @@
-import './AboutUpEducators.css';
+import './AboutupEducators.css';
 
 const AboutUpEducators = () => {
     return (

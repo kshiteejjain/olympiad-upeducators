@@ -8,11 +8,12 @@ const SendEmail = () => {
     const handleSubmit = async (e: any) => {
         e.preventDefault();
         setLoading(true);
+        alert('Email component called');
         try {
             // Directly send email without Firestore check
             emailjs.send(import.meta.env.VITE_EMAILJS_SERVICE_ID, import.meta.env.VITE_OLYMPIAD_EMAIL_TEMPLATE, {
                 message: 'Test Olympiad',
-                to_email: 'kshiteejjain@gmail.com, ankushb@upeducators.com',
+                to_email: 'kshiteejjain@gmail.com',
             }, import.meta.env.VITE_EMAILJS_API_KEY)
                 .then(response => {
                     console.log('SUCCESS!', response);

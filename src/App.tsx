@@ -8,7 +8,7 @@ import Awards from './features/Awards/Awards';
 import FAQ from './features/FAQ/FAQ';
 import LiveMasterClass from './features/LiveMasterClass/LiveMasterClass';
 import Report from './features/Report/Report';
-import AboutUpEducators from './features/AboutUpEducators/AboutUpEducators';
+import AboutUpEducators from './features/AboutupEducators/AboutupEducators';
 import Login from './features/Login/Login';
 import Header from './components/Header/Header';
 
