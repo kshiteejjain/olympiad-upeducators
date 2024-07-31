@@ -1,7 +1,5 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-// import SendWhatsappMessage from './features/SendWhatsappMessage/SendWhatsappMessage';
-// import SendEmail from './features/SendEmail/SendEmail';
-// import PaymentGateway from './features/PaymentGateway/PaymentGateway';
+import PaymentGateway from './features/PaymentGateway/PaymentGateway';
 import AboutOlympiad from './features/AboutOlympiad/AboutOlympiad';
 import ReferEarn from './features/ReferEarn/ReferEarn';
 import Awards from './features/Awards/Awards';
@@ -9,7 +7,8 @@ import FAQ from './features/FAQ/FAQ';
 import LiveMasterClass from './features/LiveMasterClass/LiveMasterClass';
 import Report from './features/Report/Report';
 import AboutUpEducators from './features/AboutupEducators/AboutupEducators';
-import Login from './features/Login/Login';
+import LoginWithEmail from './features/Login/LoginWithEmail';
+import LoginWithPhone from './features/Login/LoginWithPhone';
 import Header from './components/Header/Header';
 
 import './App.css';
@@ -20,7 +19,9 @@ const App = () => {
       <div className="App">
       <Header />
         <Routes>
-          <Route path="/" element={<Login />} />
+          <Route path="/" element={<PaymentGateway />} />
+          <Route path="/LoginWithEmail" element={<LoginWithEmail />} />
+          <Route path="/LoginWithPhone" element={<LoginWithPhone />} />
           <Route path="/AboutOlympiad" element={<AboutOlympiad />} />
           <Route path="/ReferEarn" element={<ReferEarn />} />
           <Route path="/Awards" element={<Awards />} />

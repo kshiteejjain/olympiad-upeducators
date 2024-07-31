@@ -1,41 +1,22 @@
-import { useState } from 'react';
+// src/utils/sendEmail.js
 import emailjs from '@emailjs/browser';
-import Button from '../../components/Buttons/Button';
 
-const SendEmail = () => {
-    const [loading, setLoading] = useState(false);
-
-    const handleSubmit = async (e: any) => {
-        e.preventDefault();
-        setLoading(true);
-        alert('Email component called');
-        try {
-            // Directly send email without Firestore check
-            emailjs.send(import.meta.env.VITE_EMAILJS_SERVICE_ID, import.meta.env.VITE_OLYMPIAD_EMAIL_TEMPLATE, {
+export const sendEmail = async (email: any) => {
+    try {
+        await emailjs.send(
+            import.meta.env.VITE_EMAILJS_SERVICE_ID,
+            import.meta.env.VITE_OLYMPIAD_EMAIL_TEMPLATE,
+            {
                 message: 'Test Olympiad',
-                to_email: 'kshiteejjain@gmail.com',
-            }, import.meta.env.VITE_EMAILJS_API_KEY)
-                .then(response => {
-                    console.log('SUCCESS!', response);
-                    setLoading(false);
-                    // Perform any additional actions here, like resetting the form or redirecting
-                }, error => {
-                    alert(`FAILED... ${error}`);
-                    setLoading(false);
-                });
-        } catch (error) {
-            alert('Error sending email: ' + error);
-            setLoading(false);
-        }
-    };
-    return (
-        <>
-            <form onSubmit={handleSubmit}>
-                <Button title='Send Email' type={'button'} />
-            </form>
-            {loading && 'Loading'}
-        </>
-    )
+                to_email: email,
+            },
+            import.meta.env.VITE_EMAILJS_API_KEY
+        );
+        console.log('Email sent successfully.');
+    } catch (error) {
+        console.error('Error sending email:', error);
+        throw error;
+    }
 };
 
-export default SendEmail;
+export default sendEmail;

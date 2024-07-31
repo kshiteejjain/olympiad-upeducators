@@ -1,7 +1,9 @@
-import { useEffect } from "react";
+import { useState, useEffect } from "react";
 import Button from "../../components/Buttons/Button";
+import { doc, setDoc } from 'firebase/firestore';
+import { firestore } from '../../utils/firebase';
+import Logo from '../../assets/Upeducator-logo.png'
 
-// Define types for Razorpay options and response
 type RazorpayOptions = {
   key: string;
   amount: string;
@@ -31,6 +33,48 @@ type RazorpayWindow = Window & {
 };
 
 const PaymentGateway = () => {
+  const [userDetails, setUserDetails] = useState({
+    name: '',
+    email: '',
+    phone: ''
+  });
+  const [isFormValid, setIsFormValid] = useState(false);
+
+  // Validate form fields
+  const validateForm = () => {
+    const { name, email, phone } = userDetails;
+    setIsFormValid(name !== '' && email !== '' && phone !== '');
+  };
+
+  useEffect(() => {
+    validateForm();
+  }, [userDetails]);
+
+  const handleSubmit = async () => {
+    try {
+      const { name, email, phone } = userDetails;
+
+      // Create a new user document
+      await setDoc(doc(firestore, 'OlympiadUsers', phone), {
+        name,
+        email,
+        phone,
+        timeStamp: new Date().toISOString()
+      });
+
+      // Clear the form fields
+      setUserDetails({
+        name: '',
+        email: '',
+        phone: ''
+      });
+
+      alert('User data saved successfully');
+    } catch (error) {
+      alert('Error storing data in Firestore: ' + error);
+    }
+  };
+
   const options: RazorpayOptions = {
     key: import.meta.env.VITE_RAZORPAY_KEY_ID,
     amount: "100", // = INR 1
@@ -38,12 +82,13 @@ const PaymentGateway = () => {
     description: "upEducators Olympiad",
     image: "https://cdn.razorpay.com/logos/7K3b6d18wHwKzL_medium.png",
     handler: function(response) {
-      alert(response.razorpay_payment_id);
+      alert('Payment ID: ' + response.razorpay_payment_id);
+      handleSubmit(); // Call handleSubmit after successful payment
     },
     prefill: {
-      name: "Kshiteej",
-      contact: "919022058508",
-      email: "kshiteejjain@gmail.com"
+      name: userDetails.name,
+      contact: userDetails.phone,
+      email: userDetails.email
     },
     notes: {
       address: "Ahmedabad"
@@ -54,9 +99,13 @@ const PaymentGateway = () => {
     }
   };
 
-  const openPayModal = (options: RazorpayOptions) => {
-    const rzp1 = new (window as unknown as RazorpayWindow).Razorpay(options);
-    rzp1.open();
+  const openPayModal = () => {
+    if (isFormValid) {
+      const rzp1 = new (window as unknown as RazorpayWindow).Razorpay(options);
+      rzp1.open();
+    } else {
+      alert('Please fill in all required fields.');
+    }
   };
 
   useEffect(() => {
@@ -67,9 +116,51 @@ const PaymentGateway = () => {
   }, []);
 
   return (
-    <>
-      <Button title="Pay" onClick={() => openPayModal(options)} type='button' />
-    </>
+    <div className="login-form">
+      <h1>Proceed to Payment</h1>
+      <form>
+        <div className='form-group'>
+          <label htmlFor='name'>Name</label>
+          <input
+            type='text'
+            className='form-control'
+            required
+            name="name"
+            autoFocus
+            value={userDetails.name}
+            onChange={(e) => setUserDetails({ ...userDetails, name: e.target.value })}
+          />
+        </div>
+        <div className='form-group'>
+          <label htmlFor='email'>Email</label>
+          <input
+            type='email'
+            className='form-control'
+            required
+            name="email"
+            value={userDetails.email}
+            onChange={(e) => setUserDetails({ ...userDetails, email: e.target.value })}
+          />
+        </div>
+        <div className='form-group'>
+          <label htmlFor='phone'>Phone</label>
+          <input
+            type='tel'
+            className='form-control'
+            required
+            name="phone"
+            value={userDetails.phone}
+            onChange={(e) => setUserDetails({ ...userDetails, phone: e.target.value })}
+          />
+        </div>
+        <Button 
+          title="Pay" 
+          onClick={openPayModal} 
+          type='button' 
+          isDisabled={!isFormValid}
+        />
+      </form>
+    </div>
   );
 };
 
