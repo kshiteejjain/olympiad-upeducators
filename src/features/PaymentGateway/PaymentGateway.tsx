@@ -2,7 +2,6 @@ import { useState, useEffect } from "react";
 import Button from "../../components/Buttons/Button";
 import { doc, setDoc } from 'firebase/firestore';
 import { firestore } from '../../utils/firebase';
-import Logo from '../../assets/Upeducator-logo.png'
 
 type RazorpayOptions = {
   key: string;
@@ -80,7 +79,7 @@ const PaymentGateway = () => {
     amount: "100", // = INR 1
     name: "upEducators",
     description: "upEducators Olympiad",
-    image: "https://cdn.razorpay.com/logos/7K3b6d18wHwKzL_medium.png",
+    image: "https://www.upeducators.com/wp-content/uploads/2022/01/Upeducator-logo-tech-for-educators.png",
     handler: function(response) {
       alert('Payment ID: ' + response.razorpay_payment_id);
       handleSubmit(); // Call handleSubmit after successful payment
