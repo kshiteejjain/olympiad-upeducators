@@ -41,7 +41,7 @@ const PaymentGateway = () => {
   });
   const [isFormValid, setIsFormValid] = useState(false);
   const [referralCode, setReferralCode] = useState<string | null>(null);
-  const [totalPrice, setTotalPrice] = useState<number>(2);
+  const totalPrice = 2;
   const [discountedPrice, setDiscountedPrice] = useState<number>(2);
 
   // Validate form fields
