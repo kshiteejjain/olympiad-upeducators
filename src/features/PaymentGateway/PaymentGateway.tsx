@@ -106,7 +106,7 @@ const PaymentGateway = () => {
     handler: function (response) {
       handleSubmit(response);
       setTimeout(() => {
-        navigate('/LoginWithPhone')
+        navigate('/login')
       }, 2000);
     },
     prefill: {
