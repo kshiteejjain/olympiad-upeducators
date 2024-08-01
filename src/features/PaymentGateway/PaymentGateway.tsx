@@ -67,7 +67,7 @@ const PaymentGateway = () => {
     }
   }, [totalPrice]);
 
-  const handleSubmit = async () => {
+  const handleSubmit = async (paymentDetails: any) => {
     try {
       const { name, email, phone } = userDetails;
 
@@ -79,7 +79,8 @@ const PaymentGateway = () => {
         name,
         email: emailLowerCase,
         phone,
-        timeStamp: new Date().toISOString()
+        timeStamp: new Date().toISOString(),
+        paymentDetails
       });
 
       // Clear the form fields
@@ -103,7 +104,7 @@ const PaymentGateway = () => {
     description: "upEducators Olympiad",
     image: "https://www.upeducators.com/wp-content/uploads/2022/01/Upeducator-logo-tech-for-educators.png",
     handler: function (response) {
-      handleSubmit();
+      handleSubmit(response);
       setTimeout(() => {
         navigate('/LoginWithPhone')
       }, 2000);
