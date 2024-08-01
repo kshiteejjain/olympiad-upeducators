@@ -33,7 +33,7 @@ const LoginWithEmail = () => {
                 setUserDetails({
                     email: ''
                 });
-                await sendEmail(email);
+                await sendEmail(email, import.meta.env.VITE_OLYMPIAD_EMAIL_TEMPLATE);
                 setIsLoader(false)
                 window.location.reload();
             }

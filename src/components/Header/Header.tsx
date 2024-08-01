@@ -23,7 +23,7 @@ const Header = () => {
 
   const handleLogout = () => {
     localStorage.removeItem('olympd_prefix');
-    navigate('/login');
+    navigate('/');
     window.location.reload()
   };
 

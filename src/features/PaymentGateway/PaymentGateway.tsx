@@ -3,6 +3,8 @@ import Button from "../../components/Buttons/Button";
 import { doc, setDoc } from 'firebase/firestore';
 import { firestore } from '../../utils/firebase';
 import { useNavigate } from "react-router-dom";
+import { sendEmail } from "../SendEmail/SendEmail";
+import { sendWhatsappMessage } from "../SendWhatsappMessage/SendWhatsappMessage";
 
 import './PaymentGateway.css';
 
@@ -83,6 +85,8 @@ const PaymentGateway = () => {
         paymentDetails
       });
 
+      await sendEmail(emailLowerCase, import.meta.env.VITE_OLYMPIAD_WELCOME_EMAIL_TEMPLATE);
+      await sendWhatsappMessage(phone);
       // Clear the form fields
       setUserDetails({
         name: '',
@@ -96,7 +100,6 @@ const PaymentGateway = () => {
     }
   };
 
-
   const options: RazorpayOptions = {
     key: import.meta.env.VITE_RAZORPAY_KEY_ID,
     amount: (discountedPrice * 100).toString(),
@@ -106,7 +109,7 @@ const PaymentGateway = () => {
     handler: function (response) {
       handleSubmit(response);
       setTimeout(() => {
-        navigate('/login')
+        navigate('/')
       }, 2000);
     },
     prefill: {

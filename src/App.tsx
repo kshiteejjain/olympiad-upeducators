@@ -18,8 +18,8 @@ const App = () => {
       <div className="App">
       <Header />
         <Routes>
-          <Route path="/" element={<PaymentGateway />} />
-          <Route path="/Login" element={<Login />} />
+          <Route path="/" element={<Login />} />
+          <Route path="/PaymentGateway" element={<PaymentGateway />} />
           <Route path="/AboutOlympiad" element={<AboutOlympiad />} />
           <Route path="/ReferEarn" element={<ReferEarn />} />
           <Route path="/Awards" element={<Awards />} />
