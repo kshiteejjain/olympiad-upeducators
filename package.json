@@ -12,6 +12,7 @@
   "dependencies": {
     "@api/gupshup": "file:.api/apis/gupshup",
     "@emailjs/browser": "^4.4.1",
+    "@vitejs/plugin-react": "^4.3.1",
     "axios": "^1.7.2",
     "dotenv": "^16.4.5",
     "firebase": "^10.12.4",
