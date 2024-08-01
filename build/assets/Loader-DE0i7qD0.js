@@ -1,0 +1,1 @@
+import{j as s,l as a}from"./index-CIoc_wd8.js";const o=({message:r})=>s.jsx("p",{className:"errorMessage",children:r}),n=({title:r})=>s.jsxs("div",{className:"loading",children:[s.jsx("span",{className:"loader"}),s.jsx("img",{src:a}),s.jsx("p",{children:r})]});export{o as E,n as L};
