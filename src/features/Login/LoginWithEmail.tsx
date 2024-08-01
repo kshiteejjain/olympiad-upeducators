@@ -1,5 +1,4 @@
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
 import { collection, getDocs, query, where } from 'firebase/firestore';
 import { firestore } from '../../utils/firebase';
 import Button from '../../components/Buttons/Button';
@@ -13,7 +12,6 @@ const LoginWithEmail = () => {
     });
     const [isError, setIsError] = useState(false);
     const [isLoader, setIsLoader] = useState(false);
-    const navigate = useNavigate();
 
     const handleSubmit = async (e: any) => {
         e.preventDefault();
