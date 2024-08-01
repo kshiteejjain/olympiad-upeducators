@@ -1,58 +1,56 @@
-import { useState, useId } from "react";
-import { useNavigate } from "react-router-dom";
-import { collection, getDocs, query, where, doc, setDoc } from 'firebase/firestore';
+import { useState } from "react";
+import { collection, getDocs, query, where } from 'firebase/firestore';
 import { firestore } from '../../utils/firebase';
 import Button from '../../components/Buttons/Button';
 import { sendWhatsappMessage } from "../SendWhatsappMessage/SendWhatsappMessage";
-
-import './Login.css';
+import ErrorBoundry from "../../components/ErrorBoundry/ErrorBoundry";
+import Loader from "../../components/Loader/Loader";
+import whatsappSvg from "../../assets/whatsappSvg.svg";
 
 const LoginWithPhone = () => {
     const [userDetails, setUserDetails] = useState({
         phone: ''
     });
-    const userUid = useId();
-    const navigate = useNavigate();
+    const [isError, setIsError] = useState(false);
+    const [isLoader, setIsLoader] = useState(false);
 
     const handleSubmit = async (e: any) => {
         e.preventDefault();
         try {
-            const phone = userDetails.phone;
-
+            setIsLoader(true)
+            const phone = userDetails.phone;    
             // Check if the user exists
             const collectionRef = collection(firestore, 'OlympiadUsers');
             const q = query(collectionRef, where('phone', '==', phone));
             const querySnapshot = await getDocs(q);
-            
+    
             if (querySnapshot.empty) {
-                // Create a new user document
-                await setDoc(doc(firestore, 'OlympiadUsers', phone), {
-                    phone: phone,
-                    timeStamp: new Date().toISOString(),
-                    uid: userUid
-                });
-
-                // Clear the form fields
+                // User does not exist
+                setIsError(true)
+                setIsLoader(false)
+            } else {
+                // User exists
+                await sendWhatsappMessage(phone);
+                setIsLoader(false)
                 setUserDetails({
                     phone: ''
                 });
-
-                // Send WhatsApp message
-                await sendWhatsappMessage(phone);
-                
-            } else {
-                alert('User already exists');
             }
         } catch (error) {
             alert('Error querying data from Firestore: ' + error);
         }
     };
 
+    const handlePhoneChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+        const newValue = e.target.value.replace(/\D/g, '').slice(0, 10);
+        setUserDetails({ phone: newValue });
+        setIsError(false); 
+    };
+    
     return (
-        <div className="login-wrapper">
-            <div className="login-visual"></div>
-            <div className="login-form">
-                <h1>Login to Olympiad</h1>
+        <>
+            {isLoader && <Loader title={'Loading..'} />}
+                <h1>Enter Phone Number</h1>
                 <form onSubmit={handleSubmit}>
                     <div className='form-group'>
                         <label htmlFor='phone'>Phone</label>
@@ -61,15 +59,18 @@ const LoginWithPhone = () => {
                             className='form-control'
                             required
                             name="phone"
+                            autoComplete="off"
                             value={userDetails.phone}
-                            onChange={(e) => setUserDetails({ ...userDetails, phone: e.target.value })}
+                            onChange={handlePhoneChange}
+                            pattern="[0-9]{10}"
+                            maxLength={10}     
                         />
+                        <p className="input-note">Note: You will notification on <img src={whatsappSvg} /> </p>
+                        {isError && <ErrorBoundry message={'Please enter registered mobile number.'} />}
                     </div>
-                    <Button title='Submit' type='submit' />
+                    <Button title='Send' type='submit' />
                 </form>
-                <span onClick={() => navigate('/')}>Login With Email</span>
-            </div>
-        </div>
+        </>
     );
 };
 

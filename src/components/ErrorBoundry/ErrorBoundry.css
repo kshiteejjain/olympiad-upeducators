@@ -1,0 +1,6 @@
+p.errorMessage{
+    color: var(--error);
+    font-size: calc(var(--baseFontSize) - 2px);
+    font-weight: bold;
+    margin: 0 0 10px 0;
+}

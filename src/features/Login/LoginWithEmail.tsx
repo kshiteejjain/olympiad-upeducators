@@ -1,59 +1,55 @@
-import { useState, useId } from "react";
-import { useNavigate } from "react-router-dom";
-import { collection, getDocs, query, where, doc, setDoc } from 'firebase/firestore';
+import { useState } from "react";
+import { collection, getDocs, query, where } from 'firebase/firestore';
 import { firestore } from '../../utils/firebase';
 import Button from '../../components/Buttons/Button';
+import ErrorBoundry from "../../components/ErrorBoundry/ErrorBoundry";
+import Loader from "../../components/Loader/Loader";
 import { sendEmail } from "../SendEmail/SendEmail";
-
-import './Login.css';
-
 
 const LoginWithEmail = () => {
     const [userDetails, setUserDetails] = useState({
         email: ''
     });
-    const navigate = useNavigate();
-    const userUid = useId();
+    const [isError, setIsError] = useState(false);
+    const [isLoader, setIsLoader] = useState(false);
 
     const handleSubmit = async (e: any) => {
         e.preventDefault();
         try {
+            setIsLoader(true)
             const email = userDetails.email.toLowerCase();
 
             // Check if the user exists
             const collectionRef = collection(firestore, 'OlympiadUsers');
             const q = query(collectionRef, where('email', '==', email));
             const querySnapshot = await getDocs(q);
-            
-            if (querySnapshot.empty) {
-                // Create a new user document
-                await setDoc(doc(firestore, 'OlympiadUsers', email), {
-                    email: email,
-                    timeStamp: new Date().toISOString(),
-                    uid: userUid
-                });
 
-                // Clear the form fields
+            if (querySnapshot.empty) {
+                // Email does not exist
+                setIsLoader(false)
+                setIsError(true)
+            } else {
+                // Send email
                 setUserDetails({
                     email: ''
                 });
-
-                // Send email
                 await sendEmail(email);
-                
-            } else {
-                alert('User already exists');
+                setIsLoader(false)
             }
         } catch (error) {
             alert('Error querying data from Firestore: ' + error);
         }
     };
 
+    const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+        setUserDetails({ email: e.target.value });
+        setIsError(false);
+    };
+
     return (
-        <div className="login-wrapper">
-            <div className="login-visual"></div>
-            <div className="login-form">
-                <h1>Login to Olympiad</h1>
+        <>
+            {isLoader && <Loader title={'Loading..'} />}
+                <h1>Enter Email</h1>
                 <form onSubmit={handleSubmit}>
                     <div className='form-group'>
                         <label htmlFor='email'>Email</label>
@@ -63,15 +59,16 @@ const LoginWithEmail = () => {
                             required
                             name="email"
                             autoFocus
+                            autoComplete="off"
                             value={userDetails.email}
-                            onChange={(e) => setUserDetails({ ...userDetails, email: e.target.value })}
+                            onChange={handleInputChange}
                         />
+                        <p className="input-note">Note: You will notification on email. </p>
+                        {isError && <ErrorBoundry message={'Please enter registered email.'} />}
                     </div>
-                    <Button title='Submit' type='submit' />
+                    <Button title='Send' type='submit' />
                 </form>
-                <span onClick={()=> navigate('/LoginWithPhone')}>Login With Phone</span>
-            </div>
-        </div>
+        </>
     );
 };
 

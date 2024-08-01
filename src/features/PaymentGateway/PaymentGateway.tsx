@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import Button from "../../components/Buttons/Button";
 import { doc, setDoc } from 'firebase/firestore';
 import { firestore } from '../../utils/firebase';
+import { useNavigate } from "react-router-dom";
 
 import './PaymentGateway.css';
 
@@ -43,7 +44,7 @@ const PaymentGateway = () => {
   const [referralCode, setReferralCode] = useState<string | null>(null);
   const totalPrice = 2;
   const [discountedPrice, setDiscountedPrice] = useState<number>(2);
-
+  const navigate = useNavigate();
   // Validate form fields
   const validateForm = () => {
     const { name, email, phone } = userDetails;
@@ -70,10 +71,13 @@ const PaymentGateway = () => {
     try {
       const { name, email, phone } = userDetails;
 
+      // Convert email to lowercase
+      const emailLowerCase = email.toLowerCase();
+
       // Create a new user document
-      await setDoc(doc(firestore, 'OlympiadUsers', phone), {
+      await setDoc(doc(firestore, 'OlympiadUsers', emailLowerCase), {
         name,
-        email,
+        email: emailLowerCase,
         phone,
         timeStamp: new Date().toISOString()
       });
@@ -91,6 +95,7 @@ const PaymentGateway = () => {
     }
   };
 
+
   const options: RazorpayOptions = {
     key: import.meta.env.VITE_RAZORPAY_KEY_ID,
     amount: (discountedPrice * 100).toString(),
@@ -98,8 +103,10 @@ const PaymentGateway = () => {
     description: "upEducators Olympiad",
     image: "https://www.upeducators.com/wp-content/uploads/2022/01/Upeducator-logo-tech-for-educators.png",
     handler: function (response) {
-      alert('Payment ID: ' + response.razorpay_payment_id);
-      handleSubmit(); // Call handleSubmit after successful payment
+      handleSubmit();
+      setTimeout(() => {
+        navigate('/LoginWithPhone')
+      }, 2000);
     },
     prefill: {
       name: userDetails.name,
@@ -140,7 +147,7 @@ const PaymentGateway = () => {
           <img src="https://www.upeducators.com/wp-content/uploads/2024/07/Maths-Olympiad-upeducators-teachers-landing-page-educactors-1.jpg" />
         </div>
         <form>
-        <h2>Personal Details</h2>
+          <h2>Personal Details</h2>
           <div className='form-group'>
             <label htmlFor='name'>Name<span className="asterisk">*</span></label>
             <input
