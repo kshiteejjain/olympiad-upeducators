@@ -1,4 +1,4 @@
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { HashRouter as Router, Routes, Route } from 'react-router-dom';
 import PaymentGateway from './features/PaymentGateway/PaymentGateway';
 import AboutOlympiad from './features/AboutOlympiad/AboutOlympiad';
 import ReferEarn from './features/ReferEarn/ReferEarn';
