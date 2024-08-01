@@ -3,7 +3,7 @@ import { collection, getDocs, query, where } from 'firebase/firestore';
 import { firestore } from '../../utils/firebase';
 import Button from '../../components/Buttons/Button';
 import { sendWhatsappMessage } from "../SendWhatsappMessage/SendWhatsappMessage";
-import ErrorBoundry from "../../components/ErrorBoundry/ErrorBoundry";
+import ErrorBoundary from "../../components/ErrorBoundary/ErrorBoundary";
 import Loader from "../../components/Loader/Loader";
 import whatsappSvg from "../../assets/whatsappSvg.svg";
 
@@ -65,8 +65,8 @@ const LoginWithPhone = () => {
                             pattern="[0-9]{10}"
                             maxLength={10}     
                         />
-                        <p className="input-note">Note: You will notification on <img src={whatsappSvg} /> </p>
-                        {isError && <ErrorBoundry message={'Please enter registered mobile number.'} />}
+                        <p className="input-note">Note: You will get notification on <img src={whatsappSvg} /> </p>
+                        {isError && <ErrorBoundary message={'Please enter registered mobile number.'} />}
                     </div>
                     <Button title='Send' type='submit' />
                 </form>

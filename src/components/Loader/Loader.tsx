@@ -1,3 +1,5 @@
+import logo from '../../assets/Upeducator-logo.png';
+
 import './Loader.css';
 
 type Props = {
@@ -8,6 +10,7 @@ const Loader = ({ title }: Props) => {
     return (
         <div className='loading'>
             <span className="loader"></span>
+            <img src={logo} />
             <p>{title}</p>
         </div>
     )

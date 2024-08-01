@@ -1,24 +1,30 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import Button from '../../components/Buttons/Button';
-import ErrorBoundry from "../../components/ErrorBoundry/ErrorBoundry";
+import ErrorBoundary from "../../components/ErrorBoundary/ErrorBoundary";
 import Loader from "../../components/Loader/Loader";
 
 import './Login.css';
 
-const LoginWithotp = () => {
+
+const EnterOTP = () => {
     const [otp, setOtp] = useState('');
     const [isError, setIsError] = useState(false);
     const [isLoader, setIsLoader] = useState(false);
+    const navigate = useNavigate();
     const handleSubmit = (e: React.FormEvent) => {
         e.preventDefault();
         setIsLoader(true);
 
-        const olympdCode = localStorage.getItem('olympdCode');
-        const user = JSON.parse(olympdCode);
+        const olympd_prefix = localStorage.getItem('olympd_prefix');
+        const user = JSON.parse(olympd_prefix);
         const code = user?.code;
         if (code === otp) {
-            localStorage.removeItem('olympiadOTP');
-            alert('OPT Matched')
+            delete user.code;  // Remove the code property from the user object
+            user.sessionId = 'z5pxv6w2chzvkjjf0y64'; // Add sessionId to the user object
+            localStorage.setItem('olympd_prefix', JSON.stringify(user)); // Update localStorage with the modified object
+            navigate('/AboutOlympiad');
+            window.location.reload();
         } else {
             setIsError(true);
         }
@@ -49,7 +55,7 @@ const LoginWithotp = () => {
                         maxLength={10}
                     />
                     <p className='input-note'>Note: Enter OTP received on your registered email or mobile</p>
-                    {isError && <ErrorBoundry message='Invalid OTP. Please try again.' />}
+                    {isError && <ErrorBoundary message='Invalid OTP. Please try again.' />}
                 </div>
                 <Button title='Send' type='submit' />
             </form>
@@ -57,4 +63,4 @@ const LoginWithotp = () => {
     );
 };
 
-export default LoginWithotp;
+export default EnterOTP;

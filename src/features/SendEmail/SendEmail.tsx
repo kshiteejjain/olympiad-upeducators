@@ -14,7 +14,7 @@ export const sendEmail = async (email: any) => {
             },
             import.meta.env.VITE_EMAILJS_API_KEY
         );
-        localStorage.setItem('olympdCode', JSON.stringify({ code: generateOTP }));
+        localStorage.setItem('olympd_prefix', JSON.stringify({ code: generateOTP }));
         console.log('Email sent successfully.');
     } catch (error) {
         console.error('Error sending email:', error);

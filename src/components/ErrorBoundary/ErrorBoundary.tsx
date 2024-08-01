@@ -1,13 +1,13 @@
-import './ErrorBoundry.css';
+import './ErrorBoundary.css';
 
 type Props = {
     message: string | number
 }
 
-const ErrorBoundry = ({message}: Props) => {
+const ErrorBoundary = ({message}: Props) => {
     return(
         <p className='errorMessage'>{message}</p>
     )
 };
 
-export default ErrorBoundry
+export default ErrorBoundary
