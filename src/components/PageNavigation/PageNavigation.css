@@ -1,15 +1,16 @@
-.navigation{
+.navigation {
     background-color: var(--white);
     border-bottom: 1px solid var(--grayBlue);
     display: flex;
     flex-direction: column;
-    width: 20%;
+    min-width: 20%;
     align-items: flex-start;
     box-sizing: border-box;
     margin: 40px 4% 0 0;
     padding: 0;
     border-radius: 10px;
 }
+
 .navigation button {
     background-color: var(--white);
     border: 0;
@@ -17,18 +18,39 @@
     color: var(--black);
     padding: 20px;
     border-bottom: 1px solid var(--gray);
-    width: 100%;
+    min-width: 100%;
     text-align: left;
     box-sizing: border-box;
     margin: 0;
     transition: 0.3s;
 }
-.navigation button.active, .navigation button:hover{
-    background-color:var(--primary);
+
+.navigation button.active,
+.navigation button:hover {
+    background-color: var(--primary);
     color: var(--white);
     transition: 0.3s;
 }
-.navigation button:focus{
+
+.navigation button:focus {
     outline: 0;
     border: 0;
+}
+
+@media(max-width: 767px) {
+    .navigation {
+        margin: 15px;
+        display: block;
+        white-space: nowrap;
+        overflow-x: auto;
+        width: calc(100% - 30px);
+        box-sizing: border-box;
+        border-radius: 2px;
+    }
+
+    .navigation button {
+        font-size: calc(var(--baseFontSize) - 2px);
+        padding: 10px 20px;
+        width: auto;
+    }
 }

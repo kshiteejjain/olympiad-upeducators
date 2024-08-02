@@ -51,3 +51,12 @@ background: linear-gradient(60deg, #abecd6 0%, #fbed96 100%);
 .flex-card .card.coursesCard h4{
   font-size: calc(var(--baseFontSize) + 1px);
 }
+
+@media(max-width:767px){
+  .flex-card{
+    flex-direction: column;
+  }
+  .flex-card .card{
+    width: 100%;
+  }
+}

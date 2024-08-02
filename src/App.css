@@ -1,16 +1,16 @@
 #root {
   margin: 0 auto;
-  padding:0;
+  padding: 0;
 }
 
 body::-webkit-scrollbar {
   width: 10px;
 }
- 
+
 body::-webkit-scrollbar-track {
   box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.9);
 }
- 
+
 body::-webkit-scrollbar-thumb {
   background-color: var(--darkGray);
   border-radius: 8px;
@@ -19,11 +19,13 @@ body::-webkit-scrollbar-thumb {
 img {
   max-width: 100%;
 }
-.asterisk{
+
+.asterisk {
   color: var(--error);
   font-size: calc(var(--baseFontSize) + 1px);
   font-weight: bold;
 }
+
 ul {
   margin: 0 0 30px 20px;
   padding: 0;
@@ -58,7 +60,7 @@ p {
 }
 
 h2 {
-  margin:0 0 20px 0;
+  margin: 0 0 20px 0;
   font-size: calc(var(--baseFontSize) + 10px);
   color: var(--black);
 }
@@ -69,17 +71,19 @@ h3 {
   color: var(--black);
 }
 
-.container{
+.container {
   width: 98%;
   margin: 0 auto;
 }
-.container-wrapper{
+
+.container-wrapper {
   width: 1280px;
   margin: 0 auto;
   display: flex;
 }
+
 .content {
-  width: 80%;
+  width: 100%;
   display: inline-block;
   background-color: var(--white);
   padding: 30px;
@@ -88,39 +92,51 @@ h3 {
   border-radius: 8px;
   box-shadow: 0 0 10px #dfdfdf;
 }
-.table-wrapper{
-  padding-bottom: 50px;
+
+.table-wrapper {
+  margin-bottom: 50px;
+  width: 100%;
+  overflow-x: auto;
 }
-.table-wrapper h3{
+
+.table-wrapper h3 {
   width: 100%;
   margin-bottom: 15px;
 }
-.table{
+
+.table {
   border-collapse: collapse;
   width: 100%;
   background-color: var(--grayBlue);
 }
-.table tr:hover{
+
+.table tr:hover {
   background-color: var(--white);
 }
-.table th{
+
+.table th {
   font-weight: bold;
 }
-.table th, .table td{
+
+.table th,
+.table td {
   text-align: left;
   padding: 8px 16px;
   border: 1px solid var(--gray);
   font-size: calc(var(--baseFontSize) - 2px);
   white-space: nowrap;
 }
-.table td button{
+
+.table td button {
   margin-left: 1rem;
 }
-.table td .icon{
+
+.table td .icon {
   max-height: 18px;
   transform: translateY(2px);
 }
-.table td button:first-child{
+
+.table td button:first-child {
   margin-left: 0;
 }
 
@@ -128,7 +144,8 @@ h3 {
   margin-bottom: 1.5rem;
   position: relative;
 }
-.form-control.phone{
+
+.form-control.phone {
   background-image: url(/src/assets/indian-flag.svg);
   background-size: 28px;
   background-repeat: no-repeat;
@@ -156,9 +173,11 @@ h3 {
   font-family: 'Lato', sans-serif;
   resize: none;
 }
+
 .form-control:focus {
   outline-color: var(--lightGray);
 }
+
 .form-control:disabled {
   background-color: var(--lightGray);
   color: var(--darkgray);
@@ -167,5 +186,31 @@ h3 {
 @media (prefers-reduced-motion: no-preference) {
   a:nth-of-type(2) .logo {
     animation: logo-spin infinite 20s linear;
+  }
+}
+
+@media(max-width: 767px) {
+  .container-wrapper {
+    flex-direction: column;
+    width: 100%;
+  }
+  .content {
+    margin: 15px;
+    width: calc(100% - 30px);
+  }
+  h2 {
+    font-size: calc(var(--baseFontSize) + 3px);
+  }
+  h3 {
+    font-size: calc(var(--baseFontSize) + 1px);
+  }
+  p {
+    font-size: calc(var(--baseFontSize) - 1px);
+  }
+  ul li{
+    font-size: calc(var(--baseFontSize) - 1px);
+  }
+  ul li span{
+    margin: 0;
   }
 }

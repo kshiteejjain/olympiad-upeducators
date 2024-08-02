@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { HashRouter as Router, Routes, Route } from 'react-router-dom';
+import { HashRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
 import PaymentGateway from './features/PaymentGateway/PaymentGateway';
 import AboutOlympiad from './features/AboutOlympiad/AboutOlympiad';
 import ReferEarn from './features/ReferEarn/ReferEarn';
@@ -16,6 +16,7 @@ import './App.css';
 
 const App = () => {
   const [hasSessionId, setHasSessionId] = useState(false);
+  const location = useLocation(); // Get the current route location
 
   useEffect(() => {
     const olympd_prefix = localStorage.getItem('olympd_prefix');
@@ -27,33 +28,40 @@ const App = () => {
     }
   }, []);
 
+  const shouldShowPageNavigation = !hasSessionId || location.pathname !== '/PaymentGateway';
+
   return (
-    <Router>
-      <div className="App">
-        {!hasSessionId ? (
+    <div className="App">
+      {!hasSessionId ? (
+        <>
           <Login />
-        ) : (
-          <>
-            <Header />
-            <div className="container-wrapper">
-              <PageNavigation />
-              <Routes>
-                <Route path="/" element={<Login />} />
-                <Route path="/PaymentGateway" element={<PaymentGateway />} />
-                <Route path="/AboutOlympiad" element={<AboutOlympiad />} />
-                <Route path="/ReferEarn" element={<ReferEarn />} />
-                <Route path="/Awards" element={<Awards />} />
-                <Route path="/FAQ" element={<FAQ />} />
-                <Route path="/LiveMasterClass" element={<LiveMasterClass />} />
-                <Route path="/Report" element={<Report />} />
-                <Route path="/AboutUpEducators" element={<AboutUpEducators />} />
-              </Routes>
-            </div>
-          </>
-        )}
-      </div>
-    </Router>
+          <PaymentGateway />
+        </>
+      ) : (
+        <>
+          <Header />
+          <div className="container-wrapper">
+            {shouldShowPageNavigation && <PageNavigation />}
+            <Routes>
+              <Route path="/" element={<Login />} />
+              <Route path="/PaymentGateway" element={<PaymentGateway />} />
+              <Route path="/AboutOlympiad" element={<AboutOlympiad />} />
+              <Route path="/ReferEarn" element={<ReferEarn />} />
+              <Route path="/Awards" element={<Awards />} />
+              <Route path="/FAQ" element={<FAQ />} />
+              <Route path="/LiveMasterClass" element={<LiveMasterClass />} />
+              <Route path="/Report" element={<Report />} />
+              <Route path="/AboutUpEducators" element={<AboutUpEducators />} />
+            </Routes>
+          </div>
+        </>
+      )}
+    </div>
   );
 };
 
-export default App;
+export default () => (
+  <Router>
+    <App />
+  </Router>
+);

@@ -45,3 +45,18 @@
     font-size: calc(var(--baseFontSize));
     margin: 10px 0 0 0;
 }
+
+@media(max-width:767px){
+  .faq details{
+    padding: 15px 20px 15px 0;
+  }
+  .faq details summary {
+    font-size: calc(var(--baseFontSize) - 1px);
+  }
+  summary::after{
+    background-size: 15px;
+  }
+  .faq details p{
+    font-size: calc(var(--baseFontSize) - 1px);
+  }
+}

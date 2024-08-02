@@ -89,3 +89,38 @@
 .works-card .cta button{
     font-size: calc(var(--baseFontSize) - 1px);
 }
+
+@media(max-width: 767px){
+    .earning-box p {
+        font-size: calc(var(--baseFontSize) - 3px);
+        line-height: normal;
+    }
+    .how-it-works{
+        flex-direction: column;
+        margin: 20px 0;
+    }
+    .works-card{
+        width: 100%;
+        margin-bottom: 20px;
+        padding: 15px;
+    }
+    .works-card-title{
+        flex-direction: column;
+    }
+    .works-card h1{
+        font-size: calc(var(--baseFontSize) + 1px);
+    }
+    .works-card .number {
+        margin: 0 0 10px 0;
+        height: 25px;
+        min-width: 25px;
+        min-height: 25px;
+        line-height: 25px;
+    }
+    .works-card .cta{
+        flex-direction: column;
+    }
+    .works-card button {
+        margin: 0 0 8px 0 !important;
+    }
+}

@@ -20,7 +20,7 @@ const Header = () => {
     <>
       <header className="header">
         <div className="container-wrapper">
-          <img src={logo} alt='upEducator' title='upEducator' />
+          <img src={logo} alt='upEducator' title='upEducator' className='logo' />
           <div className='header-right'>
             <div className='username'>Welcome <strong>{olympdPrefix.name}</strong></div> 
             <Button title={'Logout'} type='button' isSecondary onClick={handleLogout} isIcon iconPath={logout} />

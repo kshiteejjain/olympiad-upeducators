@@ -43,3 +43,10 @@
     background-color: var(--darkGray);
     color: var(--white);
 }
+
+@media(max-width: 767px){
+    .card h2{
+        font-size: calc(var(--baseFontSize) + 15px);
+        margin-top: 20px;
+    }
+}
