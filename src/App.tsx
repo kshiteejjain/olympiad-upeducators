@@ -30,21 +30,27 @@ const App = () => {
   return (
     <Router>
       <div className="App">
-        {hasSessionId && <Header />}
-        <div className='container-wrapper'>
-        {hasSessionId && <PageNavigation />}
-          <Routes>
-            <Route path="/" element={<Login />} />
-            <Route path="/PaymentGateway" element={<PaymentGateway />} />
-            <Route path="/AboutOlympiad" element={<AboutOlympiad />} />
-            <Route path="/ReferEarn" element={<ReferEarn />} />
-            <Route path="/Awards" element={<Awards />} />
-            <Route path="/FAQ" element={<FAQ />} />
-            <Route path="/LiveMasterClass" element={<LiveMasterClass />} />
-            <Route path="/Report" element={<Report />} />
-            <Route path="/AboutUpEducators" element={<AboutUpEducators />} />
-          </Routes>
-        </div>
+        {!hasSessionId ? (
+          <Login />
+        ) : (
+          <>
+            <Header />
+            <div className="container-wrapper">
+              <PageNavigation />
+              <Routes>
+                <Route path="/" element={<Login />} />
+                <Route path="/PaymentGateway" element={<PaymentGateway />} />
+                <Route path="/AboutOlympiad" element={<AboutOlympiad />} />
+                <Route path="/ReferEarn" element={<ReferEarn />} />
+                <Route path="/Awards" element={<Awards />} />
+                <Route path="/FAQ" element={<FAQ />} />
+                <Route path="/LiveMasterClass" element={<LiveMasterClass />} />
+                <Route path="/Report" element={<Report />} />
+                <Route path="/AboutUpEducators" element={<AboutUpEducators />} />
+              </Routes>
+            </div>
+          </>
+        )}
       </div>
     </Router>
   );
