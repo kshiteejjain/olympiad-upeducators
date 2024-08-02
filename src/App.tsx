@@ -44,7 +44,7 @@ const App = () => {
           <Route path="/" element={<Login />} />
           <Route path="/EnterOTP" element={<EnterOTP />} />
           <Route path="*" element={<Navigate to="/" replace />} />
-          <Route path="/PaymentGateway" element={checkSession() ? <PaymentGateway /> : <Navigate to="/" replace />} />
+          <Route path="/PaymentGateway" element={<PaymentGateway />} />
           <Route path="/AboutOlympiad" element={checkSession() ? <AboutOlympiad /> : <Navigate to="/" replace />} />
           <Route path="/ReferEarn" element={checkSession() ? <ReferEarn /> : <Navigate to="/" replace />} />
           <Route path="/Awards" element={checkSession() ? <Awards /> : <Navigate to="/" replace />} />
