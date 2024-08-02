@@ -4,8 +4,11 @@ import logo from '../../assets/Upeducator-logo.png';
 
 import './Login.css';
 
+type Props = {
+    courses?: string[];
+    delay?: number;
+};
 
-// Lazy load components
 const LoginWithEmail = lazy(() => import('./LoginWithEmail'));
 const LoginWithPhone = lazy(() => import('./LoginWithPhone'));
 const EnterOTP = lazy(() => import('./EnterOTP'));
@@ -25,7 +28,7 @@ const Login = () => {
         '1000+ Google and Microsoft Certified Educators',
         'Join Community of 3,30,000+ Educators on Social Media',
       ];
-      const CourseDisplay = ({ courses = [], delay = 2000 }) => {
+      const CourseDisplay = ({ courses = [], delay = 2000 }: Props) => {
         const [currentIndex, setCurrentIndex] = useState(0);
       
         useEffect(() => {
