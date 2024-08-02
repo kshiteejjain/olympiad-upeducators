@@ -13,7 +13,7 @@
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap;
-    margin: 50px 0;
+    margin:30px 0 60px 0;
 }
 .how-it-works h3{
     width: 100%;
@@ -36,16 +36,19 @@
     font-weight: bold;
 }
 .works-card .number{
-    width: 35px;
-    height: 35px;
-    border-radius: 8px;
-    display: flex;
+    min-width: 35px;
+    min-height: 35px;
+    border-radius: 28px;
+    display: inline-block;
     align-items: center;
     justify-content: center;
     background-color: var(--limeGreen);
     color: var(--white);
     font-size: var(--baseFontSize);
     margin-right: 20px;
+    text-align: center;
+    padding: 4px;
+    line-height: 35px;
 }
 .works-card button{
     background-color: var(--whatsapp);
@@ -54,6 +57,7 @@
     align-items: center;
     justify-content: space-between;
     color: var(--white);
+    padding: 9px 20px;
 }
 .works-card button:focus{
     outline: 0;
@@ -80,7 +84,7 @@
 }
 .works-card .cta{
     display: flex;
-    margin:15px 0 0 60px;
+    margin:15px 0 0 0;
 }
 .works-card .cta button{
     font-size: calc(var(--baseFontSize) - 1px);

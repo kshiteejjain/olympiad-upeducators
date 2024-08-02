@@ -78,19 +78,17 @@ const LiveMasterClass = () => {
     }
 
     return (
-        <>
-            <div className='container-wrapper'>
-                <h2>LiveMasterClass</h2>
-                <p>upEducators will organize 8 Expert-Led Live Training sessions for all the educators attending this Olympiad. These Masterclasses will be conducted after the Result Announcement</p>
-                <div className='flex-card'>
-                    <h3>4 Exclusive Session by National Awardee Teacher</h3>
-                    <Card />
+        <div className='content'>
+            <h2>LiveMasterClass</h2>
+            <p>upEducators will organize 8 Expert-Led Live Training sessions for all the educators attending this Olympiad. These Masterclasses will be conducted after the Result Announcement</p>
+            <div className='flex-card'>
+                <h3>4 Exclusive Session by National Awardee Teacher</h3>
+                <Card />
 
-                    <h3>4 Engaging Session by upEducators Expert Trainers</h3>
-                    <CoursesCard />
-                </div>
+                <h3>4 Engaging Session by upEducators Expert Trainers</h3>
+                <CoursesCard />
             </div>
-        </>
+        </div>
     )
 };
 export default LiveMasterClass;

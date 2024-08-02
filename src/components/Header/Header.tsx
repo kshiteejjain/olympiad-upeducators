@@ -1,25 +1,15 @@
-import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import logo from '../../assets/Upeducator-logo.png';
-import PageNavigation from '../../features/PageNavigation/PageNavigation';
+import PageNavigation from '../PageNavigation/PageNavigation';
 import Button from '../Buttons/Button';
+import logo from '../../assets/Upeducator-logo.png';
+import logout from '../../assets/logout.svg';
 
 import './Header.css';
 
 
 const Header = () => {
-  const [hasSessionId, setHasSessionId] = useState(false);
   const navigate = useNavigate();
-
-  useEffect(() => {
-    const olympd_prefix = localStorage.getItem('olympd_prefix');
-    if (olympd_prefix) {
-      const user = JSON.parse(olympd_prefix);
-      if (user?.sessionId) {
-        setHasSessionId(true);
-      }
-    }
-  }, []);
+  const olympdPrefix = JSON.parse(localStorage.getItem('olympd_prefix') || '{}');
 
   const handleLogout = () => {
     localStorage.removeItem('olympd_prefix');
@@ -32,10 +22,12 @@ const Header = () => {
       <header className="header">
         <div className="container-wrapper">
           <img src={logo} alt='upEducator' title='upEducator' />
-          {hasSessionId && <Button title={'Logout'} type='button' onClick={handleLogout} />}
+          <div className='header-right'>
+            <div className='username'>Welcome <strong>{olympdPrefix.name}</strong></div> 
+            <Button title={'Logout'} type='button' isSecondary onClick={handleLogout} isIcon iconPath={logout} />
+          </div>
         </div>
       </header>
-      {hasSessionId && <PageNavigation />}
     </>
   );
 };

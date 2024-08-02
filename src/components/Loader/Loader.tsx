@@ -3,7 +3,7 @@ import logo from '../../assets/Upeducator-logo.png';
 import './Loader.css';
 
 type Props = {
-    title: string | number
+    title?: string | number
 }
 
 const Loader = ({ title }: Props) => {

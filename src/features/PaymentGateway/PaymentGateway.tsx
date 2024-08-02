@@ -143,7 +143,7 @@ const PaymentGateway = () => {
   }, []);
 
   return (
-    <div className="container-wrapper">
+    <div className="content">
       <div className="olympiad-form">
         <div className="olympiad-details gradient">
           <h2>International Maths Teachers’ Olympiad</h2>

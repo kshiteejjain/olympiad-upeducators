@@ -15,9 +15,10 @@ form {
 }
 .login-visual {
     width: 50%;
-    background-image: url(https://images.pexels.com/photos/1742370/pexels-photo-1742370.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2);
+    background-image: url(https://images.pexels.com/photos/5212345/pexels-photo-5212345.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1);
     background-size: cover;
     background-position: center;
+    border-radius: 0 80px 0 0 ;
 }
 .login-form {
     width: 50%;
@@ -31,9 +32,10 @@ form {
     position: relative;
 }
 .login-form h1{
-    font-size: calc(var(--baseFontSize) + 6px);
-    margin: 0 0 22px 0;
-    color: var(--primary);
+    font-size: calc(var(--baseFontSize) + 3px);
+    margin: 0 0 32px 0;
+    color: var(--darkGray);
+    text-align: left;
 }
 .login-option{
     font-size: calc(var(--baseFontSize) - 2px);
@@ -55,3 +57,18 @@ form {
     margin: 4px 0 0 5px;
     max-height: 20px;
 }
+.branding{
+    margin-bottom: 50px;
+    text-align: center;
+}
+.branding h2{
+    margin: 8px 0 0 0;
+    font-family: cursive;
+    font-size: 13px;
+    text-align: center;
+}
+.course-display {
+    transition: opacity 0.5s ease;
+  }
+
+  

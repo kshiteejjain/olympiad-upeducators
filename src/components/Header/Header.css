@@ -9,3 +9,19 @@
     justify-content: space-between;
     align-items: center;
   }
+  .header-right{
+    display: flex;
+    align-items: center;
+  }
+  .header-right .username{
+    margin-right: 15px;
+  }
+  .header-right button{
+    display: flex;
+    align-items: center;
+    border: 1px solid var(--lightGray);
+    font-size: calc(var(--baseFontSize) - 2px);
+  }
+  .header-right button img{
+    max-height: 14px;
+  }

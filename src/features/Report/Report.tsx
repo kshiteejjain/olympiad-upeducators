@@ -2,8 +2,7 @@ import './Report.css';
 
 const Report = () => {
     return (
-        <>
-            <div className='container-wrapper'>
+            <div className='content'>
                 <h2>Report</h2>
                 <p>At upEducators, we recognize the pivotal role of Math teachers in shaping young minds. Following the <strong>International Maths Teachers’ Olympiad</strong>, we are committed to providing each participant with a detailed Olympiad Excellence Report. This report is not just a reflection of your performance in the Olympiad; it's a roadmap for your ongoing professional journey in Math Education.</p>
                 <p><strong>What the Excellence Report Entails:</strong></p>
@@ -29,7 +28,6 @@ const Report = () => {
 
                 <p><strong>Student Engagement and Differentiated Instruction:</strong> Skill in tailoring mathematical instruction to individual student needs, interests, and learning styles, while maintaining high levels of engagement across the classroom.</p>
             </div>
-        </>
     )
 };
 

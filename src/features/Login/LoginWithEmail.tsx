@@ -29,6 +29,15 @@ const LoginWithEmail = () => {
                 setIsLoader(false)
                 setIsError(true)
             } else {
+                const userDoc = querySnapshot.docs[0]; // Assuming there's only one document
+                const userData = userDoc.data();
+                const userName = userData.name || 'No Name'; // Adjust according to your schema
+
+                // Update localStorage with user details
+                const olympdPrefix = JSON.parse(localStorage.getItem('olympd_prefix') || '{}');
+                olympdPrefix.name = userName;
+                localStorage.setItem('olympd_prefix', JSON.stringify(olympdPrefix));
+
                 // Send email
                 setUserDetails({
                     email: ''
@@ -50,25 +59,25 @@ const LoginWithEmail = () => {
     return (
         <>
             {isLoader && <Loader title={'Loading..'} />}
+            <form onSubmit={handleSubmit}>
                 <h1>Enter Email</h1>
-                <form onSubmit={handleSubmit}>
-                    <div className='form-group'>
-                        <label htmlFor='email'>Email</label>
-                        <input
-                            type='email'
-                            className='form-control'
-                            required
-                            name="email"
-                            autoFocus
-                            autoComplete="off"
-                            value={userDetails.email}
-                            onChange={handleInputChange}
-                        />
-                        <p className="input-note">Note: You will get notification on email. </p>
-                        {isError && <ErrorBoundary message={'Please enter registered email.'} />}
-                    </div>
-                    <Button title='Send' type='submit' />
-                </form>
+                <div className='form-group'>
+                    <label htmlFor='email'>Email<span className="asterisk">*</span></label>
+                    <input
+                        type='email'
+                        className='form-control'
+                        required
+                        name="email"
+                        autoFocus
+                        autoComplete="off"
+                        value={userDetails.email}
+                        onChange={handleInputChange}
+                    />
+                    <p className="input-note">Note: You will get OTP on email. </p>
+                    {isError && <ErrorBoundary message={'Please enter registered email.'} />}
+                </div>
+                <Button title='Send' type='submit' />
+            </form>
         </>
     );
 };
