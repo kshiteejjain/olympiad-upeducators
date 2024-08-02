@@ -13,8 +13,23 @@ const Header = () => {
   const handleLogout = () => {
     localStorage.removeItem('olympd_prefix');
     navigate('/');
-    window.location.reload()
   };
+
+  const checkSession = () => {
+    const session = localStorage.getItem('olympd_prefix');
+    if (session) {
+      try {
+        const sessionData = JSON.parse(session);
+        alert(sessionData)
+        return sessionData.sessionId === 'z5pxv6w2chzvkjjf0y64';
+      } catch (error) {
+        console.error('Failed to parse session data', error);
+        return false;
+      }
+    }
+    checkSession()
+  };
+
 
   return (
     <>

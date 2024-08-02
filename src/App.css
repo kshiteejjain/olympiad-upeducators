@@ -175,7 +175,7 @@ h3 {
 }
 
 .form-control:focus {
-  outline-color: var(--lightGray);
+  outline-color: var(--gray);
 }
 
 .form-control:disabled {

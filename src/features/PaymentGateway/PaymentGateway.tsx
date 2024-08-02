@@ -5,6 +5,7 @@ import { firestore } from '../../utils/firebase';
 import { useNavigate } from "react-router-dom";
 import { sendEmail } from "../SendEmail/SendEmail";
 import { sendWhatsappMessage } from "../SendWhatsappMessage/SendWhatsappMessage";
+import LoginAnimation from "../Login/LoginAnimation";
 
 import './PaymentGateway.css';
 
@@ -141,9 +142,10 @@ const PaymentGateway = () => {
     script.async = true;
     document.body.appendChild(script);
   }, []);
+  
 
   return (
-    <div className="content">
+    <div className="container-wrapper">
       <div className="olympiad-form">
         <div className="olympiad-details gradient">
           <h2>International Maths Teachers’ Olympiad</h2>
@@ -151,6 +153,7 @@ const PaymentGateway = () => {
           <img src="https://www.upeducators.com/wp-content/uploads/2024/07/Maths-Olympiad-upeducators-teachers-landing-page-educactors-1.jpg" />
         </div>
         <form>
+          <LoginAnimation />
           <h2>Personal Details</h2>
           <div className='form-group'>
             <label htmlFor='name'>Name<span className="asterisk">*</span></label>

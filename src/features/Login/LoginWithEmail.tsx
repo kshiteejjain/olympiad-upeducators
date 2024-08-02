@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { collection, getDocs, query, where } from 'firebase/firestore';
 import { firestore } from '../../utils/firebase';
 import Button from '../../components/Buttons/Button';
@@ -6,12 +7,14 @@ import ErrorBoundary from "../../components/ErrorBoundary/ErrorBoundary";
 import Loader from "../../components/Loader/Loader";
 import { sendEmail } from "../SendEmail/SendEmail";
 
+
 const LoginWithEmail = () => {
     const [userDetails, setUserDetails] = useState({
         email: ''
     });
     const [isError, setIsError] = useState(false);
     const [isLoader, setIsLoader] = useState(false);
+    const navigate = useNavigate();
 
     const handleSubmit = async (e: any) => {
         e.preventDefault();
@@ -37,14 +40,14 @@ const LoginWithEmail = () => {
                 const olympdPrefix = JSON.parse(localStorage.getItem('olympd_prefix') || '{}');
                 olympdPrefix.name = userName;
                 localStorage.setItem('olympd_prefix', JSON.stringify(olympdPrefix));
-
+                navigate('/EnterOTP');
                 // Send email
                 setUserDetails({
                     email: ''
                 });
+                
                 await sendEmail(email, import.meta.env.VITE_OLYMPIAD_EMAIL_TEMPLATE);
                 setIsLoader(false)
-                window.location.reload();
             }
         } catch (error) {
             alert('Error querying data from Firestore: ' + error);
@@ -73,8 +76,8 @@ const LoginWithEmail = () => {
                         value={userDetails.email}
                         onChange={handleInputChange}
                     />
-                    <p className="input-note">Note: You will get OTP on email. </p>
                     {isError && <ErrorBoundary message={'Please enter registered email.'} />}
+                    <p className="input-note">Note: You will get OTP on email. </p>
                 </div>
                 <Button title='Send' type='submit' />
             </form>

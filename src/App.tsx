@@ -1,5 +1,4 @@
-import { useEffect, useState } from 'react';
-import { HashRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
+import { HashRouter as Router, Routes, Route, Navigate, useLocation } from 'react-router-dom';
 import PaymentGateway from './features/PaymentGateway/PaymentGateway';
 import AboutOlympiad from './features/AboutOlympiad/AboutOlympiad';
 import ReferEarn from './features/ReferEarn/ReferEarn';
@@ -11,51 +10,50 @@ import AboutUpEducators from './features/AboutUpEducators/AboutUpEducators';
 import Login from './features/Login/Login';
 import Header from './components/Header/Header';
 import PageNavigation from './components/PageNavigation/PageNavigation';
+import EnterOTP from './features/Login/EnterOTP';
 
 import './App.css';
 
 const App = () => {
-  const [hasSessionId, setHasSessionId] = useState(false);
-  const location = useLocation(); // Get the current route location
+  const location = useLocation(); // Get the current route
 
-  useEffect(() => {
-    const olympd_prefix = localStorage.getItem('olympd_prefix');
-    if (olympd_prefix) {
-      const user = JSON.parse(olympd_prefix);
-      if (user?.sessionId) {
-        setHasSessionId(true);
+  const checkSession = () => {
+    const session = localStorage.getItem('olympd_prefix');
+    if (session) {
+      try {
+        const sessionData = JSON.parse(session);
+        return sessionData.sessionId === 'z5pxv6w2chzvkjjf0y64';
+      } catch (error) {
+        console.error('Failed to parse session data', error);
+        return false;
       }
     }
-  }, []);
+    return false;
+  };
 
-  const shouldShowPageNavigation = !hasSessionId || location.pathname !== '/PaymentGateway';
+  const showHeaderAndNav = checkSession();
+
+  const noContainerRoutes = ['/', '/EnterOTP'];
 
   return (
     <div className="App">
-      {!hasSessionId ? (
-        <>
-          <Login />
-          <PaymentGateway />
-        </>
-      ) : (
-        <>
-          <Header />
-          <div className="container-wrapper">
-            {shouldShowPageNavigation && <PageNavigation />}
-            <Routes>
-              <Route path="/" element={<Login />} />
-              <Route path="/PaymentGateway" element={<PaymentGateway />} />
-              <Route path="/AboutOlympiad" element={<AboutOlympiad />} />
-              <Route path="/ReferEarn" element={<ReferEarn />} />
-              <Route path="/Awards" element={<Awards />} />
-              <Route path="/FAQ" element={<FAQ />} />
-              <Route path="/LiveMasterClass" element={<LiveMasterClass />} />
-              <Route path="/Report" element={<Report />} />
-              <Route path="/AboutUpEducators" element={<AboutUpEducators />} />
-            </Routes>
-          </div>
-        </>
-      )}
+      {showHeaderAndNav && <Header />}
+      <div className={noContainerRoutes.includes(location.pathname) ? '' : 'container-wrapper'}>
+        {showHeaderAndNav && <PageNavigation />}
+        <Routes>
+          <Route path="/" element={<Login />} />
+          <Route path="/EnterOTP" element={<EnterOTP />} />
+          <Route path="*" element={<Navigate to="/" replace />} />
+          <Route path="/PaymentGateway" element={checkSession() ? <PaymentGateway /> : <Navigate to="/" replace />} />
+          <Route path="/AboutOlympiad" element={checkSession() ? <AboutOlympiad /> : <Navigate to="/" replace />} />
+          <Route path="/ReferEarn" element={checkSession() ? <ReferEarn /> : <Navigate to="/" replace />} />
+          <Route path="/Awards" element={checkSession() ? <Awards /> : <Navigate to="/" replace />} />
+          <Route path="/FAQ" element={checkSession() ? <FAQ /> : <Navigate to="/" replace />} />
+          <Route path="/LiveMasterClass" element={checkSession() ? <LiveMasterClass /> : <Navigate to="/" replace />} />
+          <Route path="/Report" element={checkSession() ? <Report /> : <Navigate to="/" replace />} />
+          <Route path="/AboutUpEducators" element={checkSession() ? <AboutUpEducators /> : <Navigate to="/" replace />} />
+        </Routes>
+      </div>
     </div>
   );
 };

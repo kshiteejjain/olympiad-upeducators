@@ -73,8 +73,7 @@ form {
 
 .branding h2 {
     margin: 8px 0 0 0;
-    font-family: cursive;
-    font-size: 13px;
+    font-size: var(--baseFontSize);
     text-align: center;
 }
 

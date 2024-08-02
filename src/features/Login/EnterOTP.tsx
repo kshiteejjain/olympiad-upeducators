@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import Button from '../../components/Buttons/Button';
 import ErrorBoundary from "../../components/ErrorBoundary/ErrorBoundary";
@@ -26,7 +26,6 @@ const EnterOTP = () => {
                 user.sessionId = 'z5pxv6w2chzvkjjf0y64'; // Add sessionId to the user object
                 localStorage.setItem('olympd_prefix', JSON.stringify(user)); // Update localStorage with the modified object
                 navigate('/AboutOlympiad');
-                window.location.reload();
             } else {
                 setIsError(true);
             }
@@ -42,28 +41,49 @@ const EnterOTP = () => {
         setIsError(false);
     };
 
+    useEffect(() => {
+      // Check if localStorage has sessionId
+      const olympdPrefix = localStorage.getItem('olympd_prefix');
+      if (olympdPrefix) {
+        try {
+          const olympdData = JSON.parse(olympdPrefix);
+          if (olympdData.sessionId) {
+            navigate('/AboutOlympiad'); // Redirect to /AboutOlympiad
+          }
+        } catch (error) {
+          console.error('Failed to parse localStorage data:', error);
+        }
+      }
+    }, [navigate]);
+    
+
     return (
-        <>
-            {isLoader && <Loader title='Loading..' />}
-            <h1>Enter OTP Number</h1>
-            <form onSubmit={handleSubmit}>
-                <div className='form-group'>
-                    <label htmlFor='otp'>Enter OTP</label>
-                    <input
-                        type='tel'
-                        className='form-control'
-                        required
-                        name='otp'
-                        autoComplete='off'
-                        value={otp}
-                        onChange={handleOtpChange}
-                        maxLength={10}
-                    />
-                    <p className='input-note'>Note: Enter OTP received on your registered email or mobile</p>
-                    {isError && <ErrorBoundary message='Invalid OTP. Please try again.' />}
-                </div>
-                <Button title='Send' type='submit' />
-            </form>
+        <><div className="login-wrapper">
+            <div className="login-visual"></div>
+            <div className="login-form">
+                {isLoader && <Loader title='Loading..' />}
+                <form onSubmit={handleSubmit}>
+                    <h1>Enter OTP</h1>
+                    <div className='form-group'>
+                        <label htmlFor='otp'>Enter OTP<span className="asterisk">*</span></label>
+                        <input
+                            type='tel'
+                            className='form-control'
+                            required
+                            name='otp'
+                            autoComplete='off'
+                            value={otp}
+                            onChange={handleOtpChange}
+                            maxLength={10}
+                        />
+                        {isError && <ErrorBoundary message='Invalid OTP. Please try again.' />}
+                        <p className='input-note'>Note: Enter OTP received on your registered email or mobile</p>
+                    </div>
+                    <Button title='Send' type='submit' />
+                </form>
+                <span className="login-option" onClick={()=> navigate('/')}>Back to login?</span>
+            </div>
+        </div>
         </>
     );
 };

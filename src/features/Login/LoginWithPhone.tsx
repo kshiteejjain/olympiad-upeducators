@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { collection, getDocs, query, where } from 'firebase/firestore';
 import { firestore } from '../../utils/firebase';
 import Button from '../../components/Buttons/Button';
@@ -41,6 +41,41 @@ const LoginWithPhone = () => {
         }
     };
 
+
+    useEffect(() => {
+        const checkPaymentDetails = async () => {
+          try {
+            const olympdPrefix = localStorage.getItem('olympd_prefix');
+            if (olympdPrefix) {
+              const olympdData = JSON.parse(olympdPrefix);
+              const identifier = olympdData.phone || olympdData.email; // Check by phone or email
+              if (!identifier) return;
+    
+              const collectionRef = collection(firestore, 'OlympiadUsers');
+              const q = query(collectionRef, where('phone', '==', identifier)); // Adjust query if checking email
+              const querySnapshot = await getDocs(q);
+    
+              if (querySnapshot.empty) {
+                console.log('User does not exist');
+              } else {
+                querySnapshot.forEach((doc) => {
+                  const paymentDetails = doc.data().paymentDetails;
+                  if (paymentDetails && paymentDetails.razorpay_payment_id) {
+                    console.log('Payment details found:', paymentDetails);
+                  } else {
+                    console.log('No payment details available');
+                  }
+                });
+              }
+            }
+          } catch (error) {
+            console.error('Error querying data from Firestore:', error);
+          }
+        };
+    
+        checkPaymentDetails();
+      }, []);
+
     const handlePhoneChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         const newValue = e.target.value.replace(/\D/g, '').slice(0, 10);
         setUserDetails({ phone: newValue });
@@ -66,8 +101,8 @@ const LoginWithPhone = () => {
                         pattern="[0-9]{10}"
                         maxLength={10}
                     />
-                    <p className="input-note">Note: You will get OTP on <img src={whatsappSvg} /> </p>
                     {isError && <ErrorBoundary message={'Please enter registered mobile number.'} />}
+                    <p className="input-note">Note: You will get OTP on <img src={whatsappSvg} /> </p>
                 </div>
                 <Button title='Send' type='submit' />
             </form>

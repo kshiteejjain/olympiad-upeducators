@@ -26,6 +26,8 @@
   align-items: center;
   border: 1px solid var(--lightGray);
   font-size: calc(var(--baseFontSize) - 2px);
+  background-color: var(--white);
+  color: var(--darkGray);
 }
 
 .header-right button img {
