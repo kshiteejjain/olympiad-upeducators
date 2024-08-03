@@ -55,28 +55,34 @@ const LMSForm = () => {
             try {
                 setIsLoader(true);
                 const olympdPrefix = JSON.parse(localStorage.getItem('olympd_prefix') || '{}');
-                const email = olympdPrefix.email;
-
+                const { email } = olympdPrefix;
+                const sessionId = localStorage.getItem('sessionId');
+    
+                if (sessionId) {
+                    // Redirect to AboutOlympiad if sessionId is present
+                    navigate('/AboutOlympiad');
+                    return;
+                }
+    
                 if (!email) {
                     alert('No logged-in email found');
-                    //navigate('/')
+                    navigate('/');
+                    return;
                 }
-
-                const collectionRef = collection(firestore, 'OlympiadUsers');
-                const q = query(collectionRef, where('email', '==', email));
-                const querySnapshot = await getDocs(q);
-
+    
+                const userQuery = query(collection(firestore, 'OlympiadUsers'), where('email', '==', email));
+                const querySnapshot = await getDocs(userQuery);
+    
                 if (querySnapshot.empty) {
-                   alert('Email does not exist');
+                    alert('Email does not exist');
+                    return;
                 }
-
+    
                 const userDoc = querySnapshot.docs[0];
-                const userData = userDoc.data();
-                const isNewUser = userData.isNewUser;
-
-                if (isNewUser) {
-                    navigate('/AboutOlympiad');
-                }
+                const { isNewUser } = userDoc.data();
+    
+                // Redirect based on isNewUser value
+                navigate(isNewUser ? '/AboutOlympiad' : '/');
             } catch (error: any) {
                 alert(error.message);
                 setIsError(true);
@@ -84,63 +90,46 @@ const LMSForm = () => {
                 setIsLoader(false);
             }
         };
-
+    
         checkIfNewUser();
     }, [navigate]);
+    
 
     const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
+
         try {
+            const olympdPrefix = JSON.parse(localStorage.getItem('olympd_prefix') || '{}');
+            olympdPrefix.sessionId = 'z5pxv6w2chzvkjjf0y64'; // Add sessionId to user object
+            localStorage.setItem('olympd_prefix', JSON.stringify(olympdPrefix)); // Update localStorage
+
             setIsLoader(true);
             const email = userDetails.email.toLowerCase();
-
-            // Check if the logged-in email matches the entered email
-            const olympdPrefix = JSON.parse(localStorage.getItem('olympd_prefix') || '{}');
             const loggedInEmail = olympdPrefix.email;
 
-            if (loggedInEmail !== email) {
-                throw new Error('Logged-in email and entered email do not match');
-            }
+            if (loggedInEmail !== email) throw new Error('Logged-in email and entered email do not match');
 
-            // Check if the user exists
-            const collectionRef = collection(firestore, 'OlympiadUsers');
-            const q = query(collectionRef, where('email', '==', email));
-            const querySnapshot = await getDocs(q);
+            const userQuery = query(collection(firestore, 'OlympiadUsers'), where('email', '==', email));
+            const querySnapshot = await getDocs(userQuery);
 
-            if (querySnapshot.empty) {
-                throw new Error('Email does not exist');
-            }
+            if (querySnapshot.empty) throw new Error('Email does not exist');
 
-            const userDoc = querySnapshot.docs[0]; // Assuming there's only one document
-            const userData = userDoc.data();
-            const userName = userData.name || 'No Name';
+            const userDoc = querySnapshot.docs[0];
+            const userName = userDoc.data().name || 'No Name';
 
-            // Update localStorage with user details
             olympdPrefix.name = userName;
             localStorage.setItem('olympd_prefix', JSON.stringify(olympdPrefix));
 
-            // Update the Firestore document with profile data
-            const userDocRef = doc(firestore, 'OlympiadUsers', userDoc.id);
-            await updateDoc(userDocRef, { profile: userDetails });
-            navigate('/AboutOlympiad')
-            // Reset form fields
+            await updateDoc(doc(firestore, 'OlympiadUsers', userDoc.id), { profile: userDetails });
+
             setUserDetails({
-                firstName: '',
-                lastName: '',
-                mobileNumber: '',
-                whatsappNumber: '',
-                email: '',
-                city: '',
-                country: '',
-                dateOfBirth: '',
-                organizationType: '',
-                organizationName: '',
-                board: '',
-                role: '',
-                gradeLevel: '',
+                firstName: '', lastName: '', mobileNumber: '', whatsappNumber: '', email: '',
+                city: '', country: '', dateOfBirth: '', organizationType: '', organizationName: '',
+                board: '', role: '', gradeLevel: '',
             });
 
-        } catch (error: any) {
+            navigate('/AboutOlympiad');
+        } catch (error:any) {
             alert(error.message);
             setIsError(true);
         } finally {
@@ -149,7 +138,8 @@ const LMSForm = () => {
     };
 
     const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
-        setUserDetails({ ...userDetails, [e.target.name]: e.target.value });
+        const { name, value } = e.target;
+        setUserDetails(prevState => ({ ...prevState, [name]: value }));
         setIsError(false);
     };
 

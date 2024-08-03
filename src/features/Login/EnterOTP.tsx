@@ -25,8 +25,6 @@ const EnterOTP = () => {
             const code = user?.code;
             if (code === otp) {
                 delete user.code;  // Remove the code property from the user object
-                user.sessionId = 'z5pxv6w2chzvkjjf0y64'; // Add sessionId to the user object
-                localStorage.setItem('olympd_prefix', JSON.stringify(user)); // Update localStorage with the modified object
                 navigate('/LMSForm');
             } else {
                 setIsError(true);
