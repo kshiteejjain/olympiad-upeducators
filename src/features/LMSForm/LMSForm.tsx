@@ -119,7 +119,7 @@ const LMSForm = () => {
             olympdPrefix.name = userName;
             localStorage.setItem('olympd_prefix', JSON.stringify(olympdPrefix));
 
-            await updateDoc(doc(firestore, 'OlympiadUsers', userDoc.id), { profile: userDetails });
+            await updateDoc(doc(firestore, 'OlympiadUsers', userDoc.id), { profile: userDetails, isNewUser: false });
 
             setUserDetails({
                 firstName: '', lastName: '', mobileNumber: '', whatsappNumber: '', email: '',
