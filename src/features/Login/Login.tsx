@@ -49,10 +49,10 @@ const Login = () => {
       <div className="login-form">
         <LoginAnimation />
         <Suspense fallback={<Loader title='Loading...' />}>
-          {isPhoneLogin ? <LoginWithPhone /> : <LoginWithEmail />}
+          {isPhoneLogin ? <LoginWithEmail /> : <LoginWithPhone />}
         </Suspense>
         <span className="login-option" onClick={handleLoginToggle}>
-          {isPhoneLogin ? 'Login With Email?' : 'Login With Phone?'}
+          {isPhoneLogin ? 'Login With Phone?' : 'Login With Email?'}
         </span>
       </div>
     </div>

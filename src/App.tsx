@@ -11,6 +11,7 @@ import Login from './features/Login/Login';
 import Header from './components/Header/Header';
 import PageNavigation from './components/PageNavigation/PageNavigation';
 import EnterOTP from './features/Login/EnterOTP';
+import LMSForm from './features/LMSForm/LMSForm';
 
 import './App.css';
 
@@ -33,15 +34,16 @@ const App = () => {
 
   const showHeaderAndNav = checkSession();
 
-  const noContainerRoutes = ['/', '/EnterOTP'];
+  const noContainerRoutes = ['/', '/EnterOTP', '/LMSForm'];
 
   return (
     <div className="App">
       {showHeaderAndNav && <Header />}
       <div className={noContainerRoutes.includes(location.pathname) ? '' : 'container-wrapper'}>
-        {showHeaderAndNav && <PageNavigation />}
+      {showHeaderAndNav && location.pathname !== '/LMSForm' && <PageNavigation />}
         <Routes>
           <Route path="/" element={<Login />} />
+          <Route path="/LMSForm" element={<LMSForm />} />
           <Route path="/EnterOTP" element={<EnterOTP />} />
           <Route path="*" element={<Navigate to="/" replace />} />
           <Route path="/PaymentGateway" element={<PaymentGateway />} />

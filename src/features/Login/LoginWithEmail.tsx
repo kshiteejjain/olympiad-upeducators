@@ -15,6 +15,7 @@ const LoginWithEmail = () => {
     const [isError, setIsError] = useState(false);
     const [isLoader, setIsLoader] = useState(false);
     const navigate = useNavigate();
+    const generateOTP = Math.floor(Math.random() * 1000000).toString();
 
     const handleSubmit = async (e: any) => {
         e.preventDefault();
@@ -35,18 +36,23 @@ const LoginWithEmail = () => {
                 const userDoc = querySnapshot.docs[0]; // Assuming there's only one document
                 const userData = userDoc.data();
                 const userName = userData.name || 'No Name'; // Adjust according to your schema
+                const email = userData.email || 'No Name'; // Adjust according to your schema
 
                 // Update localStorage with user details
                 const olympdPrefix = JSON.parse(localStorage.getItem('olympd_prefix') || '{}');
                 olympdPrefix.name = userName;
+                olympdPrefix.email = email;
                 localStorage.setItem('olympd_prefix', JSON.stringify(olympdPrefix));
                 navigate('/EnterOTP');
                 // Send email
                 setUserDetails({
                     email: ''
                 });
-                
-                await sendEmail(email, import.meta.env.VITE_OLYMPIAD_EMAIL_TEMPLATE);
+                await sendEmail(
+                    email,
+                    import.meta.env.VITE_OLYMPIAD_EMAIL_TEMPLATE,
+                    {generateOTP}
+                );
                 setIsLoader(false)
             }
         } catch (error) {

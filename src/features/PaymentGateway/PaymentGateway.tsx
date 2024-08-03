@@ -83,10 +83,15 @@ const PaymentGateway = () => {
         email: emailLowerCase,
         phone,
         timeStamp: new Date().toISOString(),
-        paymentDetails
+        paymentDetails,
+        isNewUser : true
       });
-
-      await sendEmail(emailLowerCase, import.meta.env.VITE_OLYMPIAD_WELCOME_EMAIL_TEMPLATE);
+      //Send Welcome Email and Whatsapp Message
+      await sendEmail(
+        emailLowerCase,
+        import.meta.env.VITE_OLYMPIAD_WELCOME_EMAIL_TEMPLATE,
+        { name: name, email: emailLowerCase, phone: phone }
+    );
       await sendWhatsappMessage(phone);
       // Clear the form fields
       setUserDetails({
@@ -142,7 +147,7 @@ const PaymentGateway = () => {
     script.async = true;
     document.body.appendChild(script);
   }, []);
-  
+
 
   return (
     <div className="container-wrapper">
@@ -189,6 +194,8 @@ const PaymentGateway = () => {
               name="phone"
               autoComplete="off"
               value={userDetails.phone}
+              pattern="[0-9]{10}"
+              maxLength={10}
               onChange={(e) => setUserDetails({ ...userDetails, phone: e.target.value })}
             />
           </div>

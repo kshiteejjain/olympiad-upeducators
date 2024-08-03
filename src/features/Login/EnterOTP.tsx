@@ -3,8 +3,10 @@ import { useNavigate } from "react-router-dom";
 import Button from '../../components/Buttons/Button';
 import ErrorBoundary from "../../components/ErrorBoundary/ErrorBoundary";
 import Loader from "../../components/Loader/Loader";
+import LoginAnimation from "./LoginAnimation";
 
 import './Login.css';
+
 
 
 const EnterOTP = () => {
@@ -25,7 +27,7 @@ const EnterOTP = () => {
                 delete user.code;  // Remove the code property from the user object
                 user.sessionId = 'z5pxv6w2chzvkjjf0y64'; // Add sessionId to the user object
                 localStorage.setItem('olympd_prefix', JSON.stringify(user)); // Update localStorage with the modified object
-                navigate('/AboutOlympiad');
+                navigate('/LMSForm');
             } else {
                 setIsError(true);
             }
@@ -61,6 +63,7 @@ const EnterOTP = () => {
         <><div className="login-wrapper">
             <div className="login-visual"></div>
             <div className="login-form">
+                <LoginAnimation />
                 {isLoader && <Loader title='Loading..' />}
                 <form onSubmit={handleSubmit}>
                     <h1>Enter OTP</h1>

@@ -1,11 +1,13 @@
 import emailjs from '@emailjs/browser';
 
-export const sendEmail = async (email: string, templateId: string) => {
+export const sendEmail = async (email: string, templateId: string, dynamicParams: { [key: string]: string }) => {
     const generateOTP = Math.floor(Math.random() * 1000000).toString();
 
+    // Default template parameters
     const templateParams = {
         message: generateOTP,
         to_email: email,
+        ...dynamicParams // Spread the dynamic parameters
     };
 
     try {

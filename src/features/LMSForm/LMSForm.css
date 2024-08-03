@@ -1,0 +1,20 @@
+.lms-form{
+    width: 100%;
+    justify-content: flex-start;
+    margin-bottom: 50px;
+    box-sizing: border-box;
+}
+.lms-form form{
+    width: 50%;
+    margin: 0 auto;
+    margin-bottom: 90px;
+}
+
+@media(max-width:767px){
+    .lms-form{
+        padding:0 15px;
+    }
+    .lms-form form{
+        width: 100%;
+    }
+}
