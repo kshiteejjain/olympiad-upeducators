@@ -9,7 +9,9 @@
     margin: 0 auto;
     margin-bottom: 90px;
 }
-
+.olympiad-form form .branding{
+    margin: 20px 0 40px 0;
+}
 @media(max-width:767px){
     .lms-form{
         padding:0 15px;

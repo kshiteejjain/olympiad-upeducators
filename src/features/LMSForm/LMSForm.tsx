@@ -57,31 +57,36 @@ const LMSForm = () => {
                 const olympdPrefix = JSON.parse(localStorage.getItem('olympd_prefix') || '{}');
                 const { email } = olympdPrefix;
                 const sessionId = localStorage.getItem('sessionId');
-    
+
                 if (sessionId) {
                     // Redirect to AboutOlympiad if sessionId is present
                     navigate('/AboutOlympiad');
                     return;
                 }
-    
+
                 if (!email) {
                     alert('No logged-in email found');
                     //navigate('/');
                     return;
                 }
-    
+
                 const userQuery = query(collection(firestore, 'OlympiadUsers'), where('email', '==', email));
                 const querySnapshot = await getDocs(userQuery);
-    
+
                 if (querySnapshot.empty) {
                     alert('Email does not exist');
                     return;
                 }
-    
+
                 const userDoc = querySnapshot.docs[0];
                 const { isNewUser } = userDoc.data();
                 // Redirect based on isNewUser value
-                navigate(isNewUser ? '' : '/AboutOlympiad');
+                if (isNewUser === false) {
+                    const olympdPrefix = JSON.parse(localStorage.getItem('olympd_prefix') || '{}');
+                    olympdPrefix.sessionId = 'z5pxv6w2chzvkjjf0y64'; // Add sessionId to user object
+                    localStorage.setItem('olympd_prefix', JSON.stringify(olympdPrefix));
+                    navigate('/AboutOlympiad')
+                }
             } catch (error: any) {
                 alert(error.message);
                 setIsError(true);
@@ -89,10 +94,10 @@ const LMSForm = () => {
                 setIsLoader(false);
             }
         };
-    
+
         checkIfNewUser();
     }, [navigate]);
-    
+
 
     const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
@@ -128,7 +133,7 @@ const LMSForm = () => {
             });
 
             navigate('/AboutOlympiad');
-        } catch (error:any) {
+        } catch (error: any) {
             alert(error.message);
             setIsError(true);
         } finally {
