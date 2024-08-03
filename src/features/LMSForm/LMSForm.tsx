@@ -66,7 +66,7 @@ const LMSForm = () => {
     
                 if (!email) {
                     alert('No logged-in email found');
-                    navigate('/');
+                    //navigate('/');
                     return;
                 }
     
@@ -80,9 +80,8 @@ const LMSForm = () => {
     
                 const userDoc = querySnapshot.docs[0];
                 const { isNewUser } = userDoc.data();
-    
                 // Redirect based on isNewUser value
-                navigate(isNewUser ? '/AboutOlympiad' : '/');
+                navigate(isNewUser ? '' : '/AboutOlympiad');
             } catch (error: any) {
                 alert(error.message);
                 setIsError(true);
