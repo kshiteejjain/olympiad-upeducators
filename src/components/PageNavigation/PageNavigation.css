@@ -52,5 +52,6 @@
         font-size: calc(var(--baseFontSize) - 2px);
         padding: 10px 20px;
         width: auto;
+        min-width: inherit;
     }
 }

@@ -19,6 +19,14 @@
     width: 100%;
     margin-bottom: 15px;
 }
+.how-it-works h4{
+    width: 100%;
+    margin:0 0 40px 0;
+    font-weight: normal;
+}
+.how-it-works h4 strong{
+    color: var(--primary);
+}
 .works-card{
     width: 49%;
     background-color: var(--white);
