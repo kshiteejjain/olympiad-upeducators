@@ -57,55 +57,68 @@ const AboutOlympiad = () => {
                 <details>
                     <summary>A Journey of Professional Growth and Recognition</summary>
                     <p>This Olympiad is more than a competition; it's a journey of professional growth, a platform for sharing best practices, and a celebration of the advancements in the field of education. </p>
-            <p>Participants not only get a chance to test and enhance their teaching skills but also gain recognition among their peers and leaders in the educational sector.
-                Join us in this exciting journey to redefine the future of education!</p>
-            <h3>Curriculum</h3>
-            <p>Any teacher or aspirant would feel at ease while taking this Olympiad test. The topics covered are commonly known to Math Educators. Nevertheless, it's a good idea to review your basics and stay updated with the latest teaching methods to boost your chances of achieving a top rank in the exam.</p>
-            <p><strong>Topics Covered:</strong></p>
+                    <p>Participants not only get a chance to test and enhance their teaching skills but also gain recognition among their peers and leaders in the educational sector.
+                        Join us in this exciting journey to redefine the future of education!</p>
+
+                </details>
+                <details>
+                    <summary>Curriculum</summary>
+                    <p>Any teacher or aspirant would feel at ease while taking this Olympiad test. The topics covered are commonly known to Math Educators. Nevertheless, it's a good idea to review your basics and stay updated with the latest teaching methods to boost your chances of achieving a top rank in the exam.</p>
+                    <p><strong>Topics Covered:</strong></p>
+
+                    <ul className='list'>
+                        <li>Pedagogical Knowledge</li>
+                        <li>Innovative Teaching Strategies</li>
+                        <li>Technology Integration</li>
+                        <li>Classroom Management</li>
+                        <li>Assessment and Evaluation</li>
+                        <li>Professional Development</li>
+                        <li>Real-world Applications</li>
+                        <li>Inclusive Mathematics Education</li>
+                        <li>Cross-Disciplinary Integration</li>
+                        <li>Student Engagement and Differentiated Instruction</li>
+                    </ul>
+
+                </details>
+                <details>
+                    <summary>Sample Paper for Grade 1 to 5</summary>
+                    <p>Sample Questions will be updated by 28th July.</p>
+                </details>
+                <details>
+                    <summary>Sample Paper for Grade 6 to 10</summary>
+                    <p>Sample Paper for Grade 6 to 10</p>
+                </details>
+                <details>
+                    <summary>Process of Attempting the Olympiad</summary>
+                    <p><strong>Accessing the Olympiad:</strong></p>
+                    <p>1 day before the exam's scheduled start, we will send a dedicated link for the Olympiad on your registered email id. Please ensure you check the email on time to access the link and read all the instructions. Once the link is live, simply click on 'Start Test' button in the mail to begin your Olympiad journey.</p>
+                    <p><strong>Exam Environment and Integrity:</strong></p>
+                    <p>The Olympiad will be conducted in a secure online environment. To maintain the integrity of the exam:</p>
+                    <ul className='list'>
+                        <li>Webcam Monitoring: Your participation will be monitored via webcam throughout the exam duration. This is to ensure a fair and honest testing environment for all participants.</li>
+                        <li>Zero Tolerance for Malpractice: Any form of malpractice, if detected, will lead to immediate disqualification. We uphold the highest standards of integrity and expect the same from our participants.</li>
+                    </ul>
+                </details>
+                <details>
+                    <summary>Pre-Exam Checklist:</summary>
+                    <p>To ensure a smooth and uninterrupted exam experience, please verify the following before the exam begins:</p>
+                    <ul className='list'>
+                        <li><strong>Stable Internet Connection:</strong> Confirm that you have a reliable and active internet connection. It’s advisable to use a wired connection if possible, to reduce the risk of connectivity issues.</li>
+                        <li><strong>Functional Webcam:</strong> Ensure your webcam is working properly. The exam platform will require continuous access to your webcam to monitor the exam process.</li>
+                        <li><strong>Quiet and Well-Lit Space:</strong> Choose a quiet area with good lighting for taking the exam. This helps in clear visibility for webcam monitoring and minimizes distractions.</li>
+                        <li><strong>Compatible Browser:</strong> Check that you are using a compatible web browser. Further details will be sent in Exam mail.</li>
+                        <li><strong>System Test:</strong> Check your System compatibility 1 day before the exam from the Exam mail.</li>
+                    </ul>
+                </details>
+                <details>
+                    <summary>Technical Support:</summary>
+                    <p><strong></strong></p>
+                    <p>In case of technical difficulties, please reach out to the numbers given in Exam mail for assistance.</p>
+                    <h3>Link to attempt the exam</h3>
+                    <p>We will provide the link of the exam 1 day before the exam time on your registered email id.</p>
                 </details>
             </div>
-            <p><strong></strong></p>
-            
-            <ul className='list'>
-                <li>Pedagogical Knowledge</li>
-                <li>Innovative Teaching Strategies</li>
-                <li>Technology Integration</li>
-                <li>Classroom Management</li>
-                <li>Assessment and Evaluation</li>
-                <li>Professional Development</li>
-                <li>Real-world Applications</li>
-                <li>Inclusive Mathematics Education</li>
-                <li>Cross-Disciplinary Integration</li>
-                <li>Student Engagement and Differentiated Instruction</li>
-            </ul>
-            <h3>Sample Paper for Grade 1 to 5</h3>
-            <p>Sample Questions will be updated by 28th July.</p>
-            <h3>Sample Paper for Grade 6 to 10</h3>
-            <p>Sample Paper for Grade 6 to 10</p>
-            <h3>Sample Paper for Grade 11 and above</h3>
-            <p>Sample Questions will be updated by 28th July.</p>
-            <h3>Process of Attempting the Olympiad</h3>
-            <p><strong>Accessing the Olympiad:</strong></p>
-            <p>1 day before the exam's scheduled start, we will send a dedicated link for the Olympiad on your registered email id. Please ensure you check the email on time to access the link and read all the instructions. Once the link is live, simply click on 'Start Test' button in the mail to begin your Olympiad journey.</p>
-            <p><strong>Exam Environment and Integrity:</strong></p>
-            <p>The Olympiad will be conducted in a secure online environment. To maintain the integrity of the exam:</p>
-            <ul className='list'>
-                <li>Webcam Monitoring: Your participation will be monitored via webcam throughout the exam duration. This is to ensure a fair and honest testing environment for all participants.</li>
-                <li>Zero Tolerance for Malpractice: Any form of malpractice, if detected, will lead to immediate disqualification. We uphold the highest standards of integrity and expect the same from our participants.</li>
-            </ul>
-            <p><strong>Pre-Exam Checklist:</strong></p>
-            <p>To ensure a smooth and uninterrupted exam experience, please verify the following before the exam begins:</p>
-            <ul className='list'>
-                <li><strong>Stable Internet Connection:</strong> Confirm that you have a reliable and active internet connection. It’s advisable to use a wired connection if possible, to reduce the risk of connectivity issues.</li>
-                <li><strong>Functional Webcam:</strong> Ensure your webcam is working properly. The exam platform will require continuous access to your webcam to monitor the exam process.</li>
-                <li><strong>Quiet and Well-Lit Space:</strong> Choose a quiet area with good lighting for taking the exam. This helps in clear visibility for webcam monitoring and minimizes distractions.</li>
-                <li><strong>Compatible Browser:</strong> Check that you are using a compatible web browser. Further details will be sent in Exam mail.</li>
-                <li><strong>System Test:</strong> Check your System compatibility 1 day before the exam from the Exam mail.</li>
-            </ul>
-            <p><strong>Technical Support:</strong></p>
-            <p>In case of technical difficulties, please reach out to the numbers given in Exam mail for assistance.</p>
-            <h3>Link to attempt the exam</h3>
-            <p>We will provide the link of the exam 1 day before the exam time on your registered email id.</p>
+
         </div>
     )
 };
