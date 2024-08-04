@@ -13,12 +13,12 @@ type Props = {
 };
 
 const Modal = ({ data, modalTitle, onClose, children }: Props) => {
-    // Transform data to insert <br /> after each full stop and make text bold after 'discount'
+    // Ensure data is a string before applying transformations
     const transformedData = typeof data === 'string'
         ? data
-            .replace(/\.\s/g, '.<br /><br />') // Add <br /> after each full stop
+            .replace(/\.\s/g, '.<br />') // Add <br /> after each full stop
             .replace(/(discount)(.*)/i, '$1<b>$2</b>') // Make text bold after 'discount'
-        : data;
+        : ''; // Provide an empty string if data is not a string
 
     return (
         <div className='modal'>
