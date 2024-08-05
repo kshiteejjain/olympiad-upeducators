@@ -1,4 +1,4 @@
-// src/components/UploadProfile.js
+// src/components/UploadProfile.tsx
 import { useRef, useState, useEffect } from 'react';
 import Croppie from 'croppie';  // Use default import
 import Close from '../../assets/close.svg';
@@ -6,9 +6,14 @@ import Close from '../../assets/close.svg';
 import 'croppie/croppie.css';
 import './UploadProfile.css';
 
-const UploadProfile = ({ onClose, onImageCropped }) => {
+type Props = {
+  onClose: () => void,
+  onImageCropped: (base64: string) => void,
+}
+
+const UploadProfile = ({ onClose, onImageCropped }: Props) => {
   const [isCropping, setIsCropping] = useState(false);
-  const croppieRef = useRef(null);
+  const croppieRef = useRef<Croppie | null>(null);
 
   useEffect(() => {
     const croppieElement = document.getElementById('croppie');
@@ -29,18 +34,20 @@ const UploadProfile = ({ onClose, onImageCropped }) => {
     };
   }, []);
 
-  const handleFileUpload = (e) => {
+  const handleFileUpload = (e: React.ChangeEvent<HTMLInputElement>) => {
     const reader = new FileReader();
-    const file = e.target.files[0];
-    reader.readAsDataURL(file);
-    reader.onload = () => {
-      croppieRef.current?.bind({ url: reader.result });
-      setIsCropping(true);
-    };
+    const file = e.target.files?.[0];
+    if (file) {
+      reader.readAsDataURL(file);
+      reader.onload = () => {
+        croppieRef.current?.bind({ url: reader.result as string });
+        setIsCropping(true);
+      };
+    }
   };
 
   const handleCrop = () => {
-    croppieRef.current?.result('base64').then((base64) => {
+    croppieRef.current?.result('base64').then((base64: string) => {
       onImageCropped(base64);
       setIsCropping(false);
       onClose();
@@ -51,17 +58,16 @@ const UploadProfile = ({ onClose, onImageCropped }) => {
     <div className="upload-profile-popup">
       <div className="croppie-wrapper">
         <h2>Upload Profile Picture</h2>
-        <span className='close' onClick={onClose}> <img src={Close} /> </span>
+        <span className='close' onClick={onClose}> <img src={Close} alt="Close" /> </span>
         <div id="croppie"></div>
         <input type="file" accept="image/*" onChange={handleFileUpload} />
         {isCropping && (
-        <div className='cta'>
-          <button onClick={handleCrop}>Crop</button>
-          <button onClick={onClose}>Cancel</button>
-        </div>
-      )}
+          <div className='cta'>
+            <button onClick={handleCrop}>Crop</button>
+            <button onClick={onClose}>Cancel</button>
+          </div>
+        )}
       </div>
-      
     </div>
   );
 };

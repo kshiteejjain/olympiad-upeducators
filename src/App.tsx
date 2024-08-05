@@ -13,6 +13,7 @@ import PageNavigation from './components/PageNavigation/PageNavigation';
 import EnterOTP from './features/Login/EnterOTP';
 import LMSForm from './features/LMSForm/LMSForm';
 import Admin from './features/Admin/Admin';
+import UserProfile from './features/UserProfile/UserProfile';
 
 import './App.css';
 
@@ -56,6 +57,7 @@ const App = () => {
           <Route path="/Report" element={checkSession() ? <Report /> : <Navigate to="/" replace />} />
           <Route path="/AboutUpEducators" element={checkSession() ? <AboutUpEducators /> : <Navigate to="/" replace />} />
           <Route path="/Admin" element={checkSession() ? <Admin /> : <Navigate to="/" replace />} />
+          <Route path="/UserProfile" element={checkSession() ? <UserProfile /> : <Navigate to="/" replace />} />
         </Routes>
       </div>
     </div>

@@ -1,0 +1,19 @@
+.user-details{
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+}
+.user-details table tr td:nth-child(1){
+    font-weight: bold;
+}
+.user-details-profile{
+    width: 30%;
+    margin-left: 50px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    background-color: var(--grayBlue);
+    padding: 20px;
+    border-radius: 8px;
+    border: 1px solid var(--gray);
+}

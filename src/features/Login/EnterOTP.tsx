@@ -7,8 +7,6 @@ import LoginAnimation from "./LoginAnimation";
 
 import './Login.css';
 
-
-
 const EnterOTP = () => {
     const [otp, setOtp] = useState('');
     const [isError, setIsError] = useState(false);

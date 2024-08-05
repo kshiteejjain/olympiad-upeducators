@@ -54,7 +54,7 @@ const LMSForm = () => {
     const [profilePicture, setProfilePicture] = useState('');
     const navigate = useNavigate();
 
-    const handleImageCropped = (base64Image) => {
+    const handleImageCropped = (base64Image: any) => {
         setProfilePicture(base64Image);
     };
 

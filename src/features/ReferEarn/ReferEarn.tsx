@@ -29,7 +29,7 @@ const ReferEarn = () => {
     };
 
     const fetchAndCheckReferral = async () => {
-        setIsLoading(true);
+        //setIsLoading(true);
         const olympdPrefix = JSON.parse(localStorage.getItem('olympd_prefix') || '{}');
         const { email } = olympdPrefix;
         if (!email) {
@@ -46,7 +46,6 @@ const ReferEarn = () => {
                 if (userData.referral) {
                     setReferral(referralData + userData.referral);
                     setHasReferral(true);
-                    setIsLoading(false)
                     console.log('Existing referral code fetched successfully.');
                     setIsLoading(false)
                 }
@@ -57,7 +56,7 @@ const ReferEarn = () => {
     };
 
     const updateReferral = async () => {
-        setIsLoading(true);
+        //setIsLoading(true);
         const olympdPrefix = JSON.parse(localStorage.getItem('olympd_prefix') || '{}');
         const { email } = olympdPrefix;
         if (!email) {
