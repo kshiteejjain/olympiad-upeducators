@@ -3,10 +3,10 @@
     border-bottom: 1px solid var(--grayBlue);
     display: flex;
     flex-direction: column;
-    min-width: 20%;
+    min-width: 18%;
     align-items: flex-start;
     box-sizing: border-box;
-    margin: 40px 4% 40px 0;
+    margin: 40px 2% 40px 0;
     padding: 0;
     border-radius: 10px;
 }

@@ -12,6 +12,7 @@ import Header from './components/Header/Header';
 import PageNavigation from './components/PageNavigation/PageNavigation';
 import EnterOTP from './features/Login/EnterOTP';
 import LMSForm from './features/LMSForm/LMSForm';
+import Admin from './features/Admin/Admin';
 
 import './App.css';
 
@@ -40,12 +41,12 @@ const App = () => {
     <div className="App">
       {showHeaderAndNav && <Header />}
       <div className={noContainerRoutes.includes(location.pathname) ? '' : 'container-wrapper'}>
-      {showHeaderAndNav && location.pathname !== '/LMSForm' && <PageNavigation />}
+        {showHeaderAndNav && location.pathname !== '/LMSForm' && '/Admin' && <PageNavigation />}
         <Routes>
+          <Route path="*" element={<Navigate to="/" replace />} />
           <Route path="/" element={<Login />} />
           <Route path="/LMSForm" element={<LMSForm />} />
           <Route path="/EnterOTP" element={<EnterOTP />} />
-          <Route path="*" element={<Navigate to="/" replace />} />
           <Route path="/PaymentGateway" element={<PaymentGateway />} />
           <Route path="/AboutOlympiad" element={checkSession() ? <AboutOlympiad /> : <Navigate to="/" replace />} />
           <Route path="/ReferEarn" element={checkSession() ? <ReferEarn /> : <Navigate to="/" replace />} />
@@ -54,6 +55,7 @@ const App = () => {
           <Route path="/LiveMasterClass" element={checkSession() ? <LiveMasterClass /> : <Navigate to="/" replace />} />
           <Route path="/Report" element={checkSession() ? <Report /> : <Navigate to="/" replace />} />
           <Route path="/AboutUpEducators" element={checkSession() ? <AboutUpEducators /> : <Navigate to="/" replace />} />
+          <Route path="/Admin" element={checkSession() ? <Admin /> : <Navigate to="/" replace />} />
         </Routes>
       </div>
     </div>

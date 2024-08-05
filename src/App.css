@@ -83,7 +83,7 @@ h3 {
 }
 
 .content {
-  width: 100%;
+  width: 80%;
   display: inline-block;
   background-color: var(--white);
   padding: 30px;

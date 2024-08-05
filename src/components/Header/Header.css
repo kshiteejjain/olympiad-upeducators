@@ -15,25 +15,58 @@
 .header-right {
   display: flex;
   align-items: center;
+  position: relative;
 }
 
 .header-right .username {
-  margin-right: 15px;
-}
-
-.header-right button {
   display: flex;
   align-items: center;
-  border: 1px solid var(--lightGray);
-  font-size: calc(var(--baseFontSize) - 2px);
-  background-color: var(--white);
-  color: var(--darkGray);
+}
+.header-right .username strong{
+  margin-left: 5px;
+}
+.header-right .username .arrow{
+  max-width: 15px;
+  margin-left: 5px;
+  transform: translateY(2px);
+  opacity: 0.4;
+}
+.header-right:hover .username .arrow{
+  opacity: 1;
+}
+.header-right:hover .dropdown-menu{
+  display: flex;
 }
 
+.header .dropdown-menu button {
+  background-color: var(--white);
+    border-radius: 0;
+    border:0;
+    padding: 12px 20px;
+    color: var(--darkGray);
+    text-align: left;
+    font-size: calc(var(--baseFontSize) - 3px);
+    font-weight: normal;
+    display: flex;
+    align-items: center;
+}
+.header .dropdown-menu button:hover {
+  background-color: var(--lightGray);
+}
 .header-right button img {
   max-height: 14px;
 }
-
+.dropdown-menu {
+  position: absolute;
+  width: 200px;
+  background-color: var(--white);
+  flex-direction: column;
+  display: flex;
+  right: 0;
+  top: 22px;
+  box-shadow: 0 0 10px #e7e7e7;
+  display: none;
+}
 @media(max-width: 767px) {
   .header {
     padding: 15px;

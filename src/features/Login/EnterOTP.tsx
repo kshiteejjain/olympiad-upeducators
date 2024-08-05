@@ -24,7 +24,8 @@ const EnterOTP = () => {
             const user = JSON.parse(olympd_prefix);
             const code = user?.code;
             if (code === otp) {
-                delete user.code;  // Remove the code property from the user object
+                delete user.code;
+                localStorage.setItem('olympd_prefix', JSON.stringify(user));
                 navigate('/LMSForm');
             } else {
                 setIsError(true);
