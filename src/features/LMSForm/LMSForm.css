@@ -12,6 +12,34 @@
 .olympiad-form form .branding{
     margin: 20px 0 40px 0;
 }
+.user-profile{
+    display: flex;
+    justify-content: space-between;
+}
+.user-profile-left{
+    width: 60%;
+}
+.user-profile-right{
+    width: 35%;
+}
+.user-profile-upload {
+    border: 1px solid var(--gray);
+    padding: 13px;
+    width: 100%;
+    box-sizing: border-box;
+    border-radius: 6px;
+    display: flex;
+    flex-direction: column-reverse;
+    align-items: center;
+}
+.user-profile-upload button{
+    margin-top: 20px;
+    font-size: calc(var(--baseFontSize) - 3px);
+}
+.img-size{
+    max-width: 150px;
+}
+
 @media(max-width:767px){
     .lms-form{
         padding:0 15px;

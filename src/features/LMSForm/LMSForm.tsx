@@ -6,6 +6,8 @@ import Button from '../../components/Buttons/Button';
 import ErrorBoundary from '../../components/ErrorBoundary/ErrorBoundary';
 import LoginAnimation from '../Login/LoginAnimation';
 import Loader from '../../components/Loader/Loader';
+import UploadProfile from './UploadProfile';
+import ProfilePlaceholder from '../../assets/profile-placeholder.png';
 
 import './LMSForm.css';
 
@@ -32,6 +34,7 @@ const LMSForm = () => {
     const [userDetails, setUserDetails] = useState({
         firstName: '',
         lastName: '',
+        profilePicture: '',
         mobileNumber: '',
         whatsappNumber: '',
         email: '',
@@ -47,7 +50,13 @@ const LMSForm = () => {
 
     const [isError, setIsError] = useState(false);
     const [isLoader, setIsLoader] = useState(false);
+    const [showUploadPopup, setShowUploadPopup] = useState(false);
+    const [profilePicture, setProfilePicture] = useState('');
     const navigate = useNavigate();
+
+    const handleImageCropped = (base64Image) => {
+        setProfilePicture(base64Image);
+    };
 
 
     useEffect(() => {
@@ -124,10 +133,16 @@ const LMSForm = () => {
             olympdPrefix.name = userName;
             localStorage.setItem('olympd_prefix', JSON.stringify(olympdPrefix));
 
-            await updateDoc(doc(firestore, 'OlympiadUsers', userDoc.id), { profile: userDetails, isNewUser: false });
+            await updateDoc(doc(firestore, 'OlympiadUsers', userDoc.id), { 
+                profile: { 
+                    ...userDetails, 
+                    image: profilePicture // Save the base64 image URL here
+                },
+                isNewUser: false 
+            });
 
             setUserDetails({
-                firstName: '', lastName: '', mobileNumber: '', whatsappNumber: '', email: '',
+                firstName: '', lastName: '', profilePicture: '', mobileNumber: '', whatsappNumber: '', email: '',
                 city: '', country: '', dateOfBirth: '', organizationType: '', organizationName: '',
                 board: '', role: '', gradeLevel: '',
             });
@@ -154,44 +169,55 @@ const LMSForm = () => {
                 <LoginAnimation />
                 <form onSubmit={handleSubmit}>
                     <h1>Enter Your Details</h1>
+                    <div className='user-profile'>
+                        <div className='user-profile-left'>
+                            <div className='form-group'>
+                                <label htmlFor='firstName'>First Name<span className="asterisk">*</span></label>
+                                <input
+                                    type='text'
+                                    className='form-control'
+                                    required
+                                    name="firstName"
+                                    autoComplete="off"
+                                    value={userDetails.firstName}
+                                    onChange={handleInputChange}
+                                />
+                            </div>
 
-                    <div className='form-group'>
-                        <label htmlFor='firstName'>First Name<span className="asterisk">*</span></label>
-                        <input
-                            type='text'
-                            className='form-control'
-                            required
-                            name="firstName"
-                            autoComplete="off"
-                            value={userDetails.firstName}
-                            onChange={handleInputChange}
-                        />
-                    </div>
-
-                    <div className='form-group'>
-                        <label htmlFor='lastName'>Last Name<span className="asterisk">*</span></label>
-                        <input
-                            type='text'
-                            className='form-control'
-                            required
-                            name="lastName"
-                            autoComplete="off"
-                            value={userDetails.lastName}
-                            onChange={handleInputChange}
-                        />
-                    </div>
-
-                    <div className='form-group'>
-                        <label htmlFor='mobileNumber'>Mobile Number<span className="asterisk">*</span></label>
-                        <input
-                            type='tel'
-                            className='form-control phone'
-                            required
-                            name="mobileNumber"
-                            autoComplete="off"
-                            value={userDetails.mobileNumber}
-                            onChange={handleInputChange}
-                        />
+                            <div className='form-group'>
+                                <label htmlFor='lastName'>Last Name<span className="asterisk">*</span></label>
+                                <input
+                                    type='text'
+                                    className='form-control'
+                                    required
+                                    name="lastName"
+                                    autoComplete="off"
+                                    value={userDetails.lastName}
+                                    onChange={handleInputChange}
+                                />
+                            </div>
+                            <div className='form-group'>
+                                <label htmlFor='mobileNumber'>Mobile Number<span className="asterisk">*</span></label>
+                                <input
+                                    type='tel'
+                                    className='form-control phone'
+                                    required
+                                    name="mobileNumber"
+                                    autoComplete="off"
+                                    value={userDetails.mobileNumber}
+                                    onChange={handleInputChange}
+                                />
+                            </div>
+                        </div>
+                        <div className='user-profile-right'>
+                            <div className="form-group">
+                                <label htmlFor="profilePicture">Upload Profie Picture<span className="asterisk">*</span></label>
+                                <div className='user-profile-upload'>
+                                    <Button title={profilePicture ? 'Change Profile Picture' : 'Upload Profile Picture'} type="button" onClick={() => setShowUploadPopup(true)} />
+                                    {profilePicture ? <img className='img-size' src={profilePicture} alt="Profile" /> : <img className='img-size' src={ProfilePlaceholder} alt="Profile" />}
+                                </div>
+                            </div>
+                        </div>
                     </div>
 
                     <div className='form-group'>
@@ -337,10 +363,15 @@ const LMSForm = () => {
                             ))}
                         </select>
                     </div>
-
                     <Button title='Submit' type='submit' />
                 </form>
             </div>
+            {showUploadPopup && (
+                <UploadProfile
+                    onClose={() => setShowUploadPopup(false)}
+                    onImageCropped={handleImageCropped}
+                />
+            )}
         </div>
     );
 };
