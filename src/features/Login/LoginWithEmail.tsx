@@ -37,7 +37,7 @@ const LoginWithEmail = () => {
                 const userData = userDoc.data();
                 const userName = userData.name || 'No Name'; // Adjust according to your schema
                 const email = userData.email || 'No Name'; // Adjust according to your schema
-                const image = userData.profile.image || 'No Name'; // Adjust according to your schema
+                const image = userData?.profile?.image || 'No Name'; // Adjust according to your schema
 
                 // Update localStorage with user details
                 const olympdPrefix = JSON.parse(localStorage.getItem('olympd_prefix') || '{}');
