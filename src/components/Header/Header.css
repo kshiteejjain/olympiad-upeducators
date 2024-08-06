@@ -39,7 +39,7 @@
     padding: 12px 20px;
     color: var(--darkGray);
     text-align: left;
-    font-size: calc(var(--baseFontSize) - 3px);
+    font-size: calc(var(--baseFontSize) - 2px);
     font-weight: normal;
     display: flex;
     align-items: center;

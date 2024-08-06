@@ -78,7 +78,10 @@ const Admin = () => {
 
     return (
         <div className="content">
-            <h2>Admin <span onClick={()=> navigate('/AddUser')}>Add User</span></h2>
+            <div className='admin-cta-row'>
+                <h2>Admin </h2>
+                <span className='admin-cta'><Button type='button' title='Add User' isSecondary onClick={()=> navigate('/AddUser')} /> </span>
+                </div>
             <div className="date-filter">
                 <form>
                     <div className='from-group'>

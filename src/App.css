@@ -96,6 +96,7 @@ h3 {
 .content form{
   box-shadow: none;
   padding: 0;
+  width: 100%;
 }
 .content form button{
   margin-right: 10px;

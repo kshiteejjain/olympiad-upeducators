@@ -22,3 +22,12 @@ table.admin-table td{
     align-items: center;
     margin-right: 15px;
 }
+.admin-cta-row{
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 1px solid var(--gray);
+    margin-bottom: 30px;
+}
+.admin-cta{
+    margin-right: 0;
+}

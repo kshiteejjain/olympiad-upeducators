@@ -34,7 +34,6 @@ const LMSForm = () => {
     const olympdPrefix = JSON.parse(localStorage.getItem('olympd_prefix') || '{}');
     const [userDetails, setUserDetails] = useState({
         name: olympdPrefix?.name,
-        profilePicture: '',
         mobileNumber: '',
         whatsappNumber: '',
         email: olympdPrefix?.email,
@@ -57,6 +56,8 @@ const LMSForm = () => {
 
     const handleImageCropped = (base64Image: any) => {
         setProfilePicture(base64Image);
+        const updatedOlympdPrefix = { ...olympdPrefix, image: base64Image };
+        localStorage.setItem('olympd_prefix', JSON.stringify(updatedOlympdPrefix));
     };
 
 
@@ -134,10 +135,9 @@ const LMSForm = () => {
 
             const userDoc = querySnapshot.docs[0];
             const userName = userDoc.data().name || 'No Name';
-            const userImage = userDoc.data().profile?.image || 'No Image'
             olympdPrefix.name = userName;
-            olympdPrefix.image = userImage;
-            
+            olympdPrefix.image = profilePicture; // Save the base64 image URL here
+
             localStorage.setItem('olympd_prefix', JSON.stringify(olympdPrefix));
 
             await updateDoc(doc(firestore, 'OlympiadUsers', userDoc.id), {
@@ -151,7 +151,7 @@ const LMSForm = () => {
             });
 
             setUserDetails({
-                name: '', profilePicture: '', mobileNumber: '', whatsappNumber: '', email: '',
+                name: '', mobileNumber: '', whatsappNumber: '', email: '',
                 city: '', country: '', dateOfBirth: '', organizationType: '', organizationName: '',
                 board: '', role: '', gradeLevel: '',
             });
@@ -222,7 +222,7 @@ const LMSForm = () => {
                         </div>
                         <div className='user-profile-right'>
                             <div className="form-group">
-                                <label htmlFor="profilePicture">Upload Profie Picture<span className="asterisk">*</span></label>
+                                <label htmlFor="profilePicture">Upload Profile Picture<span className="asterisk">*</span></label>
                                 <div className='user-profile-upload'>
                                     {profilePicture ? <img className='img-size' src={profilePicture} alt="Profile" /> : <img className='img-size' src={ProfilePlaceholder} alt="Profile" />}
                                     <Button title={profilePicture ? 'Change Profile Picture' : 'Upload Profile Picture'} type="button" onClick={() => setShowUploadPopup(true)} />

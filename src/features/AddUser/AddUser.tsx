@@ -1,18 +1,17 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { collection, addDoc } from 'firebase/firestore';
+import { doc, setDoc } from 'firebase/firestore';
 import { firestore } from '../../utils/firebase';
 import Button from '../../components/Buttons/Button';
-import ErrorBoundary from "../../components/ErrorBoundary/ErrorBoundary";
-import Loader from "../../components/Loader/Loader";
+import ErrorBoundary from '../../components/ErrorBoundary/ErrorBoundary';
+import Loader from '../../components/Loader/Loader';
 
 const AddUser = () => {
     const [userDetails, setUserDetails] = useState({
         name: '',
         email: '',
-        mobile: '',
-        whatsapp: '',
-        paymentId: '',
+        phone: '',
+        paymentId: 'internal',
         isNewUser: true,
     });
     const [isError, setIsError] = useState(false);
@@ -21,10 +20,10 @@ const AddUser = () => {
 
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
-        const { name, email, mobile, whatsapp, paymentId } = userDetails;
+        const { name, email, phone, paymentId } = userDetails;
 
         // Validation for required fields
-        if (!name || !email || !mobile || !whatsapp) {
+        if (!name || !email || !phone) {
             setIsError(true);
             return;
         }
@@ -32,29 +31,29 @@ const AddUser = () => {
         try {
             setIsLoader(true);
             // Prepare data for Firestore
-            const mobileWithCountryCode = `91${mobile}`;
-            await addDoc(collection(firestore, 'OlympiadUsers'), {
+            const phoneWithCountryCode = `91${phone}`;
+            const userDocRef = doc(firestore, 'OlympiadUsers', email.toLowerCase());
+            await setDoc(userDocRef, {
                 name,
                 email: email.toLowerCase(),
-                mobile: mobileWithCountryCode,
-                whatsapp,
+                phone: phoneWithCountryCode,
                 paymentDetails: {
-                    razorpay_payment_id: paymentId
+                    razorpay_payment_id: paymentId,
                 },
-                registeredDate: new Date().toISOString()
+                registeredDate: new Date().toISOString(),
+                isNewUser: true
             });
-
             // Reset form and navigate
             setUserDetails({
                 name: '',
                 email: '',
-                mobile: '',
-                whatsapp: '',
-                paymentId: ''
+                phone: '',
+                paymentId: 'internal',
+                isNewUser: true,
             });
             navigate('/EnterOTP');
-        } catch (error) {
-            alert('Error saving data to Firestore: ' + error);
+        } catch (error: any) {
+            alert('Error saving data to Firestore: ' + error.message);
         } finally {
             setIsLoader(false);
         }
@@ -64,7 +63,7 @@ const AddUser = () => {
         const { name, value } = e.target;
         setUserDetails(prev => ({
             ...prev,
-            [name]: value
+            [name]: value,
         }));
         setIsError(false);
     };
@@ -72,57 +71,52 @@ const AddUser = () => {
     return (
         <>
             {isLoader && <Loader title='Loading..' />}
-            <form onSubmit={handleSubmit}>
-                <h1>Enter User Details</h1>
-                <div className='form-group'>
-                    <label htmlFor='name'>Name<span className="asterisk">*</span></label>
-                    <input
-                        type='text'
-                        className='form-control'
-                        required
-                        name='name'
-                        value={userDetails.name}
-                        onChange={handleInputChange}
-                    />
-                </div>
-                <div className='form-group'>
-                    <label htmlFor='email'>Email<span className="asterisk">*</span></label>
-                    <input
-                        type='email'
-                        className='form-control'
-                        required
-                        name='email'
-                        value={userDetails.email}
-                        onChange={handleInputChange}
-                    />
-                </div>
-                <div className='form-group'>
-                    <label htmlFor='mobile'>Mobile<span className="asterisk">*</span></label>
-                    <input
-                        type='text'
-                        className='form-control'
-                        required
-                        name='mobile'
-                        value={userDetails.mobile}
-                        onChange={handleInputChange}
-                        maxLength={10}
-                    />
-                </div>
-                <div className='form-group'>
-                    <label htmlFor='whatsapp'>WhatsApp<span className="asterisk">*</span></label>
-                    <input
-                        type='text'
-                        className='form-control'
-                        required
-                        name='whatsapp'
-                        value={userDetails.whatsapp}
-                        onChange={handleInputChange}
-                        maxLength={10}
-                    />
-                </div>
-                {isError && <ErrorBoundary message='All fields are required.' />}
-                <Button title='Submit' type='submit' />
-            </form>
+            <div className='content'>
+                <h2>Add User</h2>
+                <form onSubmit={handleSubmit}>
+                    <div className='form-group'>
+                        <label htmlFor='name'>Name<span className="asterisk">*</span></label>
+                        <input
+                            type='text'
+                            className='form-control'
+                            required
+                            name='name'
+                            value={userDetails.name}
+                            onChange={handleInputChange}
+                            autoComplete='off'
+                        />
+                    </div>
+                    <div className='form-group'>
+                        <label htmlFor='email'>Email<span className="asterisk">*</span></label>
+                        <input
+                            type='email'
+                            className='form-control'
+                            required
+                            name='email'
+                            value={userDetails.email}
+                            onChange={handleInputChange}
+                            autoComplete='off'
+                        />
+                    </div>
+                    <div className='form-group'>
+                        <label htmlFor='phone'>Phone<span className="asterisk">*</span></label>
+                        <input
+                            type='text'
+                            className='form-control'
+                            required
+                            name='phone'
+                            value={userDetails.phone}
+                            onChange={handleInputChange}
+                            maxLength={10}
+                            pattern="\d{10}"
+                            title="Phone number must be 10 digits"
+                            autoComplete='off'
+                        />
+                    </div>
+                    {isError && <ErrorBoundary message='All fields are required.' />}
+                    <Button title='Submit' type='submit' />
+                </form>
+            </div>
         </>
     );
 };
