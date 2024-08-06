@@ -7,8 +7,7 @@ import './UserProfile.css';
 
 // Define types for user profile and data
 type Profile = {
-    firstName: string;
-    lastName: string;
+    name: string;
     dateOfBirth: string;
     country: string;
     organizationName: string;
@@ -83,6 +82,11 @@ const UserProfile = () => {
         return <div className="error-message">An error occurred. Please try again.</div>;
     }
 
+    const handleChangeEmail = () => {
+        localStorage.removeItem('olympd_prefix');
+        navigate('/ChangeEmail');
+      };
+
     return (
         <>
             {
@@ -94,11 +98,11 @@ const UserProfile = () => {
                                 <tbody>
                                     <tr>
                                         <td>Email</td>
-                                        <td>{data.email}</td>
+                                        <td>{data.email} <span className='link-button' onClick={handleChangeEmail}>Change Email?</span></td>
                                     </tr>
                                     <tr>
                                         <td>Name</td>
-                                        <td>{data.profile.firstName} {data.profile.lastName}</td>
+                                        <td>{data.profile.name}</td>
                                     </tr>
                                     <tr>
                                         <td>Date of Birth</td>
@@ -144,7 +148,7 @@ const UserProfile = () => {
                             </table>
                             <div className='user-details-profile'>
                                 <p>Profile Image:</p>
-                                <img src={data.profile.image} alt="User Profile" />
+                                <img src={data?.profile?.image} alt="User Profile" />
                             </div>
                         </div>
                     </div>

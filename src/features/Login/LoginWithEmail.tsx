@@ -2,10 +2,11 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { collection, getDocs, query, where } from 'firebase/firestore';
 import { firestore } from '../../utils/firebase';
+import { sendEmail } from "../SendEmail/SendEmail";
 import Button from '../../components/Buttons/Button';
 import ErrorBoundary from "../../components/ErrorBoundary/ErrorBoundary";
 import Loader from "../../components/Loader/Loader";
-import { sendEmail } from "../SendEmail/SendEmail";
+
 
 
 const LoginWithEmail = () => {

@@ -9,7 +9,7 @@ import './Header.css';
 const Header = () => {
   const navigate = useNavigate();
   const olympdPrefix = JSON.parse(localStorage.getItem('olympd_prefix') || '{}');
-  const isAdmin = olympdPrefix.email === 'ankushb@upeducators.com';
+  const isAdmin = olympdPrefix.email === 'ankushb@upeducators.com' || 'kshiteejjain@gmail.com';
 
   const handleLogout = () => {
     localStorage.removeItem('olympd_prefix');
@@ -40,7 +40,7 @@ const Header = () => {
           <div className='header-right'>
             <div className='username'>
               Welcome <strong>{olympdPrefix.name} </strong>
-              {olympdPrefix.image ? <img className='profile-image' src={olympdPrefix.image} /> : <img className='profile-image' src={PlaceholderImage} />}
+              {olympdPrefix.image ? <img className='profile-image' src={olympdPrefix?.image} /> : <img className='profile-image' src={PlaceholderImage} />}
             </div>
             <div className='dropdown-menu'>
               {isAdmin && <Button title='Admin' type='button' onClick={() => navigate('/Admin')} />}

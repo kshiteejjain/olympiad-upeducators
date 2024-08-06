@@ -1,0 +1,24 @@
+table.admin-table td{
+    padding: 7px 10px;
+    font-size:calc(var(--baseFontSize) - 3px)
+}
+.date-filter{
+    display: flex;
+    align-items: center;
+    font-size:calc(var(--baseFontSize) - 3px)
+}
+.date-filter form{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    padding: 10px;
+}
+.date-filter form .from-group label{
+    margin-right: 5px;
+    font-weight: bold;
+}
+.date-filter form .from-group{
+    display: flex;
+    align-items: center;
+    margin-right: 15px;
+}

@@ -1,12 +1,29 @@
 import { useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { firestore } from '../../utils/firebase';
 import { collection, getDocs, query, DocumentData } from 'firebase/firestore';
+import Button from '../../components/Buttons/Button';
 import Loader from '../../components/Loader/Loader';
+import ErrorBoundary from '../../components/ErrorBoundary/ErrorBoundary';
+
+import './Admin.css';
+
+const formatDate = (dateString: string): string => {
+    const date = new Date(dateString);
+    const day = String(date.getDate()).padStart(2, '0');
+    const month = String(date.getMonth() + 1).padStart(2, '0');
+    const year = date.getFullYear();
+    return `${day}-${month}-${year}`;
+};
 
 const Admin = () => {
     const [data, setData] = useState<DocumentData[]>([]);
+    const [filteredData, setFilteredData] = useState<DocumentData[]>([]);
     const [loading, setLoading] = useState<boolean>(true);
     const [error, setError] = useState<string | null>(null);
+    const [startDate, setStartDate] = useState<string>('');
+    const [endDate, setEndDate] = useState<string>('');
+    const navigate = useNavigate();
 
     useEffect(() => {
         const fetchAllData = async () => {
@@ -17,9 +34,11 @@ const Admin = () => {
                 if (!querySnapshot.empty) {
                     const usersData = querySnapshot.docs.map(doc => doc.data());
                     setData(usersData);
+                    setFilteredData(usersData); // Initialize filtered data
                 } else {
                     console.log('No user found.');
-                    setData([]); // Optionally set an empty array if no data
+                    setData([]);
+                    setFilteredData([]);
                 }
             } catch (err) {
                 console.error('Error fetching data:', err);
@@ -32,34 +51,83 @@ const Admin = () => {
         fetchAllData();
     }, []);
 
+    useEffect(() => {
+        const filterDataByDate = () => {
+            if (startDate && endDate) {
+                const filtered = data.filter(user => {
+                    const userDate = new Date(user.timeStamp).toISOString().split('T')[0];
+                    return userDate >= startDate && userDate <= endDate;
+                });
+                setFilteredData(filtered);
+            } else {
+                setFilteredData(data); // Reset to full data if no dates are selected
+            }
+        };
+
+        filterDataByDate();
+    }, [startDate, endDate, data]);
+
+    const handleReset = () => {
+        setStartDate('');
+        setEndDate('');
+        setFilteredData(data); // Reset to full data
+    };
+
     if (loading) return <Loader />;
     if (error) return <div>Error: {error}</div>;
 
     return (
         <div className="content">
-            <h2>Admin</h2>
-            {data.length === 0 ? (
-                <p>No users available.</p>
+            <h2>Admin <span onClick={()=> navigate('/AddUser')}>Add User</span></h2>
+            <div className="date-filter">
+                <form>
+                    <div className='from-group'>
+                        <label>From:</label>
+                            <input
+                                type="date"
+                                className='form-control'
+                                value={startDate}
+                                onChange={(e) => setStartDate(e.target.value)}
+                            />
+                    </div>
+                    <div className='from-group'>
+                        <label>To:</label>
+                            <input
+                                type="date"
+                                value={endDate}
+                                className='form-control'
+                                onChange={(e) => setEndDate(e.target.value)}
+                            />
+                    </div>
+                    <Button type='button' title='Reset' isSecondary onClick={handleReset} />
+                </form>
+            </div>
+
+            {filteredData.length === 0 ? (
+                <ErrorBoundary message='No Data available, Try changing dates.' />
             ) : (
                 <div className='table-wrapper'>
-                    <table className='table'>
+                    <table className='table admin-table'>
                         <thead>
                             <tr>
                                 <th>Name</th>
                                 <th>Email</th>
                                 <th>Mobile</th>
+                                <th>WhatsApp</th>
                                 <th>Payment Id</th>
-                                <th>LMS Details</th>
                                 <th>Registered Date</th>
+                                <th>LMS Details</th>
                             </tr>
                         </thead>
                         <tbody>
-                            {data.map((user, index) => (
+                            {filteredData.map((user, index) => (
                                 <tr key={index}>
                                     <td>{user.name}</td>
                                     <td>{user.email}</td>
-                                    <td>{user.phone || user.profile?.mobileNumber} <br /> wa: {user.profile.whatsappNumber}</td>
+                                    <td>{user.phone || user.profile?.mobileNumber}</td>
+                                    <td>{user?.profile?.whatsappNumber}</td>
                                     <td>{user.paymentDetails?.razorpay_payment_id}</td>
+                                    <td>{formatDate(user.timeStamp)}</td>
                                     <td>
                                         {user.profile ? (
                                             <>
@@ -74,7 +142,6 @@ const Admin = () => {
                                             </>
                                         ) : 'N/A'}
                                     </td>
-                                    <td>{user.timeStamp}</td>
                                 </tr>
                             ))}
                         </tbody>

@@ -93,6 +93,18 @@ h3 {
   box-shadow: 0 0 10px #dfdfdf;
 }
 
+.content form{
+  box-shadow: none;
+  padding: 0;
+}
+.content form button{
+  margin-right: 10px;
+}
+
+.link-button{
+  color: var(--primary);
+  cursor: pointer;
+}
 .table-wrapper {
   margin-bottom: 50px;
   width: 100%;

@@ -11,9 +11,11 @@ import Login from './features/Login/Login';
 import Header from './components/Header/Header';
 import PageNavigation from './components/PageNavigation/PageNavigation';
 import EnterOTP from './features/Login/EnterOTP';
+import ChangeEmail from './features/Login/ChangeEmail';
 import LMSForm from './features/LMSForm/LMSForm';
 import Admin from './features/Admin/Admin';
 import UserProfile from './features/UserProfile/UserProfile';
+import AddUser from './features/AddUser/AddUser';
 
 import './App.css';
 
@@ -36,7 +38,7 @@ const App = () => {
 
   const showHeaderAndNav = checkSession();
 
-  const noContainerRoutes = ['/', '/EnterOTP', '/LMSForm'];
+  const noContainerRoutes = ['/', '/EnterOTP', '/LMSForm', '/ChangeEmail'];
 
   return (
     <div className="App">
@@ -48,6 +50,8 @@ const App = () => {
           <Route path="/" element={<Login />} />
           <Route path="/LMSForm" element={<LMSForm />} />
           <Route path="/EnterOTP" element={<EnterOTP />} />
+          <Route path="/AddUser" element={<AddUser />} />
+          <Route path="/ChangeEmail" element={<ChangeEmail />} />
           <Route path="/PaymentGateway" element={<PaymentGateway />} />
           <Route path="/AboutOlympiad" element={checkSession() ? <AboutOlympiad /> : <Navigate to="/" replace />} />
           <Route path="/ReferEarn" element={checkSession() ? <ReferEarn /> : <Navigate to="/" replace />} />

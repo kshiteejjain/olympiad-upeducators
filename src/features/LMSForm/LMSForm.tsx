@@ -31,13 +31,13 @@ const gradeLevels = [
 ];
 
 const LMSForm = () => {
+    const olympdPrefix = JSON.parse(localStorage.getItem('olympd_prefix') || '{}');
     const [userDetails, setUserDetails] = useState({
-        firstName: '',
-        lastName: '',
+        name: olympdPrefix?.name,
         profilePicture: '',
         mobileNumber: '',
         whatsappNumber: '',
-        email: '',
+        email: olympdPrefix?.email,
         city: '',
         country: '',
         dateOfBirth: '',
@@ -52,6 +52,7 @@ const LMSForm = () => {
     const [isLoader, setIsLoader] = useState(false);
     const [showUploadPopup, setShowUploadPopup] = useState(false);
     const [profilePicture, setProfilePicture] = useState('');
+    const [profilePictureError, setProfilePictureError] = useState(false);
     const navigate = useNavigate();
 
     const handleImageCropped = (base64Image: any) => {
@@ -74,8 +75,8 @@ const LMSForm = () => {
                 }
 
                 if (!email) {
-                    alert('No logged-in email found');
-                    //navigate('/');
+                    //alert('No logged-in email found');
+                    navigate('/');
                     return;
                 }
 
@@ -83,7 +84,8 @@ const LMSForm = () => {
                 const querySnapshot = await getDocs(userQuery);
 
                 if (querySnapshot.empty) {
-                    alert('Email does not exist');
+                    //alert('Email does not exist');
+                    navigate('/');
                     return;
                 }
 
@@ -110,7 +112,10 @@ const LMSForm = () => {
 
     const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
-
+        if (!profilePicture) {
+            setProfilePictureError(true);
+            return;
+        }
         try {
             const olympdPrefix = JSON.parse(localStorage.getItem('olympd_prefix') || '{}');
             olympdPrefix.sessionId = 'z5pxv6w2chzvkjjf0y64'; // Add sessionId to user object
@@ -118,7 +123,7 @@ const LMSForm = () => {
 
             setIsLoader(true);
             const email = userDetails.email.toLowerCase();
-            const loggedInEmail = olympdPrefix.email;
+            const loggedInEmail = olympdPrefix.email.toLowerCase();
 
             if (loggedInEmail !== email) throw new Error('Logged-in email and entered email do not match');
 
@@ -129,24 +134,28 @@ const LMSForm = () => {
 
             const userDoc = querySnapshot.docs[0];
             const userName = userDoc.data().name || 'No Name';
-
+            const userImage = userDoc.data().profile?.image || 'No Image'
             olympdPrefix.name = userName;
+            olympdPrefix.image = userImage;
+            
             localStorage.setItem('olympd_prefix', JSON.stringify(olympdPrefix));
 
-            await updateDoc(doc(firestore, 'OlympiadUsers', userDoc.id), { 
-                profile: { 
-                    ...userDetails, 
+            await updateDoc(doc(firestore, 'OlympiadUsers', userDoc.id), {
+                profile: {
+                    ...userDetails,
+                    mobileNumber: `91${userDetails.mobileNumber}`, // Add country code to mobile number
+                    whatsappNumber: `91${userDetails.whatsappNumber}`,
                     image: profilePicture // Save the base64 image URL here
                 },
-                isNewUser: false 
+                isNewUser: false
             });
 
             setUserDetails({
-                firstName: '', lastName: '', profilePicture: '', mobileNumber: '', whatsappNumber: '', email: '',
+                name: '', profilePicture: '', mobileNumber: '', whatsappNumber: '', email: '',
                 city: '', country: '', dateOfBirth: '', organizationType: '', organizationName: '',
                 board: '', role: '', gradeLevel: '',
             });
-
+            setProfilePictureError(false);
             navigate('/AboutOlympiad');
         } catch (error: any) {
             alert(error.message);
@@ -172,28 +181,16 @@ const LMSForm = () => {
                     <div className='user-profile'>
                         <div className='user-profile-left'>
                             <div className='form-group'>
-                                <label htmlFor='firstName'>First Name<span className="asterisk">*</span></label>
+                                <label htmlFor='name'>Name<span className="asterisk">*</span></label>
                                 <input
                                     type='text'
                                     className='form-control'
                                     required
-                                    name="firstName"
+                                    name="name"
                                     autoComplete="off"
-                                    value={userDetails.firstName}
+                                    value={userDetails.name}
                                     onChange={handleInputChange}
-                                />
-                            </div>
-
-                            <div className='form-group'>
-                                <label htmlFor='lastName'>Last Name<span className="asterisk">*</span></label>
-                                <input
-                                    type='text'
-                                    className='form-control'
-                                    required
-                                    name="lastName"
-                                    autoComplete="off"
-                                    value={userDetails.lastName}
-                                    onChange={handleInputChange}
+                                    disabled
                                 />
                             </div>
                             <div className='form-group'>
@@ -206,6 +203,20 @@ const LMSForm = () => {
                                     autoComplete="off"
                                     value={userDetails.mobileNumber}
                                     onChange={handleInputChange}
+                                    maxLength={10}
+                                />
+                            </div>
+                            <div className='form-group'>
+                                <label htmlFor='whatsappNumber'>WhatsApp Number<span className="asterisk">*</span></label>
+                                <input
+                                    type='tel'
+                                    className='form-control phone'
+                                    required
+                                    name="whatsappNumber"
+                                    autoComplete="off"
+                                    value={userDetails.whatsappNumber}
+                                    onChange={handleInputChange}
+                                    maxLength={10}
                                 />
                             </div>
                         </div>
@@ -213,23 +224,12 @@ const LMSForm = () => {
                             <div className="form-group">
                                 <label htmlFor="profilePicture">Upload Profie Picture<span className="asterisk">*</span></label>
                                 <div className='user-profile-upload'>
-                                    <Button title={profilePicture ? 'Change Profile Picture' : 'Upload Profile Picture'} type="button" onClick={() => setShowUploadPopup(true)} />
                                     {profilePicture ? <img className='img-size' src={profilePicture} alt="Profile" /> : <img className='img-size' src={ProfilePlaceholder} alt="Profile" />}
+                                    <Button title={profilePicture ? 'Change Profile Picture' : 'Upload Profile Picture'} type="button" onClick={() => setShowUploadPopup(true)} />
+                                    {profilePictureError && <ErrorBoundary message='Please upload your profile picture.' />}
                                 </div>
                             </div>
                         </div>
-                    </div>
-
-                    <div className='form-group'>
-                        <label htmlFor='whatsappNumber'>WhatsApp Number<span className="asterisk">*</span></label>
-                        <input
-                            type='tel'
-                            className='form-control phone'
-                            name="whatsappNumber"
-                            autoComplete="off"
-                            value={userDetails.whatsappNumber}
-                            onChange={handleInputChange}
-                        />
                     </div>
 
                     <div className='form-group'>
@@ -242,6 +242,7 @@ const LMSForm = () => {
                             autoComplete="off"
                             value={userDetails.email}
                             onChange={handleInputChange}
+                            disabled
                         />
                         {isError && <ErrorBoundary message={'Please enter the email you registered with us.'} />}
                     </div>
@@ -364,6 +365,7 @@ const LMSForm = () => {
                         </select>
                     </div>
                     <Button title='Submit' type='submit' />
+                    {profilePictureError && <ErrorBoundary message='Please upload your profile picture.' />}
                 </form>
             </div>
             {showUploadPopup && (

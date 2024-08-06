@@ -17,3 +17,6 @@
     border-radius: 8px;
     border: 1px solid var(--gray);
 }
+.user-details table tr td .link-button{
+    float: right;
+}
