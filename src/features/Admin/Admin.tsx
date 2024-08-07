@@ -55,14 +55,23 @@ const Admin = () => {
         const filterDataByDate = () => {
             if (startDate && endDate) {
                 const filtered = data.filter(user => {
-                    const userDate = new Date(user.timeStamp).toISOString().split('T')[0];
-                    return userDate >= startDate && userDate <= endDate;
+                    // Check if user.timeStamp is valid
+                    const userDateString = user.timeStamp;
+                    if (!userDateString) return false;
+        
+                    const userDate = new Date(userDateString);
+                    // Check if the date is invalid
+                    if (isNaN(userDate.getTime())) return false;
+        
+                    // Convert userDate to ISO string without time part
+                    const userDateISO = userDate.toISOString().split('T')[0];
+                    return userDateISO >= startDate && userDateISO <= endDate;
                 });
                 setFilteredData(filtered);
             } else {
                 setFilteredData(data); // Reset to full data if no dates are selected
             }
-        };
+        };        
 
         filterDataByDate();
     }, [startDate, endDate, data]);

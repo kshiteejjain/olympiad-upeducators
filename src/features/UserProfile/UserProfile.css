@@ -20,3 +20,20 @@
 .user-details table tr td .link-button{
     float: right;
 }
+
+@media(max-width:767px){
+    .user-details{
+        flex-direction: column-reverse;
+    }
+    .user-details-profile {
+        width: 100%;
+        box-sizing: border-box;
+        margin: 0 0 20px 0;
+    }
+    .user-details-profile img{
+        max-width: 150px;
+    }
+    .user-details table tr td .link-button{
+        float: left;
+    }
+}

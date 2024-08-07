@@ -177,7 +177,7 @@ const LMSForm = () => {
             <div className="lms-form">
                 <LoginAnimation />
                 <form onSubmit={handleSubmit}>
-                    <h1>Enter Your Details</h1>
+                    <h2>Enter Your Details</h2>
                     <div className='user-profile'>
                         <div className='user-profile-left'>
                             <div className='form-group'>

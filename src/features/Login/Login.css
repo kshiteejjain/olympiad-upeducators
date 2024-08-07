@@ -94,6 +94,7 @@ form {
     }
     form{
         width: 100%;
+        padding: 0 15px;
     }
     .branding {
         margin: 20px 0 30px 0;

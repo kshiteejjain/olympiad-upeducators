@@ -47,4 +47,13 @@
     .lms-form form{
         width: 100%;
     }
+    .user-profile{
+        flex-direction: column-reverse;
+    }
+    .user-profile-left{
+        width: 100%;
+    }
+    .user-profile-right {
+        width: 100%;
+    }
 }

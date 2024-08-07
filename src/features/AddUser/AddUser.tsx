@@ -116,6 +116,7 @@ const AddUser = () => {
                     {isError && <ErrorBoundary message='All fields are required.' />}
                     <Button title='Submit' type='submit' />
                 </form>
+                <span className="login-option" onClick={()=> navigate('/Admin')}>Go Back</span>
             </div>
         </>
     );

@@ -79,6 +79,9 @@
   .header .logo {
     max-height: 20px;
   }
+  .header-right{
+    padding: 0;
+  }
   .header-right .username {
     font-size: calc(var(--baseFontSize) - 3px);
   }

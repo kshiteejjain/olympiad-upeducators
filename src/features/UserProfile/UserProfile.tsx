@@ -85,7 +85,7 @@ const UserProfile = () => {
     const handleChangeEmail = () => {
         localStorage.removeItem('olympd_prefix');
         navigate('/ChangeEmail');
-      };
+    };
 
     return (
         <>
@@ -94,58 +94,60 @@ const UserProfile = () => {
                     <div className="content">
                         <h2>Profile</h2>
                         <div className='user-details'>
-                            <table className='table'>
-                                <tbody>
-                                    <tr>
-                                        <td>Email</td>
-                                        <td>{data.email} <span className='link-button' onClick={handleChangeEmail}>Change Email?</span></td>
-                                    </tr>
-                                    <tr>
-                                        <td>Name</td>
-                                        <td>{data.profile.name}</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Date of Birth</td>
-                                        <td>{data.profile.dateOfBirth}</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Country</td>
-                                        <td>{data.profile.country}</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Organization Name</td>
-                                        <td>{data.profile.organizationName}</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Organization Type</td>
-                                        <td>{data.profile.organizationType}</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Role</td>
-                                        <td>{data.profile.role}</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Grade Level</td>
-                                        <td>{data.profile.gradeLevel}</td>
-                                    </tr>
-                                    <tr>
-                                        <td>City</td>
-                                        <td>{data.profile.city}</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Board</td>
-                                        <td>{data.profile.board}</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Mobile Number</td>
-                                        <td>{data.profile.mobileNumber}</td>
-                                    </tr>
-                                    <tr>
-                                        <td>WhatsApp Number</td>
-                                        <td>{data.profile.whatsappNumber}</td>
-                                    </tr>
-                                </tbody>
-                            </table>
+                            <div className='table-wrapper'>
+                                <table className='table'>
+                                    <tbody>
+                                        <tr>
+                                            <td>Email</td>
+                                            <td>{data.email} <span className='link-button' onClick={handleChangeEmail}>Change Email?</span></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Name</td>
+                                            <td>{data.profile.name}</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Date of Birth</td>
+                                            <td>{data.profile.dateOfBirth}</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Country</td>
+                                            <td>{data.profile.country}</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Organization Name</td>
+                                            <td>{data.profile.organizationName}</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Organization Type</td>
+                                            <td>{data.profile.organizationType}</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Role</td>
+                                            <td>{data.profile.role}</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Grade Level</td>
+                                            <td>{data.profile.gradeLevel}</td>
+                                        </tr>
+                                        <tr>
+                                            <td>City</td>
+                                            <td>{data.profile.city}</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Board</td>
+                                            <td>{data.profile.board}</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Mobile Number</td>
+                                            <td>{data.profile.mobileNumber}</td>
+                                        </tr>
+                                        <tr>
+                                            <td>WhatsApp Number</td>
+                                            <td>{data.profile.whatsappNumber}</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
                             <div className='user-details-profile'>
                                 <p>Profile Image:</p>
                                 <img src={data?.profile?.image} alt="User Profile" />

@@ -5,7 +5,8 @@ table.admin-table td{
 .date-filter{
     display: flex;
     align-items: center;
-    font-size:calc(var(--baseFontSize) - 3px)
+    font-size:calc(var(--baseFontSize) - 3px);
+    overflow-x: auto;
 }
 .date-filter form{
     width: 100%;

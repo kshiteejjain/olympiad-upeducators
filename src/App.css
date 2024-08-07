@@ -93,19 +93,21 @@ h3 {
   box-shadow: 0 0 10px #dfdfdf;
 }
 
-.content form{
+.content form {
   box-shadow: none;
   padding: 0;
   width: 100%;
 }
-.content form button{
+
+.content form button {
   margin-right: 10px;
 }
 
-.link-button{
+.link-button {
   color: var(--primary);
   cursor: pointer;
 }
+
 .table-wrapper {
   margin-bottom: 50px;
   width: 100%;
@@ -207,23 +209,45 @@ h3 {
     flex-direction: column;
     width: 100%;
   }
+
   .content {
     margin: 15px;
+    padding: 15px;
     width: calc(100% - 30px);
   }
+
   h2 {
     font-size: calc(var(--baseFontSize) + 3px);
   }
+
   h3 {
     font-size: calc(var(--baseFontSize) + 1px);
   }
+
   p {
     font-size: calc(var(--baseFontSize) - 1px);
   }
-  ul li{
+
+  ul li {
     font-size: calc(var(--baseFontSize) - 1px);
   }
-  ul li span{
+
+  ul li span {
     margin: 0;
+  }
+
+  .form-control {
+    font-size: calc(var(--baseFontSize) - 2px);
+  }
+
+  .form-group label {
+    font-size: calc(var(--baseFontSize) - 2px);
+    margin-bottom: 5px;
+  }
+
+  .table th,
+  .table td {
+    padding: 5px 10px;
+    font-size: calc(var(--baseFontSize) - 4px);
   }
 }
