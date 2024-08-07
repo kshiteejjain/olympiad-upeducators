@@ -89,7 +89,7 @@ const Admin = () => {
         <div className="content">
             <div className='admin-cta-row'>
                 <h2>Admin </h2>
-                <span className='admin-cta'><Button type='button' title='Add User' isSecondary onClick={()=> navigate('/AddUser')} /> </span>
+                <span className='admin-cta'><Button type='button' title='Add User' onClick={()=> navigate('/AddUser')} /> </span>
                 </div>
             <div className="date-filter">
                 <form>

@@ -55,6 +55,7 @@ const PaymentGateway = () => {
   };
 
   useEffect(() => {
+    localStorage.removeItem('olympd_prefix');
     validateForm();
   }, [userDetails]);
 

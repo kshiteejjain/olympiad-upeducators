@@ -44,7 +44,7 @@ const App = () => {
     <div className="App">
       {showHeaderAndNav && <Header />}
       <div className={noContainerRoutes.includes(location.pathname) ? '' : 'container-wrapper'}>
-        {showHeaderAndNav && location.pathname !== '/LMSForm' && '/Admin' && <PageNavigation />}
+        {showHeaderAndNav && location.pathname !== '/LMSForm' && '/Admin' && '/PaymentGateway' && <PageNavigation />}
         <Routes>
           <Route path="*" element={<Navigate to="/" replace />} />
           <Route path="/" element={<Login />} />

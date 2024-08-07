@@ -1,15 +1,15 @@
  
   summary::after {
     content: '';
-    width: 18px;
-    height: 15px;
+    width: 15px;
+    height: 12px;
     background-image: url('../../assets/chevron-down.svg');
     background-repeat: no-repeat;
     background-size: cover;
     margin-left: .75em;
     transition: 0.2s;
     position: absolute;
-    right: 0;
+    right: 15px;
   }
   
   details[open] > summary::after {
@@ -25,17 +25,23 @@
   }
 
 .faq details {
-    padding: 25px 0;
-    border-bottom: 1px solid var(--gray);
-    cursor: pointer;
-    position: relative;
+  border: 1px solid var(--gray);
+  cursor: pointer;
+  position: relative;
+  background-color: var(--grayBlue);
+  margin-bottom: 15px;
+  padding: 10px;
+  box-sizing: border-box;
+  border-radius: 8px;
+}
+
+.faq details:hover{
+  background-color: var(--white);
 }
 
 .faq details summary{
-    font-size: calc(var(--baseFontSize) + 1px);
-    font-weight: bold;
-    list-style: none;
-    display: flex; /* also removes the list marker */
+    font-size: calc(var(--baseFontSize));
+    display: flex;
     align-items: center;
     font-weight: bold;
     width: 100%;

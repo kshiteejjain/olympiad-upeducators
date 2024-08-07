@@ -21,11 +21,10 @@ const ReferEarn = () => {
     It's a fantastic opportunity for us teachers to get feedback on our teaching skills and get recognition for it!!
     I found all the details in this video here: upeducators.com.
     If you like it too, you can use my referral link for a 10% discount. `;
-    
+    const domain = window.location.origin;
     const generateReferralCode = () => {
-        const domain = window.location.origin;
         const code = Math.random().toString(36).substring(2, 12);
-        return `${domain}/referral=${code}`;
+        return `referral=${code}`;
     };
 
     const fetchAndCheckReferral = async () => {
@@ -72,7 +71,7 @@ const ReferEarn = () => {
                 const userDocRef = doc(firestore, 'OlympiadUsers', docSnapshot.id);
                 const referralUrl = generateReferralCode();
                 await updateDoc(userDocRef, { referral: referralUrl });
-                setReferral(referralData + referralUrl);
+                setReferral(domain + referralData + referralUrl);
                 setHasReferral(true);
                 console.log('Referral code updated successfully.');
                 setIsModal(true);

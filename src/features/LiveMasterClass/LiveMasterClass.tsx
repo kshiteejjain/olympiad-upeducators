@@ -79,7 +79,7 @@ const LiveMasterClass = () => {
 
     return (
         <div className='content'>
-            <h2>LiveMasterClass</h2>
+            <h2>Live Master Class</h2>
             <p>upEducators will organize 8 Expert-Led Live Training sessions for all the educators attending this Olympiad. These Masterclasses will be conducted after the Result Announcement</p>
             <div className='flex-card'>
                 <h3>4 Exclusive Session by National Awardee Teacher</h3>
