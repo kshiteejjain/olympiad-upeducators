@@ -3,7 +3,7 @@ import ChevronDown from '../../assets/chevron-down.svg';
 import './FAQ.css';
 
 const FAQ = () => {
-    const scrollToSection = (id: string | number) => {
+    const scrollToSection = (id: any) => {
         const element = document.getElementById(id);
         if (element) {
             element.scrollIntoView({ behavior: 'smooth' });
