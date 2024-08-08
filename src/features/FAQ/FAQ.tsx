@@ -1,10 +1,9 @@
-import React from 'react';
 import ChevronDown from '../../assets/chevron-down.svg';
 
 import './FAQ.css';
 
 const FAQ = () => {
-    const scrollToSection = (id) => {
+    const scrollToSection = (id: string | number) => {
         const element = document.getElementById(id);
         if (element) {
             element.scrollIntoView({ behavior: 'smooth' });
