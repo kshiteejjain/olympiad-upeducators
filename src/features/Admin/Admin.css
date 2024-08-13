@@ -1,4 +1,4 @@
-table.admin-table td{
+table.admin-table td, table.admin-table th{
     padding: 7px 10px;
     font-size:calc(var(--baseFontSize) - 3px)
 }

@@ -125,8 +125,9 @@ const Admin = () => {
                             onChange={(e) => setSelectedOlympiad(e.target.value)}
                         >
                             <option value="">All</option>
-                            <option value="m24">m24</option>
-                            <option value="s24">s24</option>
+                            {Array.from(new Set(filteredData.flatMap(user => user.olympiad || []))).map((olympiad, index) => (
+                                <option key={index} value={olympiad}>{olympiad}</option>
+                            ))}
                         </select>
                     </div>
                     <Button type='button' title='Reset' isSecondary onClick={handleReset} />
