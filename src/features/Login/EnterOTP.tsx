@@ -1,7 +1,5 @@
 import { useEffect, useState } from "react";
-import { useLocation, useNavigate } from "react-router-dom";
-import { collection, doc, getDocs, query, updateDoc, where } from 'firebase/firestore';
-import { firestore } from "../../utils/firebase";
+import { useNavigate } from "react-router-dom";
 import Button from '../../components/Buttons/Button';
 import ErrorBoundary from "../../components/ErrorBoundary/ErrorBoundary";
 import Loader from "../../components/Loader/Loader";
