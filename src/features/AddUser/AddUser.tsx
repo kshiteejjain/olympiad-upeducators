@@ -14,7 +14,7 @@ const AddUser = () => {
         email: '',
         phone: '',
         paymentId: 'internal',
-        olympiad: ''
+        olympiad: [] as string[] // Initialize as an empty array
     });
     const [validationError, setValidationError] = useState(false);
     const [emailExistsError, setEmailExistsError] = useState(false);
@@ -25,7 +25,7 @@ const AddUser = () => {
         e.preventDefault();
         const { name, email, phone, paymentId, olympiad } = userDetails;
 
-        if (!name || !email || !phone || !olympiad) {
+        if (!name || !email || !phone || olympiad.length === 0) {
             setValidationError(true);
             return;
         }
@@ -47,7 +47,8 @@ const AddUser = () => {
                 phone,
                 paymentDetails: { razorpay_payment_id: paymentId },
                 timeStamp: new Date().toISOString(),
-                isNewUser: true
+                isNewUser: true,
+                olympiad // Store as an array
             });
 
             await sendEmail(
@@ -62,9 +63,9 @@ const AddUser = () => {
                 email: '',
                 phone: '',
                 paymentId: 'internal',
-                olympiad: ''
+                olympiad: [] // Reset to empty array
             });
-            alert('User Registered. An Email and whatsapp sent to user.')
+            alert('User Registered. An Email and WhatsApp message have been sent to the user.');
             navigate('/Admin');
         } catch (error: any) {
             alert('Error saving data to Firestore: ' + error.message);
@@ -75,10 +76,18 @@ const AddUser = () => {
 
     const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         const { name, value } = e.target;
-        setUserDetails(prev => ({
-            ...prev,
-            [name]: value
-        }));
+        if (name === 'olympiad') {
+            const newOlympiad = value.split(',').map(olympiad => olympiad.trim()).filter(olympiad => olympiad !== '');
+            setUserDetails(prev => ({
+                ...prev,
+                [name]: newOlympiad
+            }));
+        } else {
+            setUserDetails(prev => ({
+                ...prev,
+                [name]: value
+            }));
+        }
         setValidationError(false);
         setEmailExistsError(false);
     };
@@ -135,9 +144,10 @@ const AddUser = () => {
                             className='form-control'
                             required
                             name='olympiad'
-                            value={userDetails.olympiad}
+                            value={userDetails.olympiad.join(', ')} // Join array into a string for display
                             onChange={handleInputChange}
                             autoComplete='off'
+                            placeholder='Enter olympiads separated by commas'
                         />
                     </div>
                     {validationError && <ErrorBoundary message='All fields are required.' />}

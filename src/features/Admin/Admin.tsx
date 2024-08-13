@@ -155,7 +155,7 @@ const Admin = () => {
                                     <td>{user.name}</td>
                                     <td>{user.email}</td>
                                     <td>{user?.phone}</td>
-                                    <td>{(user.olympiad || []).join(', ')}</td>
+                                    <td>{(user?.olympiad || []).join(', ')}</td>
                                     <td>{user.paymentDetails?.razorpay_payment_id}</td>
                                     <td>{formatDate(user.timeStamp)}</td>
                                     <td>{user.profile?.board}</td>
