@@ -86,6 +86,10 @@
 .works-card .cta button{
     font-size: calc(var(--baseFontSize) - 1px);
 }
+.works-card .cta button img {
+    max-width: 15px;
+    margin: 0 0 0 6px;
+}
 
 .link-button{
     float: right;
