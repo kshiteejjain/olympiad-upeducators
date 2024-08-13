@@ -15,6 +15,7 @@ import LMSForm from './features/LMSForm/LMSForm';
 import Admin from './features/Admin/Admin';
 import UserProfile from './features/UserProfile/UserProfile';
 import AddUser from './features/AddUser/AddUser';
+import CoursesForEducators from './features/CoursesForEducators/CoursesForEducators';
 
 import './App.css';
 
@@ -57,6 +58,7 @@ const App = () => {
           <Route path="/FAQ" element={checkSession() ? <FAQ /> : <Navigate to="/" replace />} />
           <Route path="/LiveMasterClass" element={checkSession() ? <LiveMasterClass /> : <Navigate to="/" replace />} />
           <Route path="/Report" element={checkSession() ? <Report /> : <Navigate to="/" replace />} />
+          <Route path="/CoursesForEducators" element={checkSession() ? <CoursesForEducators /> : <Navigate to="/" replace />} />
           <Route path="/AboutUpEducators" element={checkSession() ? <AboutUpEducators /> : <Navigate to="/" replace />} />
           <Route path="/Admin" element={checkSession() ? <Admin /> : <Navigate to="/" replace />} />
           <Route path="/UserProfile" element={checkSession() ? <UserProfile /> : <Navigate to="/" replace />} />

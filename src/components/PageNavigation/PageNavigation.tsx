@@ -56,6 +56,12 @@ const PageNavigation = () => {
             >
                 About upEducators
             </button>
+            <button
+                className={activeButton === '/CoursesForEducators' ? 'active' : ''}
+                onClick={() => handleClick('/CoursesForEducators')}
+            >
+                Courses for Educators
+            </button>
         </div>
     );
 };

@@ -13,7 +13,6 @@ import Modal from '../../components/Modal/Modal';
 
 import './ReferEarn.css';
 
-
 const ReferEarn = () => {
     const [referral, setReferral] = useState('');
     const [hasReferral, setHasReferral] = useState(false);
@@ -116,10 +115,6 @@ const ReferEarn = () => {
             }
 
             <h2>Refer & Earn</h2>
-            <div className='earning-box'>
-                <Card title='Total Earnings' amount='500' currency='₹' />
-                <p>Note: Your earning will be deposited in your account post olympiad.</p>
-            </div>
             <div className='how-it-works'>
                 <h3>How It Works?</h3>
 
@@ -143,11 +138,15 @@ const ReferEarn = () => {
                     <div className='works-card-title'>
                         <img src={withdraw} title="Withdraw The cash" alt="Withdraw The cash" className='icon' />
                         <div className='works-card-description'>
-                            <h1>Withdraw The cash</h1>
+                            <h1> Withdraw The cash</h1>
                             <p>Withdraw the earned cash at the end of the olympiad through bank transfer or Gpay</p>
                         </div>
                     </div>
                 </div>
+            </div>
+            <div className='earning-box'>
+                <Card title='Total Earnings' amount='500' currency='₹' />
+                <p>Note: Your earning will be deposited in your account post olympiad.</p>
             </div>
             <div className='table-wrapper'>
                 <h3>Referral History</h3>

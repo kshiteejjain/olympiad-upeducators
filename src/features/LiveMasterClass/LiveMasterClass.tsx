@@ -1,5 +1,3 @@
-import './LiveMasterClass.css';
-
 const TeachersData = [{
     name: 'Ms. Sangeeta Gulati',
     data: 'Unleashing The Power of Play. How Digital manipulatives Can Boost Math Learning',
@@ -80,7 +78,7 @@ const LiveMasterClass = () => {
     return (
         <div className='content'>
             <h2>Live Master Class</h2>
-            <p>upEducators will organize 8 Expert-Led Live Training sessions for all the educators attending this Olympiad. These Masterclasses will be conducted after the Result Announcement</p>
+            <p>upEducators will organize 8 Expert-Led Live Training sessions for all the educators attending this Olympiad. These Masterclasses will be conducted after the Result Announcement.</p>
             <div className='flex-card'>
                 <h3>4 Exclusive Session by National Awardee Teacher</h3>
                 <Card />
