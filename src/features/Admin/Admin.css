@@ -14,6 +14,10 @@ table.admin-table td{
     align-items: center;
     padding: 10px;
 }
+.date-filter form .form-group{
+    margin-right: 15px;
+    width: 100%;
+}
 .date-filter form .from-group label{
     margin-right: 5px;
     font-weight: bold;
@@ -26,6 +30,7 @@ table.admin-table td{
 .admin-cta-row{
     display: flex;
     justify-content: space-between;
+    align-items: center;
     border-bottom: 1px solid var(--gray);
     margin-bottom: 30px;
 }

@@ -22,6 +22,7 @@ const LoginWithEmail = () => {
         e.preventDefault();
         try {
             setIsLoader(true)
+
             const email = userDetails.email.toLowerCase();
 
             // Check if the user exists
@@ -86,7 +87,7 @@ const LoginWithEmail = () => {
                         onChange={handleInputChange}
                     />
                     {isError && <ErrorBoundary message={'Please enter registered email.'} />}
-                    <p className="input-note">Note: You will get OTP on email. </p>
+                    <p className="input-note">Note: You will get notifications on email. </p>
                 </div>
                 <Button title='Send' type='submit' />
             </form>

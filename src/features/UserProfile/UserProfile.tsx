@@ -16,7 +16,6 @@ type Profile = {
     gradeLevel: string;
     city: string;
     board: string;
-    mobileNumber: string;
     whatsappNumber: string;
     image: string;
 };
@@ -56,6 +55,8 @@ const UserProfile = () => {
 
                 if (querySnapshot.empty) {
                     alert('Email does not exist');
+                    localStorage.removeItem('olympd_prefix')
+                    navigate('/')
                     return;
                 }
 
@@ -82,11 +83,6 @@ const UserProfile = () => {
         return <div className="error-message">An error occurred. Please try again.</div>;
     }
 
-    const handleChangeEmail = () => {
-        localStorage.removeItem('olympd_prefix');
-        navigate('/ChangeEmail');
-    };
-
     return (
         <>
             {
@@ -99,7 +95,7 @@ const UserProfile = () => {
                                     <tbody>
                                         <tr>
                                             <td>Email</td>
-                                            <td>{data.email} <span className='link-button' onClick={handleChangeEmail}>Change Email?</span></td>
+                                            <td>{data.email}</td>
                                         </tr>
                                         <tr>
                                             <td>Name</td>
@@ -136,10 +132,6 @@ const UserProfile = () => {
                                         <tr>
                                             <td>Board</td>
                                             <td>{data.profile.board}</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Mobile Number</td>
-                                            <td>{data.profile.mobileNumber}</td>
                                         </tr>
                                         <tr>
                                             <td>WhatsApp Number</td>

@@ -13,25 +13,7 @@ const EnterOTP = () => {
     const [otp, setOtp] = useState('');
     const [isError, setIsError] = useState(false);
     const [isLoader, setIsLoader] = useState(false);
-    const [oldEmail, setOldEmail] = useState<string | null>(null);
-    const [newEmail, setNewEmail] = useState<string | null>(null);
     const navigate = useNavigate();
-    const location = useLocation();
-
-    useEffect(() => {
-        // Extract URL parameters
-        const params = new URLSearchParams(location.search);
-        const old = params.get('old');
-        const newEmailParam = params.get('new');
-
-        if (old && newEmailParam) {
-            setOldEmail(old);
-            setNewEmail(newEmailParam);
-        } else {
-            console.log('One or both parameters are missing');
-        }
-    }, [location.search]);
-
 
     useEffect(() => {
         const olympdPrefix = localStorage.getItem('olympd_prefix');
@@ -59,27 +41,6 @@ const EnterOTP = () => {
                 delete user.code;
                 localStorage.setItem('olympd_prefix', JSON.stringify(user));
                 navigate('/LMSForm');
-                if (oldEmail && newEmail) {
-                    try {
-                        // Check if old email exists in the Firestore collection
-                        const collectionRef = collection(firestore, 'OlympiadUsers');
-                        const q = query(collectionRef, where('email', '==', oldEmail));
-                        const querySnapshot = await getDocs(q);
-    
-                        if (!querySnapshot.empty) {
-                            // Old email exists, perform update
-                            const docRef = doc(collectionRef, querySnapshot.docs[0].id);
-                            await updateDoc(docRef, { email: newEmail });
-                            navigate('/');
-                        } else {
-                            setIsError(true);
-                            console.log('Old email not found in Firestore');
-                        }
-                    } catch (error) {
-                        setIsError(true);
-                        console.error('Error updating Firestore:', error);
-                    }
-                }
     
             } else {
                 setIsError(true);
@@ -117,7 +78,7 @@ const EnterOTP = () => {
         <><div className="login-wrapper">
             <div className="login-visual"></div>
             <div className="login-form">
-                <LoginAnimation />
+                <LoginAnimation isCarousal />
                 {isLoader && <Loader title='Loading..' />}
                 <form onSubmit={handleSubmit}>
                     <h1>Enter OTP</h1>

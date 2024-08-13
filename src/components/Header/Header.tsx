@@ -9,10 +9,14 @@ import './Header.css';
 const Header = () => {
   const navigate = useNavigate();
   const olympdPrefix = JSON.parse(localStorage.getItem('olympd_prefix') || '{}');
-  const isAdmin = olympdPrefix.email === 'ankushb@upeducators.com' || 'kshiteejjain@gmail.com';
+  const isAdmin = olympdPrefix.email === 'ankushb@upeducators.com' || olympdPrefix.email === 'kshiteejjain@gmail.com';
 
   const handleLogout = () => {
-    localStorage.removeItem('olympd_prefix');
+    delete olympdPrefix?.sessionId;
+    delete olympdPrefix?.email;
+    delete olympdPrefix?.image
+    delete olympdPrefix?.name
+    localStorage.setItem('olympd_prefix', JSON.stringify(olympdPrefix));
     navigate('/');
   };
 

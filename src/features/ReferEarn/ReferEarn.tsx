@@ -6,6 +6,8 @@ import Button from '../../components/Buttons/Button';
 import Card from '../../components/Card/Card';
 import WhatsappIcon from '../../assets/whatsapp.svg';
 import CopyClipboard from '../../assets/share.svg';
+import invite from '../../assets/invite.svg';
+import withdraw from '../../assets/withdraw.svg';
 import tick from '../../assets/tick.svg';
 import Modal from '../../components/Modal/Modal';
 
@@ -123,15 +125,15 @@ const ReferEarn = () => {
 
                 <div className='works-card'>
                     <div className='works-card-title'>
-                        <span className='number'>1</span>
+                        <img src={invite} title="Invite Teachers" alt="Invite Teachers" className='icon' />
                         <div className='works-card-description'>
                             <h1>Invite Teachers</h1>
                             <p>Invite Teachers in your network to International Teachers’ Olympiad</p>
                             <div className='cta'>
                                 {!hasReferral ? (
                                     <Button title='Generate Referral Code' type='button' onClick={updateReferral} />
-                                ):
-                                <Button title='Invite Others' type='button' isIcon iconPath={WhatsappIcon} onClick={() => setIsModal(true)} />
+                                ) :
+                                    <Button title='Invite Others' type='button' isIcon iconPath={WhatsappIcon} onClick={() => setIsModal(true)} />
                                 }
                             </div>
                         </div>
@@ -139,9 +141,9 @@ const ReferEarn = () => {
                 </div>
                 <div className='works-card'>
                     <div className='works-card-title'>
-                        <span className='number'>2</span>
+                        <img src={withdraw} title="Withdraw The cash" alt="Withdraw The cash" className='icon' />
                         <div className='works-card-description'>
-                            <h1> Withdraw The cash</h1>
+                            <h1>Withdraw The cash</h1>
                             <p>Withdraw the earned cash at the end of the olympiad through bank transfer or Gpay</p>
                         </div>
                     </div>

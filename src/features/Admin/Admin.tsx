@@ -10,36 +10,27 @@ import './Admin.css';
 
 const formatDate = (dateString: string): string => {
     const date = new Date(dateString);
-    const day = String(date.getDate()).padStart(2, '0');
-    const month = String(date.getMonth() + 1).padStart(2, '0');
-    const year = date.getFullYear();
-    return `${day}-${month}-${year}`;
+    return date.toLocaleDateString('en-GB'); // Simplified date formatting
 };
 
 const Admin = () => {
     const [data, setData] = useState<DocumentData[]>([]);
     const [filteredData, setFilteredData] = useState<DocumentData[]>([]);
-    const [loading, setLoading] = useState<boolean>(true);
+    const [searchQuery, setSearchQuery] = useState('');
+    const [loading, setLoading] = useState(true);
     const [error, setError] = useState<string | null>(null);
-    const [startDate, setStartDate] = useState<string>('');
-    const [endDate, setEndDate] = useState<string>('');
+    const [startDate, setStartDate] = useState('');
+    const [endDate, setEndDate] = useState('');
+    const [selectedOlympiad, setSelectedOlympiad] = useState('');
     const navigate = useNavigate();
 
     useEffect(() => {
-        const fetchAllData = async () => {
+        const fetchData = async () => {
             try {
-                const userQuery = query(collection(firestore, 'OlympiadUsers'));
-                const querySnapshot = await getDocs(userQuery);
-
-                if (!querySnapshot.empty) {
-                    const usersData = querySnapshot.docs.map(doc => doc.data());
-                    setData(usersData);
-                    setFilteredData(usersData); // Initialize filtered data
-                } else {
-                    console.log('No user found.');
-                    setData([]);
-                    setFilteredData([]);
-                }
+                const querySnapshot = await getDocs(query(collection(firestore, 'OlympiadUsers')));
+                const usersData = querySnapshot.empty ? [] : querySnapshot.docs.map(doc => doc.data());
+                setData(usersData);
+                setFilteredData(usersData);
             } catch (err) {
                 console.error('Error fetching data:', err);
                 setError('Error fetching data');
@@ -48,38 +39,43 @@ const Admin = () => {
             }
         };
 
-        fetchAllData();
+        fetchData();
     }, []);
 
     useEffect(() => {
-        const filterDataByDate = () => {
-            if (startDate && endDate) {
-                const filtered = data.filter(user => {
-                    // Check if user.timeStamp is valid
-                    const userDateString = user.timeStamp;
-                    if (!userDateString) return false;
-        
-                    const userDate = new Date(userDateString);
-                    // Check if the date is invalid
-                    if (isNaN(userDate.getTime())) return false;
-        
-                    // Convert userDate to ISO string without time part
-                    const userDateISO = userDate.toISOString().split('T')[0];
-                    return userDateISO >= startDate && userDateISO <= endDate;
-                });
-                setFilteredData(filtered);
-            } else {
-                setFilteredData(data); // Reset to full data if no dates are selected
-            }
-        };        
+        const filterData = () => {
+            const filteredByDate = startDate && endDate
+                ? data.filter(user => {
+                    const userDate = new Date(user.timeStamp || '');
+                    return !isNaN(userDate.getTime()) && userDate.toISOString().split('T')[0] >= startDate && userDate.toISOString().split('T')[0] <= endDate;
+                })
+                : data;
 
-        filterDataByDate();
-    }, [startDate, endDate, data]);
+            const filteredByOlympiad = selectedOlympiad
+                ? filteredByDate.filter(user => (user.olympiad || []).includes(selectedOlympiad))
+                : filteredByDate;
+
+            const filteredBySearch = searchQuery
+                ? filteredByOlympiad.filter(user => {
+                    const searchLower = searchQuery.toLowerCase();
+                    return Object.values(user).some(value =>
+                        typeof value === 'string' && value.toLowerCase().includes(searchLower)
+                    );
+                })
+                : filteredByOlympiad;
+
+            setFilteredData(filteredBySearch);
+        };
+
+        filterData();
+    }, [startDate, endDate, searchQuery, selectedOlympiad, data]);
 
     const handleReset = () => {
         setStartDate('');
         setEndDate('');
-        setFilteredData(data); // Reset to full data
+        setSearchQuery('');
+        setSelectedOlympiad('');
+        setFilteredData(data);
     };
 
     if (loading) return <Loader />;
@@ -88,47 +84,68 @@ const Admin = () => {
     return (
         <div className="content">
             <div className='admin-cta-row'>
-                <h2>Admin </h2>
-                <span className='admin-cta'><Button type='button' title='Add User' onClick={()=> navigate('/AddUser')} /> </span>
-                </div>
+                <h2>Admin</h2>
+                <Button type='button' title='Add User' onClick={() => navigate('/AddUser')} />
+            </div>
             <div className="date-filter">
                 <form>
-                    <div className='from-group'>
-                        <label>From:</label>
-                            <input
-                                type="date"
-                                className='form-control'
-                                value={startDate}
-                                onChange={(e) => setStartDate(e.target.value)}
-                            />
+                    <div className='form-group'>
+                        <label>Search:</label>
+                        <input
+                            type="text"
+                            className='form-control'
+                            value={searchQuery}
+                            onChange={(e) => setSearchQuery(e.target.value)}
+                            placeholder="Search by name, email, etc."
+                        />
                     </div>
-                    <div className='from-group'>
+                    <div className='form-group'>
+                        <label>From:</label>
+                        <input
+                            type="date"
+                            className='form-control'
+                            value={startDate}
+                            onChange={(e) => setStartDate(e.target.value)}
+                        />
+                    </div>
+                    <div className='form-group'>
                         <label>To:</label>
-                            <input
-                                type="date"
-                                value={endDate}
-                                className='form-control'
-                                onChange={(e) => setEndDate(e.target.value)}
-                            />
+                        <input
+                            type="date"
+                            value={endDate}
+                            className='form-control'
+                            onChange={(e) => setEndDate(e.target.value)}
+                        />
+                    </div>
+                    <div className='form-group'>
+                        <label>Olympiad:</label>
+                        <select
+                            className='form-control'
+                            value={selectedOlympiad}
+                            onChange={(e) => setSelectedOlympiad(e.target.value)}
+                        >
+                            <option value="">All</option>
+                            <option value="m24">m24</option>
+                            <option value="s24">s24</option>
+                        </select>
                     </div>
                     <Button type='button' title='Reset' isSecondary onClick={handleReset} />
                 </form>
             </div>
-
             {filteredData.length === 0 ? (
-                <ErrorBoundary message='No Data available, Try changing dates.' />
+                <ErrorBoundary message='No Data available.' />
             ) : (
                 <div className='table-wrapper'>
                     <table className='table admin-table'>
                         <thead>
                             <tr>
-                                <th>Name</th>
-                                <th>Email</th>
-                                <th>Mobile</th>
-                                <th>WhatsApp</th>
-                                <th>Payment Id</th>
-                                <th>Registered Date</th>
-                                <th>LMS Details</th>
+                                {[
+                                    'Name', 'Email', 'WhatsApp', 'Olympiad', 'Payment Id', 'Registered Date',
+                                    'Board', 'City', 'Country', 'Date of Birth', 'Grade Level',
+                                    'Organization Name', 'Organization Type', 'Role'
+                                ].map((header, index) => (
+                                    <th key={index}>{header}</th>
+                                ))}
                             </tr>
                         </thead>
                         <tbody>
@@ -136,24 +153,18 @@ const Admin = () => {
                                 <tr key={index}>
                                     <td>{user.name}</td>
                                     <td>{user.email}</td>
-                                    <td>{user.phone || user.profile?.mobileNumber}</td>
-                                    <td>{user?.profile?.whatsappNumber}</td>
+                                    <td>{user?.phone}</td>
+                                    <td>{(user.olympiad || []).join(', ')}</td>
                                     <td>{user.paymentDetails?.razorpay_payment_id}</td>
                                     <td>{formatDate(user.timeStamp)}</td>
-                                    <td>
-                                        {user.profile ? (
-                                            <>
-                                                <strong>Board:</strong> {user.profile.board}<br />
-                                                <strong>City:</strong> {user.profile.city}<br />
-                                                <strong>Country:</strong> {user.profile.country}<br />
-                                                <strong>Date of Birth:</strong> {user.profile.dateOfBirth}<br />
-                                                <strong>Grade Level:</strong> {user.profile.gradeLevel}<br />
-                                                <strong>Organization Name:</strong> {user.profile.organizationName}<br />
-                                                <strong>Organization Type:</strong> {user.profile.organizationType}<br />
-                                                <strong>Role:</strong> {user.profile.role}<br />
-                                            </>
-                                        ) : 'N/A'}
-                                    </td>
+                                    <td>{user.profile?.board}</td>
+                                    <td>{user.profile?.city}</td>
+                                    <td>{user.profile?.country}</td>
+                                    <td>{user.profile?.dateOfBirth}</td>
+                                    <td>{user.profile?.gradeLevel}</td>
+                                    <td>{user.profile?.organizationName}</td>
+                                    <td>{user.profile?.organizationType}</td>
+                                    <td>{user.profile?.role}</td>
                                 </tr>
                             ))}
                         </tbody>

@@ -54,7 +54,7 @@ form {
     color: var(--primary);
 }
 
-.login-form .input-note {
+.input-note {
     font-size: calc(var(--baseFontSize) - 3px);
     color: var(--mediumGray);
     display: flex;
@@ -63,7 +63,7 @@ form {
     margin: 5px 0 0 0;
 }
 
-.login-form .input-note img {
+.input-note img {
     margin: 4px 0 0 5px;
     max-height: 20px;
 }

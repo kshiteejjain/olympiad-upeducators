@@ -47,7 +47,7 @@ const Login = () => {
     <div className="login-wrapper">
       <div className="login-visual"></div>
       <div className="login-form">
-        <LoginAnimation />
+        <LoginAnimation isCarousal />
         <Suspense fallback={<Loader title='Loading...' />}>
           {isPhoneLogin ? <LoginWithEmail /> : <LoginWithPhone />}
         </Suspense>

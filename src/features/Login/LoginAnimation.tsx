@@ -4,6 +4,7 @@ import logo from '../../assets/Upeducator-logo.png';
 type Props = {
     courses?: string[];
     delay?: number;
+    isCarousal?: boolean;
   };
   
   const courseNames = [
@@ -32,11 +33,11 @@ type Props = {
     return <div className="course-display">{courses[currentIndex]}</div>;
   };
 
-const LoginAnimation = () => {
+const LoginAnimation = ({isCarousal}: Props) => {
     return(
         <div className='branding'>
           <img src={logo} alt="Logo" />
-          <h2><CourseDisplay courses={courseNames} delay={5000} /></h2>
+          {isCarousal && <h2><CourseDisplay courses={courseNames} delay={5000} /></h2>}
         </div>
     )
 };

@@ -18,6 +18,10 @@ const AddUser = () => {
     const [isLoader, setIsLoader] = useState(false);
     const navigate = useNavigate();
 
+    //Get Olympiad name from localStorage
+    const getOlympiad = JSON.parse(localStorage.getItem('olympd_prefix') || '{}');
+    const getOlympiadName = getOlympiad?.olympiad
+
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
         const { name, email, phone, paymentId } = userDetails;
@@ -31,8 +35,8 @@ const AddUser = () => {
         try {
             setIsLoader(true);
             // Prepare data for Firestore
-            const phoneWithCountryCode = `91${phone}`;
-            const userDocRef = doc(firestore, 'OlympiadUsers', email.toLowerCase());
+            const phoneWithCountryCode = `${phone}`;
+            const userDocRef = doc(firestore, getOlympiadName, email.toLowerCase());
             await setDoc(userDocRef, {
                 name,
                 email: email.toLowerCase(),

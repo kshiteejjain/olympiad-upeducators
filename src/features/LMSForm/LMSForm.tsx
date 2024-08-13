@@ -34,8 +34,7 @@ const LMSForm = () => {
     const olympdPrefix = JSON.parse(localStorage.getItem('olympd_prefix') || '{}');
     const [userDetails, setUserDetails] = useState({
         name: olympdPrefix?.name,
-        mobileNumber: '',
-        whatsappNumber: '',
+        whatsappNumber: olympdPrefix?.phone,
         email: olympdPrefix?.email,
         city: '',
         country: '',
@@ -59,7 +58,6 @@ const LMSForm = () => {
         const updatedOlympdPrefix = { ...olympdPrefix, image: base64Image };
         localStorage.setItem('olympd_prefix', JSON.stringify(updatedOlympdPrefix));
     };
-
 
     useEffect(() => {
         const checkIfNewUser = async () => {
@@ -143,15 +141,14 @@ const LMSForm = () => {
             await updateDoc(doc(firestore, 'OlympiadUsers', userDoc.id), {
                 profile: {
                     ...userDetails,
-                    mobileNumber: `91${userDetails.mobileNumber}`, // Add country code to mobile number
-                    whatsappNumber: `91${userDetails.whatsappNumber}`,
+                    whatsappNumber: `${userDetails.whatsappNumber}`,
                     image: profilePicture // Save the base64 image URL here
                 },
                 isNewUser: false
             });
 
             setUserDetails({
-                name: '', mobileNumber: '', whatsappNumber: '', email: '',
+                name: '', whatsappNumber: '', email: '',
                 city: '', country: '', dateOfBirth: '', organizationType: '', organizationName: '',
                 board: '', role: '', gradeLevel: '',
             });
@@ -194,19 +191,6 @@ const LMSForm = () => {
                                 />
                             </div>
                             <div className='form-group'>
-                                <label htmlFor='mobileNumber'>Mobile Number<span className="asterisk">*</span></label>
-                                <input
-                                    type='tel'
-                                    className='form-control phone'
-                                    required
-                                    name="mobileNumber"
-                                    autoComplete="off"
-                                    value={userDetails.mobileNumber}
-                                    onChange={handleInputChange}
-                                    maxLength={10}
-                                />
-                            </div>
-                            <div className='form-group'>
                                 <label htmlFor='whatsappNumber'>WhatsApp Number<span className="asterisk">*</span></label>
                                 <input
                                     type='tel'
@@ -217,7 +201,22 @@ const LMSForm = () => {
                                     value={userDetails.whatsappNumber}
                                     onChange={handleInputChange}
                                     maxLength={10}
+                                    disabled
                                 />
+                            </div>
+                            <div className='form-group'>
+                                <label htmlFor='email'>Email<span className="asterisk">*</span></label>
+                                <input
+                                    type='email'
+                                    className='form-control'
+                                    required
+                                    name="email"
+                                    autoComplete="off"
+                                    value={userDetails.email}
+                                    onChange={handleInputChange}
+                                    disabled
+                                />
+                                {isError && <ErrorBoundary message={'Please enter the email you registered with us.'} />}
                             </div>
                         </div>
                         <div className='user-profile-right'>
@@ -230,21 +229,6 @@ const LMSForm = () => {
                                 </div>
                             </div>
                         </div>
-                    </div>
-
-                    <div className='form-group'>
-                        <label htmlFor='email'>Email<span className="asterisk">*</span></label>
-                        <input
-                            type='email'
-                            className='form-control'
-                            required
-                            name="email"
-                            autoComplete="off"
-                            value={userDetails.email}
-                            onChange={handleInputChange}
-                            disabled
-                        />
-                        {isError && <ErrorBoundary message={'Please enter the email you registered with us.'} />}
                     </div>
 
                     <div className='form-group'>

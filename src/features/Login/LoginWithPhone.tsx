@@ -102,7 +102,7 @@ const LoginWithPhone = () => {
                         maxLength={10}
                     />
                     {isError && <ErrorBoundary message={'Please enter registered mobile number.'} />}
-                    <p className="input-note">Note: You will get OTP on <img src={whatsappSvg} /> </p>
+                    <p className="input-note">Note: You will get notifications on <img src={whatsappSvg} /> </p>
                 </div>
                 <Button title='Send' type='submit' />
             </form>

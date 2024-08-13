@@ -14,10 +14,10 @@
 .flex-card .card{
   width: 24%;
   margin-bottom: 20px;
-  background: linear-gradient(90deg, rgba(105, 219, 123, 0.15) 30%, rgba(52, 109, 242, 0.15) 70%, rgba(82, 149, 252, 0.15) 100%);
+  /* background: linear-gradient(90deg, rgba(105, 219, 123, 0.15) 30%, rgba(52, 109, 242, 0.15) 70%, rgba(82, 149, 252, 0.15) 100%); */
 }
 .flex-card .card:nth-child(odd){
-background: linear-gradient(60deg, #abecd6 0%, #fbed96 100%);
+/* background: linear-gradient(60deg, #abecd6 0%, #fbed96 100%); */
 
 }
 .flex-card .details{
