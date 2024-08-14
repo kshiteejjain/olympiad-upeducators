@@ -37,3 +37,13 @@ table.admin-table td, table.admin-table th{
 .admin-cta{
     margin-right: 0;
 }
+.admin-cta-right button{
+    background-color: var(--white);
+    color: var(--mediumGray);
+    padding: 0;
+    border: 0;
+    margin-left: 15px;
+}
+.admin-cta-right button:hover{
+    color: var(--primary);
+}

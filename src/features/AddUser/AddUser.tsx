@@ -138,7 +138,7 @@ const AddUser = () => {
                         />
                     </div>
                     <div className='form-group'>
-                        <label htmlFor='olympiad'>Olympiad<span className="asterisk">*</span></label>
+                        <label htmlFor='olympiad'>Olympiad Name<span className="asterisk">*</span></label>
                         <input
                             type='text'
                             className='form-control'
@@ -147,7 +147,6 @@ const AddUser = () => {
                             value={userDetails.olympiad.join(', ')} // Join array into a string for display
                             onChange={handleInputChange}
                             autoComplete='off'
-                            placeholder='Enter olympiads separated by commas'
                         />
                     </div>
                     {validationError && <ErrorBoundary message='All fields are required.' />}

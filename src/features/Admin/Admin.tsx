@@ -5,12 +5,50 @@ import { collection, getDocs, query, DocumentData } from 'firebase/firestore';
 import Button from '../../components/Buttons/Button';
 import Loader from '../../components/Loader/Loader';
 import ErrorBoundary from '../../components/ErrorBoundary/ErrorBoundary';
+import { saveAs } from 'file-saver';
 
 import './Admin.css';
 
+// Utility function to format date
 const formatDate = (dateString: string): string => {
     const date = new Date(dateString);
     return date.toLocaleDateString('en-GB'); // Simplified date formatting
+};
+
+// Utility function to convert JSON data to CSV
+const jsonToCSV = (data: DocumentData[]) => {
+    const headers = [
+        'Name', 'Email', 'WhatsApp', 'Olympiad', 'Payment Id', 'Registered Date',
+        'Board', 'City', 'Country', 'Date of Birth', 'Grade Level',
+        'Organization Name', 'Organization Type', 'Role'
+    ];
+
+    const csvRows = [];
+    // Add the headers
+    csvRows.push(headers.join(','));
+
+    // Add the data rows
+    data.forEach(user => {
+        const row = [
+            user.name,
+            user.email,
+            user.phone,
+            (user.olympiad || []).join(', '),
+            user.paymentDetails?.razorpay_payment_id,
+            formatDate(user.timeStamp),
+            user.profile?.board,
+            user.profile?.city,
+            user.profile?.country,
+            user.profile?.dateOfBirth,
+            user.profile?.gradeLevel,
+            user.profile?.organizationName,
+            user.profile?.organizationType,
+            user.profile?.role
+        ];
+        csvRows.push(row.map(value => `"${value}"`).join(','));
+    });
+
+    return csvRows.join('\n');
 };
 
 const Admin = () => {
@@ -78,6 +116,12 @@ const Admin = () => {
         setFilteredData(data);
     };
 
+    const exportToCSV = () => {
+        const csvData = jsonToCSV(filteredData);
+        const blob = new Blob([csvData], { type: 'text/csv;charset=utf-8' });
+        saveAs(blob, 'Olympiad_Users.csv');
+    };
+
     if (loading) return <Loader />;
     if (error) return <div>Error: {error}</div>;
 
@@ -85,7 +129,10 @@ const Admin = () => {
         <div className="content">
             <div className='admin-cta-row'>
                 <h2>Admin</h2>
-                <Button type='button' title='Add User' onClick={() => navigate('/AddUser')} />
+                <div className='admin-cta-right'>
+                    <Button type='button' title='Add User' onClick={() => navigate('/AddUser')} />
+                    <Button type='button' title='Export to CSV' onClick={exportToCSV} />
+                </div>
             </div>
             <div className="date-filter">
                 <form>

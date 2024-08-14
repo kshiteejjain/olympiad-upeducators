@@ -23,6 +23,7 @@
     box-sizing: border-box;
     margin: 0;
     transition: 0.3s;
+    font-size: calc(var(--baseFontSize) - 1px);
 }
 
 .navigation button.active,
