@@ -24,6 +24,7 @@ type UserData = {
     email: string;
     profile: Profile;
     isNewUser?: boolean;
+    olympiad?: any
 };
 
 const UserProfile = () => {
@@ -99,43 +100,47 @@ const UserProfile = () => {
                                         </tr>
                                         <tr>
                                             <td>Name</td>
-                                            <td>{data.profile.name}</td>
+                                            <td>{data?.profile?.name}</td>
                                         </tr>
                                         <tr>
                                             <td>Date of Birth</td>
-                                            <td>{data.profile.dateOfBirth}</td>
+                                            <td>{data?.profile?.dateOfBirth}</td>
                                         </tr>
                                         <tr>
                                             <td>Country</td>
-                                            <td>{data.profile.country}</td>
+                                            <td>{data?.profile?.country}</td>
                                         </tr>
                                         <tr>
                                             <td>Organization Name</td>
-                                            <td>{data.profile.organizationName}</td>
+                                            <td>{data?.profile?.organizationName}</td>
                                         </tr>
                                         <tr>
                                             <td>Organization Type</td>
-                                            <td>{data.profile.organizationType}</td>
+                                            <td>{data?.profile?.organizationType}</td>
                                         </tr>
                                         <tr>
                                             <td>Role</td>
-                                            <td>{data.profile.role}</td>
+                                            <td>{data?.profile?.role}</td>
                                         </tr>
                                         <tr>
                                             <td>Grade Level</td>
-                                            <td>{data.profile.gradeLevel}</td>
+                                            <td>{data?.profile?.gradeLevel}</td>
                                         </tr>
                                         <tr>
                                             <td>City</td>
-                                            <td>{data.profile.city}</td>
+                                            <td>{data?.profile?.city}</td>
                                         </tr>
                                         <tr>
                                             <td>Board</td>
-                                            <td>{data.profile.board}</td>
+                                            <td>{data?.profile?.board}</td>
                                         </tr>
                                         <tr>
                                             <td>WhatsApp Number</td>
-                                            <td>{data.profile.whatsappNumber}</td>
+                                            <td>{data?.profile?.whatsappNumber}</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Registered Olympiad</td>
+                                            <td>{data?.olympiad.join(',')}</td>
                                         </tr>
                                     </tbody>
                                 </table>

@@ -199,20 +199,20 @@ const Admin = () => {
                         <tbody>
                             {filteredData.map((user, index) => (
                                 <tr key={index}>
-                                    <td>{user.name}</td>
-                                    <td>{user.email}</td>
+                                    <td>{user?.name}</td>
+                                    <td>{user?.email}</td>
                                     <td>{user?.phone}</td>
                                     <td>{(user?.olympiad || []).join(', ')}</td>
                                     <td>{user.paymentDetails?.razorpay_payment_id}</td>
                                     <td>{formatDate(user.timeStamp)}</td>
-                                    <td>{user.profile?.board}</td>
-                                    <td>{user.profile?.city}</td>
-                                    <td>{user.profile?.country}</td>
-                                    <td>{user.profile?.dateOfBirth}</td>
-                                    <td>{user.profile?.gradeLevel}</td>
-                                    <td>{user.profile?.organizationName}</td>
-                                    <td>{user.profile?.organizationType}</td>
-                                    <td>{user.profile?.role}</td>
+                                    <td>{user?.profile?.board}</td>
+                                    <td>{user?.profile?.city}</td>
+                                    <td>{user?.profile?.country}</td>
+                                    <td>{user?.profile?.dateOfBirth}</td>
+                                    <td>{user?.profile?.gradeLevel}</td>
+                                    <td>{user?.profile?.organizationName}</td>
+                                    <td>{user?.profile?.organizationType}</td>
+                                    <td>{user?.profile?.role}</td>
                                 </tr>
                             ))}
                         </tbody>
