@@ -8,14 +8,16 @@ const olympdPrefix = JSON.parse(localStorage.getItem('olympd_prefix') || '{}');
 const dynamicPath = olympdPrefix.olympiadName || 'm24'; // Default to 'm24' if no olympiad is set
 
 // Lazy load components based on dynamicPath
-const AboutOlympiad = lazy(() => import(`./${dynamicPath}/AboutOlympiad.tsx`));
-const ReferEarn = lazy(() => import(`./${dynamicPath}/ReferEarn.tsx`));
-const Awards = lazy(() => import(`./${dynamicPath}/Awards.tsx`));
-const FAQ = lazy(() => import(`./${dynamicPath}/FAQ.tsx`));
-const LiveMasterClass = lazy(() => import(`./${dynamicPath}/LiveMasterClass.tsx`));
-const Report = lazy(() => import(`./${dynamicPath}/Report.tsx`));
-const AboutUpEducators = lazy(() => import(`./${dynamicPath}/AboutUpEducators.tsx`));
-const CoursesForEducators = lazy(() => import(`./${dynamicPath}/CoursesForEducators.tsx`));
+const loadComponent = (componentName: string) => lazy(() => import(`./${dynamicPath}/${componentName}.tsx`));
+
+const AboutOlympiad = loadComponent('AboutOlympiad');
+const ReferEarn = loadComponent('ReferEarn');
+const Awards = loadComponent('Awards');
+const FAQ = loadComponent('FAQ');
+const LiveMasterClass = loadComponent('LiveMasterClass');
+const Report = loadComponent('Report');
+const AboutUpEducators = loadComponent('AboutUpEducators');
+const CoursesForEducators = loadComponent('CoursesForEducators');
 
 // Map paths to components
 const componentMap: Record<string, ComponentType<any>> = {
