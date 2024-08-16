@@ -1,0 +1,163 @@
+[
+    {
+      "question": "What is the past tense of 'run'?",
+      "options": ["ran", "running", "runs", "run"]
+    },
+    {
+      "question": "Which of the following is a synonym for 'happy'?",
+      "options": ["sad", "joyful", "angry", "tired"]
+    },
+    {
+      "question": "In which teaching method is the teacher the primary source of knowledge?",
+      "options": ["Student-Centered Learning", "Project-Based Learning", "Direct Instruction", "Inquiry-Based Learning"]
+    },
+    {
+      "question": "Which of the following is a fundamental component of formative assessment?",
+      "options": ["Final exams", "Standardized tests", "Quizzes", "End-of-term projects"]
+    },
+    {
+      "question": "What is the chemical symbol for water?",
+      "options": ["H2O", "CO2", "O2", "NaCl"]
+    },
+    {
+      "question": "What planet is known as the 'Morning Star'?",
+      "options": ["Venus", "Mars", "Mercury", "Jupiter"]
+    },
+    {
+      "question": "Who is considered the father of modern physics?",
+      "options": ["Isaac Newton", "Albert Einstein", "Galileo Galilei", "Nikola Tesla"]
+    },
+    {
+      "question": "Which teaching strategy involves students working in groups to solve problems?",
+      "options": ["Cooperative Learning", "Direct Instruction", "Lecture-Based Learning", "Individual Study"]
+    },
+    {
+      "question": "What is the primary purpose of a thesis statement in an essay?",
+      "options": ["To summarize the conclusion", "To outline the essay structure", "To state the main argument", "To provide background information"]
+    },
+    {
+      "question": "What does DNA stand for?",
+      "options": ["Deoxyribonucleic Acid", "Deoxyribonucleotide Acid", "Dioxyribonucleic Acid", "Deoxyribonucleic Atom"]
+    },
+    {
+      "question": "What is the smallest unit of life?",
+      "options": ["Atom", "Molecule", "Cell", "Organ"]
+    },
+    {
+      "question": "Which of the following is a type of formative assessment?",
+      "options": ["Final exam", "Standardized test", "Quiz", "SAT"]
+    },
+    {
+      "question": "In English grammar, what is the term for a word that modifies a noun?",
+      "options": ["Verb", "Adverb", "Adjective", "Pronoun"]
+    },
+    {
+      "question": "What is the main objective of the Socratic method?",
+      "options": ["To lecture students", "To encourage critical thinking", "To provide direct answers", "To give multiple-choice tests"]
+    },
+    {
+      "question": "Which scientist is known for the theory of evolution by natural selection?",
+      "options": ["Charles Darwin", "Louis Pasteur", "Gregor Mendel", "Isaac Newton"]
+    },
+    {
+      "question": "Which method of teaching emphasizes hands-on learning and real-world problem solving?",
+      "options": ["Experiential Learning", "Lecture-Based Learning", "Reading Assignments", "Traditional Teaching"]
+    },
+    {
+      "question": "What is the formula for calculating speed?",
+      "options": ["Speed = Distance / Time", "Speed = Mass / Distance", "Speed = Time / Distance", "Speed = Force x Distance"]
+    },
+    {
+      "question": "Which punctuation mark is used to show possession?",
+      "options": ["Comma", "Period", "Apostrophe", "Colon"]
+    },
+    {
+      "question": "What is the primary focus of differentiated instruction?",
+      "options": ["Uniform teaching for all students", "Adjusting teaching methods to meet diverse needs", "Providing the same resources to all students", "Standardized testing"]
+    },
+    {
+      "question": "What is the boiling point of water at sea level in Celsius?",
+      "options": ["100°C", "90°C", "80°C", "120°C"]
+    },
+    {
+      "question": "What term describes a system where students learn by doing and reflecting on their experiences?",
+      "options": ["Constructivism", "Behaviorism", "Cognitivism", "Connectivism"]
+    },
+    {
+      "question": "Which part of the cell is known as the 'powerhouse'?",
+      "options": ["Nucleus", "Mitochondria", "Ribosomes", "Endoplasmic Reticulum"]
+    },
+    {
+      "question": "Which word is an antonym for 'difficult'?",
+      "options": ["Easy", "Complicated", "Challenging", "Hard"]
+    },
+    {
+      "question": "What is the purpose of an 'educational assessment'?",
+      "options": ["To evaluate student performance", "To assign grades", "To standardize teaching methods", "To provide direct instruction"]
+    },
+    {
+      "question": "What is the speed of light in a vacuum?",
+      "options": ["299,792 km/s", "150,000 km/s", "300,000 km/s", "100,000 km/s"]
+    },
+    {
+      "question": "Which teaching approach emphasizes student choice and autonomy?",
+      "options": ["Student-Centered Learning", "Teacher-Directed Instruction", "Direct Instruction", "Lecture-Based Learning"]
+    },
+    {
+      "question": "What element is necessary for respiration in animals?",
+      "options": ["Carbon Dioxide", "Hydrogen", "Nitrogen", "Oxygen"]
+    },
+    {
+      "question": "Which of the following is an example of a formative assessment technique?",
+      "options": ["Midterm exam", "Final project", "Class discussion", "End-of-term test"]
+    },
+    {
+      "question": "What is a key characteristic of 'constructivist' teaching?",
+      "options": ["Emphasis on memorization", "Focus on students' existing knowledge", "Teacher-centered instruction", "Standardized testing"]
+    },
+    {
+      "question": "Which type of energy is stored in food?",
+      "options": ["Kinetic Energy", "Potential Energy", "Thermal Energy", "Mechanical Energy"]
+    },
+    {
+      "question": "Which method involves students exploring problems and solutions collaboratively?",
+      "options": ["Project-Based Learning", "Direct Instruction", "Lecture-Based Learning", "Individual Study"]
+    },
+    {
+      "question": "In English literature, what is a metaphor?",
+      "options": ["A direct comparison between two things", "A type of rhyme scheme", "A recurring theme", "A figure of speech involving exaggeration"]
+    },
+    {
+      "question": "What is the main goal of 'active learning'?",
+      "options": ["Passive absorption of information", "Engagement in interactive activities", "Listening to lectures", "Reading textbooks"]
+    },
+    {
+      "question": "Which of the following is a method of summative assessment?",
+      "options": ["Classroom quizzes", "Homework assignments", "Final exams", "Daily participation"]
+    },
+    {
+      "question": "What is the primary focus of 'scaffolding' in education?",
+      "options": ["Providing support structures to aid learning", "Assessing student knowledge", "Setting up rigid learning environments", "Standardizing student assessments"]
+    },
+    {
+      "question": "Which of the following is an example of a renewable resource?",
+      "options": ["Coal", "Natural Gas", "Solar Energy", "Oil"]
+    },
+    {
+      "question": "What is the purpose of a 'rubric' in education?",
+      "options": ["To provide criteria for assessment", "To offer a summary of content", "To deliver lectures", "To grade exams"]
+    },
+    {
+      "question": "Which grammatical term describes a word that replaces a noun?",
+      "options": ["Adverb", "Pronoun", "Verb", "Adjective"]
+    },
+    {
+      "question": "What is the central idea of 'Inquiry-Based Learning'?",
+      "options": ["Encouraging students to ask questions and explore answers", "Providing direct answers and lectures", "Standardizing instructional content", "Focusing on rote memorization"]
+    },
+    {
+      "question": "What is the chemical symbol for sodium?",
+      "options": ["Na", "S", "N", "So"]
+    }
+  ]
+  

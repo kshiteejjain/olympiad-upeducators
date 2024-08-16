@@ -1,0 +1,125 @@
+.question-container {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.question-container .quiz {
+  width: 65%;
+}
+
+.question-list {
+  display: flex;
+  flex-direction: column;
+  width: 30%;
+  margin:20px 0 0 5%;
+  padding: 10px;
+  box-sizing: border-box;
+  background-color: var(--white);
+  max-height: 90vh;
+  overflow-y: auto;
+}
+
+.question-item {
+  padding: 9px 6px;
+  margin-bottom: 5px;
+  border-radius: 0;
+  font-size: calc(var(--baseFontSize) - 3px);
+  text-align: left;
+  position: relative;
+  background-color: var(--white);
+  border-bottom: 1px solid var(--gray);
+}
+
+.question-item.not-attempted {
+  color: var(--gray);
+}
+
+.question-item.attempted {
+  padding-left: 30px;
+}
+
+.question-item.attempted:after {
+  content: '';
+  background-image: url(/src/assets/tick.svg);
+  width: 18px;
+  height: 18px;
+  position: absolute;
+  left: 6px;
+  top: 8px;
+  background-size: cover;
+}
+
+.question-nav {
+  display: flex;
+  justify-content: center;
+  margin: 50px 0;
+}
+
+.question-nav button {
+  margin: 0 10px;
+}
+
+.quiz-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.answer-options .option {
+  background-color: var(--white);
+  border: 1px solid var(--gray);
+  padding: 10px 10px;
+  margin-bottom: 10px;
+  border-radius: 5px;
+  text-transform: capitalize;
+  position: relative;
+}
+
+.answer-options .option:hover {
+  background-color: var(--grayBlue);
+}
+
+.answer-options .option input[type='radio']:checked {
+  opacity: 1;
+  height: 0;
+}
+
+.answer-options .option input[type='radio']:checked:after {
+  content: '';
+  background-image: url(/src/assets/tick.svg);
+  width: 24px;
+  height: 24px;
+  position: absolute;
+  right: 10px;
+  top: 10px;
+  background-size: cover;
+}
+
+.answer-options .option input[type='radio'] {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  top: 0;
+  opacity: 0;
+  cursor: pointer;
+  margin: 0;
+  padding: 0;
+  left: 0;
+  right: 0;
+}
+
+.timer {
+  background-color: var(--white);
+  padding: 10px;
+  border-radius: 8px;
+  border: 1px solid var(--gray);
+}
+
+.timer span {
+  background-color: var(--darkGray);
+  color: var(--white);
+  border-radius: 3px;
+  padding: 4px;
+  margin-left: 6px;
+}

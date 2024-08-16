@@ -72,6 +72,7 @@ const Header = () => {
     <header className="header">
       <div className="container-wrapper">
         <img src={logo} alt='upEducator' title='upEducator' className='logo' />
+        <button onClick={()=> navigate('/Examination')}>Examination</button>
         <select
           className='form-control'
           value={selectedOlympiad}

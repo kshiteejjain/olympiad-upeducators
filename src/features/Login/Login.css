@@ -25,6 +25,7 @@ form {
 
 .login-form {
     width: 45%;
+    height: 100%;
     background-color: var(--white);
     align-items: center;
     display: flex;
