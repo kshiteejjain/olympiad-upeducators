@@ -60,6 +60,7 @@
   top: 55px;
   box-shadow: 0 0 10px #e7e7e7;
   display: none;
+  z-index: 9;
 }
 
 .profile-image{

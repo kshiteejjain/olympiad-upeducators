@@ -16,6 +16,7 @@ import Admin from './features/Admin/Admin';
 import UserProfile from './features/UserProfile/UserProfile';
 import AddUser from './features/AddUser/AddUser';
 import CoursesForEducators from './features/CoursesForEducators/CoursesForEducators';
+import Examination from './features/Examination/Examination';
 
 import './App.css';
 
@@ -44,7 +45,7 @@ const App = () => {
     <div className="App">
       {showHeaderAndNav && <Header />}
       <div className={noContainerRoutes.includes(location.pathname) ? '' : 'container-wrapper'}>
-        {showHeaderAndNav && location.pathname !== '/LMSForm' && '/Admin' && '/PaymentGateway' && <PageNavigation />}
+        {showHeaderAndNav && location.pathname !== '/LMSForm' && '/Admin' && '/PaymentGateway' && '/Examination' && <PageNavigation />}
         <Routes>
           <Route path="*" element={<Navigate to="/" replace />} />
           <Route path="/" element={<Login />} />
@@ -62,6 +63,7 @@ const App = () => {
           <Route path="/AboutUpEducators" element={checkSession() ? <AboutUpEducators /> : <Navigate to="/" replace />} />
           <Route path="/Admin" element={checkSession() ? <Admin /> : <Navigate to="/" replace />} />
           <Route path="/UserProfile" element={checkSession() ? <UserProfile /> : <Navigate to="/" replace />} />
+          <Route path="/Examination" element={checkSession() ? <Examination /> : <Navigate to="/" replace />} />
         </Routes>
       </div>
     </div>
