@@ -5,10 +5,10 @@ import Loader from '../../../components/Loader/Loader';
 import Button from '../../../components/Buttons/Button';
 import Card from '../../../components/Card/Card';
 import WhatsappIcon from '../../../assets/whatsapp.svg';
-import CopyClipboard from '../../assets/share.svg';
-import invite from '../../assets/invite.svg';
-import withdraw from '../../assets/withdraw.svg';
-import tick from '../../assets/tick.svg';
+import CopyClipboard from '../../../assets/share.svg';
+import invite from '../../../assets/invite.svg';
+import withdraw from '../../../assets/withdraw.svg';
+import tick from '../../../assets/tick.svg';
 import Modal from '../../../components/Modal/Modal';
 
 const ReferEarn = () => {
