@@ -1,4 +1,4 @@
-import Banner from '../../assets/banner.jpg';
+import Banner from '../../../assets/banner.jpg';
 
 const AboutOlympiad = () => {
     return (

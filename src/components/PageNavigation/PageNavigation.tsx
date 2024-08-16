@@ -1,11 +1,11 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 import './PageNavigation.css';
 
-
 const PageNavigation = ({ navPath }: any) => {
     const [activeButton, setActiveButton] = useState<string | null>(null);
-
+    const navigate = useNavigate();
     const handleClick = (path: string) => {
         setActiveButton(path);
         navPath(path);
@@ -13,6 +13,7 @@ const PageNavigation = ({ navPath }: any) => {
 
     return (
         <div className='navigation'>
+            <button onClick={() => navigate('/Examination')}>Start Exam</button>
             <button
                 className={activeButton === '/AboutOlympiad' ? 'active' : ''}
                 onClick={() => handleClick('/AboutOlympiad')}

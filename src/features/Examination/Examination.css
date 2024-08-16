@@ -5,19 +5,26 @@
 }
 
 .question-container .quiz {
-  width: 65%;
+  width: 100%;
 }
 
 .question-list {
   display: flex;
   flex-direction: column;
   width: 30%;
-  margin:20px 0 0 5%;
+  margin: 40px 0 0 30px;
+  box-shadow: 0 0 10px #dfdfdf;
   padding: 10px;
   box-sizing: border-box;
   background-color: var(--white);
-  max-height: 90vh;
+}
+
+.question-list .listing {
+  max-height: 75vh;
   overflow-y: auto;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
 }
 
 .question-item {
@@ -29,14 +36,17 @@
   position: relative;
   background-color: var(--white);
   border-bottom: 1px solid var(--gray);
+  color: var(--darkGray);
 }
 
 .question-item.not-attempted {
-  color: var(--gray);
+  color: var(--darkGray);
 }
 
 .question-item.attempted {
   padding-left: 30px;
+  color: #2cb742;
+  font-weight: bold;
 }
 
 .question-item.attempted:after {
@@ -122,4 +132,51 @@
   border-radius: 3px;
   padding: 4px;
   margin-left: 6px;
+}
+
+.webcam-container {
+  position: fixed;
+  bottom: 5px;
+  right: 5px;
+  width: 200px;
+  height: 150px;
+  box-shadow: 0 0 10px #8b8282;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  z-index: 9;
+  border-radius: 8px;
+  background-image: url('../../assets/recordinng.svg');
+  background-size: 70px;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-color: var(--black);
+}
+
+.webcam-container video {
+  width: 200px;
+  height: 150px;
+}
+
+.webcam-container p {
+  font-size: calc(var(--baseFontSize) - 2px);
+  text-align: center;
+  line-height: normal;
+  color: var(--gray);
+  margin: 0 10px 12px 10px;
+}
+.recording{
+  max-width: 60px;
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+.no-camera-access {
+  text-align: center;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  margin-top: 200px;
 }

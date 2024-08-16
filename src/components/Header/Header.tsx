@@ -8,6 +8,7 @@ import logout from '../../assets/logout.svg';
 import PlaceholderImage from '../../assets/profile-placeholder.png';
 
 import './Header.css';
+import Loader from '../Loader/Loader';
 
 type UserData = {
   olympiad?: string[];
@@ -16,7 +17,6 @@ type UserData = {
 
 const Header = () => {
   const [users, setUsers] = useState<UserData[]>([]);
-  const [isError, setIsError] = useState(false);
   const [isLoader, setIsLoader] = useState(false);
   const [selectedOlympiad, setSelectedOlympiad] = useState<string>('');
   const navigate = useNavigate();
@@ -29,6 +29,7 @@ const Header = () => {
       if (!olympdPrefix.email) return console.warn('No email found in olympd_prefix');
 
       try {
+        setIsLoader(true)
         const userQuery = query(
           collection(firestore, 'OlympiadUsers'),
           where('email', '==', olympdPrefix.email)
@@ -45,6 +46,7 @@ const Header = () => {
           // Update localStorage with the default or stored Olympiad
           const updatedOlympdPrefix = { ...olympdPrefix, olympiadName: storedOlympiad };
           localStorage.setItem('olympd_prefix', JSON.stringify(updatedOlympdPrefix));
+          setIsLoader(false)
         }
       } catch (err) {
         console.error('Error fetching registered olympiad name:', err);
@@ -69,43 +71,47 @@ const Header = () => {
   const uniqueOlympiads = Array.from(new Set(users.flatMap(user => user.olympiad || [])));
 
   return (
-    <header className="header">
-      <div className="container-wrapper">
-        <img src={logo} alt='upEducator' title='upEducator' className='logo' />
-        <button onClick={()=> navigate('/Examination')}>Examination</button>
-        <select
-          className='form-control'
-          value={selectedOlympiad}
-          onChange={handleOlympiadChange}
-        >
-          {uniqueOlympiads.map((olympiad, index) => {
-            const olympiadLabel = olympiad === 's24' ? 'Science 2024'
-              : olympiad === 'm24' ? 'Maths 2024'
-                : olympiad;
+    <>
+      {isLoader && <Loader />}
+      <header className="header">
+        <div className="container-wrapper">
+          <img src={logo} alt='upEducator' title='upEducator' className='logo' />
+          <div className='language-option'>
+            <select
+              className='form-control'
+              value={selectedOlympiad}
+              onChange={handleOlympiadChange}
+            >
+              {uniqueOlympiads.map((olympiad, index) => {
+                const olympiadLabel = olympiad === 's24' ? 'Science 2024'
+                  : olympiad === 'm24' ? 'Maths 2024'
+                    : olympiad;
 
-            return (
-              <option key={index} value={olympiad}>
-                {olympiadLabel}
-              </option>
-            );
-          })}
-        </select>
-        <div className='header-right'>
-          <div className='username'>
-            Welcome <strong>{olympdPrefix.name} </strong>
-            <img className='profile-image' src={olympdPrefix.image || PlaceholderImage} alt='Profile' />
+                return (
+                  <option key={index} value={olympiad}>
+                    {olympiadLabel}
+                  </option>
+                );
+              })}
+            </select>
           </div>
-          <div className='dropdown-menu'>
-            {isAdmin && <Button title='Admin' type='button' onClick={() => navigate('/Admin')} />}
-            <Button title='Profile' type='button' onClick={() => navigate('/UserProfile')} />
-            <Button title='Logout' type='button' onClick={() => {
-              localStorage.setItem('olympd_prefix', JSON.stringify({}));
-              navigate('/');
-            }} isIcon iconPath={logout} />
+          <div className='header-right'>
+            <div className='username'>
+              Welcome <strong>{olympdPrefix.name} </strong>
+              <img className='profile-image' src={olympdPrefix.image || PlaceholderImage} alt='Profile' />
+            </div>
+            <div className='dropdown-menu'>
+              {isAdmin && <Button title='Admin' type='button' onClick={() => navigate('/Admin')} />}
+              <Button title='Profile' type='button' onClick={() => navigate('/UserProfile')} />
+              <Button title='Logout' type='button' onClick={() => {
+                localStorage.setItem('olympd_prefix', JSON.stringify({}));
+                navigate('/');
+              }} isIcon iconPath={logout} />
+            </div>
           </div>
         </div>
-      </div>
-    </header>
+      </header>
+    </>
   );
 };
 
