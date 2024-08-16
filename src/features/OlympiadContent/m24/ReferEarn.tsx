@@ -4,7 +4,7 @@ import { collection, doc, getDocs, query, updateDoc, where } from 'firebase/fire
 import Loader from '../../../components/Loader/Loader';
 import Button from '../../../components/Buttons/Button';
 import Card from '../../../components/Card/Card';
-import WhatsappIcon from '../../assets/whatsapp.svg';
+import WhatsappIcon from '../../../assets/whatsapp.svg';
 import CopyClipboard from '../../assets/share.svg';
 import invite from '../../assets/invite.svg';
 import withdraw from '../../assets/withdraw.svg';
