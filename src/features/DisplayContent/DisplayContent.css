@@ -1,0 +1,258 @@
+/* Shared Olympiad Pages */
+.close {
+    max-width: 23px;
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    opacity: 0.5;
+    cursor: pointer;
+  }
+  .close:hover{
+    opacity: 1;
+  }
+  .olympiad-banner{
+    margin: 0 0 40px 0;
+  }
+  .olympiad-banner img{
+    border-radius: 18px;
+  }
+  
+  .olympiad-banner{
+    margin: 0 0 40px 0;
+  }
+  .olympiad-banner img{
+    border-radius: 18px;
+  }
+  
+  .earning-box{
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+  }
+  .earning-box .card{
+    width:100%;
+  }
+  .earning-box .card:nth-child(2){
+    background-image: linear-gradient(120deg, #fdfbfb 0%, #ebedee 100%);
+  }
+  .awards{
+    display: flex;
+    justify-content: space-between;
+  }
+  .awards-card{
+    width: 32%;
+    background-color: var(--white);
+    border: 1px solid var(--gray);
+    border-radius: 8px;
+    box-sizing: border-box;
+    position: relative;
+    padding: 25px;
+    /* background: linear-gradient(90deg, rgba(105, 219, 123, 0.15) 30%, rgba(52, 109, 242, 0.15) 70%, rgba(82, 149, 252, 0.15) 100%); */
+  }
+  .awards-card:nth-child(2){
+    background-image: linear-gradient(60deg, #abecd6 0%, #fbed96 100%);
+  }
+  .awards-card h1{
+    margin: 0 0 20px 0;
+    font-size: calc(var(--baseFontSize) + 5px);
+    color: var(--black);
+    font-weight: bold;
+  }
+  .awards-card-description p{
+    margin:5px 0 0 0;
+  }
+  .awards-card ul{
+    margin-bottom: 0;
+  }
+  
+  summary::after {
+    content: '';
+    width: 15px;
+    height: 12px;
+    background-image: url('../../assets/chevron-down.svg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    margin-left: .75em;
+    transition: 0.2s;
+    position: absolute;
+    right: 15px;
+  }
+  
+  details[open]>summary::after {
+    transform: rotate(180deg);
+  }
+  
+  summary::-webkit-details-marker {
+    display: none;
+  }
+  
+  .faq {
+    margin-bottom: 30px;
+  }
+  
+  .faq h3 {
+    font-size: calc(var(--baseFontSize) + 3px);
+    margin: 0 0 10px 0;
+  }
+  
+  .faq details {
+    border: 1px solid var(--gray);
+    cursor: pointer;
+    position: relative;
+    background-color: var(--grayBlue);
+    margin-bottom: 15px;
+    padding: 10px 20px;
+    box-sizing: border-box;
+    border-radius: 8px;
+  }
+  
+  .faq details:hover {
+    background-color: var(--white);
+  }
+  
+  .faq details summary {
+    font-size: calc(var(--baseFontSize));
+    display: flex;
+    align-items: center;
+    font-weight: bold;
+    width: 100%;
+  }
+  
+  .faq details p {
+    font-size: calc(var(--baseFontSize));
+    margin: 10px 0 0 0;
+  }
+  
+  .faq details h3 {
+    font-size: calc(var(--baseFontSize) + 2px);
+    margin: 30px 0 5px 0;
+    font-weight: normal;
+  }
+  
+  .faq-topics {
+    background: linear-gradient(90deg, rgba(105, 219, 123, 0.15) 30%, rgba(52, 109, 242, 0.15) 70%, rgba(82, 149, 252, 0.15) 100%);
+    padding: 20px;
+    border-radius: 8px;
+    margin: 30px 0 35px 0;
+  }
+  
+  .faq-topics h2 {
+    font-size: calc(var(--baseFontSize) + 1px);
+    margin: 0 0 20px 0;
+  }
+  
+  .faq-topics a {
+    border: 1px solid var(--mediumGray);
+    padding: 8px 10px 8px 20px;
+    border-radius: 30px;
+    color: var(--darkGray);
+    margin-right: 15px;
+    font-size: calc(var(--baseFontSize) - 2px);
+    display: inline-block;
+  }
+  
+  .faq-topics a img{
+   max-height: 10px;
+   margin-left: 10px;
+   transform: rotate(-90deg);
+  }
+  
+  .faq-topics a:hover {
+    border-color: var(--primary);
+    color: var(--primary);
+  }
+  
+  .earning-box{
+    display: flex;
+    justify-content: space-between;
+  }
+  .earning-box p{
+    font-size: calc(var(--baseFontSize) - 1px);
+    margin: 5px 0;
+  }
+  .how-it-works{
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    margin:30px 0 60px 0;
+  }
+  .how-it-works h3{
+    width: 100%;
+    margin-bottom: 15px;
+  }
+  .how-it-works h4{
+    width: 100%;
+    margin:0 0 40px 0;
+    font-weight: normal;
+  }
+  .how-it-works h4 strong{
+    color: var(--primary);
+  }
+  .works-card{
+    width: 49%;
+    background-color: var(--white);
+    border: 1px solid var(--gray);
+    border-radius: 8px;
+    box-sizing: border-box;
+    position: relative;
+    padding: 25px;
+    /* background: linear-gradient(90deg, rgba(105, 219, 123, 0.15) 30%, rgba(52, 109, 242, 0.15) 70%, rgba(82, 149, 252, 0.15) 100%); */
+  }
+  .works-card h1{
+    margin:0;
+    font-size: calc(var(--baseFontSize) + 5px);
+    color: var(--black);
+    font-weight: bold;
+  }
+  .works-card .icon{
+    max-width: 50px;
+    margin-right: 25px;
+  }
+  .works-card button{
+    background-color: var(--whatsapp);
+    border: 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    color: var(--white);
+    padding: 9px 20px;
+  }
+  .works-card button:focus{
+    outline: 0;
+    border: 0;
+  }
+  .works-card button:nth-child(2){
+    background-color: var(--white);
+    color: var(--black);
+    border: 1px solid var(--gray);
+    margin-left: 15px;
+  }
+  .works-card button:hover{
+    background-color: var(--primary);
+    color: var(--white);
+  }
+  .works-card-title{
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    margin-bottom: 10px;
+  }
+  .works-card-description p{
+    margin:5px 0 0 0;
+  }
+  .works-card .cta{
+    display: flex;
+    margin:15px 0 0 0;
+  }
+  .works-card .cta button{
+    font-size: calc(var(--baseFontSize) - 1px);
+  }
+  .works-card .cta button img {
+    max-width: 15px;
+    margin: 0 0 0 6px;
+  }
+  
+  .link-button{
+    float: right;
+    font-size: calc(var(--baseFontSize) - 1px);
+  }

@@ -1,21 +1,13 @@
 import { HashRouter as Router, Routes, Route, Navigate, useLocation } from 'react-router-dom';
 import PaymentGateway from './features/PaymentGateway/PaymentGateway';
-import AboutOlympiad from './features/AboutOlympiad/AboutOlympiad';
-import ReferEarn from './features/ReferEarn/ReferEarn';
-import Awards from './features/Awards/Awards';
-import FAQ from './features/FAQ/FAQ';
-import LiveMasterClass from './features/LiveMasterClass/LiveMasterClass';
-import Report from './features/Report/Report';
-import AboutUpEducators from './features/AboutUpEducators/AboutUpEducators';
 import Login from './features/Login/Login';
 import Header from './components/Header/Header';
-import PageNavigation from './components/PageNavigation/PageNavigation';
 import EnterOTP from './features/Login/EnterOTP';
 import LMSForm from './features/LMSForm/LMSForm';
 import Admin from './features/Admin/Admin';
 import UserProfile from './features/UserProfile/UserProfile';
 import AddUser from './features/AddUser/AddUser';
-import CoursesForEducators from './features/CoursesForEducators/CoursesForEducators';
+import DisplayContent from './features/DisplayContent/DisplayContent'
 
 import './App.css';
 
@@ -44,7 +36,6 @@ const App = () => {
     <div className="App">
       {showHeaderAndNav && <Header />}
       <div className={noContainerRoutes.includes(location.pathname) ? '' : 'container-wrapper'}>
-        {showHeaderAndNav && location.pathname !== '/LMSForm' && '/Admin' && '/PaymentGateway' && <PageNavigation />}
         <Routes>
           <Route path="*" element={<Navigate to="/" replace />} />
           <Route path="/" element={<Login />} />
@@ -52,14 +43,7 @@ const App = () => {
           <Route path="/EnterOTP" element={<EnterOTP />} />
           <Route path="/AddUser" element={<AddUser />} />
           <Route path="/PaymentGateway" element={<PaymentGateway />} />
-          <Route path="/AboutOlympiad" element={checkSession() ? <AboutOlympiad /> : <Navigate to="/" replace />} />
-          <Route path="/ReferEarn" element={checkSession() ? <ReferEarn /> : <Navigate to="/" replace />} />
-          <Route path="/Awards" element={checkSession() ? <Awards /> : <Navigate to="/" replace />} />
-          <Route path="/FAQ" element={checkSession() ? <FAQ /> : <Navigate to="/" replace />} />
-          <Route path="/LiveMasterClass" element={checkSession() ? <LiveMasterClass /> : <Navigate to="/" replace />} />
-          <Route path="/Report" element={checkSession() ? <Report /> : <Navigate to="/" replace />} />
-          <Route path="/CoursesForEducators" element={checkSession() ? <CoursesForEducators /> : <Navigate to="/" replace />} />
-          <Route path="/AboutUpEducators" element={checkSession() ? <AboutUpEducators /> : <Navigate to="/" replace />} />
+          <Route path="/DisplayContent" element={checkSession() ? <DisplayContent /> : <Navigate to="/" replace />} />
           <Route path="/Admin" element={checkSession() ? <Admin /> : <Navigate to="/" replace />} />
           <Route path="/UserProfile" element={checkSession() ? <UserProfile /> : <Navigate to="/" replace />} />
         </Routes>

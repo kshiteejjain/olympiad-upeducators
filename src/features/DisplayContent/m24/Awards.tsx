@@ -1,5 +1,3 @@
-import './Awards.css';
-
 const Awards = () => {
     return (
         <div className='content'>

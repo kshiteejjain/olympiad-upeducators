@@ -1,5 +1,3 @@
-import './Report.css';
-
 const SessionsData = [{
     name: 'Gamification in Education: Making Learning Fun and Effective',
     duration: '2 hours live workshop',

@@ -1,5 +1,3 @@
-import './AboutUpEducators.css';
-
 const SessionsData = [{
     name: '4,00,000+ Followers on Social Media',
     duration: 'Join over 400,000 educators across India who are part of our vibrant social media community, benefiting from shared experiences and insights.',

@@ -1,6 +1,4 @@
-import ChevronDown from '../../assets/chevron-down.svg';
-
-import './FAQ.css';
+import ChevronDown from '../../../assets/chevron-down.svg';
 
 const FAQ = () => {
     const scrollToSection = (id: any) => {

@@ -1,17 +1,15 @@
 import { useState, useEffect } from 'react';
-import { firestore } from '../../utils/firebase';
+import { firestore } from '../../../utils/firebase';
 import { collection, doc, getDocs, query, updateDoc, where } from 'firebase/firestore';
-import Loader from '../../components/Loader/Loader';
-import Button from '../../components/Buttons/Button';
-import Card from '../../components/Card/Card';
-import WhatsappIcon from '../../assets/whatsapp.svg';
-import CopyClipboard from '../../assets/share.svg';
-import invite from '../../assets/invite.svg';
-import withdraw from '../../assets/withdraw.svg';
-import tick from '../../assets/tick.svg';
-import Modal from '../../components/Modal/Modal';
-
-import './ReferEarn.css';
+import Loader from '../../../components/Loader/Loader';
+import Button from '../../../components/Buttons/Button';
+import Card from '../../../components/Card/Card';
+import WhatsappIcon from '../../../assets/whatsapp.svg';
+import CopyClipboard from '../../../assets/share.svg';
+import invite from '../../../assets/invite.svg';
+import withdraw from '../../../assets/withdraw.svg';
+import tick from '../../../assets/tick.svg';
+import Modal from '../../../components/Modal/Modal';
 
 const ReferEarn = () => {
     const [referral, setReferral] = useState('');
@@ -114,7 +112,7 @@ const ReferEarn = () => {
                 </Modal>
             }
 
-            <h2>Refer & Earn</h2>
+            <h2>Refer & Earn Science 24</h2>
             <div className='how-it-works'>
                 <h3>How It Works?</h3>
 

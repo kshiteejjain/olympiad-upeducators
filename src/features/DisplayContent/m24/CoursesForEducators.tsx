@@ -1,4 +1,4 @@
-import Button from "../../components/Buttons/Button";
+import Button from "../../../components/Buttons/Button";
 
 const SessionsData = [{
     name: 'Gamification in Education: Making Learning Fun and Effective',
