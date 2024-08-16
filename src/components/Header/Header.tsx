@@ -1,4 +1,7 @@
+import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { firestore } from '../../utils/firebase';
+import { collection, getDocs, query, where } from 'firebase/firestore';
 import Button from '../Buttons/Button';
 import logo from '../../assets/Upeducator-logo.png';
 import logout from '../../assets/logout.svg';
@@ -6,55 +9,102 @@ import PlaceholderImage from '../../assets/profile-placeholder.png';
 
 import './Header.css';
 
+type UserData = {
+  olympiad?: string[];
+  email?: string;
+};
+
 const Header = () => {
+  const [users, setUsers] = useState<UserData[]>([]);
+  const [isError, setIsError] = useState(false);
+  const [isLoader, setIsLoader] = useState(false);
+  const [selectedOlympiad, setSelectedOlympiad] = useState<string>('');
   const navigate = useNavigate();
   const olympdPrefix = JSON.parse(localStorage.getItem('olympd_prefix') || '{}');
   const isAdmin = olympdPrefix.email === 'ankushb@upeducators.com' || olympdPrefix.email === 'kshiteejjain@gmail.com';
 
-  const handleLogout = () => {
-    delete olympdPrefix?.sessionId;
-    delete olympdPrefix?.email;
-    delete olympdPrefix?.image
-    delete olympdPrefix?.name
-    localStorage.setItem('olympd_prefix', JSON.stringify(olympdPrefix));
-    navigate('/');
-  };
+  // Fetch user data and initialize selected Olympiad
+  useEffect(() => {
+    const fetchData = async () => {
+      if (!olympdPrefix.email) return console.warn('No email found in olympd_prefix');
 
-  const checkSession = () => {
-    const session = localStorage.getItem('olympd_prefix');
-    if (session) {
       try {
-        const sessionData = JSON.parse(session);
-        alert(sessionData)
-        return sessionData.sessionId === 'z5pxv6w2chzvkjjf0y64';
-      } catch (error) {
-        console.error('Failed to parse session data', error);
-        return false;
+        const userQuery = query(
+          collection(firestore, 'OlympiadUsers'),
+          where('email', '==', olympdPrefix.email)
+        );
+        const querySnapshot = await getDocs(userQuery);
+        const usersData: UserData[] = querySnapshot.empty ? [] : querySnapshot.docs.map(doc => doc.data() as UserData);
+        setUsers(usersData);
+
+        const olympiads = Array.from(new Set(usersData.flatMap(user => user.olympiad || [])));
+        if (olympiads.length > 0) {
+          const storedOlympiad = olympdPrefix.olympiadName || olympiads[0];
+          setSelectedOlympiad(storedOlympiad);
+
+          // Update localStorage with the default or stored Olympiad
+          const updatedOlympdPrefix = { ...olympdPrefix, olympiadName: storedOlympiad };
+          localStorage.setItem('olympd_prefix', JSON.stringify(updatedOlympdPrefix));
+        }
+      } catch (err) {
+        console.error('Error fetching registered olympiad name:', err);
+        alert('Error fetching registered olympiad name');
       }
-    }
-    checkSession()
+    };
+
+    fetchData();
+  }, [olympdPrefix.email]);
+
+  // Handle change in dropdown selection
+  const handleOlympiadChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
+    const newOlympiad = event.target.value;
+    setSelectedOlympiad(newOlympiad);
+
+    // Update localStorage
+    const updatedOlympdPrefix = { ...olympdPrefix, olympiadName: newOlympiad };
+    localStorage.setItem('olympd_prefix', JSON.stringify(updatedOlympdPrefix));
+    window.location.reload();
   };
 
+  const uniqueOlympiads = Array.from(new Set(users.flatMap(user => user.olympiad || [])));
 
   return (
-    <>
-      <header className="header">
-        <div className="container-wrapper">
-          <img src={logo} alt='upEducator' title='upEducator' className='logo' />
-          <div className='header-right'>
-            <div className='username'>
-              Welcome <strong>{olympdPrefix.name} </strong>
-              {olympdPrefix.image ? <img className='profile-image' src={olympdPrefix?.image} /> : <img className='profile-image' src={PlaceholderImage} />}
-            </div>
-            <div className='dropdown-menu'>
-              {isAdmin && <Button title='Admin' type='button' onClick={() => navigate('/Admin')} />}
-              <Button title='Profile' type='button' onClick={() => navigate('/UserProfile')} />
-              <Button title='Logout' type='button' onClick={handleLogout} isIcon iconPath={logout} />
-            </div>
+    <header className="header">
+      <div className="container-wrapper">
+        <img src={logo} alt='upEducator' title='upEducator' className='logo' />
+        <select
+          className='form-control'
+          value={selectedOlympiad}
+          onChange={handleOlympiadChange}
+        >
+          {uniqueOlympiads.map((olympiad, index) => {
+            const olympiadLabel = olympiad === 's24' ? 'Science 2024'
+              : olympiad === 'm24' ? 'Maths 2024'
+                : olympiad;
+
+            return (
+              <option key={index} value={olympiad}>
+                {olympiadLabel}
+              </option>
+            );
+          })}
+        </select>
+        <div className='header-right'>
+          <div className='username'>
+            Welcome <strong>{olympdPrefix.name} </strong>
+            <img className='profile-image' src={olympdPrefix.image || PlaceholderImage} alt='Profile' />
+          </div>
+          <div className='dropdown-menu'>
+            {isAdmin && <Button title='Admin' type='button' onClick={() => navigate('/Admin')} />}
+            <Button title='Profile' type='button' onClick={() => navigate('/UserProfile')} />
+            <Button title='Logout' type='button' onClick={() => {
+              localStorage.setItem('olympd_prefix', JSON.stringify({}));
+              navigate('/');
+            }} isIcon iconPath={logout} />
           </div>
         </div>
-      </header>
-    </>
+      </div>
+    </header>
   );
 };
 
