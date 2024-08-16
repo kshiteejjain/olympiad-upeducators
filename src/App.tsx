@@ -7,7 +7,7 @@ import LMSForm from './features/LMSForm/LMSForm';
 import Admin from './features/Admin/Admin';
 import UserProfile from './features/UserProfile/UserProfile';
 import AddUser from './features/AddUser/AddUser';
-import DisplayContent from './features/DisplayContent/DisplayContent'
+import OlympiadContent from './features/OlympiadContent/OlympiadContent'
 import Examination from './features/Examination/Examination'
 
 import './App.css';
@@ -44,7 +44,7 @@ const App = () => {
           <Route path="/EnterOTP" element={<EnterOTP />} />
           <Route path="/AddUser" element={<AddUser />} />
           <Route path="/PaymentGateway" element={<PaymentGateway />} />
-          <Route path="/DisplayContent" element={checkSession() ? <DisplayContent /> : <Navigate to="/" replace />} />
+          <Route path="/OlympiadContent" element={checkSession() ? <OlympiadContent /> : <Navigate to="/" replace />} />
           <Route path="/Admin" element={checkSession() ? <Admin /> : <Navigate to="/" replace />} />
           <Route path="/UserProfile" element={checkSession() ? <UserProfile /> : <Navigate to="/" replace />} />
           <Route path="/Examination" element={checkSession() ? <Examination /> : <Navigate to="/" replace />} />

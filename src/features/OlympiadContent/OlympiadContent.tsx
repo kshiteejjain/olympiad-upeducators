@@ -1,7 +1,7 @@
-import React, { Suspense, lazy, useState } from 'react';
+import React, { Suspense, lazy, useState, ComponentType } from 'react';
 import PageNavigation from '../../components/PageNavigation/PageNavigation';
 
-import './DisplayContent.css';
+import './OlympiadContent.css';
 
 // Retrieve olympiad prefix from localStorage
 const olympdPrefix = JSON.parse(localStorage.getItem('olympd_prefix') || '{}');
@@ -18,7 +18,7 @@ const AboutUpEducators = lazy(() => import(`./${dynamicPath}/AboutUpEducators`))
 const CoursesForEducators = lazy(() => import(`./${dynamicPath}/CoursesForEducators`));
 
 // Map paths to components
-const componentMap: Record<string, React.LazyExoticComponent<React.FC<any>>> = {
+const componentMap: Record<string, ComponentType<any>> = {
     '/AboutOlympiad': AboutOlympiad,
     '/ReferEarn': ReferEarn,
     '/Awards': Awards,
@@ -32,8 +32,8 @@ const componentMap: Record<string, React.LazyExoticComponent<React.FC<any>>> = {
 // Default component to display
 const DefaultComponent = AboutOlympiad;
 
-const DisplayContent: React.FC = () => {
-    const [CurrentComponent, setCurrentComponent] = useState<React.LazyExoticComponent<React.FC<any>>>(DefaultComponent);
+const OlympiadContent: React.FC = () => {
+    const [CurrentComponent, setCurrentComponent] = useState<ComponentType<any>>(DefaultComponent);
 
     const handlePathChange = (path: string) => {
         // Update the current component based on the path
@@ -55,4 +55,4 @@ const DisplayContent: React.FC = () => {
     );
 };
 
-export default DisplayContent;
+export default OlympiadContent;

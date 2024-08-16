@@ -19,7 +19,7 @@ const Login = () => {
       try {
         const olympdData = JSON.parse(olympdPrefix);
         if (olympdData.sessionId) {
-          navigate('/DisplayContent'); // Redirect to /AboutOlympiad
+          navigate('/OlympiadContent'); // Redirect to /AboutOlympiad
         }
       } catch (error) {
         console.error('Failed to parse localStorage data:', error);
