@@ -14,6 +14,7 @@ const AddUser = () => {
         email: '',
         phone: '',
         paymentId: 'internal',
+        source: 'internal',
         olympiad: [] as string[] // Initialize as an empty array
     });
     const [validationError, setValidationError] = useState(false);
@@ -23,7 +24,7 @@ const AddUser = () => {
 
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
-        const { name, email, phone, paymentId, olympiad } = userDetails;
+        const { name, email, phone, paymentId, olympiad, source } = userDetails;
 
         if (!name || !email || !phone || olympiad.length === 0) {
             setValidationError(true);
@@ -48,7 +49,8 @@ const AddUser = () => {
                 paymentDetails: { razorpay_payment_id: paymentId },
                 timeStamp: new Date().toISOString(),
                 isNewUser: true,
-                olympiad // Store as an array
+                olympiad,
+                source
             });
 
             await sendEmail(
