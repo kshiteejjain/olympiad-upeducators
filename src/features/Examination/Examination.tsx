@@ -163,20 +163,17 @@ const Examination: React.FC = () => {
                 <WebcamPermission />
             </div>
             <div className="question-list">
-                <h3>All Questions</h3>
+                <h3>All</h3>
                 <div className='listing'>
                     {questions.map((_, index) => (
                         <button
-                            disabled={!attempted[index]}
                             key={index}
                             className={`question-item ${attempted[index] ? 'attempted' : 'not-attempted'}`}
                             onClick={() => {
-                                if (index <= currentIndex || attempted[index]) {
-                                    setCurrentIndex(index);
-                                }
+                                setCurrentIndex(index);
                             }}
                         >
-                            {index + 1} {questions[index].question}
+                            {index + 1}
                         </button>
                     ))}
                 </div>
