@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { doc, setDoc, getDoc } from 'firebase/firestore';
 import { firestore } from '../../utils/firebase';
@@ -8,21 +8,30 @@ import Button from '../../components/Buttons/Button';
 import ErrorBoundary from '../../components/ErrorBoundary/ErrorBoundary';
 import Loader from '../../components/Loader/Loader';
 
-const AddUser = () => {
-    const [userDetails, setUserDetails] = useState({
+type UserDetails = {
+    name: string;
+    email: string;
+    phone: string;
+    paymentId: string;
+    source: string;
+    olympiad: string[]; // Define as a string array
+};
+
+const AddUser: React.FC = () => {
+    const [userDetails, setUserDetails] = useState<UserDetails>({
         name: '',
         email: '',
         phone: '',
         paymentId: 'internal',
         source: 'internal',
-        olympiad: [] as string[] // Initialize as an empty array
+        olympiad: [] // Initialize as an empty array
     });
-    const [validationError, setValidationError] = useState(false);
-    const [emailExistsError, setEmailExistsError] = useState(false);
-    const [isLoader, setIsLoader] = useState(false);
+    const [validationError, setValidationError] = useState<boolean>(false);
+    const [emailExistsError, setEmailExistsError] = useState<boolean>(false);
+    const [isLoader, setIsLoader] = useState<boolean>(false);
     const navigate = useNavigate();
 
-    const handleSubmit = async (e: React.FormEvent) => {
+    const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
         const { name, email, phone, paymentId, olympiad, source } = userDetails;
 
@@ -65,6 +74,7 @@ const AddUser = () => {
                 email: '',
                 phone: '',
                 paymentId: 'internal',
+                source: 'internal',
                 olympiad: [] // Reset to empty array
             });
             alert('User Registered. An Email and WhatsApp message have been sent to the user.');
