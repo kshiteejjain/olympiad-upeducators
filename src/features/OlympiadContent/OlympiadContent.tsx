@@ -1,15 +1,15 @@
-import React, { Suspense, lazy, useState, ComponentType } from 'react';
+import { Suspense, lazy, useState, useEffect, ComponentType } from 'react';
 import PageNavigation from '../../components/PageNavigation/PageNavigation';
-
+import { fetchUserOlympiadData } from '../../utils/firebaseUtils'; // Import the utility function
 import './OlympiadContent.css';
 
 // Retrieve olympiad prefix from localStorage
 const olympdPrefix = JSON.parse(localStorage.getItem('olympd_prefix') || '{}');
-const dynamicPath = olympdPrefix.olympiadName || 'm24'; // Default to 'm24' if no olympiad is set
 
-// Lazy load components based on dynamicPath
-const loadComponent = (componentName: string) => lazy(() => import(`./${dynamicPath}/${componentName}.tsx`));
+// Dynamically load components based on olympiadName
+const loadComponent = (componentName: string) => lazy(() => import(`./${olympdPrefix.olympiadName || 'm24'}/${componentName}.tsx`));
 
+// Load components
 const AboutOlympiad = loadComponent('AboutOlympiad');
 const ReferEarn = loadComponent('ReferEarn');
 const Awards = loadComponent('Awards');
@@ -34,25 +34,87 @@ const componentMap: Record<string, ComponentType<any>> = {
 // Default component to display
 const DefaultComponent = AboutOlympiad;
 
-const OlympiadContent: React.FC = () => {
+const OlympiadContent = () => {
     const [CurrentComponent, setCurrentComponent] = useState<ComponentType<any>>(DefaultComponent);
+    const [olympiads, setOlympiads] = useState<string[]>([]); // State to store Olympiad names
+    const olympiadName = olympdPrefix.olympiadName;
+
+    useEffect(() => {
+        const fetchData = async () => {
+            if (!olympiadName) {
+                try {
+                    const email = olympdPrefix.email;
+                    if (email) {
+                        const data = await fetchUserOlympiadData(email);
+                        // Extract Olympiad names from the fetched user data
+                        const userOlympiads = data.flatMap(user => user.olympiad || []);
+                        setOlympiads(Array.from(new Set(userOlympiads))); // Remove duplicates
+                    }
+                } catch (err) {
+                    console.error('Error fetching user data:', err);
+                }
+            }
+        };
+
+        fetchData();
+    }, [olympiadName]); // Dependency array includes olympiadName to re-run effect if it changes
+
+    useEffect(() => {
+        if (olympiadName) {
+            const path = `/${olympiadName}`; // Dynamic path for the component
+            const newComponent = componentMap[path] || DefaultComponent;
+            setCurrentComponent(newComponent);
+            console.log(`Active path set to: ${path}`);
+        }
+    }, [olympiadName]); // Set CurrentComponent based on olympiadName
 
     const handlePathChange = (path: string) => {
         // Update the current component based on the path
         const newComponent = componentMap[path] || DefaultComponent;
         setCurrentComponent(newComponent);
         console.log(`Active path set to: ${path}`);
+    };
 
-        // Update localStorage with the new path
-        const olympdPrefix = JSON.parse(localStorage.getItem('olympd_prefix') || '{}');
-        olympdPrefix.olympiad = path;
-        localStorage.setItem('olympd_prefix', JSON.stringify(olympdPrefix));
+    const handleOlympiadClick = (olympiad: string) => {
+        // Update localStorage with the selected Olympiad
+        const updatedOlympdPrefix = { ...olympdPrefix, olympiadName: olympiad };
+        localStorage.setItem('olympd_prefix', JSON.stringify(updatedOlympdPrefix));
+
+        // Refresh or navigate to reflect the change
+        window.location.reload();
     };
 
     return (
         <Suspense fallback={<div>Loading...</div>}>
             <PageNavigation navPath={handlePathChange} />
-            <CurrentComponent />
+            {/* Render the Olympiad data if olympiadName is not set */}
+            {!olympiadName ? (
+                <>
+                    <div className="content">
+                        <h2>Available Olympiads</h2>
+                        <ul className='fetched-olympiads'>
+                            {olympiads.length > 0 ? (
+                                olympiads.map((olympiad, index) => {
+                                    const olympiadLabel = olympiad === 's24' ? 'Science 2024'
+                                        : olympiad === 'm24' ? 'Maths 2024'
+                                            : olympiad;
+
+                                    return (
+                                        <li key={index} onClick={() => handleOlympiadClick(olympiad)}>
+                                            {olympiadLabel}
+                                        </li>
+                                    );
+                                })
+                            ) : (
+                                <div>No Olympiad data available</div>
+                            )}
+                        </ul>
+
+                    </div>
+                </>
+            ) : (
+                <CurrentComponent />
+            )}
         </Suspense>
     );
 };

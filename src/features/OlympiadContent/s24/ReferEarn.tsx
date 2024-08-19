@@ -142,6 +142,10 @@ const ReferEarn = () => {
       }
 
       <h2>Refer & Earn Science 24</h2>
+      <div className='earning-box'>
+        <Card title='Total Earnings' amount='500' currency='₹' />
+        <p>Note: Your earning will be deposited in your account post olympiad.</p>
+      </div>
       <div className='how-it-works'>
         <h3>How It Works?</h3>
 
@@ -171,16 +175,13 @@ const ReferEarn = () => {
           </div>
         </div>
       </div>
-      <div className='earning-box'>
-        <Card title='Total Earnings' amount='500' currency='₹' />
-        <p>Note: Your earning will be deposited in your account post olympiad.</p>
-      </div>
       <div className='table-wrapper'>
         <h3>Referral History</h3>
         <table className='table'>
           <thead>
             <tr>
               <th>Name</th>
+              <th>Email</th>
               <th>Date Initiated</th>
               <th>Registration Status</th>
             </tr>
@@ -192,6 +193,7 @@ const ReferEarn = () => {
                 return (
                   <tr key={`${index}-${refIndex}`}>
                     <td>{referrer.name}</td>
+                    <td>{referrer.email}</td>
                     <td>{new Date(referrer.timestamp).toLocaleDateString()}</td>
                     <td>
                       {referrer.name ? (

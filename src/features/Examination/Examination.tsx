@@ -14,6 +14,7 @@ type Question = {
     options: Option[];
     type: 'radio' | 'checkbox';
     answer: string | string[];
+    topic: string;
 };
 
 type ExamQuestionsType = Question[];
@@ -168,23 +169,23 @@ const Examination: React.FC = () => {
     }
 
     // Uncomment this block if you need to handle camera access denial
-    // if (!cameraAccess) {
-    //     return (
-    //         <div className="no-camera-access">
-    //             <p>Webcam permission denied. Please enable camera access to proceed.</p>
-    //             {canRequestPermission && (
-    //                 <Button
-    //                     type="button"
-    //                     title="Request Camera Permission"
-    //                     onClick={handleRequestPermission}
-    //                 />
-    //             )}
-    //         </div>
-    //     );
-    // }
+    if (!cameraAccess) {
+        return (
+            <div className="no-camera-access">
+                <p>Webcam permission denied. Please enable camera access to proceed.</p>
+                {canRequestPermission && (
+                    <Button
+                        type="button"
+                        title="Request Camera Permission"
+                        onClick={handleRequestPermission}
+                    />
+                )}
+            </div>
+        );
+    }
 
     return (
-        <>
+        <div className='exam-started'>
             <div className="content">
                 <div className="question-container">
                     <div className='quiz'>
@@ -255,7 +256,7 @@ const Examination: React.FC = () => {
                     ))}
                 </div>
             </div>
-        </>
+        </div>
     );
 };
 

@@ -13,7 +13,7 @@ const PageNavigation = ({ navPath }: any) => {
 
     return (
         <div className='navigation'>
-            <button onClick={() => navigate('/Examination')}>Start Exam</button>
+            <button onClick={() => navigate('/ExaminationRules')}>Start Exam</button>
             <button
                 className={activeButton === '/AboutOlympiad' ? 'active' : ''}
                 onClick={() => handleClick('/AboutOlympiad')}

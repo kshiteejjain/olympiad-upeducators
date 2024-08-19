@@ -256,3 +256,23 @@
     float: right;
     font-size: calc(var(--baseFontSize) - 1px);
   }
+  .fetched-olympiads{
+    display: flex;
+    justify-content: space-between;
+    margin: 0;
+  }
+  .fetched-olympiads li {
+    font-size: calc(var(--baseFontSize) + 7px);
+    background-color: var(--grayBlue);
+    list-style: none;
+    width: 48%;
+    padding: 20px;
+    box-sizing: border-box;
+    border: 1px solid var(--gray);
+    border-radius: 8px;
+    text-align: center;
+    cursor: pointer;
+}
+.fetched-olympiads li:hover{
+  background-color: var(--white);
+}

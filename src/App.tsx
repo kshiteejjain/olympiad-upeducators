@@ -9,6 +9,7 @@ import UserProfile from './features/UserProfile/UserProfile';
 import AddUser from './features/AddUser/AddUser';
 import OlympiadContent from './features/OlympiadContent/OlympiadContent'
 import Examination from './features/Examination/Examination'
+import ExaminationRules from './features/Examination//ExaminationRules'
 
 import './App.css';
 
@@ -48,6 +49,7 @@ const App = () => {
           <Route path="/Admin" element={checkSession() ? <Admin /> : <Navigate to="/" replace />} />
           <Route path="/UserProfile" element={checkSession() ? <UserProfile /> : <Navigate to="/" replace />} />
           <Route path="/Examination" element={checkSession() ? <Examination /> : <Navigate to="/" replace />} />
+          <Route path="/ExaminationRules" element={checkSession() ? <ExaminationRules /> : <Navigate to="/" replace />} />
         </Routes>
       </div>
     </div>

@@ -73,7 +73,12 @@
   border-color: var(--gray);
 }
 .language-option {
-  margin: 0 20px 0 auto;
+  display: flex;
+  align-items: center;
+  margin:0 30px 0 auto;
+}
+.language-option .form-control{
+  margin-left: 30px;
 }
 @media(max-width: 767px) {
   .header {
