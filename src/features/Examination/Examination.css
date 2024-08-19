@@ -6,18 +6,25 @@
 
 .question-container .quiz {
   width: 100%;
+  position: relative;
+}
+
+.question-container .quiz h3{
+  font-size: calc(var(--baseFontSize) + 1px);
+  margin-bottom: 25px;
+  line-height: 30px;
 }
 
 .question-list {
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 8%;
-  margin: 40px 0 0 30px;
-  box-shadow: 0 0 10px #dfdfdf;
+  width: 20%;
+  margin: 40px 0 0 20px;
   padding: 10px;
   box-sizing: border-box;
   background-color: var(--white);
+  border-radius: 8px;
 }
 
 .question-list .listing {
@@ -25,23 +32,22 @@
   overflow-y: auto;
   width: 100%;
   display: flex;
-  flex-direction: column;
+  flex-wrap: wrap;
   align-items: center;
 }
 
 .question-item {
   padding: 9px 6px;
-  margin-bottom: 5px;
-  border-radius: 0;
+  margin: 5px;
+  min-width: 20%;
   font-size: calc(var(--baseFontSize) - 3px);
   text-align: left;
   position: relative;
   background-color: var(--white);
-  border-bottom: 1px solid var(--gray);
+  border: 1px solid var(--gray);
   color: var(--darkGray);
-  width: 100%;
   text-align: center;
-  border-radius: 5px;
+  border-radius: 3px;
 }
 
 .question-item.not-attempted {
@@ -49,7 +55,7 @@
 }
 
 .question-item.attempted {
-  background-color:#2cb742;
+  background-color:var(--limeGreen);
   font-weight: bold;
   color: var(--white);
 }
@@ -59,58 +65,47 @@
   justify-content: center;
   margin: 50px 0;
 }
-
+.question-nav button:nth-child(1) img{
+  transform: rotate(180deg);
+}
 .question-nav button {
   margin: 0 10px;
+  border-radius: 2px;
+  padding: 10px 5px;
+}
+.question-nav button:hover{
+  background-color: var(--limeGreen);
 }
 
 .quiz-header {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  margin-bottom: 40px;
 }
-
+.quiz-header h2{
+  margin-bottom: 0;
+}
 .answer-options .option {
+  font-size: calc(var(--baseFontSize) - 2px);
   background-color: var(--white);
   border: 1px solid var(--gray);
-  padding: 10px 10px;
+  padding: 10px 35px 10px 10px;
   margin-bottom: 10px;
   border-radius: 5px;
   text-transform: capitalize;
   position: relative;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
 }
 
 .answer-options .option:hover {
   background-color: var(--grayBlue);
 }
 
-.answer-options .option input[type='radio']:checked {
-  opacity: 1;
-  height: 0;
-}
-
-.answer-options .option input[type='radio']:checked:after {
-  content: '';
-  background-image: url(/src/assets/tick.svg);
-  width: 24px;
-  height: 24px;
-  position: absolute;
-  right: 10px;
-  top: 10px;
-  background-size: cover;
-}
-
-.answer-options .option input[type='radio'] {
-  position: absolute;
-  height: 100%;
-  width: 100%;
-  top: 0;
-  opacity: 0;
-  cursor: pointer;
-  margin: 0;
-  padding: 0;
-  left: 0;
-  right: 0;
+.answer-options .option input[type='radio'], .answer-options .option input[type='checkbox'] {
+  margin-right: 10px;
 }
 
 .timer {
