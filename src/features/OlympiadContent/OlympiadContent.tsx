@@ -1,6 +1,7 @@
 import { Suspense, lazy, useState, useEffect, ComponentType } from 'react';
 import PageNavigation from '../../components/PageNavigation/PageNavigation';
 import { fetchUserOlympiadData } from '../../utils/firebaseUtils'; // Import the utility function
+
 import './OlympiadContent.css';
 
 // Retrieve olympiad prefix from localStorage
@@ -86,7 +87,7 @@ const OlympiadContent = () => {
 
     return (
         <Suspense fallback={<div>Loading...</div>}>
-            <PageNavigation navPath={handlePathChange} />
+            {olympiadName && <PageNavigation navPath={handlePathChange} /> }
             {/* Render the Olympiad data if olympiadName is not set */}
             {!olympiadName ? (
                 <>
