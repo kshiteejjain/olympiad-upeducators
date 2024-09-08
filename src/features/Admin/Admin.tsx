@@ -8,6 +8,7 @@ import ErrorBoundary from '../../components/ErrorBoundary/ErrorBoundary';
 import { saveAs } from 'file-saver';
 
 import './Admin.css';
+import ExamResults from './ExamResults';
 
 // Utility function to format date
 const formatDate = (dateString: string): string => {
@@ -219,6 +220,8 @@ const Admin = () => {
                     </table>
                 </div>
             )}
+
+            <ExamResults />
         </div>
     );
 };

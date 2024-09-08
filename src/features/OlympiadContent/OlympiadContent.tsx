@@ -41,6 +41,14 @@ const OlympiadContent = () => {
     const olympiadName = olympdPrefix.olympiadName;
 
     useEffect(() => {
+        // Check if the component has been loaded for the first time
+        const isFirstLoad = localStorage.getItem('isFirstLoad');
+
+        if (!isFirstLoad) {
+            localStorage.setItem('isFirstLoad', 'true');
+            window.location.reload();
+        }
+
         const fetchData = async () => {
             if (!olympiadName) {
                 try {
@@ -65,7 +73,6 @@ const OlympiadContent = () => {
             const path = `/${olympiadName}`; // Dynamic path for the component
             const newComponent = componentMap[path] || DefaultComponent;
             setCurrentComponent(newComponent);
-            console.log(`Active path set to: ${path}`);
         }
     }, [olympiadName]); // Set CurrentComponent based on olympiadName
 
@@ -73,7 +80,6 @@ const OlympiadContent = () => {
         // Update the current component based on the path
         const newComponent = componentMap[path] || DefaultComponent;
         setCurrentComponent(newComponent);
-        console.log(`Active path set to: ${path}`);
     };
 
     const handleOlympiadClick = (olympiad: string) => {
@@ -87,7 +93,7 @@ const OlympiadContent = () => {
 
     return (
         <Suspense fallback={<div>Loading...</div>}>
-            {olympiadName && <PageNavigation navPath={handlePathChange} /> }
+            {olympiadName && <PageNavigation navPath={handlePathChange} />}
             {/* Render the Olympiad data if olympiadName is not set */}
             {!olympiadName ? (
                 <>

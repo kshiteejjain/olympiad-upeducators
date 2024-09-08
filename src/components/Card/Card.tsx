@@ -1,10 +1,11 @@
+import { ReactNode } from 'react';
 import Button from '../Buttons/Button';
 
 import './Card.css';
 
 type Props = {
     title?: string,
-    amount?: string,
+    amount?: ReactNode,
     currency?: string,
     bgWhite?: boolean,
     isButton?: boolean

@@ -95,14 +95,20 @@
   font-size: calc(var(--baseFontSize) - 2px);
   background-color: var(--white);
   border: 1px solid var(--gray);
-  padding: 10px 35px 10px 10px;
   margin-bottom: 10px;
   border-radius: 5px;
   text-transform: capitalize;
   position: relative;
-  cursor: pointer;
   display: flex;
   align-items: center;
+  width: 100%;
+  box-sizing: border-box;
+}
+.answer-options .option label{
+  width: 100%;
+  box-sizing: border-box;
+  cursor: pointer;
+  padding: 13px 0;
 }
 
 .answer-options .option:hover {
@@ -111,7 +117,7 @@
 
 .answer-options .option input[type='radio'],
 .answer-options .option input[type='checkbox'] {
-  margin-right: 10px;
+  margin:0 10px 0 15px
 }
 
 .timer {

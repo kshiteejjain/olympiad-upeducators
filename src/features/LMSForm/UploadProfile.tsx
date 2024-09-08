@@ -63,7 +63,7 @@ const UploadProfile = ({ onClose, onImageCropped }: Props) => {
         <input type="file" accept="image/*" onChange={handleFileUpload} />
         {isCropping && (
           <div className='cta'>
-            <button onClick={handleCrop}>Crop</button>
+            <button onClick={handleCrop}>Upload</button>
             <button onClick={onClose}>Cancel</button>
           </div>
         )}

@@ -20,7 +20,7 @@ const Header = () => {
   const [selectedOlympiad, setSelectedOlympiad] = useState<string>('');
   const navigate = useNavigate();
   const olympdPrefix = JSON.parse(localStorage.getItem('olympd_prefix') || '{}');
-  const isAdmin = olympdPrefix.email === 'ankushb@upeducators.com' || olympdPrefix.email === 'kshiteejjain@gmail.com';
+  const isAdmin = olympdPrefix.email === 'olympiad3@yopmail.com' || olympdPrefix.email === 'kshiteejjain@gmail.com' ||  olympdPrefix.email === 'ankushb@upeducators.com';
 
   useEffect(() => {
     const fetchData = async () => {

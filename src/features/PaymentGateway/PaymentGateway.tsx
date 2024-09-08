@@ -54,7 +54,7 @@ const PaymentGateway = () => {
 
     setUrlParams({ referralCode, source, olympiad });
 
-    if (referralCode === 'jkdjhf87') {
+    if (referralCode) {
       const discount = totalPrice * 0.10;
       setDiscountedPrice(totalPrice - discount);
     }
@@ -70,23 +70,23 @@ const PaymentGateway = () => {
     const olympiadId = urlParams.olympiad;
     const referralCode = urlParams.referralCode;
     const source = urlParams.source;
-
+  
     if (!olympiadId) {
       alert('Olympiad ID (Olympiad) is required. Please ensure the URL contains the correct parameter.');
       return;
     }
-
+  
     try {
       // Fetch existing document data for the new user
       const docRef = doc(firestore, 'OlympiadUsers', emailLowerCase);
       const docSnap = await getDoc(docRef);
-
+  
       let docData = docSnap.exists() ? docSnap.data() : {};
-
+  
       // Initialize arrays if they don't exist
       if (!docData.olympiad) docData.olympiad = [];
       if (!docData.source) docData.source = [];
-
+  
       // Add new values if they are not already present
       if (olympiadId && !docData.olympiad.includes(olympiadId)) {
         docData.olympiad.push(olympiadId);
@@ -94,7 +94,7 @@ const PaymentGateway = () => {
       if (source && !docData.source.includes(source)) {
         docData.source.push(source);
       }
-
+  
       // Save the updated data for the new user
       await setDoc(docRef, {
         ...docData,
@@ -105,48 +105,67 @@ const PaymentGateway = () => {
         paymentDetails,
         isNewUser: true
       });
-
+  
+      // Check if the referral code is available
       if (referralCode) {
-        // Query all documents in the OlympiadUsers collection to find the referrer
+        console.log(`Referral code received: ${referralCode}`);
+  
+        // Query to check if the referral code exists in OlympiadUsers
         const usersCollection = collection(firestore, 'OlympiadUsers');
         const querySnapshot = await getDocs(usersCollection);
-
-        let referrerEmail = null;
-
+  
+        let referrerEmail: string | null = null;
+  
         querySnapshot.forEach((doc: any) => {
           const data = doc.data();
           if (data.referral && data.referral.includes(referralCode)) {
-            referrerEmail = doc.id;  // Document ID is the email of the referrer
+            referrerEmail = doc.id; // Document ID is the email of the referrer
           }
         });
-
+  
         if (referrerEmail) {
+          console.log(`Referral code exists, referrer's email found: ${referrerEmail}`);
+  
           // Fetch the referrer's document
           const referrerDocRef = doc(firestore, 'OlympiadUsers', referrerEmail);
           const referrerDocSnap = await getDoc(referrerDocRef);
-
+  
           if (referrerDocSnap.exists()) {
             const referrerData = referrerDocSnap.data();
-
-            // Log referrer's email for debugging
-            console.log('Referrer found:', referrerEmail);
-
+  
+            console.log('Referrer document exists:', referrerData);
+  
+            // Calculate the referral amount (10% of total payment)
+            const referralAmount = totalPrice * 0.10;
+  
+            // Add the referral amount as an independent field
+            if (!referrerData.referralAmount) {
+              referrerData.referralAmount = referralAmount;
+            } else {
+              referrerData.referralAmount += referralAmount;
+            }
+  
             // Initialize referrerUsers array if it doesn't exist
             if (!referrerData.referrerUsers) referrerData.referrerUsers = [];
-
-            // Log the action of storing the new user's email
-            if (!referrerData.referrerUsers.includes(emailLowerCase)) {
+  
+            // Add the current user's email, name, and phone if not already present
+            const userExists = referrerData.referrerUsers.some((user: any) => user.email === emailLowerCase);
+  
+            if (!userExists) {
               const referrerUsersDetails = {
                 email: emailLowerCase,
                 name: userDetails.name,
+                phone: userDetails.phone,
                 timestamp: new Date().toISOString()
               };
-
-              referrerData.referrerUsers.push(JSON.stringify(referrerUsersDetails));
-              // referrerData.referrerUsers.push(emailLowerCase + 'N_' + userDetails.name + 'D_' + new Date().toISOString());
-              await setDoc(referrerDocRef, referrerData);
-              console.log('Stored new user email in referrer document:', emailLowerCase);
+  
+              referrerData.referrerUsers.push(referrerUsersDetails);
             }
+  
+            // Update the referrer's document with the new referrerUsers array and referralAmount
+            await setDoc(referrerDocRef, referrerData);
+            console.log('Added/Updated current user in referrerUsers and updated referralAmount:', emailLowerCase);
+  
           } else {
             console.log('Referrer document not found for email:', referrerEmail);
           }
@@ -154,13 +173,14 @@ const PaymentGateway = () => {
           console.log('No referrer found for referral code:', referralCode);
         }
       }
-
+  
+      // Send confirmation email to the new user
       await sendEmail(
         emailLowerCase,
         import.meta.env.VITE_OLYMPIAD_WELCOME_EMAIL_TEMPLATE,
         { name, email: emailLowerCase, phone }
       );
-
+  
       setUserDetails({ name: '', email: '', phone: '' });
       alert('User data saved successfully');
     } catch (error) {
@@ -168,9 +188,9 @@ const PaymentGateway = () => {
       console.error('Error storing data in Firestore:', error);
     }
   };
-
-
-
+  
+  
+  
 
   const options: RazorpayOptions = {
     key: import.meta.env.VITE_RAZORPAY_KEY_ID,
@@ -210,7 +230,7 @@ const PaymentGateway = () => {
     script.async = true;
     document.body.appendChild(script);
 
-    // Cleanup function
+    // Cleanup function to remove the script when the component unmounts
     return () => {
       document.body.removeChild(script);
     };
@@ -230,7 +250,7 @@ const PaymentGateway = () => {
               <img src={logoWhite} className="logo-white" alt="Logo" />
               <p>International Teachers’ Olympiad</p>
               <p><strong>Payment: ₹{totalPrice}</strong></p>
-              {urlParams.referralCode === 'jkdjhf87' && <p>Amount After 10% Discount: ₹{discountedPrice}</p>}
+              {urlParams.referralCode && <p>Amount After 10% Discount: ₹{discountedPrice}</p>}
             </div>
             <h2>Personal Details</h2>
             <div className='form-group'>
@@ -242,8 +262,8 @@ const PaymentGateway = () => {
                 name="name"
                 autoFocus
                 autoComplete="off"
+                onChange={e => setUserDetails({ ...userDetails, name: e.target.value })}
                 value={userDetails.name}
-                onChange={(e) => setUserDetails(prev => ({ ...prev, name: e.target.value }))}
               />
             </div>
             <div className='form-group'>
@@ -254,32 +274,25 @@ const PaymentGateway = () => {
                 required
                 name="email"
                 autoComplete="off"
+                onChange={e => setUserDetails({ ...userDetails, email: e.target.value })}
                 value={userDetails.email}
-                onChange={(e) => setUserDetails(prev => ({ ...prev, email: e.target.value }))}
               />
             </div>
             <div className='form-group'>
               <label htmlFor='phone'>Phone<span className="asterisk">*</span></label>
               <input
                 type='tel'
-                className='form-control phone'
+                className='form-control'
                 required
                 name="phone"
                 autoComplete="off"
+                onChange={e => setUserDetails({ ...userDetails, phone: e.target.value })}
                 value={userDetails.phone}
-                pattern="[0-9]{10}"
-                maxLength={10}
-                onChange={(e) => setUserDetails(prev => ({ ...prev, phone: e.target.value }))}
               />
               <p className="input-note">Note: You will get notifications on <img src={whatsappSvg} alt="WhatsApp Icon" /> </p>
             </div>
             <div className='form-group'>
-              <Button
-                title="Pay Now"
-                onClick={openPayModal}
-                type='button'
-                isDisabled={!isFormValid}
-              />
+              <Button title="Pay Now" type="button" onClick={openPayModal} />
             </div>
           </form>
         </div>

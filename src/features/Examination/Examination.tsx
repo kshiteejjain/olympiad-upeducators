@@ -1,14 +1,14 @@
 import React, { useState, useEffect, ChangeEvent } from 'react';
-import ExamQuestions from '../../utils/ExamQuestions.json';
+import ExamQuestions from '../../utils/m24.json';
 import Button from '../../components/Buttons/Button';
 import WebcamPermission from './WebcamPermission';
 import Chevron from '../../assets/chevron-right.svg';
+import { firestore } from '../../utils/firebase';
+import { doc, setDoc } from 'firebase/firestore';
 
 import './Examination.css';
 
-// Define types
 type Option = string;
-
 type Question = {
     question: string;
     options: Option[];
@@ -16,31 +16,51 @@ type Question = {
     answer: string | string[];
     topic: string;
 };
-
 type ExamQuestionsType = Question[];
-
-type SelectedAnswers = {
-    [key: number]: Option[] | Option; // Adapted type to handle multiple selections (checkbox) or single selection (radio)
-};
+type SelectedAnswers = { [key: number]: Option[] | Option };
 
 const Examination: React.FC = () => {
-    const [questions] = useState<ExamQuestionsType>(ExamQuestions as ExamQuestionsType);
+    const [questions, setQuestions] = useState<ExamQuestionsType>([]);
     const [currentIndex, setCurrentIndex] = useState<number>(0);
     const [attempted, setAttempted] = useState<boolean[]>(new Array(ExamQuestions.length).fill(false));
     const [selectedAnswers, setSelectedAnswers] = useState<SelectedAnswers>({});
-    const [timer, setTimer] = useState<number>(3600); // 1 hour in seconds
+    const [timer, setTimer] = useState<number>(60 * 60); // Default 60 minutes
     const [cameraAccess, setCameraAccess] = useState<boolean | null>(null);
     const [canRequestPermission, setCanRequestPermission] = useState<boolean>(false);
 
-    // Timer effect
+
+    // Load JSON dynamically based on localStorage value
     useEffect(() => {
-        const interval = setInterval(() => setTimer(prev => Math.max(0, prev - 1)), 1000);
+        const olympiadData = JSON.parse(localStorage.getItem('olympd_prefix') || '{}');
+        const olympiadName = olympiadData?.olympiadName || 'm24'; // Default to 'm24' if not set
+
+        import(`../../utils/${olympiadName}.json`)
+            .then((module) => {
+                setQuestions(module.default as ExamQuestionsType);
+                setAttempted(new Array(module.default.length).fill(false));
+            })
+            .catch((error) => {
+                console.error('Error loading JSON file:', error);
+            });
+    }, []);
+
+    // Timer effect with auto-submit
+    useEffect(() => {
+        const interval = setInterval(() => {
+            setTimer(prev => {
+                if (prev <= 1) {
+                    submitReport(); // Auto-submit when time is over
+                    clearInterval(interval);
+                    return 0;
+                }
+                return prev - 1;
+            });
+        }, 1000);
         return () => clearInterval(interval);
     }, []);
 
     // LocalStorage effect
     useEffect(() => {
-        // Load attempted state and selected answers from localStorage
         const savedAttempted = JSON.parse(localStorage.getItem('attempted') || '[]') as boolean[];
         const savedSelectedAnswers = JSON.parse(localStorage.getItem('selectedAnswers') || '{}') as SelectedAnswers;
 
@@ -49,7 +69,6 @@ const Examination: React.FC = () => {
     }, []);
 
     useEffect(() => {
-        // Save attempted state and selected answers to localStorage
         localStorage.setItem('attempted', JSON.stringify(attempted));
         localStorage.setItem('selectedAnswers', JSON.stringify(selectedAnswers));
     }, [attempted, selectedAnswers]);
@@ -60,54 +79,44 @@ const Examination: React.FC = () => {
             try {
                 await navigator.mediaDevices.getUserMedia({ video: true, audio: false });
                 setCameraAccess(true);
-                setCanRequestPermission(false); // No need to request permission again
+                setCanRequestPermission(false);
             } catch (error) {
                 console.error('Error accessing camera:', error);
                 setCameraAccess(false);
-                setCanRequestPermission(true); // Allow user to request permission again
+                setCanRequestPermission(true);
             }
         };
 
         requestCameraAccess();
     }, []);
 
-    // Effect to update attempted questions based on selected answers
+    // Effect to update attempted questions
     useEffect(() => {
-        const newAttempted = questions.map((_, index) => {
+        setAttempted(questions.map((_, index) => {
             const answers = selectedAnswers[index];
             return answers ? (Array.isArray(answers) ? answers.length > 0 : Boolean(answers)) : false;
-        });
-        setAttempted(newAttempted);
+        }));
     }, [selectedAnswers, questions]);
 
-    const formatTime = (seconds: number): string => `${Math.floor(seconds / 60)}:${seconds % 60 < 10 ? '0' : ''}${seconds % 60}`;
+    const formatTime = (seconds: number): string =>
+        `${Math.floor(seconds / 60)}:${seconds % 60 < 10 ? '0' : ''}${seconds % 60}`;
 
-    const handleNavigation = (direction: number): void => setCurrentIndex(prev => Math.max(0, Math.min(questions.length - 1, prev + direction)));
+    const handleNavigation = (direction: number): void =>
+        setCurrentIndex(prev => Math.max(0, Math.min(questions.length - 1, prev + direction)));
 
     const handleRadioChange = (event: ChangeEvent<HTMLInputElement>): void => {
-        const { value } = event.target;
-        setSelectedAnswers(prevAnswers => ({
-            ...prevAnswers,
-            [currentIndex]: value // Only one value for radio buttons
-        }));
+        setSelectedAnswers({ ...selectedAnswers, [currentIndex]: event.target.value });
     };
 
     const handleCheckboxChange = (event: ChangeEvent<HTMLInputElement>): void => {
         const { value, checked } = event.target;
-        setSelectedAnswers(prevAnswers => {
-            const currentSelections = prevAnswers[currentIndex] as Option[] || [];
-
-            // Add or remove the value based on whether the checkbox is checked or not
-            const updatedSelections = checked
+        const currentSelections = selectedAnswers[currentIndex] as Option[] || [];
+        setSelectedAnswers({
+            ...selectedAnswers,
+            [currentIndex]: checked
                 ? [...currentSelections, value]
-                : currentSelections.filter(item => item !== value);
-
-            return { ...prevAnswers, [currentIndex]: updatedSelections };
+                : currentSelections.filter(item => item !== value),
         });
-    };
-
-    const handleNextClick = (): void => {
-        handleNavigation(1);
     };
 
     const handleRequestPermission = async (): Promise<void> => {
@@ -120,65 +129,70 @@ const Examination: React.FC = () => {
         }
     };
 
-    // Function to submit the report
-    const submitReport = (): void => {
-        if (!Array.isArray(questions)) {
-            console.error('Invalid input: questions must be an array.');
-            return;
-        }
-    
-        if (typeof selectedAnswers !== 'object') {
-            console.error('Invalid input: selectedAnswers must be an object.');
-            return;
-        }
+    const submitReport = async (): Promise<void> => {
+        const olympiadData = JSON.parse(localStorage.getItem('olympd_prefix') || '{}');
+        const olympiadName = olympiadData?.olympiadName || 'm24'; // Default to 'm24' if not set
+        const userEmail = olympiadData?.email || 'defaultUser'; // Assuming you have the user's email in localStorage
+        const name = olympiadData?.name;
     
         // Create the report object
         const report = questions.map((question, index) => {
-            const userAnswer = selectedAnswers[index];
+            const userAnswer = selectedAnswers[index] !== undefined ? selectedAnswers[index] : ''; // Fallback for undefined
             const correctAnswer = question.answer;
     
-            // Check if the answer is correct
             const isCorrect = Array.isArray(correctAnswer)
                 ? Array.isArray(userAnswer) && correctAnswer.every(a => userAnswer.includes(a)) && userAnswer.every(a => correctAnswer.includes(a))
                 : userAnswer === correctAnswer;
     
             return {
                 questionIndex: index,
-                question: question.question,
+                topic: question.topic || 'Unknown Topic', // Include topic of each question
                 chosenAnswer: userAnswer,
-                correctAnswer: correctAnswer,
+                correctAnswer: correctAnswer || 'N/A', // Fallback for undefined
                 isCorrect: isCorrect
             };
         });
     
         // Calculate total marks
-        const totalMarks = report.reduce((count, item) => item.isCorrect ? count + 1 : count, 0);
+        const totalMarks = report.reduce((count, item) => (item.isCorrect ? count + 1 : count), 0);
     
-        // Log the JSON report
-        console.log("Report:", JSON.stringify({
-            topic: questions[0]?.topic || 'Unknown Topic', // Assuming all questions have the same topic
+        // Structure the report data
+        const reportData = {
+            email: userEmail, // Store email directly
+            name: name || 'Unknown', // Fallback if name is not provided
             details: report,
-            totalMarks: totalMarks
-        }, null, 2));
-    }
+            totalMarks: totalMarks,
+            timestamp: new Date().toISOString() // Use ISO string format for timestamp
+        };
+    
+        try {
+            // Reference to the specific user's document in the Olympiad result collection
+            const userDocRef = doc(firestore, `${olympiadName}Result`, userEmail);
+    
+            // Save the report data as the document under the user's email
+            await setDoc(userDocRef, reportData);
+    
+            console.log('Report successfully saved to Firestore.');
+        } catch (error) {
+            console.error('Error saving report to Firestore:', error);
+        }
+    };
     
 
-    if (cameraAccess === null) {
-        // Show loading message while requesting camera access
-        return <div className="loading">Loading camera access...</div>;
-    }
 
-    // Uncomment this block if you need to handle camera access denial
+
+    // Remove 'setExamTimer' if it's not used anywhere in the component.
+    // Alternatively, uncomment the following line to set the timer elsewhere in the app.
+    // const setExamTimer = (minutes: number): void => setTimer(minutes * 60); // Set timer in minutes
+
+    if (cameraAccess === null) return <div className="loading">Loading camera access...</div>;
+
     if (!cameraAccess) {
         return (
             <div className="no-camera-access">
                 <p>Webcam permission denied. Please enable camera access to proceed.</p>
                 {canRequestPermission && (
-                    <Button
-                        type="button"
-                        title="Request Camera Permission"
-                        onClick={handleRequestPermission}
-                    />
+                    <Button type="button" title="Request Camera Permission" onClick={() => handleRequestPermission()} />
                 )}
             </div>
         );
@@ -231,15 +245,14 @@ const Examination: React.FC = () => {
                                 </div>
                                 <div className="question-nav">
                                     <Button type="button" isIcon iconPath={Chevron} onClick={() => handleNavigation(-1)} isDisabled={currentIndex === 0} />
-                                    <Button type="button" isIcon iconPath={Chevron} onClick={handleNextClick} />
+                                    <Button type="button" isIcon iconPath={Chevron} onClick={() => handleNavigation(1)} />
                                 </div>
-                                <Button type="button" title="Submit Exam" onClick={submitReport} />
+                                <Button type="button" title="Submit Exam" onClick={() => submitReport()} />
                             </>
                         )}
                     </div>
                 </div>
-                {/* Webcam permission and video display */}
-                <WebcamPermission />
+                <WebcamPermission /> {/* Pass position prop to position the webcam */}
             </div>
             <div className="question-list">
                 <div className='listing'>
@@ -247,9 +260,7 @@ const Examination: React.FC = () => {
                         <button
                             key={index}
                             className={`question-item ${attempted[index] ? 'attempted' : 'not-attempted'}`}
-                            onClick={() => {
-                                setCurrentIndex(index);
-                            }}
+                            onClick={() => setCurrentIndex(index)}
                         >
                             {index + 1}
                         </button>

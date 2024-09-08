@@ -1,0 +1,504 @@
+[
+  {
+    "topic": "Child Development and Psychology PP1",
+    "question": "M24 - Ms. Sita, an Early Childhood Care and Education (ECCE) teacher, has noticed that her students are exhibiting a range of developmental behaviours. She is particularly interested in understanding how to foster moral values and language development in her classroom. To tailor her teaching strategies effectively, she refers to Piaget's theory of cognitive development. Based on Piaget's theory of cognitive development, during which stage do children begin to develop moral values or language development?",
+    "options": [
+      "Sensorimotor stage",
+      "Concrete operational stage",
+      "Preoperational stage",
+      "Formal operational stage"
+    ],
+    "type": "radio",
+    "answer": "Preoperational stage"
+  },
+  {
+    "topic": "Child Development and Psychology PP1",
+    "question": "In fetal development, which principle accounts for the fact that the head and trunk are more developed before the limb buds begin to extend?",
+    "options": [
+      "Holistic development principle",
+      "Cephalocaudal principle",
+      "Lateralization principle",
+      "Proximodistal principle"
+    ],
+    "type": "radio",
+    "answer": "Cephalocaudal principle"
+  },
+  {
+    "topic": "Early Childhood Education Theories and Pedagogy PP1",
+    "question": "In a Reggio Emilia-inspired classroom, teachers document children's conversations and play to understand their thinking and learning processes. What purpose does this documentation primarily serve?",
+    "options": [
+      "To create a permanent record of student progress",
+      "To guide future planning and instruction based on children's interests",
+      "To assess children's academic achievement",
+      "To comply with educational standards"
+    ],
+    "type": "radio",
+    "answer": "To guide future planning and instruction based on children's interests"
+  },
+  {
+    "topic": "Early Childhood Education Theories and Pedagogy PP1",
+    "question": "A preschool teacher incorporates storytelling, music, physical activities, and group discussions into her lessons to address the diverse abilities and interests of her students. Which theory best supports this multi-faceted approach?",
+    "options": [
+      "Piaget's Cognitive Development Theory",
+      "Erikson's Psychosocial Development Theory",
+      "Gardner's Multiple Intelligences Theory",
+      "Bandura's Social Learning Theory"
+    ],
+    "type": "radio",
+    "answer": "Gardner's Multiple Intelligences Theory"
+  },
+  {
+    "topic": "Early Childhood Education Theories and Pedagogy PP1",
+    "question": "You are designing a curriculum that includes activities where children work in small groups to solve problems together. Which educational theory is primarily guiding your approach?",
+    "options": [
+      "Vygotsky's Sociocultural Theory",
+      "Piaget's Cognitive Development Theory",
+      "Skinner's Behaviourism",
+      "Gardner's Multiple Intelligences"
+    ],
+    "type": "radio",
+    "answer": "Vygotsky's Sociocultural Theory"
+  },
+  {
+    "topic": "Lesson Planning Assessment and Feedback PP1",
+    "question": "In the context of early childhood education, explain the difference between descriptive and evaluative feedback.",
+    "options": [
+      "Descriptive feedback focuses on providing specific information about a child's performance, while evaluative feedback involves making judgments or comparisons.",
+      "Descriptive feedback is general and vague, while evaluative feedback is detailed and specific.",
+      "Descriptive feedback involves praising the child's effort, while evaluative feedback involves pointing out areas for improvement.",
+      "Descriptive feedback focuses on correcting mistakes, while evaluative feedback focuses on highlighting strengths."
+    ],
+    "type": "radio",
+    "answer": "Descriptive feedback focuses on providing specific information about a child's performance, while evaluative feedback involves making judgments or comparisons."
+  },
+  {
+    "topic": "Lesson Planning Assessment and Feedback PP1",
+    "question": "You are conducting an assessment to measure the language development of a group of 4-year-olds. Select three specific strategies you could use to assess their language skills effectively.",
+    "options": [
+      "Ask open-ended questions, observe their conversations with peers, and analyze their artwork descriptions",
+      "Give them a written test, listen to them recite the alphabet, and compare their language skills to a standard checklist.",
+      "Conduct a group discussion, review their homework assignments, and administer a standardized language assessment.",
+      "Provide individual reading tasks, assess their ability to write sentences, and evaluate their comprehension through multiple-choice questions."
+    ],
+    "type": "radio",
+    "answer": "Ask open-ended questions, observe their conversations with peers, and analyze their artwork descriptions"
+  },
+  {
+    "topic": "Lesson Planning Assessment and Feedback PP1",
+    "question": "Ms. Nikita is creating a lesson plan focused on the five senses. She plans to have different stations where children can explore each sense: smelling flowers, tasting fruit, touching different textures, listening to sounds, and looking at pictures. What key component is Ms. Nikita's lesson plan missing?",
+    "options": [
+      "A lecture on how each sense works",
+      "A follow-up activity where children discuss their favourite senses",
+      "A video explaining the five senses",
+      "An art project related to the senses"
+    ],
+    "type": "radio",
+    "answer": "A follow-up activity where children discuss their favourite senses"
+  },
+  {
+    "topic": "Phonics Language and Literacy Development PP1",
+    "question": "How can 'Symbols' be used effectively in early childhood education?",
+    "options": [
+      "Simplify complex ideas through representation",
+      "Make lessons more complicated",
+      "Reduce the use of language",
+      "Enhance tactile learning for young learners"
+    ],
+    "type": "radio",
+    "answer": "Simplify complex ideas through representation"
+  },
+  {
+    "topic": "Phonics Language and Literacy Development PP1",
+    "question": "In a diverse kindergarten classroom, Ms. Patel integrates storytelling, vocabulary activities, and writing exercises to engage her students. What is the primary goal of literacy development in early childhood education?",
+    "options": [
+      "To ensure children can write full sentences fluently.",
+      "To help children understand and use language effectively.",
+      "To promote critical thinking through literary analysis.",
+      "To develop proficiency in multiple languages."
+    ],
+    "type": "radio",
+    "answer": "To help children understand and use language effectively."
+  },
+  {
+    "topic": "Technology Integration PP1",
+    "question": "Create an activity using the most effective digital tool that helps children understand the concept of plant growth. Which tool would you choose?",
+    "options": [
+      "Digital drawing app",
+      "Online encyclopedia",
+      "Time-lapse video creation tool",
+      "Interactive quiz maker"
+    ],
+    "type": "radio",
+    "answer": "Time-lapse video creation tool"
+  },
+  {
+    "topic": "Technology Integration PP1",
+    "question": "Which app or tool is most suitable for enhancing literacy skills in early childhood education by providing interactive reading experiences with feedback and support for young readers?",
+    "options": [
+      "YouTube Video",
+      "Jolly Phonic App",
+      "Random Word Generator",
+      "Read Along App"
+    ],
+    "type": "radio",
+    "answer": "Read Along App"
+  },
+  {
+    "topic": "Technology Integration PP1",
+    "question": "Which educational philosophy emphasizes self-directed activity and hands-on learning, and best supports the use of adaptive learning technology that personalizes educational experiences based on individual learner responses?",
+    "options": [
+      "Piaget Theory",
+      "Montessori Approach",
+      "Reggio Emilia",
+      "Waldorf Education"
+    ],
+    "type": "radio",
+    "answer": "Montessori Approach"
+  },
+  {
+    "topic": "Technology Integration PP1",
+    "question": "When integrating technology to enrich preschool lessons on cultural diversity, which tool enables young learners to virtually explore historical sites, cities, and natural landscapes across different cultures globally?",
+    "options": [
+      "Google Map",
+      "Make My Trip App",
+      "Google Earth",
+      "Expedia"
+    ],
+    "type": "radio",
+    "answer": "Google Earth"
+  },
+  {
+    "topic": "Parent and Community Involvement PP1",
+    "question": "Designing a program where parents regularly participate in classroom activities falls under which category of Epstein's framework for parental involvement?",
+    "options": [
+      "Parenting",
+      "Communicating",
+      "Volunteering",
+      "Collaborating with the community"
+    ],
+    "type": "radio",
+    "answer": "Volunteering"
+  },
+  {
+    "topic": "Parent and Community Involvement PP1",
+    "question": "At Little Explorers Early Childhood Education Center, the school management initially had a policy of assigning daily homework to young children. Concerned parents and community members noticed negative effects on the children's well-being and organized efforts to advocate for a change in the homework policy. They conducted surveys, compiled research, created a petition, and engaged with the school board. Eventually, the school management revised the homework policy to reduce the workload and align it more with play-based learning. Which of the following actions taken by the community and parents was the most critical in convincing the school management to change the homework policy?",
+    "options": [
+      "Organizing parent meetings to discuss the impact of homework",
+      "Conducting surveys to gather data on the effects of homework",
+      "Attending school board meetings and presenting their findings",
+      "Creating a petition signed by a large number of parents"
+    ],
+    "type": "radio",
+    "answer": "Attending school board meetings and presenting their findings"
+  },
+  {
+    "topic": "Parent and Community Involvement PP1",
+    "question": "During a parent-teacher conference, a teacher discusses a student's progress and areas of improvement. The teacher wants to ensure that the feedback is constructive and promotes a positive relationship with the parents. Which approach should the teacher take to make the feedback most effective?",
+    "options": [
+      "Focus solely on the areas needing improvement.",
+      "Provide a mix of positive achievements and areas for improvement, using specific examples for clarity.",
+      "Use technical jargon to explain the child's progress.",
+      "Deliver feedback in writing only, without a verbal discussion."
+    ],
+    "type": "radio",
+    "answer": "Provide a mix of positive achievements and areas for improvement, using specific examples for clarity."
+  },
+  {
+    "topic": "Experiential Learning and Engagement Activities PP1",
+    "question": "In the context of ECCE, which experiential learning activity best promotes social-emotional development?",
+    "options": [
+      "Participating in a role-playing exercise with peers",
+      "Engaging in solitary art projects",
+      "Listening to a teacher-led lecture",
+      "Working on individual puzzles"
+    ],
+    "type": "radio",
+    "answer": "Participating in a role-playing exercise with peers"
+  },
+  {
+    "topic": "Experiential Learning and Engagement Activities PP1",
+    "question": "During a class on outdoor learning activities, a teacher plans to take the children on a nature walk through a forest. She hands out worksheets to complete while walking to ensure they don't get bored. What should the teacher do instead?",
+    "options": [
+      "Encourage the children to observe and interact with the environment without worksheets.",
+      "Provide worksheets but allow time for free play.",
+      "Give a brief lecture about the forest before the walk.",
+      "Keep the children in a structured line and complete the worksheets in class."
+    ],
+    "type": "radio",
+    "answer": "Encourage the children to observe and interact with the environment without worksheets."
+  },
+  {
+    "topic": "Experiential Learning and Engagement Activities PP1",
+    "question": "Which of the following statements best describes the aim of both experiential learning and engagement activities in ECCE?",
+    "options": [
+      "To create a dynamic and effective learning environment by promoting active participation and application of knowledge.",
+      "To ensure that every child receives the same level of instruction.",
+      "To minimize the use of hands-on activities and focus on theoretical knowledge.",
+      "To standardize learning experiences across different classrooms."
+    ],
+    "type": "radio",
+    "answer": "To create a dynamic and effective learning environment by promoting active participation and application of knowledge."
+  },
+  {
+    "topic": "Early Intervention and Special Education PP1",
+    "question": "Which of the following abilities is NOT a common developmental delay targeted in early intervention programs?",
+    "options": [
+      "Delayed motor skills",
+      "Delayed language skills",
+      "Advanced cognitive abilities",
+      "Delayed social skills"
+    ],
+    "type": "radio",
+    "answer": "Advanced cognitive abilities"
+  },
+  {
+    "topic": "Child Welfare Health and Safety PP1",
+    "question": "In a community where child labour is prevalent, an ECCE teacher notices a decline in one of her student's attendance and performance. Upon further investigation, she discovers that the child is working long hours at a local factory to support his family financially. How might the child's involvement in child labour affect his overall development?",
+    "options": [
+      "It improves his cognitive skills through practical experience.",
+      "It hinders his ability to fully engage in learning activities, impacting his cognitive and emotional development.",
+      "It helps him develop better time management skills.",
+      "It has no significant impact on his development."
+    ],
+    "type": "radio",
+    "answer": "It hinders his ability to fully engage in learning activities, impacting his cognitive and emotional development."
+  },
+  {
+    "topic": "Child Welfare Health and Safety PP1",
+    "question": "In a preschool, the regular female attendant who typically accompanies children during school transportation is unavailable for the day. In the absence of an attendee, Suhani, a 5-year-old girl who lives a considerable distance from school, is alone during her drop-off and pick-up time. As a teacher, you are temporarily assigned to fill in for the attendant’s role. However, this responsibility conflicts with your other simultaneous duties. What is the most appropriate action for the teacher to ensure Suhani's safety and comfort during the school transport process in the attendant's absence?",
+    "options": [
+      "Arrange for another reliable adult, like a parent volunteer or another staff member, to accompany Suhani during transport.",
+      "Ask Suhani to wait alone until the regular attendant returns.",
+      "Leave Suhani in the school office until someone can pick her up.",
+      "Request parents to drop off and pick up their children themselves."
+    ],
+    "type": "radio",
+    "answer": "Arrange for another reliable adult, like a parent volunteer or another staff member, to accompany Suhani during transport."
+  },
+  {
+    "topic": "Child Welfare Health and Safety PP1",
+    "question": "Under the POCSO Act, what is the obligation of an early childhood educator if they suspect abuse or neglect involving a child?",
+    "options": [
+      "Directly report the suspicion to the police or child welfare committee",
+      "Inform the child's parents and ask them to address the issue",
+      "Wait until the situation escalates before taking any action",
+      "Discuss the issue with the child privately before reporting"
+    ],
+    "type": "radio",
+    "answer": "Directly report the suspicion to the police or child welfare committee"
+  },
+  {
+    "topic": "Child Welfare Health and Safety PP1",
+    "question": "Which number should be contacted in India for emergency child welfare support?",
+    "options": [
+      "102",
+      "1098",
+      "100",
+      "108"
+    ],
+    "type": "radio",
+    "answer": "1098"
+  },
+  {
+    "topic": "Classroom Management and Differentiated Learning PP1",
+    "question": "Ms. Revati is an experienced ECCE teacher working with a group of 4-year-old children. Recently, she noticed that one of her students, Ira, frequently disrupts circle time by talking out of turn and moving around. Despite using positive reinforcement and setting clear expectations, Ira's behaviour persists. Ms. Revati decides to implement a new strategy to address Ira's behaviour without disrupting the flow of the classroom. Which strategy would be most effective?",
+    "options": [
+      "Implement a quiet area where Ira can go to calm down when needed.",
+      "Increase the amount of circle time to better engage Ira.",
+      "Assign Ira additional tasks to keep her busy.",
+      "Implement a reward system for every minute Ira stays quiet."
+    ],
+    "type": "radio",
+    "answer": "Implement a quiet area where Ira can go to calm down when needed."
+  },
+  {
+    "topic": "Child Development and Psychology PP1",
+    "question": "You have introduced a new play-based learning game that involves sorting objects by colour and shape. Some children are engaged, while others seem disinterested or frustrated. How can you adapt the activity to ensure all children are engaged and learning effectively? (select all that apply)",
+    "options": [
+      "Modify the game rules to include team challenges or relay races",
+      "Introduce multisensory elements to the sorting game",
+      "Increase the complexity by adding multiple new sorting criteria",
+      "Participation is mandatory, implement the same by firm turn-taking rules"
+    ],
+    "type": "checkbox",
+    "answer": [
+      "Modify the game rules to include team challenges or relay races",
+      "Introduce multisensory elements to the sorting game"
+    ]
+  },
+  {
+    "topic": "Child Development and Psychology PP1",
+    "question": "During a parent-teacher meeting, Rahul's parents express concern about his aggressive behaviour towards other children in the classroom. They mention that Rahul often hits, pushes, or grabs toys from his peers during playtime. As an ECCE/Pre-Primary Educator, you consider various factors that may contribute to Rahul's behaviour. Which of the following could be potential reasons for Rahul's aggression? (select all that apply)",
+    "options": [
+      "Difficulty with emotional regulation",
+      "Lack of understanding of social norms",
+      "Exposure to violence or aggression at home",
+      "Underdeveloped communication skills"
+    ],
+    "type": "checkbox",
+    "answer": [
+      "Difficulty with emotional regulation",
+      "Lack of understanding of social norms",
+      "Exposure to violence or aggression at home",
+      "Underdeveloped communication skills"
+    ]
+  },
+  {
+    "topic": "Lesson Planning Assessment and Feedback PP1",
+    "question": "A teacher is planning activities to promote cognitive development in young children. The teacher wants to ensure that these activities challenge the children appropriately according to Bloom's Taxonomy. Which activities should the teacher include to promote higher-order thinking skills? (select all that apply)",
+    "options": [
+      "Storytelling followed by a Q&A session.",
+      "Sorting objects by size, colour, and shape.",
+      "Puzzles that require problem-solving.",
+      "Group discussions about a story’s moral or lesson."
+    ],
+    "type": "checkbox",
+    "answer": [
+      "Storytelling followed by a Q&A session.",
+      "Puzzles that require problem-solving.",
+      "Group discussions about a story’s moral or lesson."
+    ]
+  },
+  {
+    "topic": "Phonics Language and Literacy Development PP1",
+    "question": "A teacher notices that students are struggling with blending sounds to form words. The teacher decides to use a game where students blend sounds to create nonsense words (words without meaning). Is this an effective approach? (select all that apply)",
+    "options": [
+      "It allows students to focus on the phonetic process without the pressure of creating real words.",
+      "Students should only practice blending sounds with real words to ensure they understand the meaning.",
+      "Nonsense words can help students apply their blending skills in a fun and engaging way.",
+      "Games are not effective for teaching phonics and blending skills."
+    ],
+    "type": "checkbox",
+    "answer": [
+      "It allows students to focus on the phonetic process without the pressure of creating real words.",
+      "Nonsense words can help students apply their blending skills in a fun and engaging way."
+    ]
+  },
+  {
+    "topic": "Phonics Language and Literacy Development PP1",
+    "question": "In the context of early language development, which of the following activities are effective in promoting pre-reading skills among pre-primary children? (Select all that apply)",
+    "options": [
+      "Phonemic Awareness Games",
+      "Independent Reading of Complex Texts",
+      "Storytelling with Visual Aids",
+      "Decoding Activities with Manipulatives"
+    ],
+    "type": "checkbox",
+    "answer": [
+      "Phonemic Awareness Games",
+      "Storytelling with Visual Aids",
+      "Decoding Activities with Manipulatives"
+    ]
+  },
+  {
+    "topic": "Parent and Community Involvement PP1",
+    "question": "If a child is showing signs of frustration and reluctance towards writing, what emotional support strategies should be implemented to improve their experience? (Select all that apply)",
+    "options": [
+      "Acknowledge and validate the child’s feelings",
+      "Encourage the child to take breaks when needed",
+      "Push the child to practice writing even when upset",
+      "Celebrate small milestones to boost the child’s confidence"
+    ],
+    "type": "checkbox",
+    "answer": [
+      "Acknowledge and validate the child’s feelings",
+      "Encourage the child to take breaks when needed",
+      "Celebrate small milestones to boost the child’s confidence"
+    ]
+  },
+  {
+    "topic": "Experiential Learning and Engagement Activities PP1",
+    "question": "A teacher plans a storytelling session but initially considers just reading from a book. Which of the following strategies would enhance the storytelling experience for the children? (Select all that apply)",
+    "options": [
+      "Use different voices for different characters to make the storytelling engaging.",
+      "Pause throughout the story to ask the children questions that encourage prediction and anticipation.",
+      "Assign roles to the children and act out the story together.",
+      "Allow the children to doodle freely while listening to the story."
+    ],
+    "type": "checkbox",
+    "answer": [
+      "Use different voices for different characters to make the storytelling engaging.",
+      "Pause throughout the story to ask the children questions that encourage prediction and anticipation.",
+      "Assign roles to the children and act out the story together."
+    ]
+  },
+  {
+    "topic": "Early Intervention and Special Education PP1",
+    "question": "Which of the following behaviours might indicate a need for further evaluation for Autism Spectrum Disorder (ASD)? (Select all that apply)",
+    "options": [
+      "Making consistent eye contact with peers and adults.",
+      "Demonstrating limited interest in social interactions or play.",
+      "Displaying inconsistent use of imaginative play skills across different settings.",
+      "Excelling in verbal communication skills but struggling with conversational turn-taking."
+    ],
+    "type": "checkbox",
+    "answer": [
+      "Demonstrating limited interest in social interactions or play.",
+      "Displaying inconsistent use of imaginative play skills across different settings.",
+      "Excelling in verbal communication skills but struggling with conversational turn-taking."
+    ]
+  },
+  {
+    "topic": "Early Intervention and Special Education PP1",
+    "question": "Maya, a child with Down syndrome, attends an inclusive ECCE program where she actively participates in various learning activities alongside her peers. Despite initial concerns about her cognitive delays, Maya has demonstrated progress in communication skills and academic achievements with support from her teachers and classmates. What are the significant benefits of Maya's inclusion in this inclusive setting? (Select all that apply)",
+    "options": [
+      "Maya's classmates develop a sense of superiority over her.",
+      "Maya's presence fosters a culture of diversity and acceptance.",
+      "Maya learns from peer modelling and social interactions.",
+      "Maya's parents need not to find specialized schooling options."
+    ],
+    "type": "checkbox",
+    "answer": [
+      "Maya's presence fosters a culture of diversity and acceptance.",
+      "Maya learns from peer modelling and social interactions."
+    ]
+  },
+  {
+    "topic": "Early Intervention and Special Education PP1",
+    "question": "A group of parents expresses concerns about the inclusion of special children in their children's ECCE class, arguing that it detracts from the quality of education for typical children. How can the school administration effectively address these concerns and promote the importance of inclusive education? (Select all that apply)",
+    "options": [
+      "Organize parent workshops on the benefits of inclusive education.",
+      "Provide additional resources and support for teachers managing diverse classrooms.",
+      "Implement a policy to exclude special children from mainstream classes.",
+      "Highlight research findings that demonstrate the positive impact of inclusive education."
+    ],
+    "type": "checkbox",
+    "answer": [
+      "Organize parent workshops on the benefits of inclusive education.",
+      "Provide additional resources and support for teachers managing diverse classrooms.",
+      "Highlight research findings that demonstrate the positive impact of inclusive education."
+    ]
+  },
+  {
+    "topic": "Classroom Management and Differentiated Learning PP1",
+    "question": "Ms. Rekha, an ECCE teacher, has been working on implementing differentiated learning strategies in her classroom. Ms. Rekha provided the same set of materials and instructions to all students. Some children finished quickly and became disruptive, while others seemed overwhelmed and required constant assistance. Which of the following actions should Ms. Rekha take to correct the situation and better implement differentiated learning in her art activities? (Select all that apply)",
+    "options": [
+      "Provide more materials and give students additional time to work on their collages.",
+      "Offer different sets of materials and levels of guidance based on each student's individual needs and abilities.",
+      "Pair students so that those who finish quickly can assist those who are struggling.",
+      "Reduce the complexity of the collage instructions to ensure that all students can complete the activity independently."
+    ],
+    "type": "checkbox",
+    "answer": [
+      "Offer different sets of materials and levels of guidance based on each student's individual needs and abilities.",
+      "Pair students so that those who finish quickly can assist those who are struggling.",
+      "Reduce the complexity of the collage instructions to ensure that all students can complete the activity independently."
+    ]
+  },
+  {
+    "topic": "Classroom Management and Differentiated Learning PP1",
+    "question": "You are preparing for a day in your pre-primary classroom with the following considerations: One child is very active. Two children do not engage in writing activities. One child keeps running around the classroom. One child has ADHD. Which of the following preparations would be the most effective to ensure a smooth and productive classroom environment? (select 2)",
+    "options": [
+      "Develop a flexible schedule with various activities, including movement breaks, and prepare differentiated tasks to cater to individual needs.",
+      "Prepare a rigid, structured schedule with strict time allocations for each activity and limit free movement to control the classroom.",
+      "Set up individualized learning stations with clear instructions and a reward system for completing tasks to keep all children engaged.",
+      "Create a quiet area for the ADHD child to retreat to when feeling overwhelmed, and have one-on-one sessions for the children who do not write."
+    ],
+    "type": "checkbox",
+    "answer": [
+      "Develop a flexible schedule with various activities, including movement breaks, and prepare differentiated tasks to cater to individual needs.",
+      "Set up individualized learning stations with clear instructions and a reward system for completing tasks to keep all children engaged."
+    ]
+  }
+  
+]
