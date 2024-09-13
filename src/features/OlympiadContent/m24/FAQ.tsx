@@ -13,11 +13,11 @@ const FAQ = () => {
             <h2>Frequently Asked Questions</h2>
             <div className='faq-topics'>
                 <h2>Categories</h2>
-                <a href='javascript:void(0)' onClick={() => scrollToSection('about-the-olympiad')}>About the Olympiad <img src={ChevronDown} alt="Chevron Down" /> </a>
-                <a href='javascript:void(0)' onClick={() => scrollToSection('registration')}>Registration <img src={ChevronDown} alt="Chevron Down" /></a>
-                <a href='javascript:void(0)' onClick={() => scrollToSection('exam-preparation')}>Exam & Preparation <img src={ChevronDown} alt="Chevron Down" /></a>
-                <a href='javascript:void(0)' onClick={() => scrollToSection('eligibility')}>Eligibility <img src={ChevronDown} alt="Chevron Down" /></a>
-                <a href='javascript:void(0)' onClick={() => scrollToSection('live-masterclasses')}>Live Masterclasses <img src={ChevronDown} alt="Chevron Down" /></a>
+                <a href='' onClick={() => scrollToSection('about-the-olympiad')}>About the Olympiad <img src={ChevronDown} alt="Chevron Down" /> </a>
+                <a href='' onClick={() => scrollToSection('registration')}>Registration <img src={ChevronDown} alt="Chevron Down" /></a>
+                <a href='' onClick={() => scrollToSection('exam-preparation')}>Exam & Preparation <img src={ChevronDown} alt="Chevron Down" /></a>
+                <a href='' onClick={() => scrollToSection('eligibility')}>Eligibility <img src={ChevronDown} alt="Chevron Down" /></a>
+                <a href='' onClick={() => scrollToSection('live-masterclasses')}>Live Masterclasses <img src={ChevronDown} alt="Chevron Down" /></a>
             </div>
             <div className='faq' id='about-the-olympiad'>
                 <h3>About the Olympiad</h3>

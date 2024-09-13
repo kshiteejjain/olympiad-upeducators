@@ -1,22 +1,17 @@
-import { useEffect, useRef, useState } from 'react';
+import { useRef, useState, useEffect } from 'react';
+import Webcam from 'react-webcam';
 import Recording from '../../assets/recording-icon.gif';
 
 const WebcamComponent = () => {
-    const videoRef = useRef<HTMLVideoElement | null>(null);
+    // Typing the ref for react-webcam
+    const webcamRef = useRef<Webcam | null>(null);
     const [hasAccess, setHasAccess] = useState<boolean>(false);
 
     useEffect(() => {
         const startCamera = async () => {
             try {
-                // Request access to camera and microphone
-                const stream = await navigator.mediaDevices.getUserMedia({ video: true, audio: false });
-
-                // Set the stream to the video element
-                if (videoRef.current) {
-                    videoRef.current.srcObject = stream;
-                }
-
-                // Update state to indicate access granted
+                // Check if the user has given access to the camera
+                await navigator.mediaDevices.getUserMedia({ video: true, audio: false });
                 setHasAccess(true);
             } catch (err) {
                 console.error('Error accessing media devices.', err);
@@ -26,14 +21,9 @@ const WebcamComponent = () => {
 
         startCamera();
 
-        // Clean up the stream on component unmount
+        // Cleanup function (optional)
         return () => {
-            if (videoRef.current && videoRef.current.srcObject) {
-                const stream = videoRef.current.srcObject as MediaStream;
-                const tracks = stream.getTracks();
-
-                tracks.forEach(track => track.stop());
-            }
+            // react-webcam handles the cleanup internally
         };
     }, []);
 
@@ -42,15 +32,18 @@ const WebcamComponent = () => {
             <div className='webcam-container'>
                 {hasAccess ? (
                     <>
-                        <video
-                            ref={videoRef}
-                            autoPlay
-                            playsInline
+                        <Webcam
+                            audio={false}
+                            ref={webcamRef}
+                            screenshotFormat="image/jpeg"
+                            width="100%"
+                            height="100%"
+                            videoConstraints={{ facingMode: 'user' }}
                         />
                         <img src={Recording} className='recording' alt="Recording" />
                     </>
                 ) : (
-                    <p>Please give access to camera and mic...</p>
+                    <p>Please give access to the camera...</p>
                 )}
             </div>
         </div>

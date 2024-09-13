@@ -1,10 +1,12 @@
 import React, { useState, useEffect, ChangeEvent } from 'react';
-import ExamQuestions from '../../utils/m24.json';
-import Button from '../../components/Buttons/Button';
-import WebcamPermission from './WebcamPermission';
-import Chevron from '../../assets/chevron-right.svg';
 import { firestore } from '../../utils/firebase';
 import { doc, setDoc } from 'firebase/firestore';
+import ExamQuestions from '../../utils/m24.json';
+import Button from '../../components/Buttons/Button';
+import Loader from '../../components/Loader/Loader';
+import WebcamPermission from './WebcamPermission';
+import CheckInternet from '../../utils/CheckInternet';
+import Chevron from '../../assets/chevron-right.svg';
 
 import './Examination.css';
 
@@ -24,10 +26,12 @@ const Examination: React.FC = () => {
     const [currentIndex, setCurrentIndex] = useState<number>(0);
     const [attempted, setAttempted] = useState<boolean[]>(new Array(ExamQuestions.length).fill(false));
     const [selectedAnswers, setSelectedAnswers] = useState<SelectedAnswers>({});
-    const [timer, setTimer] = useState<number>(60 * 60); // Default 60 minutes
+    const [timer, setTimer] = useState<number>(3 * 60); // Default 60 minutes
     const [cameraAccess, setCameraAccess] = useState<boolean | null>(null);
     const [canRequestPermission, setCanRequestPermission] = useState<boolean>(false);
-
+    const [loading, setLoading] = useState(false);
+    const [startTime, setStartTime] = useState<number>(Date.now()); // Track start time in milliseconds
+    const [alertShown, setAlertShown] = useState<boolean>(false);
 
     // Load JSON dynamically based on localStorage value
     useEffect(() => {
@@ -38,6 +42,7 @@ const Examination: React.FC = () => {
             .then((module) => {
                 setQuestions(module.default as ExamQuestionsType);
                 setAttempted(new Array(module.default.length).fill(false));
+                setStartTime(Date.now());
             })
             .catch((error) => {
                 console.error('Error loading JSON file:', error);
@@ -58,6 +63,14 @@ const Examination: React.FC = () => {
         }, 1000);
         return () => clearInterval(interval);
     }, []);
+
+    // Alert effect when timer is less than or equal to 5 minutes
+    useEffect(() => {
+        if (timer <= 1 * 60 && !alertShown) {
+            alert("You have less than 5 minutes remaining!");
+            setAlertShown(true); // Ensure alert is shown only once
+        }
+    }, [timer, alertShown]);
 
     // LocalStorage effect
     useEffect(() => {
@@ -128,22 +141,33 @@ const Examination: React.FC = () => {
             console.error('Error requesting camera permission:', error);
         }
     };
+    const formatTimeTaken = (seconds: number): string => {
+        const minutes = Math.floor(seconds / 60);
+        const secs = seconds % 60;
+        return `${minutes}:${secs}`;
+    };
 
     const submitReport = async (): Promise<void> => {
+        setLoading(true);
         const olympiadData = JSON.parse(localStorage.getItem('olympd_prefix') || '{}');
         const olympiadName = olympiadData?.olympiadName || 'm24'; // Default to 'm24' if not set
         const userEmail = olympiadData?.email || 'defaultUser'; // Assuming you have the user's email in localStorage
-        const name = olympiadData?.name;
-    
+        const userName = olympiadData?.name;
+
+        // Calculate time taken
+        const endTime = Date.now();
+        const timeTakenInSeconds = Math.floor((endTime - startTime) / 1000); // Time in seconds
+        const formattedTimeTaken = formatTimeTaken(timeTakenInSeconds);
+
         // Create the report object
         const report = questions.map((question, index) => {
             const userAnswer = selectedAnswers[index] !== undefined ? selectedAnswers[index] : ''; // Fallback for undefined
             const correctAnswer = question.answer;
-    
+
             const isCorrect = Array.isArray(correctAnswer)
                 ? Array.isArray(userAnswer) && correctAnswer.every(a => userAnswer.includes(a)) && userAnswer.every(a => correctAnswer.includes(a))
                 : userAnswer === correctAnswer;
-    
+
             return {
                 questionIndex: index,
                 topic: question.topic || 'Unknown Topic', // Include topic of each question
@@ -152,38 +176,41 @@ const Examination: React.FC = () => {
                 isCorrect: isCorrect
             };
         });
-    
+
         // Calculate total marks
         const totalMarks = report.reduce((count, item) => (item.isCorrect ? count + 1 : count), 0);
-    
+
         // Structure the report data
         const reportData = {
             email: userEmail, // Store email directly
-            name: name || 'Unknown', // Fallback if name is not provided
+            name: userName || 'Unknown', // Fallback if name is not provided
             details: report,
             totalMarks: totalMarks,
+            timeTaken: formattedTimeTaken,
             timestamp: new Date().toISOString() // Use ISO string format for timestamp
         };
-    
+
         try {
             // Reference to the specific user's document in the Olympiad result collection
             const userDocRef = doc(firestore, `${olympiadName}Result`, userEmail);
-    
+
             // Save the report data as the document under the user's email
             await setDoc(userDocRef, reportData);
-    
+
             console.log('Report successfully saved to Firestore.');
+            setLoading(false);
+            localStorage.removeItem('selectedAnswers');
+            localStorage.removeItem('attempted')
+            const olympd_prefix = localStorage.getItem('olympd_prefix')
+            let isExamOver = olympd_prefix  ? JSON.parse(olympd_prefix) : {}
+            isExamOver.examOver= true;
+            localStorage.setItem('olympd_prefix', JSON.stringify(isExamOver));
+            window.close();
         } catch (error) {
             console.error('Error saving report to Firestore:', error);
         }
     };
-    
 
-
-
-    // Remove 'setExamTimer' if it's not used anywhere in the component.
-    // Alternatively, uncomment the following line to set the timer elsewhere in the app.
-    // const setExamTimer = (minutes: number): void => setTimer(minutes * 60); // Set timer in minutes
 
     if (cameraAccess === null) return <div className="loading">Loading camera access...</div>;
 
@@ -197,9 +224,9 @@ const Examination: React.FC = () => {
             </div>
         );
     }
-
     return (
         <div className='exam-started'>
+            {loading && <Loader />}
             <div className="content">
                 <div className="question-container">
                     <div className='quiz'>
@@ -247,7 +274,9 @@ const Examination: React.FC = () => {
                                     <Button type="button" isIcon iconPath={Chevron} onClick={() => handleNavigation(-1)} isDisabled={currentIndex === 0} />
                                     <Button type="button" isIcon iconPath={Chevron} onClick={() => handleNavigation(1)} />
                                 </div>
-                                <Button type="button" title="Submit Exam" onClick={() => submitReport()} />
+                                {/* {attempted.every(item => item === true) && <Button type="button" title="Submit Exam" onClick={() => submitReport()} />} */}
+                              <Button type="button" title="Submit Exam" onClick={() => submitReport()} />
+                                <CheckInternet />
                             </>
                         )}
                     </div>

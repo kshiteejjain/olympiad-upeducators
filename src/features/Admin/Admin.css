@@ -47,3 +47,6 @@ table.admin-table td, table.admin-table th{
 .admin-cta-right button:hover{
     color: var(--primary);
 }
+.csv-upload{
+    margin-top: 80px;
+}

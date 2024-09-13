@@ -1,42 +1,13 @@
+import { useNavigate } from "react-router-dom";
 import Button from "../../components/Buttons/Button";
+import CheckInternet from "../../utils/CheckInternet";
 
 const ExaminationRules = () => {
+    const navigate = useNavigate();
 
     const openExamWindow = () => {
-        // Open google.com in a new full-screen window
-        const examWindow = window.open(
-            '/#/Examination', // Ensure to use the full URL
-            '_blank',
-            'width=screen.width,height=screen.height,fullscreen=yes'
-        );
-
-        if (examWindow) {
-            // Apply restrictions to the new window if needed
-            examWindow.onload = () => {
-                // examWindow.document.addEventListener('contextmenu', (e) => e.preventDefault()); // Disable right-click
-                // examWindow.document.addEventListener('keydown', (e) => {
-                //     if (e.ctrlKey && (e.key === 'c' || e.key === 'v')) {
-                //         e.preventDefault();
-                //     }
-                // });
-                // examWindow.document.addEventListener('mousedown', (e) => {
-                //     if (e.button === 2) e.preventDefault();
-                // });
-                // examWindow.document.oncontextmenu = () => false; // Disable context menu
-                // examWindow.onkeydown = (e) => {
-                //     if (e.key === 'PrintScreen') {
-                //         e.preventDefault();
-                //     }
-                // };
-                examWindow.addEventListener('visibilitychange', () => {
-                    if (document.hidden) {
-                        alert('Please do not navigate away from the exam page.');
-                    }
-                });
-            };
-        }
+        navigate('/CapturePhoto')
     };
-    
 
     return (
         <div className="content">
@@ -64,7 +35,8 @@ const ExaminationRules = () => {
                 </div>
             </div>
             <div className="start-exam-cta">
-                <Button type="button" title="Start Exam" onClick={openExamWindow} />
+                <Button type="button" title="Next" onClick={openExamWindow} />
+                <CheckInternet />
             </div>
         </div>
     );

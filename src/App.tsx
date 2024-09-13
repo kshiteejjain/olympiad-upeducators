@@ -7,9 +7,11 @@ import LMSForm from './features/LMSForm/LMSForm';
 import Admin from './features/Admin/Admin';
 import UserProfile from './features/UserProfile/UserProfile';
 import AddUser from './features/AddUser/AddUser';
-import OlympiadContent from './features/OlympiadContent/OlympiadContent'
-import Examination from './features/Examination/Examination'
-import ExaminationRules from './features/Examination//ExaminationRules'
+import OlympiadContent from './features/OlympiadContent/OlympiadContent';
+import Examination from './features/Examination/Examination';
+import ExaminationRules from './features/Examination//ExaminationRules';
+import CapturePhoto from './features/Examination/CapturePhoto';
+import ThankYou from './features/ThankYou/ThankYou';
 
 import './App.css';
 
@@ -41,6 +43,7 @@ const App = () => {
         <Routes>
           <Route path="*" element={<Navigate to="/" replace />} />
           <Route path="/" element={<Login />} />
+          <Route path="/ThankYou" element={<ThankYou />} />
           <Route path="/LMSForm" element={<LMSForm />} />
           <Route path="/EnterOTP" element={<EnterOTP />} />
           <Route path="/AddUser" element={<AddUser />} />
@@ -50,6 +53,7 @@ const App = () => {
           <Route path="/UserProfile" element={checkSession() ? <UserProfile /> : <Navigate to="/" replace />} />
           <Route path="/Examination" element={checkSession() ? <Examination /> : <Navigate to="/" replace />} />
           <Route path="/ExaminationRules" element={checkSession() ? <ExaminationRules /> : <Navigate to="/" replace />} />
+          <Route path="/CapturePhoto" element={checkSession() ? <CapturePhoto /> : <Navigate to="/" replace />} />
         </Routes>
       </div>
     </div>

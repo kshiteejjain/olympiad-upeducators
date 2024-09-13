@@ -70,13 +70,13 @@ const AboutOlympiad = () => {
                     <summary>Sample Papers</summary>
                     <p><strong>Check the Sample Paper as per the Grade you have selected</strong></p>
                     <h3>Sample Paper for Grade 1 to 5</h3>
-                    <a href='javascript:void(0)'>PDF attachment</a>
+                    <a href=''>PDF attachment</a>
 
                     <h3>Sample Paper for Grade 6 to 10</h3>
-                    <a href='javascript:void(0)'>PDF attachment</a>
+                    <a href=''>PDF attachment</a>
 
                     <h3>Sample Paper for Grade 11 and above</h3>
-                    <a href='javascript:void(0)'>PDF attachment</a>
+                    <a href=''>PDF attachment</a>
 
 
                 </details>

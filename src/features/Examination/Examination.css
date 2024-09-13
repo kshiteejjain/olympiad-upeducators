@@ -11,7 +11,7 @@
 
 .question-container .quiz h3 {
   font-size: calc(var(--baseFontSize) + 1px);
-  margin-bottom: 25px;
+  margin-bottom: 20px;
   line-height: 30px;
 }
 
@@ -63,7 +63,7 @@
 .question-nav {
   display: flex;
   justify-content: center;
-  margin: 50px 0;
+  margin: 30px 0;
 }
 
 .question-nav button:nth-child(1) img {
@@ -84,7 +84,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 40px;
+  margin-bottom: 20px;
 }
 
 .quiz-header h2 {
@@ -104,7 +104,8 @@
   width: 100%;
   box-sizing: border-box;
 }
-.answer-options .option label{
+
+.answer-options .option label {
   width: 100%;
   box-sizing: border-box;
   cursor: pointer;
@@ -117,7 +118,7 @@
 
 .answer-options .option input[type='radio'],
 .answer-options .option input[type='checkbox'] {
-  margin:0 10px 0 15px
+  margin: 0 10px 0 15px
 }
 
 .timer {
@@ -216,5 +217,63 @@
   left: 0;
   right: 0;
   background-color: var(--white);
-  padding: 40px;
+  padding: 20px;
+}
+
+.captured-photo {
+  width: 48%;
+    background-color: var(--white);
+    border: 1px solid var(--gray);
+    padding: 10px;
+    box-sizing: border-box;
+    border-radius: 8px;
+}
+
+.capture-image {
+  width: 100%;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  flex-wrap: wrap;
+  position: relative;
+  margin: 30px 0;
+}
+
+.live-camera-cta {
+  display: flex;
+  justify-content: center;
+  min-width: 100%;
+  margin: 30px 0;
+}
+.live-camera-cta .isSecondary{
+  margin-right: 50px;
+  color: var(--primary);
+  background-color: var(--lightGray);
+}
+
+.live-camera {
+  display: flex;
+  flex-direction: column;
+  width: 48%;
+  background-color: var(--white);
+  border: 1px solid var(--gray);
+  padding: 10px;
+  box-sizing: border-box;
+  border-radius: 8px;
+}
+.start-exam{
+  text-align: center;
+  width: 100%;
+  margin: 30px 0;
+}
+.access-permission{
+  align-items: center;
+  margin: 100px auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.access-permission img{
+  max-width: 300px;
+  margin:10px 0 30px 0;
 }
