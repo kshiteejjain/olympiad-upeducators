@@ -3,6 +3,9 @@
   justify-content: space-between;
   flex-wrap: wrap;
 }
+.question{
+  min-height: 350px;
+}
 
 .question-container .quiz {
   width: 100%;
@@ -72,12 +75,7 @@
 
 .question-nav button {
   margin: 0 10px;
-  border-radius: 2px;
-  padding: 10px 5px;
-}
-
-.question-nav button:hover {
-  background-color: var(--limeGreen);
+  border-radius: 5px;
 }
 
 .quiz-header {

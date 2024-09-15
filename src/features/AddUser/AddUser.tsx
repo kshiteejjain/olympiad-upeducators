@@ -32,7 +32,7 @@ const AddUser: React.FC = () => {
         paymentId: 'internal',
         source: 'internal',
         olympiad: [], // Initialize as an empty array
-        isNewUser: true, // Provide default value
+        isNewUser: false, // Provide default value
         paymentDetails: { razorpay_payment_id: 'internal' } // Initialize paymentDetails properly
     });
     const [validationError, setValidationError] = useState<boolean>(false);
@@ -169,7 +169,7 @@ const AddUser: React.FC = () => {
                     phone: phone?.toString() || '',
                     paymentDetails: { razorpay_payment_id: 'internal' },
                     timeStamp: new Date().toISOString(),
-                    isNewUser: true,
+                    isNewUser: false,
                     olympiad: olympiad?.toString().split(',').map((item:any) => item.trim()) || [],
                     source: 'internal'
                 });

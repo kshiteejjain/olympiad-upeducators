@@ -1,11 +1,54 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-
 import './PageNavigation.css';
 
 const PageNavigation = ({ navPath }: any) => {
     const [activeButton, setActiveButton] = useState<string | null>(null);
+    const [showStartExamButton, setShowStartExamButton] = useState<boolean>(true);
+    const [examStarted, setExamStarted] = useState<boolean>(false);
     const navigate = useNavigate();
+
+    useEffect(() => {
+        // Check localStorage to see if examStarted is true
+        const olympdPrefixData = JSON.parse(localStorage.getItem('olympd_prefix') || '{}');
+        if (olympdPrefixData.examStarted) {
+            setExamStarted(true);
+            setShowStartExamButton(false);
+        }
+
+        // Hide the button at 6 PM on September 22, 2024
+        const targetDate = new Date('2024-09-22T18:00:00'); // 6 PM on September 22, 2024
+        const now = new Date();
+        if (now > targetDate) {
+            setShowStartExamButton(false);
+        } else {
+            const timeUntilTargetDate = targetDate.getTime() - now.getTime();
+            const hideButtonAtTargetDateTimeout = setTimeout(() => {
+                setShowStartExamButton(false);
+            }, timeUntilTargetDate);
+
+            return () => clearTimeout(hideButtonAtTargetDateTimeout);
+        }
+    }, []);
+
+    const handleStartExamClick = () => {
+        // Navigate to the ExaminationRules page
+        navigate('/ExaminationRules');
+
+        // Hide the button after 40 minute
+        setTimeout(() => {
+            // Update localStorage to set examStarted to true
+            const olympdPrefixData = JSON.parse(localStorage.getItem('olympd_prefix') || '{}');
+            olympdPrefixData.examStarted = true;
+            localStorage.setItem('olympd_prefix', JSON.stringify(olympdPrefixData));
+            setExamStarted(true);
+
+            // Hide the button
+            setShowStartExamButton(false);
+            window.location.reload();
+        }, 40 * 60 * 1000); // 40 minute in milliseconds
+    };
+
     const handleClick = (path: string) => {
         setActiveButton(path);
         navPath(path);
@@ -13,7 +56,11 @@ const PageNavigation = ({ navPath }: any) => {
 
     return (
         <div className='navigation'>
-            <button onClick={() => navigate('/ExaminationRules')}>Start Exam</button>
+            {showStartExamButton ? (
+                <button onClick={handleStartExamClick}>Start Exam</button>
+            ) : examStarted ? (
+                <span className="startedNote">Your exam has started</span>
+            ) : null}
             <button
                 className={activeButton === '/AboutOlympiad' ? 'active' : ''}
                 onClick={() => handleClick('/AboutOlympiad')}

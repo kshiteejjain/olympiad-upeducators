@@ -93,9 +93,9 @@ const OlympiadContent = () => {
 
     return (
         <Suspense fallback={<div>Loading...</div>}>
-            {olympiadName && <PageNavigation navPath={handlePathChange} />}
+            <PageNavigation navPath={handlePathChange} />
             {/* Render the Olympiad data if olympiadName is not set */}
-            {!olympiadName ? (
+            {!olympiadName &&  olympiads.length > 1 ? (
                 <>
                     <div className="content">
                         <h2>Available Olympiads</h2>
@@ -113,7 +113,7 @@ const OlympiadContent = () => {
                                     );
                                 })
                             ) : (
-                                <div>No Olympiad data available</div>
+                                <CurrentComponent />
                             )}
                         </ul>
 

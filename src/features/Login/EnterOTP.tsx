@@ -79,9 +79,9 @@ const EnterOTP = () => {
                 <LoginAnimation isCarousal />
                 {isLoader && <Loader title='Loading..' />}
                 <form onSubmit={handleSubmit}>
-                    <h1>Enter OTP</h1>
+                    <h1>Verify Passcode (check your email)</h1>
                     <div className='form-group'>
-                        <label htmlFor='otp'>Enter OTP<span className="asterisk">*</span></label>
+                        <label htmlFor='otp'>Enter Passcode<span className="asterisk">*</span></label>
                         <input
                             type='tel'
                             className='form-control'
@@ -93,9 +93,9 @@ const EnterOTP = () => {
                             maxLength={10}
                         />
                         {isError && <ErrorBoundary message='Invalid OTP. Please try again.' />}
-                        <p className='input-note'>Note: Enter OTP received on your email or phone.</p>
+                        <p className='input-note'>Note: Enter passcode received on your email.</p>
                     </div>
-                    <Button title='Send' type='submit' />
+                    <Button title='Verify' type='submit' />
                 </form>
                 <span className="login-option" onClick={()=> navigate('/')}>Back to login?</span>
             </div>

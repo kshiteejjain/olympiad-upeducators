@@ -24,11 +24,12 @@ type TopicDetail = {
 type UserResult = {
     email: string;
     name: string;
-    timeTaken: string;
     details: ResultDetail[];
     totalMarks: number;
     timestamp: string;
-    detailsByTopic?: { [key: string]: TopicDetail }; // Optional for transformed results
+    detailsByTopic?: { [key: string]: TopicDetail };
+    startTime?: string;
+    endTime?: string;
 };
 
 const fetchResultsFromCollection = async (collectionName: string): Promise<UserResult[]> => {
@@ -36,6 +37,7 @@ const fetchResultsFromCollection = async (collectionName: string): Promise<UserR
     const snapshot = await getDocs(collectionRef);
 
     const userResultsMap = new Map<string, UserResult>();
+
     snapshot.forEach(doc => {
         const data = doc.data();
         const email = doc.id;
@@ -44,24 +46,22 @@ const fetchResultsFromCollection = async (collectionName: string): Promise<UserR
             userResultsMap.set(email, {
                 email,
                 name: data.name || 'No Name Provided',
-                timeTaken: data.timeTaken || 'No Time Recorded',
-                details: [],
+                details: data.details || [],
                 totalMarks: data.totalMarks || 0,
                 timestamp: data.timestamp || new Date().toISOString(),
+                startTime: data.startTime,
+                endTime: data.endTime
             });
+        } else {
+            const userResult = userResultsMap.get(email)!;
+            userResult.details = userResult.details.concat(data.details || []);
         }
-
-        const userResult = userResultsMap.get(email)!;
-        userResult.details = userResult.details.concat(data.details || []);
     });
 
     return Array.from(userResultsMap.values()).map(userResult => {
         const groupedByTopic = userResult.details.reduce((acc, detail) => {
             if (!acc[detail.topic]) {
-                acc[detail.topic] = {
-                    questions: [],
-                    totalMarks: 0
-                };
+                acc[detail.topic] = { questions: [], totalMarks: 0 };
             }
             acc[detail.topic].questions.push({
                 questionIndex: detail.questionIndex,
@@ -75,10 +75,7 @@ const fetchResultsFromCollection = async (collectionName: string): Promise<UserR
             return acc;
         }, {} as { [key: string]: TopicDetail });
 
-        return {
-            ...userResult,
-            detailsByTopic: groupedByTopic
-        };
+        return { ...userResult, detailsByTopic: groupedByTopic };
     });
 };
 
@@ -102,6 +99,17 @@ const ExamResults = () => {
         fetchResults();
     }, []);
 
+    const calculateTimeTaken = (startTime?: string, endTime?: string) => {
+        if (startTime && endTime) {
+            const start = new Date(startTime);
+            const end = new Date(endTime);
+            const duration = end.getTime() - start.getTime();
+            const minutes = Math.floor(duration / 60000);
+            return `${minutes} Min`;
+        }
+        return 'N/A';
+    };
+
     const getAllTopics = (results: UserResult[]) => {
         return Array.from(new Set(results.flatMap(user => Object.keys(user.detailsByTopic || {}))));
     };
@@ -117,6 +125,8 @@ const ExamResults = () => {
                         <tr>
                             <th>Email</th>
                             <th>Name</th>
+                            <th>Start Time</th>
+                            <th>End Time</th>
                             <th>Time Taken</th>
                             <th>Total Marks</th>
                             {allTopics.map(topic => (
@@ -129,7 +139,9 @@ const ExamResults = () => {
                             <tr key={index}>
                                 <td>{userResult.email}</td>
                                 <td>{userResult.name}</td>
-                                <td>{userResult.timeTaken} Min</td>
+                                <td>{userResult.startTime ? new Date(userResult.startTime).toLocaleTimeString() : 'N/A'}</td>
+                                <td>{userResult.endTime ? new Date(userResult.endTime).toLocaleTimeString() : 'N/A'}</td>
+                                <td>{calculateTimeTaken(userResult.startTime, userResult.endTime)}</td>
                                 <td>{userResult.totalMarks}</td>
                                 {allTopics.map(topic => {
                                     const topicDetails = userResult.detailsByTopic?.[topic];
@@ -137,11 +149,7 @@ const ExamResults = () => {
 
                                     return (
                                         <td key={topic}>
-                                            {topicDetails ? (
-                                                <div>
-                                                    {totalMarks}
-                                                </div>
-                                            ) : 'No Data'}
+                                            {totalMarks}
                                         </td>
                                     );
                                 })}

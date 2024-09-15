@@ -113,7 +113,7 @@ const CapturePhoto = () => {
                 };
                 examWindow.addEventListener('visibilitychange', () => {
                     if (document.hidden) {
-                        alert('Please do not navigate away from the exam page.');
+                        console.log('Please do not navigate away from the exam page.');
                     }
                 });
                 navigate('/ThankYou');
