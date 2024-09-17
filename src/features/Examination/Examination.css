@@ -184,14 +184,8 @@
 }
 
 .exam-rules {
-  display: flex;
-  align-items: flex-start;
-  justify-content: space-between;
   margin-bottom: 50px;
-}
-
-.exam-rules-section {
-  width: 48%;
+  max-width: 70%;
 }
 
 .exam-rules ul {

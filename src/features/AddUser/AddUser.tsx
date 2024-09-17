@@ -9,10 +9,9 @@ import Button from '../../components/Buttons/Button';
 import ErrorBoundary from '../../components/ErrorBoundary/ErrorBoundary';
 import Loader from '../../components/Loader/Loader';
 
-
 type UserDetails = {
     email: string;
-    isNewUser: boolean; // Ensure isNewUser is included
+    isNewUser: boolean;
     name: string;
     olympiad: string[];
     paymentDetails: {
@@ -23,7 +22,6 @@ type UserDetails = {
     source: string;
 };
 
-
 const AddUser: React.FC = () => {
     const [userDetails, setUserDetails] = useState<UserDetails>({
         name: '',
@@ -31,9 +29,9 @@ const AddUser: React.FC = () => {
         phone: '',
         paymentId: 'internal',
         source: 'internal',
-        olympiad: [], // Initialize as an empty array
-        isNewUser: false, // Provide default value
-        paymentDetails: { razorpay_payment_id: 'internal' } // Initialize paymentDetails properly
+        olympiad: [],
+        isNewUser: false,
+        paymentDetails: { razorpay_payment_id: 'internal' }
     });
     const [validationError, setValidationError] = useState<boolean>(false);
     const [emailExistsError, setEmailExistsError] = useState<boolean>(false);
@@ -41,6 +39,9 @@ const AddUser: React.FC = () => {
     const [csvLoader, setCsvLoader] = useState<boolean>(false);
     const [uploadData, setUploadData] = useState<any[]>([]);
     const [error, setError] = useState<string | null>(null);
+    const [fetchedCount, setFetchedCount] = useState<number>(0);
+    const [successfulCount, setSuccessfulCount] = useState<number>(0);
+    const [failedCount, setFailedCount] = useState<number>(0);
     const navigate = useNavigate();
 
     const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
@@ -87,9 +88,9 @@ const AddUser: React.FC = () => {
                 phone: '',
                 paymentId: 'internal',
                 source: 'internal',
-                olympiad: [], // Reset to empty array
-                isNewUser: true, // Include isNewUser
-                paymentDetails: { razorpay_payment_id: 'internal' } // Include paymentDetails
+                olympiad: [],
+                isNewUser: true,
+                paymentDetails: { razorpay_payment_id: 'internal' }
             });
             alert('User Registered. An Email and WhatsApp message have been sent to the user.');
         } catch (error: any) {
@@ -136,6 +137,7 @@ const AddUser: React.FC = () => {
 
             // Skip header row
             jsonData.shift();
+            setFetchedCount(jsonData.length); // Set the number of fetched records
             setUploadData(jsonData);
         } catch (err) {
             console.error('Error processing file:', err);
@@ -148,6 +150,8 @@ const AddUser: React.FC = () => {
     const handleUpload = async () => {
         setCsvLoader(true);
         setError(null);
+        setSuccessfulCount(0);
+        setFailedCount(0);
 
         try {
             for (const row of uploadData) {
@@ -160,28 +164,35 @@ const AddUser: React.FC = () => {
 
                 if (userDoc.exists()) {
                     console.warn(`User with email ${emailLowerCase} already exists.`);
+                    setFailedCount(prev => prev + 1);
                     continue;
                 }
 
-                await setDoc(userDocRef, {
-                    name: name?.toString() || '',
-                    email: emailLowerCase,
-                    phone: phone?.toString() || '',
-                    paymentDetails: { razorpay_payment_id: 'internal' },
-                    timeStamp: new Date().toISOString(),
-                    isNewUser: false,
-                    olympiad: olympiad?.toString().split(',').map((item:any) => item.trim()) || [],
-                    source: 'internal'
-                });
-                await sendEmail(
-                    emailLowerCase,
-                    import.meta.env.VITE_OLYMPIAD_WELCOME_EMAIL_TEMPLATE,
-                    { name, email: emailLowerCase, phone }
-                );
-                await sendWhatsappMessage(phone);
+                try {
+                    await setDoc(userDocRef, {
+                        name: name?.toString() || '',
+                        email: emailLowerCase,
+                        phone: phone?.toString() || '',
+                        paymentDetails: { razorpay_payment_id: 'internal' },
+                        timeStamp: new Date().toISOString(),
+                        isNewUser: false,
+                        olympiad: olympiad?.toString().split(',').map((item:any) => item.trim()) || [],
+                        source: 'internal'
+                    });
+                    await sendEmail(
+                        emailLowerCase,
+                        import.meta.env.VITE_OLYMPIAD_WELCOME_EMAIL_TEMPLATE,
+                        { name, email: emailLowerCase, phone }
+                    );
+                    await sendWhatsappMessage(phone);
+                    setSuccessfulCount(prev => prev + 1);
+                } catch (err) {
+                    console.error('Error uploading data:', err);
+                    setFailedCount(prev => prev + 1);
+                }
             }
 
-            alert('User Registered. An Email and WhatsApp message have been sent to the user.');
+            alert('Upload complete.');
             setUploadData([]);
         } catch (err) {
             console.error('Error uploading data:', err);
@@ -244,7 +255,7 @@ const AddUser: React.FC = () => {
                             className='form-control'
                             required
                             name='olympiad'
-                            value={userDetails.olympiad.join(', ')} // Join array into a string for display
+                            value={userDetails.olympiad.join(', ')}
                             onChange={handleInputChange}
                             autoComplete='off'
                         />
@@ -266,7 +277,14 @@ const AddUser: React.FC = () => {
                     </div>
                     {error && <div className='error-message'>{error}</div>}
                     {uploadData.length > 0 && (
-                        <Button title='Upload Data' type='button' onClick={handleUpload} />
+                        <>
+                            <Button title='Upload Data' type='button' onClick={handleUpload} />
+                            <div className='upload-summary'>
+                                <p>Total Records Fetched: {fetchedCount}</p>
+                                <p>Records Successfully Stored: {successfulCount}</p>
+                                <p>Records Failed to Store: {failedCount}</p>
+                            </div>
+                        </>
                     )}
                 </div>
             </div>

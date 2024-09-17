@@ -19,6 +19,7 @@ const LiveMasterClass = loadComponent('LiveMasterClass');
 const Report = loadComponent('Report');
 const AboutUpEducators = loadComponent('AboutUpEducators');
 const CoursesForEducators = loadComponent('CoursesForEducators');
+const CheckExamSystem = loadComponent('CheckExamSystem');
 
 // Map paths to components
 const componentMap: Record<string, ComponentType<any>> = {
@@ -30,6 +31,7 @@ const componentMap: Record<string, ComponentType<any>> = {
     '/Report': Report,
     '/AboutUpEducators': AboutUpEducators,
     '/CoursesForEducators': CoursesForEducators,
+    '/CheckExamSystem': CheckExamSystem
 };
 
 // Default component to display

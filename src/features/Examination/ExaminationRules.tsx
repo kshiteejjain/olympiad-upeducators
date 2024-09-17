@@ -11,28 +11,18 @@ const ExaminationRules = () => {
 
     return (
         <div className="content">
-            <h2>Olympiad Examination</h2>
+            <h2>Exam Guidelines</h2>
             <div className="exam-rules">
-                <div className="exam-rules-section">
-                    <h3>Do's:</h3>
-                    <ul>
-                        <li><strong>Use a Laptop or Computer with a Webcam:</strong> Ensure you have a functioning laptop or desktop computer with a working webcam and microphone, as these are required for the exam.</li>
-                        <li><strong>Test Your Equipment:</strong> Before the exam begins, check that your internet connection, webcam, and microphone are all working properly.</li>
-                        <li><strong>Monitor Your Time:</strong> Use a timer or keep track of time according to the exam's schedule to ensure you complete all sections.</li>
-                        <li><strong>Follow On-Screen Instructions:</strong> Pay attention to and follow all prompts and guidelines provided on the exam platform.</li>
-                        <li><strong>Maintain Proper Conduct:</strong> Adhere to the exam’s code of conduct, including not communicating with anyone else and not using any external aids.</li>
-                    </ul>
-                </div>
-                <div className="exam-rules-section">
-                    <h3>Don'ts:</h3>
-                    <ul>
-                        <li><strong>Don’t Use Unauthorized Devices:</strong> Avoid using mobile phones, tablets, or other devices that are not allowed during the exam.</li>
-                        <li><strong>Don’t Cheat or Seek Unauthorized Help:</strong> Do not attempt to access unauthorized resources or get assistance from others.</li>
-                        <li><strong>Don’t Alter Exam Settings:</strong> Avoid changing any settings on the exam platform that are not directed by the instructions.</li>
-                        <li><strong>Don’t Disregard Technical Issues:</strong> If you experience technical problems, report them immediately according to the instructions provided by the exam proctor or support team.</li>
-                        <li><strong>Don’t Ignore the Webcam:</strong> Keep your webcam on and positioned correctly as required by the exam guidelines to ensure monitoring compliance.</li>
-                    </ul>
-                </div>
+                <p><strong>1. Use a Laptop or Computer with a Webcam</strong>: Ensure you have a functioning Laptop or Desktop with a working webcam and microphone. These are mandatory for the exam.</p>
+                <p><strong>2. Exam Start Time</strong>: On 21st September at 5 PM IST, click the 'Start Exam' button in the portal. Do not attempt to start the exam before this time.</p>
+                <p><strong>3. Keep a Govt-issued ID Ready</strong>: Have a valid government-issued ID (Driving License, Passport, Aadhar, etc.) on hand before starting the exam.</p>
+                <p><strong>4. Monitor Your Time</strong>: Use the countdown timer available on the exam portal or track the time manually to ensure you finish within the allotted time.</p>
+                <p><strong>5. Avoid System Disconnection</strong>: Ensure your system remains connected to the internet. In the event of a power outage or internet disconnection, re-open the exam portal and click ‘Start Exam’ again if the page was closed.</p>
+                <p><strong>6. Power/Network Interruptions</strong>: upEducators is not responsible for disruptions due to power outages, network issues, or other interruptions.</p>
+                <p><strong>7. Ensure Accurate Device Settings</strong>: Make sure the date and time on your device are accurate before starting the exam.</p>
+                <p><strong>8. Don’t Switch Windows</strong>: Do not click outside the exam window or switch to other tabs during the exam.</p>
+                <p><strong>9. Don’t Cheat or Seek Unauthorized Help</strong>: Do not attempt to access unauthorized resources or seek help from others.</p>
+                <p><strong>10. Don’t Turn Off the Webcam</strong>: Ensure your webcam remains on and properly positioned throughout the exam to comply with monitoring requirements.</p>
             </div>
             <div className="start-exam-cta">
                 <Button type="button" title="Next" onClick={openExamWindow} />

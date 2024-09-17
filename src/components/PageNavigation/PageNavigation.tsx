@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+
 import './PageNavigation.css';
 
 const PageNavigation = ({ navPath }: any) => {
@@ -56,12 +57,18 @@ const PageNavigation = ({ navPath }: any) => {
 
     return (
         <div className='navigation'>
+            <button
+                className={activeButton === '/CheckExamSystem' ? 'active' : ''}
+                onClick={() => handleClick('/CheckExamSystem')}
+            >
+                Check Exam System
+            </button>
             {showStartExamButton ? (
                 <button onClick={handleStartExamClick}>Start Exam</button>
             ) : examStarted ? (
                 <span className="startedNote">Your exam has started</span>
             ) : null}
-            <button
+            {/* <button
                 className={activeButton === '/AboutOlympiad' ? 'active' : ''}
                 onClick={() => handleClick('/AboutOlympiad')}
             >
@@ -96,7 +103,7 @@ const PageNavigation = ({ navPath }: any) => {
                 onClick={() => handleClick('/Report')}
             >
                 Report
-            </button>
+            </button> */}
             <button
                 className={activeButton === '/AboutUpEducators' ? 'active' : ''}
                 onClick={() => handleClick('/AboutUpEducators')}

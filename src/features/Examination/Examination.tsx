@@ -269,8 +269,22 @@ const Examination = () => {
                                     </div>
                                 </div>
                                 <div className="question-nav">
-                                    <Button type="button" title="Previous Question" isIcon onClick={() => handleNavigation(-1)} isDisabled={currentIndex === 0} />
-                                    <Button type="button" title="Next Question" isIcon onClick={() => handleNavigation(1)} />
+                                    <Button
+                                        type="button"
+                                        title="Previous Question"
+                                        isIcon
+                                        onClick={() => handleNavigation(-1)}
+                                        isDisabled={currentIndex === 0}
+                                    />
+                                    {questions.length > 0 && (
+                                        <Button
+                                            type="button"
+                                            title="Next Question"
+                                            isIcon
+                                            onClick={() => handleNavigation(1)}
+                                            isDisabled={currentIndex === questions.length - 1}
+                                        />
+                                    )}
                                 </div>
                                 <Button type="button" title="Submit Exam" onClick={() => submitReport()} />
                                 <CheckInternet />
