@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import Webcam from 'react-webcam';
 import Button from "../../components/Buttons/Button";
 import PermissionImage from '../../assets/permissionImage.png';
+import PhotoIdSample from '../../assets/photoId-sample.png';
 
 const CapturePhoto = () => {
     const webcamRef = useRef<Webcam | null>(null);
@@ -156,7 +157,7 @@ const CapturePhoto = () => {
                             </div>
                         </div>
                     )}
-
+                    {capturingIdProof && showCamera && (<div className='photoIdSample'> <p>Sample Photo</p> <img src={PhotoIdSample} /> </div> )}
                     {capturingIdProof && showCamera && (
                         <div className='live-camera'>
                             <p>Capture</p>
@@ -186,6 +187,7 @@ const CapturePhoto = () => {
                                 )}
                                 <Button type="button" title="Start Exam" onClick={openExamWindow} />
                             </div>
+
                         </div>
                     )}
                 </>

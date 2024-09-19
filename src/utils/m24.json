@@ -1,328 +1,379 @@
 [
   {
-    "topic": "Geography",
-    "question": "What is the capital city of France?",
+    "topic": "Pedagogical Knowledge L3",
+    "question": "What is the main principle behind the \"Concrete-Representational-Abstract\" (CRA) approach in mathematics instruction?",
     "options": [
-      "Paris",
-      "London",
-      "Berlin",
-      "Rome"
+      "Starting with abstract concepts and moving to concrete examples",
+      "Using only concrete materials throughout the instruction",
+      "Progressing from concrete manipulatives to abstract symbols ",
+      "To introduce mathematical concepts through direct instruction before allowing hands-on activities"
     ],
     "type": "radio",
-    "answer": "Paris"
+    "answer": "Progressing from concrete manipulatives to abstract symbols "
   },
   {
-    "topic": "Geography",
-    "question": "Which planet is known as the Red Planet?",
+    "topic": "Pedagogical Knowledge L3",
+    "question": "Which learning theory suggests that students' understanding of mathematical concepts is influenced by mental processes such as memory, perception, and problem-solving strategies?",
     "options": [
-      "Mars",
-      "Venus",
-      "Jupiter",
-      "Saturn"
+      "Behaviorism",
+      "Cognitivism",
+      " Constructivism",
+      "Social Learning Theory"
     ],
     "type": "radio",
-    "answer": "Mars"
+    "answer": "Cognitivism"
   },
   {
-    "topic": "Geography",
-    "question": "Which is the largest ocean in the world?",
+    "topic": "Pedagogical Knowledge L3",
+    "question": "A higher secondary mathematics teacher observes that students struggle with applying probability concepts to solve complex probability problems. Which of the following strategies would be least effective in improving their ability to tackle these problems?",
     "options": [
-      "Pacific Ocean",
-      "Atlantic Ocean",
-      "Indian Ocean",
-      "Arctic Ocean"
+      "Encouraging students to create and solve their own probability problems",
+      "Providing a list of probability formulas and their associated problem types",
+      "Allowing students to struggle with challenging probability problems before providing guidance",
+      "Presenting probability problems that have multiple possible solutions or approaches"
     ],
     "type": "radio",
-    "answer": "Pacific Ocean"
+    "answer": "Providing a list of probability formulas and their associated problem types"
   },
   {
-    "topic": "History",
-    "question": "Who was the first President of the United States?",
+    "topic": "Real-world Applications L3",
+    "question": "Assertion (A): Blended learning models enhance student engagement more effectively than traditional classroom settings alone. \nReason (R): Blended learning allows students to interact with digital content at their own pace, which caters to individual learning speeds.",
     "options": [
-      "George Washington",
-      "Abraham Lincoln",
-      "Thomas Jefferson",
-      "John Adams"
+      "Both A and R are true",
+      "Both A and R are false",
+      "A is true, but R is false ",
+      "A is false, but R is true "
     ],
     "type": "radio",
-    "answer": "George Washington"
+    "answer": "Both A and R are true"
   },
   {
-    "topic": "History",
-    "question": "In which year did India gain independence?",
+    "topic": "Real-world Applications L3",
+    "question": "A teacher wants to demonstrate the practical application of quadratic equations. Which example is most appropriate?",
     "options": [
-      "1947",
-      "1945",
-      "1950",
-      "1952"
+      "Determining the speed of a car travelling at a constant velocity",
+      " Plotting the trajectory of a ball thrown in the air",
+      "Solving simple interest problems",
+      "Understanding the concept of number sets"
     ],
     "type": "radio",
-    "answer": "1947"
+    "answer": " Plotting the trajectory of a ball thrown in the air"
   },
   {
-    "topic": "History",
-    "question": "Who wrote the famous play 'Romeo and Juliet'?",
+    "topic": "Real-world Applications L3",
+    "question": "You are explaining the function of derivatives to your class. To make the topic tangible, you use the example of speed changes in a car. Why is this approach effective in teaching derivatives?",
     "options": [
-      "William Shakespeare",
-      "Charles Dickens",
-      "Mark Twain",
-      "Jane Austen"
+      "It standardizes the teaching of calculus",
+      "It closely aligns with theoretical mathematical principles",
+      "It makes the concept of derivatives concrete by applying it to a common experience",
+      " It illustrates the relationship between derivatives and integral calculus"
     ],
     "type": "radio",
-    "answer": "William Shakespeare"
+    "answer": "It makes the concept of derivatives concrete by applying it to a common experience"
   },
   {
-    "topic": "Science",
-    "question": "What is the boiling point of water?",
+    "topic": "Technology Integration L3",
+    "question": "In the context of using digital tools for Mathematical Modelling, which statement is most accurate?",
     "options": [
-      "100°C",
-      "50°C",
-      "75°C",
-      "90°C"
+      "Modeling software can handle complex calculations but limits students' understanding of underlying concepts",
+      "Digital modelling tools allow students to explore and manipulate variables quickly, enhancing their ability to test hypotheses and analyze relationships",
+      "Digital modelling tools simplify the learning process by doing all the work, thus students may become passive learners",
+      "Mathematical modelling software always produces more accurate results than traditional analytical methods"
     ],
     "type": "radio",
-    "answer": "100°C"
+    "answer": "Digital modelling tools allow students to explore and manipulate variables quickly, enhancing their ability to test hypotheses and analyze relationships"
   },
   {
-    "topic": "Science",
-    "question": "Which gas do plants absorb from the atmosphere?",
+    "topic": "Technology Integration L3",
+    "question": "Mr Gupta, a maths teacher at a high school, is considering implementing a virtual lab to help his students better understand the concepts of limits and continuity. He has found a simulation that allows students to manipulate functions graphically and observe the behaviour of limits as they approach various points. Which of the following best describes the most significant potential benefit of using this virtual lab in Mr Gupta's maths class?",
     "options": [
-      "Carbon dioxide",
-      "Oxygen",
-      "Nitrogen",
-      "Helium"
+      "It eliminates the need for teacher involvement in guiding students through complex calculus problems",
+      " Students can explore a wider range of functions more quickly than by hand-graphing, allowing them to discover patterns ",
+      "The virtual lab primarily serves as an assessment and also eliminates the need for traditional problem-solving exercises ",
+      "Students develop fine motor skills by manipulating tools and materials, which enhances their understanding of limits and continuity"
     ],
     "type": "radio",
-    "answer": "Carbon dioxide"
+    "answer": " Students can explore a wider range of functions more quickly than by hand-graphing, allowing them to discover patterns "
   },
   {
-    "topic": "Science",
-    "question": "Which part of the plant conducts photosynthesis?",
+    "topic": "Technology Integration L3",
+    "question": "Mr. Sharma, a higher secondary mathematics teacher, is introducing his students to more advanced concepts in coordinate geometry, including plotting points, graphing lines, and exploring geometric transformations on the coordinate plane. He wants to incorporate technology to help his students visualize and interact with these concepts in real time. Which technology tool would be most effective in enhancing his students' understanding of coordinate geometry?",
     "options": [
-      "Leaf",
-      "Stem",
-      "Root",
-      "Flower"
+      "A math puzzle game app like Math Blaster\n",
+      " Minecraft: Education Edition",
+      " GeoGebra",
+      "Kahoot!"
     ],
     "type": "radio",
-    "answer": "Leaf"
+    "answer": " GeoGebra"
   },
   {
-    "topic": "Sports",
-    "question": "How many players are there in a soccer team?",
+    "topic": "Cross-Disciplinary Integration L3",
+    "question": "Which of the following is NOT typically a component of integrating cross-disciplinary approaches in mathematics education?",
     "options": [
-      "11",
-      "9",
-      "10",
-      "12"
+      "Real-world application of mathematical concepts ",
+      "Collaborations with teachers from other disciplines ",
+      "Mandatory use of at least two non-mathematical fields in every math lesson",
+      "Utilizing technology from computer science to enhance mathematical understanding"
     ],
     "type": "radio",
-    "answer": "11"
+    "answer": "Mandatory use of at least two non-mathematical fields in every math lesson"
   },
   {
-    "topic": "Sports",
-    "question": "What is the national sport of India?",
+    "topic": "Cross-Disciplinary Integration L3",
+    "question": "Assertion (A): Introducing too many cross-disciplinary projects in a mathematics curriculum can detract from mastering core mathematical skills. \nReasoning (R): Students may spend more time on contextual understanding from other disciplines than on developing essential mathematical techniques.",
     "options": [
-      "Hockey",
-      "Cricket",
-      "Football",
-      "Badminton"
+      "Both A and R are true, and R is the correct explanation of A",
+      "Both A and R are true, but R is not the correct explanation of A",
+      "A is true, but R is false",
+      "A is false, but R is true"
     ],
     "type": "radio",
-    "answer": "Hockey"
+    "answer": "Both A and R are true, and R is the correct explanation of A"
   },
   {
-    "topic": "Sports",
-    "question": "Which country has won the most FIFA World Cup titles?",
+    "topic": "Cross-Disciplinary Integration L3",
+    "question": "Which of the following statements best describes the impact of cross-disciplinary learning on students' preparation for future careers?",
     "options": [
-      "Brazil",
-      "Germany",
-      "Argentina",
-      "Italy"
+      "Narrows students' career choices by focusing on interdisciplinary fields only",
+      "It overemphasizes general knowledge at the expense of specialized skills",
+      "Encourages students to pursue academic interests outside their primary field of study",
+      "It equips students with a versatile skill set and adaptability in a rapidly changing job market"
     ],
     "type": "radio",
-    "answer": "Brazil"
+    "answer": "It equips students with a versatile skill set and adaptability in a rapidly changing job market"
   },
   {
-    "topic": "Mathematics",
-    "question": "What is 15 + 25?",
+    "topic": "Innovative Teaching Strategies L3",
+    "question": "In the context of teaching mathematics, what does \"scaffolding\" refer to?",
     "options": [
-      "40",
-      "35",
-      "50",
-      "30"
+      "Providing a structured sequence of activities that build on students' prior knowledge to understand new concepts",
+      "Using real-life examples to explain mathematical theories",
+      "Encouraging students to solve problems without teacher intervention to promote independence",
+      "Assigning peer teaching roles to facilitate cooperative learning in the classroom"
     ],
     "type": "radio",
-    "answer": "40"
+    "answer": "Providing a structured sequence of activities that build on students' prior knowledge to understand new concepts"
   },
   {
-    "topic": "Mathematics",
-    "question": "What is the square root of 64?",
+    "topic": "Innovative Teaching Strategies L3",
+    "question": "In a classroom setting where you are teaching Statistics, you want to employ a teaching strategy that emphasizes students discovering statistical patterns and relationships through their own explorations. Which strategy would be most effective in encouraging students to learn autonomously by actively engaging with statistical concepts and their applications?",
     "options": [
-      "8",
-      "6",
-      "7",
-      "9"
+      "Experiential Learning",
+      " Virtual Reality Simulations",
+      " Flipped Classroom",
+      "Inquiry-based learning"
     ],
     "type": "radio",
-    "answer": "8"
+    "answer": "Inquiry-based learning"
   },
   {
-    "topic": "Mathematics",
-    "question": "What is 7 multiplied by 9?",
+    "topic": "Assessment and Evaluation L3",
+    "question": "Which of the following best describes the concept of mathematical fluency?",
     "options": [
-      "63",
-      "54",
-      "72",
-      "56"
+      "The ability to perform calculations quickly",
+      "Always using mental math",
+      "Understanding and applying mathematical concepts in various contexts",
+      "The ability to perform advanced operations"
     ],
     "type": "radio",
-    "answer": "63"
+    "answer": "Understanding and applying mathematical concepts in various contexts"
   },
   {
-    "topic": "Animals",
-    "question": "What is the fastest land animal?",
+    "topic": "Assessment and Evaluation L3",
+    "question": "After concluding a lesson on exponential and logarithmic functions, you're aiming to quickly assess your students' understanding before they leave. Which of the following strategies would most effectively evaluate student comprehension while providing you with actionable insights for your next lesson? ",
     "options": [
-      "Cheetah",
-      "Lion",
-      "Elephant",
-      "Horse"
+      "Announce a pop quiz on exponential and logarithmic functions to be held at the start of tomorrow's class",
+      "Distribute \"exit tickets\" asking students to solve a problem that involves transforming an exponential equation into logarithmic form and vice versa",
+      "Assign a challenging problem set for homework that requires students to apply today's lessons to real-world scenarios",
+      "Invite selected students to solve complex problems on the board and discuss their methodology with the class"
     ],
     "type": "radio",
-    "answer": "Cheetah"
+    "answer": "Distribute \"exit tickets\" asking students to solve a problem that involves transforming an exponential equation into logarithmic form and vice versa"
   },
   {
-    "topic": "Animals",
-    "question": "How many legs does a spider have?",
+    "topic": "Classroom Management L3",
+    "question": "Assertion (A): Establishing clear behavioural expectations at the beginning of the school year leads to a more orderly classroom environment.\nReason (R): When students clearly understand the rules, they are less likely to misbehave because they know exactly what behaviour is acceptable and what is not.",
     "options": [
-      "8",
-      "6",
-      "10",
-      "12"
+      "Both A and R are true, and R is the correct explanation of A",
+      "Both A and R are true, but R is NOT the correct explanation of A",
+      "A is true, but R is false",
+      "A is false, but R is true"
     ],
     "type": "radio",
-    "answer": "8"
+    "answer": "Both A and R are true, and R is the correct explanation of A"
   },
   {
-    "topic": "Animals",
-    "question": "Which animal is known for changing its colors?",
+    "topic": "Classroom Management L3",
+    "question": "Which strategy helps maintain an orderly classroom during math activities?",
     "options": [
-      "Chameleon",
-      "Snake",
-      "Frog",
-      "Lizard"
+      "Allowing students to choose their groups and seating arrangements",
+      "Establishing clear expectations and routines",
+      "Encouraging unrestricted movement around the classroom",
+      "Using verbal warnings to address disruptive behaviour"
     ],
     "type": "radio",
-    "answer": "Chameleon"
+    "answer": "Establishing clear expectations and routines"
   },
   {
-    "topic": "Technology",
-    "question": "Who invented the telephone?",
+    "topic": "Professional Development L3",
+    "question": "Which approach to professional development is most likely to result in sustained improvement of mathematics teaching practices? ",
     "options": [
-      "Alexander Graham Bell",
-      "Thomas Edison",
-      "Nikola Tesla",
-      "Albert Einstein"
+      "Subscribing to a professional journal on mathematics education",
+      "Participating in action research projects in one's own classroom",
+      "Attending annual math education conferences to network with other educators",
+      "Completing self-paced online courses on advanced mathematical concepts"
     ],
     "type": "radio",
-    "answer": "Alexander Graham Bell"
+    "answer": "Participating in action research projects in one's own classroom"
   },
   {
-    "topic": "Technology",
-    "question": "What is the main source of energy for the Earth?",
+    "topic": "Professional Development L3",
+    "question": "How will the integration of Artificial Intelligence in education shift the role of teachers?",
     "options": [
-      "Sun",
-      "Wind",
-      "Water",
-      "Coal"
+      "The role of teachers remains unchanged as AI is just another classroom tool ",
+      "AI primarily serves to automate grading, leaving instructional responsibilities unchanged",
+      "AI takes over all assessment and grading tasks, freeing teachers to focus solely on content delivery",
+      "Allowing educators to focus more on developing students' critical thinking and creativity skills"
     ],
     "type": "radio",
-    "answer": "Sun"
+    "answer": "Allowing educators to focus more on developing students' critical thinking and creativity skills"
   },
   {
-    "topic": "Technology",
-    "question": "What is the hardest natural substance on Earth?",
+    "topic": "Professional Development L3",
+    "question": "Rank the following professional development strategies from most effective (1) to least effective (4) for enhancing your ability to differentiate instruction as a High School Teacher:\n\ni) Participating in a data analysis workshop to learn how to use student performance information for tailoring instruction\nii) Watching video tutorials of expert teachers on cognitive development theories to better understand learning behaviours\niii) Engaging with educational blogs and social media posts about differentiation during personal time \niv) Joining Professional Learning Communities (PLCs) focused on sharing best practices for differentiated instruction",
     "options": [
-      "Diamond",
-      "Gold",
-      "Iron",
-      "Silver"
+      "1. i, 2. iii, 3. ii, 4. iv",
+      "1. i, 2. iv, 3. ii, 4. iii",
+      "1. iv, 2. ii, 3. i, 4. iii",
+      "1. iv, 2. i, 3. ii, 4. iii"
     ],
     "type": "radio",
-    "answer": "Diamond"
+    "answer": "1. iv, 2. i, 3. ii, 4. iii"
   },
   {
-    "topic": "Famous Places",
-    "question": "Which country is known as the Land of the Rising Sun?",
+    "topic": "Student Engagement and Differentiated Instruction L3",
+    "question": "In the context of student engagement, what does the \"Zone of Proximal Development\" refer to?",
     "options": [
-      "Japan",
-      "China",
-      "South Korea",
-      "Thailand"
+      "The optimal physical environment for learning, including lighting, temperature, and seating arrangements",
+      "The range of tasks that a student can perform with the help and guidance of a teacher or more capable peers",
+      "The gap between a student's current academic performance and their expected grade-level achievement",
+      "The difference between what a student can do before and after a learning session"
     ],
     "type": "radio",
-    "answer": "Japan"
+    "answer": "The range of tasks that a student can perform with the help and guidance of a teacher or more capable peers"
   },
   {
-    "topic": "Famous Places",
-    "question": "Which is the longest river in the world?",
+    "topic": "Student Engagement and Differentiated Instruction L3",
+    "question": "Which strategy best supports differentiated instruction in a math classroom?",
     "options": [
-      "Nile River",
-      "Amazon River",
-      "Yangtze River",
-      "Mississippi River"
+      "Encouraging students to work independently to build self-reliance",
+      "Allowing faster students to assist those who are struggling",
+      "Providing tiered assignments and flexible grouping ",
+      "Grouping students by ability and focusing more on struggling students"
     ],
     "type": "radio",
-    "answer": "Nile River"
+    "answer": "Providing tiered assignments and flexible grouping "
   },
   {
-    "topic": "Famous Places",
-    "question": "What is the smallest continent by land area?",
+    "topic": "Student Engagement and Differentiated Instruction L3",
+    "question": "Which of the following techniques is best for fostering a growth mindset in students during mathematics lessons? ",
     "options": [
-      "Australia",
-      "Europe",
-      "South America",
-      "Antarctica"
+      "Focusing on correct answers and speed of calculation",
+      "Praising students for their successes ",
+      "Encouraging students to appreciate effort over correct answers ",
+      "Emphasizing healthy competition between students"
     ],
     "type": "radio",
-    "answer": "Australia"
+    "answer": "Encouraging students to appreciate effort over correct answers "
   },
   {
-    "topic": "Human Body",
-    "question": "Which is the largest bone in the human body?",
+    "topic": "Inclusive Mathematics Education L3",
+    "question": "How can a teacher best support a student with ADHD in math class?",
     "options": [
-      "Femur",
-      "Skull",
-      "Rib",
-      "Spine"
+      "Introducing competitive math games to increase engagement",
+      "Breaking tasks into smaller, manageable parts",
+      "Occasionally allowing the use of calculators to speed up problem-solving",
+      "Implementing a token economy system for completed assignments"
     ],
     "type": "radio",
-    "answer": "Femur"
+    "answer": "Breaking tasks into smaller, manageable parts"
   },
   {
-    "topic": "Human Body",
-    "question": "What is the smallest bone in the human body?",
+    "topic": "Inclusive Mathematics Education L3",
+    "question": "Match the inclusive mathematics teaching strategies (1-6) with their primary benefits for diverse learners (a-f):\n\nStrategies:\n\n1. Think-aloud problem-solving\n2. Use of mathematical journals\n3. Universal Design for Learning (UDL)\n4. Use of manipulatives for hands-on learning\n5. Individualized Education Plans (IEPs)\n6. Multi-sensory instruction\n\nBenefits:\n\na. Addresses multiple learning modalities (visual, auditory, kinesthetic)\nb. Provides multiple means of engagement, representation, and expression\nc. Enhances metacognitive skills and mathematical communication\nd. Models cognitive processes and problem-solving strategies\ne. Strengthens understanding through practical experiences\nf. Provides tailored support to students with specific learning needs",
     "options": [
-      "Stapes",
-      "Femur",
-      "Rib",
-      "Spine"
+      "1-d, 2-c, 3-b, 4-e, 5-f, 6-a",
+      "1-c, 2-d, 3-a, 4-b, 5-e, 6-f",
+      " 1-e, 2-a, 3-c, 4-d, 5-b, 6-f",
+      "1-b, 2-f, 3-d, 4-a, 5-c, 6-e"
     ],
     "type": "radio",
-    "answer": "Stapes"
+    "answer": "1-d, 2-c, 3-b, 4-e, 5-f, 6-a"
   },
   {
-    "topic": "Human Body",
-    "question": "What is the largest organ in the human body?",
+    "topic": "Inclusive Mathematics Education L3",
+    "question": "During a professional development workshop on inclusive education, high school math teachers discuss how to teach complex trigonometric functions to their diverse learners. The workshop facilitator asks them to select the most effective approach for ensuring all students, regardless of their learning differences, can grasp these advanced mathematical concepts. Which method should the teachers choose?",
     "options": [
-      "Skin",
-      "Liver",
-      "Brain",
-      "Heart"
+      "Provide comprehensive written explanations and step-by-step examples of trigonometric problems for students to study independently",
+      "Maintain a uniform pace for all students, covering trigonometric concepts through lectures and assessing understanding via standardized written tests",
+      "Implement multi-sensory teaching strategies, combining visual graphs, hands-on manipulatives, and interactive software to explore trigonometric functions",
+      "Organize students into ability-based groups for long-term projects exploring real-world applications of trigonometry"
     ],
     "type": "radio",
-    "answer": "Skin"
-  }
+    "answer": "Implement multi-sensory teaching strategies, combining visual graphs, hands-on manipulatives, and interactive software to explore trigonometric functions"
+  },
+  {
+    "topic": "Innovative Teaching Strategies L3",
+    "question": "Which of the following are examples of Universal Design for Learning (UDL) in mathematics? (Select all that apply)",
+    "options": [
+        "Administering standardized tests to all students to ensure uniform assessment",
+        "Offering multiple representations of mathematical concepts",
+        "Allowing students to demonstrate their understanding through various means",
+        "Grouping students by ability and providing different content to each group",
+        "Rotating students through different learning stations with varied activities in each math class",
+        "Using game-based learning platforms for all math practice and assessment"
+    ],
+    "type": "checkbox",
+    "answer": [
+        "Offering multiple representations of mathematical concepts",
+        "Allowing students to demonstrate their understanding through various means",
+        "Rotating students through different learning stations with varied activities in each math class"
+    ]
+},
+{
+    "topic": "Assessment and Evaluation L3",
+    "question": "Mrs. Sinha, a math teacher, is preparing to assign a complex project to her students. Which of the following best describes why Mrs. Sinha should consider using a rubric for this assignment. (Select all that apply)",
+    "options": [
+        "To rank students and promote healthy competition",
+        "To provide clear criteria for performance",
+        "To help students self-assess their work",
+        "To standardize all student responses"
+    ],
+    "type": "checkbox",
+    "answer": [
+        "To provide clear criteria for performance",
+        "To help students self-assess their work"
+    ]
+},
+{
+    "topic": "Classroom Management L3",
+    "question": "Which are the most appropriate ways to handle math anxiety in the classroom? (Select all that apply)",
+    "options": [
+        "Teach coping strategies",
+        "Reduce the difficulty of math tasks ",
+        "Using timed tests to assess students' math skills",
+        "Encourage the use of calculators or other digital tools ",
+        "Provide scaffolded support",
+        "Use formative assessments to identify and address specific areas of difficulty"
+    ],
+    "type": "checkbox",
+    "answer": [
+        "Teach coping strategies",
+        "Encourage the use of calculators or other digital tools ",
+        "Provide scaffolded support",
+        "Use formative assessments to identify and address specific areas of difficulty"
+    ]
+}
 ]
-
 

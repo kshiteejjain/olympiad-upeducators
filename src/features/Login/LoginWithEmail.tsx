@@ -7,8 +7,6 @@ import Button from '../../components/Buttons/Button';
 import ErrorBoundary from "../../components/ErrorBoundary/ErrorBoundary";
 import Loader from "../../components/Loader/Loader";
 
-
-
 const LoginWithEmail = () => {
     const [userDetails, setUserDetails] = useState({
         email: ''
@@ -41,6 +39,7 @@ const LoginWithEmail = () => {
                 const email = userData.email || 'No Email'; // Adjust according to your schema
                 const phone = userData.phone || 'No Phone'; // Adjust according to your schema
                 const image = userData?.profile?.image; // Adjust according to your schema
+                const olympiad = userData?.olympiad.map((item: any) => item.toLowerCase());
 
                 // Update localStorage with user details
                 const olympdPrefix = JSON.parse(localStorage.getItem('olympd_prefix') || '{}');
@@ -48,6 +47,7 @@ const LoginWithEmail = () => {
                 olympdPrefix.email = email;
                 olympdPrefix.phone = phone;
                 olympdPrefix.image = image;
+                olympdPrefix.olympiad = olympiad;
                 localStorage.setItem('olympd_prefix', JSON.stringify(olympdPrefix));
                 navigate('/EnterOTP');
                 // Send email

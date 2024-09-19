@@ -18,7 +18,7 @@ const PageNavigation = ({ navPath }: any) => {
         }
 
         // Hide the button at 6 PM on September 22, 2024
-        const targetDate = new Date('2024-09-22T18:00:00'); // 6 PM on September 22, 2024
+        const targetDate = new Date('2024-09-21T18:00:00'); // 6 PM on September 22, 2024
         const now = new Date();
         if (now > targetDate) {
             setShowStartExamButton(false);
@@ -110,12 +110,12 @@ const PageNavigation = ({ navPath }: any) => {
             >
                 About upEducators
             </button>
-            <button
+            {/* <button
                 className={activeButton === '/CoursesForEducators' ? 'active' : ''}
                 onClick={() => handleClick('/CoursesForEducators')}
             >
                 Courses for Educators
-            </button>
+            </button> */}
         </div>
     );
 };

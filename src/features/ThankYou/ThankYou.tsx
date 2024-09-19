@@ -44,7 +44,7 @@ const ThankYou = () => {
                 <h1>Thank You For Your Visit!</h1>
                 <p>We appreciate your time and hope you found everything you were looking for.</p>
                 <p><strong>Have a great day!</strong></p>
-                <Button title='Go to dashboard' type='button' isSecondary onClick={handleClick} />
+                <Button title='Go to olympiad home page' type='button' isSecondary onClick={handleClick} />
             </div>
             :
             <div className='thankyou-note'>

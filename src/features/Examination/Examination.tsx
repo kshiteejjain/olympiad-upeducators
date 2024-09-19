@@ -38,7 +38,8 @@ const Examination = () => {
     // Load JSON dynamically based on localStorage value
     useEffect(() => {
         const olympiadData = JSON.parse(localStorage.getItem('olympd_prefix') || '{}');
-        const olympiadName = olympiadData?.olympiadName || 'm24'; // Default to 'm24' if not set
+        const olympiadNames = olympiadData?.olympiad || []; // Default to 'm24' if not set
+        const olympiadName = olympiadNames[0] || 'm24';
 
         import(`../../utils/${olympiadName}.json`)
             .then((module) => {
@@ -50,6 +51,8 @@ const Examination = () => {
                 console.error('Error loading JSON file:', error);
             });
     }, []);
+
+
 
     // Alert effect when timer is less than or equal to 60 seconds
     useEffect(() => {

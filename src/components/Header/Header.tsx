@@ -69,7 +69,7 @@ const Header = () => {
         <div className="container-wrapper">
           <img src={logo} alt='upEducator' title='upEducator' className='logo' />
           <div className='language-option'>
-            <Button type="button" isSecondary title="Dashboard" onClick={() => navigate('/')} />
+            <Button type="button" isSecondary title="Olympiad Home Page" onClick={() => navigate('/')} />
             <select
               className='form-control'
               value={selectedOlympiad}

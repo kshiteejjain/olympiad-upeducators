@@ -1,12 +1,45 @@
 import { useNavigate } from "react-router-dom";
 import Button from "../../components/Buttons/Button";
 import CheckInternet from "../../utils/CheckInternet";
+import { fetchUserOlympiadData } from "../../utils/firebaseUtils";
 
 const ExaminationRules = () => {
     const navigate = useNavigate();
 
-    const openExamWindow = () => {
-        navigate('/CapturePhoto')
+    const olympdPrefix = JSON.parse(localStorage.getItem('olympd_prefix') || '{}');
+
+    const fetchAndUpdateOlympiadData = async () => {
+        if (!olympdPrefix.email) return console.warn('No email found in olympd_prefix');
+
+        try {
+            const usersData = await fetchUserOlympiadData(olympdPrefix.email);
+            const olympiads = Array.from(new Set(usersData.flatMap(user => user.olympiad || [])));
+            if (olympiads.length > 0) {
+                const updatedOlympdPrefix = {
+                    ...olympdPrefix,
+                    olympiad: olympiads,
+                };
+                localStorage.setItem('olympd_prefix', JSON.stringify(updatedOlympdPrefix));
+                return olympiads; // Return the fetched olympiad names
+            }
+        } catch (err) {
+            alert('Error fetching registered olympiad name');
+        } finally {
+            console.log('Finally');
+        }
+        return []; // Return an empty array if no olympiad found
+    };
+
+    const openExamWindow = async () => {
+        const olympiads = await fetchAndUpdateOlympiadData(); // Get the fetched olympiad names
+        navigate('/CapturePhoto');
+        
+        const item = localStorage.getItem('olympd_prefix');
+        if (item) {
+            const data = JSON.parse(item);
+            data.olympiad = olympiads; // Use fetched olympiad names
+            localStorage.setItem('olympd_prefix', JSON.stringify(data));
+        }
     };
 
     return (

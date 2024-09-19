@@ -40,7 +40,7 @@ const DefaultComponent = AboutOlympiad;
 const OlympiadContent = () => {
     const [CurrentComponent, setCurrentComponent] = useState<ComponentType<any>>(DefaultComponent);
     const [olympiads, setOlympiads] = useState<string[]>([]); // State to store Olympiad names
-    const olympiadName = olympdPrefix.olympiadName;
+    const olympiadName = olympdPrefix.olympiad;
 
     useEffect(() => {
         // Check if the component has been loaded for the first time
@@ -84,14 +84,20 @@ const OlympiadContent = () => {
         setCurrentComponent(newComponent);
     };
 
-    const handleOlympiadClick = (olympiad: string) => {
-        // Update localStorage with the selected Olympiad
-        const updatedOlympdPrefix = { ...olympdPrefix, olympiadName: olympiad };
-        localStorage.setItem('olympd_prefix', JSON.stringify(updatedOlympdPrefix));
-
-        // Refresh or navigate to reflect the change
+    const handleOlympiadClick = (selectedOlympiad: string) => {
+        const storedData = localStorage.getItem('olympd_prefix');
+        const olympadPrefix = storedData ? JSON.parse(storedData) : { olympiad: [] };
+    
+        // Replace the existing olympiad array with the new selection
+        olympadPrefix.olympiad = [selectedOlympiad];
+        
+        // Save the updated object to localStorage
+        localStorage.setItem('olympd_prefix', JSON.stringify(olympadPrefix));
+    
+        // Reload the window to reflect changes
         window.location.reload();
     };
+    
 
     return (
         <Suspense fallback={<div>Loading...</div>}>

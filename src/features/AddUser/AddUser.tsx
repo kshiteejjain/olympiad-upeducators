@@ -42,6 +42,9 @@ const AddUser: React.FC = () => {
     const [fetchedCount, setFetchedCount] = useState<number>(0);
     const [successfulCount, setSuccessfulCount] = useState<number>(0);
     const [failedCount, setFailedCount] = useState<number>(0);
+    const [existingEmails, setExistingEmails] = useState<string[]>([]);
+    const [failedEmails, setFailedEmails] = useState<string[]>([]);
+    const [uploadSummary, setUploadSummary] = useState<string | null>(null);
     const navigate = useNavigate();
 
     const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
@@ -70,7 +73,7 @@ const AddUser: React.FC = () => {
                 phone,
                 paymentDetails: { razorpay_payment_id: paymentId },
                 timeStamp: new Date().toISOString(),
-                isNewUser: true,
+                isNewUser: false,
                 olympiad,
                 source
             });
@@ -89,7 +92,7 @@ const AddUser: React.FC = () => {
                 paymentId: 'internal',
                 source: 'internal',
                 olympiad: [],
-                isNewUser: true,
+                isNewUser: false,
                 paymentDetails: { razorpay_payment_id: 'internal' }
             });
             alert('User Registered. An Email and WhatsApp message have been sent to the user.');
@@ -124,6 +127,11 @@ const AddUser: React.FC = () => {
 
         setCsvLoader(true);
         setError(null);
+        setFetchedCount(0);
+        setSuccessfulCount(0);
+        setFailedCount(0);
+        setExistingEmails([]);
+        setFailedEmails([]);
 
         try {
             const data = await file.arrayBuffer();
@@ -150,8 +158,6 @@ const AddUser: React.FC = () => {
     const handleUpload = async () => {
         setCsvLoader(true);
         setError(null);
-        setSuccessfulCount(0);
-        setFailedCount(0);
 
         try {
             for (const row of uploadData) {
@@ -164,6 +170,7 @@ const AddUser: React.FC = () => {
 
                 if (userDoc.exists()) {
                     console.warn(`User with email ${emailLowerCase} already exists.`);
+                    setExistingEmails(prev => [...prev, emailLowerCase]);
                     setFailedCount(prev => prev + 1);
                     continue;
                 }
@@ -176,7 +183,7 @@ const AddUser: React.FC = () => {
                         paymentDetails: { razorpay_payment_id: 'internal' },
                         timeStamp: new Date().toISOString(),
                         isNewUser: false,
-                        olympiad: olympiad?.toString().split(',').map((item:any) => item.trim()) || [],
+                        olympiad: olympiad?.toString().split(',').map((item: any) => item.trim()) || [],
                         source: 'internal'
                     });
                     await sendEmail(
@@ -189,10 +196,14 @@ const AddUser: React.FC = () => {
                 } catch (err) {
                     console.error('Error uploading data:', err);
                     setFailedCount(prev => prev + 1);
+                    setFailedEmails(prev => [...prev, emailLowerCase]);
                 }
             }
 
-            alert('Upload complete.');
+            // Construct the summary message
+            setUploadSummary(`
+                Upload complete!
+            `);
             setUploadData([]);
         } catch (err) {
             console.error('Error uploading data:', err);
@@ -279,13 +290,17 @@ const AddUser: React.FC = () => {
                     {uploadData.length > 0 && (
                         <>
                             <Button title='Upload Data' type='button' onClick={handleUpload} />
-                            <div className='upload-summary'>
-                                <p>Total Records Fetched: {fetchedCount}</p>
-                                <p>Records Successfully Stored: {successfulCount}</p>
-                                <p>Records Failed to Store: {failedCount}</p>
-                            </div>
+
                         </>
                     )}
+                    {uploadSummary && <div className='upload-summary-message'>{uploadSummary}</div>}
+                    <div className='upload-summary'>
+                        <p>Total Records Fetched: {fetchedCount}</p>
+                        <p>Records Successfully Stored: {successfulCount}</p>
+                        <p>Records Failed to Store: {failedCount}</p>
+                        <p>Existing Emails: {existingEmails.join(', ') || 'None'}</p>
+                        <p>Failed Email IDs: {failedEmails.join(', ') || 'None'}</p>
+                    </div>
                 </div>
             </div>
         </>

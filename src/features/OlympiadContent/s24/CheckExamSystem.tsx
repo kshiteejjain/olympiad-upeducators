@@ -7,10 +7,16 @@ const CheckExamSystem = () => {
 
     const openExamWindow = () => {
         navigate('/CapturePhoto')
+        const item = localStorage.getItem('olympd_prefix');
+        if (item) {
+            const data = JSON.parse(item);
+            data.olympiad = ['testQuestions'];
+            localStorage.setItem('olympd_prefix', JSON.stringify(data));
+        }
     };
     return (
         <div className="content">
-            <h2>Exam Guidelines</h2>
+            <h2>Check Your System Guidelines</h2>
             <div className="exam-rules">
                 <p><strong>1. Use a Laptop or Computer with a Webcam</strong>: Ensure you have a functioning Laptop or Desktop with a working webcam and microphone. These are mandatory for the exam.</p>
                 <p><strong>2. Keep a Govt-issued ID Ready</strong>: Have a valid government-issued ID (Driving License, Passport, Aadhar, etc.) on hand before starting the exam.</p>

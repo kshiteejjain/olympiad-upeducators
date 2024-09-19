@@ -10,6 +10,7 @@
     border: 1px solid var(--primary);
     transition: all .3s;
     cursor: pointer;
+    white-space: nowrap;
 }
 .button:hover{
     background-color: #fff;
