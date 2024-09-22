@@ -4,7 +4,6 @@ import { firestore } from '../../utils/firebase';
 
 const ReferralEarnings = () => {
   const [referralAmount, setReferralAmount] = useState<number | null>(0);
-  const [error, setError] = useState<string | null>(null);
 
   // Replace with the actual logic to get the logged-in user's email
   const olympdPrefix = JSON.parse(localStorage.getItem('olympd_prefix') || '{}');
@@ -14,7 +13,7 @@ const ReferralEarnings = () => {
     const fetchReferralAmount = async () => {
       try {
         if (!userEmail) {
-          setError('User not logged in');
+          console.log('User not logged in');
           return;
         }
 
@@ -23,12 +22,12 @@ const ReferralEarnings = () => {
 
         if (docSnap.exists()) {
           const userData = docSnap.data();
-          setReferralAmount(userData.referralAmount || 0);
+          setReferralAmount(userData?.referralAmount || 0);
         } else {
-          setError('User data not found');
+          console.log('User data not found');
         }
       } catch (err) {
-        setError('Failed to fetch referral amount');
+        alert('Failed to fetch referral amount');
         console.error(err);
       } finally {
       }
@@ -36,10 +35,6 @@ const ReferralEarnings = () => {
 
     fetchReferralAmount();
   }, [userEmail]);
-
-  if (error) {
-    return <div>Error: {error}</div>;
-  }
 
   return (
     <>

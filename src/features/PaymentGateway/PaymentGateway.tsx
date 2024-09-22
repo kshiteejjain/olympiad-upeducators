@@ -7,6 +7,7 @@ import { sendEmail } from "../SendEmail/SendEmail";
 import { sendWhatsappMessage } from "../SendWhatsappMessage/SendWhatsappMessage";
 import whatsappSvg from "../../assets/whatsappSvg.svg";
 import logoWhite from "../../assets/logo-white.png";
+
 import './PaymentGateway.css';
 
 type RazorpayOptions = {

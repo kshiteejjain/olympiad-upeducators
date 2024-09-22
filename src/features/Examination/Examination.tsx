@@ -35,22 +35,24 @@ const Examination = () => {
     const [startTime, setStartTime] = useState<number | null>(null); // Start time should be null initially
     const [alertShown, setAlertShown] = useState<boolean>(false);
 
-    // Load JSON dynamically based on localStorage value
-    useEffect(() => {
-        const olympiadData = JSON.parse(localStorage.getItem('olympd_prefix') || '{}');
-        const olympiadNames = olympiadData?.olympiad || []; // Default to 'm24' if not set
-        const olympiadName = olympiadNames[0] || 'm24';
+    const [jsonFileName, setJsonFileName] = useState<string | null>(null); // New state to store the filename
 
-        import(`../../utils/${olympiadName}.json`)
-            .then((module) => {
-                setQuestions(module.default as ExamQuestionsType);
-                setAttempted(new Array(module.default.length).fill(false));
-                setStartTime(Date.now()); // Set start time when questions are loaded
-            })
-            .catch((error) => {
-                console.error('Error loading JSON file:', error);
-            });
-    }, []);
+useEffect(() => {
+    const olympiadData = JSON.parse(localStorage.getItem('olympd_prefix') || '{}');
+    const olympiadNames = olympiadData?.olympiad || []; // Default to 'm24' if not set
+    const olympiadName = olympiadNames[0] || 'm24';
+
+    import(`../../utils/${olympiadName}.json`)
+        .then((module) => {
+            setQuestions(module.default as ExamQuestionsType);
+            setAttempted(new Array(module.default.length).fill(false));
+            setJsonFileName(`${olympiadName}.json`); // Store the filename
+            setStartTime(Date.now()); // Set start time when questions are loaded
+        })
+        .catch((error) => {
+            console.error('Error loading JSON file:', error);
+        });
+}, []);
 
 
 
@@ -140,16 +142,16 @@ const Examination = () => {
         const olympiadName = olympiadData?.olympiadName || 'm24'; // Default to 'm24' if not set
         const userEmail = olympiadData?.email || 'defaultUser'; // Assuming you have the user's email in localStorage
         const userName = olympiadData?.name;
-
+    
         // Create the report object
         const report = questions.map((question, index) => {
             const userAnswer = selectedAnswers[index] !== undefined ? selectedAnswers[index] : ''; // Fallback for undefined
             const correctAnswer = question.answer;
-
+    
             const isCorrect = Array.isArray(correctAnswer)
                 ? Array.isArray(userAnswer) && correctAnswer.every(a => userAnswer.includes(a)) && userAnswer.every(a => correctAnswer.includes(a))
                 : userAnswer === correctAnswer;
-
+    
             return {
                 questionIndex: index,
                 topic: question.topic || 'Unknown Topic', // Include topic of each question
@@ -158,10 +160,10 @@ const Examination = () => {
                 isCorrect: isCorrect
             };
         });
-
+    
         // Calculate total marks
         const totalMarks = report.reduce((count, item) => (item.isCorrect ? count + 1 : count), 0);
-
+    
         // Structure the report data
         const reportData = {
             email: userEmail, // Store email directly
@@ -172,15 +174,20 @@ const Examination = () => {
             startTime: new Date(startTime).toISOString(),
             endTime: new Date().toISOString()
         };
-
+    
         try {
-            // Reference to the specific user's document in the Olympiad result collection
-            const userDocRef = doc(firestore, `${olympiadName}Result`, userEmail);
-
-            // Save the report data as the document under the user's email
-            await setDoc(userDocRef, reportData);
-
-            console.log('Report successfully saved to Firestore.');
+            // Check the filename to determine if it is testQuestions.json
+            if (jsonFileName !== 'testQuestions.json') { // Only store data if not from testQuestions.json
+                const userDocRef = doc(firestore, `${olympiadName}Result`, userEmail);
+    
+                // Save the report data as the document under the user's email
+                await setDoc(userDocRef, reportData);
+    
+                console.log('Report successfully saved to Firestore.');
+            } else {
+                console.log('Not submitting report to Firestore as the questions are from testQuestions.json');
+            }
+    
             setLoading(false);
             localStorage.removeItem('selectedAnswers');
             localStorage.removeItem('attempted');
@@ -193,7 +200,8 @@ const Examination = () => {
             console.error('Error saving report to Firestore:', error);
             setLoading(false);
         }
-    }, [questions, selectedAnswers, startTime]);
+    }, [questions, selectedAnswers, startTime, jsonFileName]);
+    
 
     // Timer effect with auto-submit
     useEffect(() => {
@@ -238,7 +246,15 @@ const Examination = () => {
                         {questions.length > 0 && (
                             <>
                                 <div className="question">
-                                    <h3>{currentIndex + 1}. {questions[currentIndex].question}</h3>
+                                    <h3>
+                                        {currentIndex + 1}.{" "}
+                                        {questions[currentIndex].question.split('\n').map((line, index) => (
+                                            <span key={index}>
+                                                {line}
+                                                {index < questions[currentIndex].question.split('\n').length - 1 && <br />}
+                                            </span>
+                                        ))}
+                                    </h3>
                                     <div className="answer-options">
                                         {questions[currentIndex].type === 'radio' ? (
                                             questions[currentIndex].options.map((option, index) => (

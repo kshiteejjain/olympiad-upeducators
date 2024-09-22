@@ -67,3 +67,15 @@
     outline: 0;
     cursor: not-allowed;
 }
+.isError {
+  background-color: var(--error);
+  padding: 0.4rem 0.8rem;
+  font-size: calc(var(--baseFontSize) - 4px);
+  border-radius: 4px;
+  border-color: var(--error);
+}
+.isError:hover {
+  background-color: var(--white);
+  color: var(--error);
+  border-color: var(--error);
+}

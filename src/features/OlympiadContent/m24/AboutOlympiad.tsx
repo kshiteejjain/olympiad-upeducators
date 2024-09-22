@@ -3,7 +3,7 @@ import Banner from '../../../assets/banner.jpg';
 const AboutOlympiad = () => {
     return (
         <div className='content'>
-            <h2>About the Olympiad Math 24</h2>
+            <h2>About the Olympiad Math 2024</h2>
             <div className='olympiad-banner'>
                 <img src={Banner} />
             </div>

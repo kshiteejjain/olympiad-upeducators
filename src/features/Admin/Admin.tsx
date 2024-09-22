@@ -1,15 +1,15 @@
 import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { firestore } from '../../utils/firebase';
-import { collection, getDocs, query, DocumentData } from 'firebase/firestore';
+import { collection, getDocs, query, doc, deleteDoc, DocumentData } from 'firebase/firestore';
 import Button from '../../components/Buttons/Button';
 import Loader from '../../components/Loader/Loader';
 import ErrorBoundary from '../../components/ErrorBoundary/ErrorBoundary';
 import { saveAs } from 'file-saver';
+
 import ExamResults from './ExamResults';
 
 import './Admin.css';
-
 
 // Utility function to format date
 const formatDate = (dateString: string): string => {
@@ -68,7 +68,7 @@ const Admin = () => {
         const fetchData = async () => {
             try {
                 const querySnapshot = await getDocs(query(collection(firestore, 'OlympiadUsers')));
-                const usersData = querySnapshot.empty ? [] : querySnapshot.docs.map(doc => doc.data());
+                const usersData = querySnapshot.empty ? [] : querySnapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }));
                 setData(usersData);
                 setFilteredData(usersData);
             } catch (err) {
@@ -124,6 +124,19 @@ const Admin = () => {
         saveAs(blob, 'Olympiad_Users.csv');
     };
 
+    const handleDelete = async (userId: string) => {
+        if (window.confirm(`Are you sure to delete ${userId}?`)) {
+            try {
+                await deleteDoc(doc(firestore, 'OlympiadUsers', userId));
+                setData(prevData => prevData.filter(user => user.id !== userId));
+                setFilteredData(prevFiltered => prevFiltered.filter(user => user.id !== userId));
+            } catch (err) {
+                console.error('Error deleting user:', err);
+                setError('Error deleting user');
+            }
+        }
+    };
+
     if (loading) return <Loader />;
     if (error) return <div>Error: {error}</div>;
 
@@ -133,7 +146,6 @@ const Admin = () => {
                 <h2>Admin</h2>
                 <div className='admin-cta-right'>
                     <Button type='button' title='Add User' onClick={() => navigate('/AddUser')} />
-                    <Button type='button' title='Export to CSV' onClick={exportToCSV} />
                 </div>
             </div>
             <div className="date-filter">
@@ -185,41 +197,52 @@ const Admin = () => {
             {filteredData.length === 0 ? (
                 <ErrorBoundary message='No Data available.' />
             ) : (
-                <div className='table-wrapper'>
-                    <table className='table admin-table'>
-                        <thead>
-                            <tr>
-                                {[
-                                    'Name', 'Email', 'WhatsApp', 'Olympiad', 'Payment Id', 'Registered Date',
-                                    'Board', 'City', 'Country', 'Date of Birth', 'Grade Level',
-                                    'Organization Name', 'Organization Type', 'Role'
-                                ].map((header, index) => (
-                                    <th key={index}>{header}</th>
-                                ))}
-                            </tr>
-                        </thead>
-                        <tbody>
-                            {filteredData.map((user, index) => (
-                                <tr key={index}>
-                                    <td>{user?.name}</td>
-                                    <td>{user?.email}</td>
-                                    <td>{user?.phone}</td>
-                                    <td>{(user?.olympiad || []).join(', ')}</td>
-                                    <td>{user.paymentDetails?.razorpay_payment_id}</td>
-                                    <td>{formatDate(user.timeStamp)}</td>
-                                    <td>{user?.profile?.board}</td>
-                                    <td>{user?.profile?.city}</td>
-                                    <td>{user?.profile?.country}</td>
-                                    <td>{user?.profile?.dateOfBirth}</td>
-                                    <td>{user?.profile?.gradeLevel}</td>
-                                    <td>{user?.profile?.organizationName}</td>
-                                    <td>{user?.profile?.organizationType}</td>
-                                    <td>{user?.profile?.role}</td>
+                <>
+                    <h2 className='flex'>Olympiad Registered Users ({filteredData.length}) <Button type='button' title='Export Users' onClick={exportToCSV} /></h2>
+                    <div className='table-wrapper'>
+                        <table className='table admin-table'>
+                            <thead>
+                                <tr>
+                                    {[
+                                        'Name', 'Email', 'WhatsApp', 'Olympiad', 'Payment Id', 'Registered Date',
+                                        'Board', 'City', 'Country', 'Date of Birth', 'Grade Level',
+                                        'Organization Name', 'Organization Type', 'Role', 'Action'
+                                    ].map((header, index) => (
+                                        <th key={index}>{header}</th>
+                                    ))}
                                 </tr>
-                            ))}
-                        </tbody>
-                    </table>
-                </div>
+                            </thead>
+                            <tbody>
+                                {filteredData.map((user, index) => (
+                                    <tr key={index}>
+                                        <td>{user?.name}</td>
+                                        <td>{user?.email}</td>
+                                        <td>{user?.phone}</td>
+                                        <td>{(user?.olympiad || []).join(', ')}</td>
+                                        <td>{user.paymentDetails?.razorpay_payment_id}</td>
+                                        <td>{formatDate(user.timeStamp)}</td>
+                                        <td>{user?.profile?.board}</td>
+                                        <td>{user?.profile?.city}</td>
+                                        <td>{user?.profile?.country}</td>
+                                        <td>{user?.profile?.dateOfBirth}</td>
+                                        <td>{user?.profile?.gradeLevel}</td>
+                                        <td>{user?.profile?.organizationName}</td>
+                                        <td>{user?.profile?.organizationType}</td>
+                                        <td>{user?.profile?.role}</td>
+                                        <td>
+                                            <Button 
+                                                type='button' 
+                                                isError
+                                                title='Delete' 
+                                                onClick={() => handleDelete(user.id)} 
+                                            />
+                                        </td>
+                                    </tr>
+                                ))}
+                            </tbody>
+                        </table>
+                    </div>
+                </>
             )}
 
             <ExamResults />

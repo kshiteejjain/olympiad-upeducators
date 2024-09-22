@@ -241,15 +241,15 @@
   },
   {
     "topic": "Professional Development L3",
-    "question": "Rank the following professional development strategies from most effective (1) to least effective (4) for enhancing your ability to differentiate instruction as a High School Teacher:\n\ni) Participating in a data analysis workshop to learn how to use student performance information for tailoring instruction\nii) Watching video tutorials of expert teachers on cognitive development theories to better understand learning behaviours\niii) Engaging with educational blogs and social media posts about differentiation during personal time \niv) Joining Professional Learning Communities (PLCs) focused on sharing best practices for differentiated instruction",
+    "question": "Rank the following professional development strategies from most effective (1) to least effective (4) for enhancing your ability to differentiate instruction as a High School Teacher:\n\nA) Participating in a data analysis workshop to learn how to use student performance information for tailoring instruction\nB) Watching video tutorials of expert teachers on cognitive development theories to better understand learning behaviours\nC) Engaging with educational blogs and social media posts about differentiation during personal time \nD) Joining Professional Learning Communities (PLCs) focused on sharing best practices for differentiated instruction",
     "options": [
-      "1. i, 2. iii, 3. ii, 4. iv",
-      "1. i, 2. iv, 3. ii, 4. iii",
-      "1. iv, 2. ii, 3. i, 4. iii",
-      "1. iv, 2. i, 3. ii, 4. iii"
+      "1. A, 2. C, 3. B, 4. D",
+      "1. A, 2. D, 3. B, 4. C",
+      "1. D, 2. B, 3. A, 4. C",
+      "1. D, 2. A, 3. B, 4. C"
     ],
     "type": "radio",
-    "answer": "1. iv, 2. i, 3. ii, 4. iii"
+    "answer": "1. D, 2. A, 3. B, 4. C"
   },
   {
     "topic": "Student Engagement and Differentiated Instruction L3",
@@ -301,15 +301,15 @@
   },
   {
     "topic": "Inclusive Mathematics Education L3",
-    "question": "Match the inclusive mathematics teaching strategies (1-6) with their primary benefits for diverse learners (a-f):\n\nStrategies:\n\n1. Think-aloud problem-solving\n2. Use of mathematical journals\n3. Universal Design for Learning (UDL)\n4. Use of manipulatives for hands-on learning\n5. Individualized Education Plans (IEPs)\n6. Multi-sensory instruction\n\nBenefits:\n\na. Addresses multiple learning modalities (visual, auditory, kinesthetic)\nb. Provides multiple means of engagement, representation, and expression\nc. Enhances metacognitive skills and mathematical communication\nd. Models cognitive processes and problem-solving strategies\ne. Strengthens understanding through practical experiences\nf. Provides tailored support to students with specific learning needs",
+    "question": "Match the inclusive mathematics teaching strategies (1-6) with their primary benefits for diverse learners (A-F):\nStrategies:\n1. Think-aloud problem-solving\n2. Use of mathematical journals\n3. Universal Design for Learning (UDL)\n4. Use of manipulatives for hands-on learning\n5. Individualized Education Plans (IEPs)\n6. Multi-sensory instruction\nBenefits:\nA. Addresses multiple learning modalities (visual, auditory, kinesthetic)\nB. Provides multiple means of engagement, representation, and expression\nC. Enhances metacognitive skills and mathematical communication\nD. Models cognitive processes and problem-solving strategies\nE. Strengthens understanding through practical experiences\nF. Provides tailored support to students with specific learning needs",
     "options": [
-      "1-d, 2-c, 3-b, 4-e, 5-f, 6-a",
-      "1-c, 2-d, 3-a, 4-b, 5-e, 6-f",
-      " 1-e, 2-a, 3-c, 4-d, 5-b, 6-f",
-      "1-b, 2-f, 3-d, 4-a, 5-c, 6-e"
+      "1-D, 2-C, 3-B, 4-E, 5-F, 6-A",
+      "1-C, 2-D, 3-A, 4-B, 5-E, 6-F",
+      "1-E, 2-A, 3-C, 4-D, 5-B, 6-F",
+      "1-B, 2-F, 3-D, 4-A, 5-C, 6-E"
     ],
     "type": "radio",
-    "answer": "1-d, 2-c, 3-b, 4-e, 5-f, 6-a"
+    "answer": "1-D, 2-C, 3-B, 4-E, 5-F, 6-A"
   },
   {
     "topic": "Inclusive Mathematics Education L3",

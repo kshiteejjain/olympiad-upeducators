@@ -3,7 +3,7 @@
     border-bottom: 1px solid var(--grayBlue);
     display: flex;
     flex-direction: column;
-    min-width: 18%;
+    min-width: 20%;
     align-items: flex-start;
     box-sizing: border-box;
     margin: 40px 2% 40px 0;
@@ -17,13 +17,16 @@
     border-radius: 0;
     color: var(--black);
     padding: 20px;
-    border-bottom: 1px solid var(--gray);
+    border-top: 1px solid var(--gray);
     min-width: 100%;
     text-align: left;
     box-sizing: border-box;
     margin: 0;
     transition: 0.3s;
     font-size: calc(var(--baseFontSize) - 1px);
+}
+.navigation button:nth-child(1){
+    border-top: 0;
 }
 
 .navigation button.active,
@@ -42,6 +45,24 @@
     padding: 20px 20px 10px 20px;
     color: var(--error);
     font-weight: bold;
+}
+
+.scheduledMessage{
+    font-size: calc(var(--baseFontSize) - 3px);
+    padding:5px 20px;
+    font-weight: bold;
+    color: var(--primary);
+    margin-bottom: 15px;
+}
+.navigation button:disabled {
+    opacity: 0.6;
+    padding: 20px 20px 5px 20px;
+}
+.navigation button:disabled:hover {
+    background-color: transparent;
+    color: var(--black);
+    border: 0;
+    cursor: not-allowed;
 }
 
 @media(max-width: 767px) {

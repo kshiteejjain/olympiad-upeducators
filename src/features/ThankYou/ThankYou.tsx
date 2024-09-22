@@ -41,14 +41,14 @@ const ThankYou = () => {
             <img src={ThankYouImg} alt='Thank You' title='Thank You' />
             {examOver ? 
             <div className='thankyou-note'>
-                <h1>Thank You For Your Visit!</h1>
-                <p>We appreciate your time and hope you found everything you were looking for.</p>
-                <p><strong>Have a great day!</strong></p>
+                <h1>Thank you for your participation.</h1>
+                <p>Your responses have been successfully submitted.</p>
                 <Button title='Go to olympiad home page' type='button' isSecondary onClick={handleClick} />
             </div>
             :
             <div className='thankyou-note'>
-                <h1>upEducators</h1>
+                <p>Oops! Exam browser closed? Click here to go to Olympiad Home Page and click on Start Exam to resume your exam</p>
+                <Button title='Go to olympiad home page' type='button' isSecondary onClick={handleClick} />
             </div>
             }
         </div>

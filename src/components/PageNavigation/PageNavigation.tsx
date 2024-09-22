@@ -1,59 +1,87 @@
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-
+import { firestore } from '../../utils/firebase';
+import { getDocs, collection, query, where } from 'firebase/firestore';
 import './PageNavigation.css';
 
 const PageNavigation = ({ navPath }: any) => {
     const [activeButton, setActiveButton] = useState<string | null>(null);
-    const [showStartExamButton, setShowStartExamButton] = useState<boolean>(true);
-    const [examStarted, setExamStarted] = useState<boolean>(false);
+    const [showStartExamButton, setShowStartExamButton] = useState<boolean>(false);
+    const [examMessage, setExamMessage] = useState<string | null>(null);
+    const [emailFound, setEmailFound] = useState<boolean>(false);
     const navigate = useNavigate();
 
+    const targetDate = new Date('2024-09-22T18:43:00'); // 5 PM on September 22, 2024
+
     useEffect(() => {
-        // Check localStorage to see if examStarted is true
-        const olympdPrefixData = JSON.parse(localStorage.getItem('olympd_prefix') || '{}');
-        if (olympdPrefixData.examStarted) {
-            setExamStarted(true);
-            setShowStartExamButton(false);
-        }
+        const checkExamStatus = () => {
+            const now = new Date();
+            const twoHoursPast = new Date(targetDate.getTime() + 2 * 60 * 60 * 1000);
+            
+            // Check if the current time matches the target date
+            const isTargetDateNow = Math.abs(now.getTime() - targetDate.getTime()) < 1000; // 1 second tolerance
 
-        // Hide the button at 6 PM on September 22, 2024
-        const targetDate = new Date('2024-09-21T18:00:00'); // 6 PM on September 22, 2024
-        const now = new Date();
-        if (now > targetDate) {
-            setShowStartExamButton(false);
-        } else {
-            const timeUntilTargetDate = targetDate.getTime() - now.getTime();
-            const hideButtonAtTargetDateTimeout = setTimeout(() => {
+            if (now < targetDate) {
+                // Future date
                 setShowStartExamButton(false);
-            }, timeUntilTargetDate);
+                setExamMessage(`Exam Date: ${targetDate.toLocaleString()}`);
+            } else if (isTargetDateNow) {
+                // Exact target date time
+                setShowStartExamButton(true);
+                setExamMessage('1');
+            } else if (now > twoHoursPast) {
+                // More than 2 hours past target date
+                setShowStartExamButton(false);
+                setExamMessage("Exam date is gone.");
+            } else {
+                // Between target date and two hours past
+                setShowStartExamButton(true);
+                setExamMessage(null);
+            }
+        };
 
-            return () => clearTimeout(hideButtonAtTargetDateTimeout);
-        }
+        checkExamStatus();
+        const intervalId = setInterval(checkExamStatus, 1000);
+        return () => clearInterval(intervalId);
+    }, [targetDate]);
+
+    useEffect(() => {
+        const checkUserEmail = async () => {
+            const olympdPrefixData = JSON.parse(localStorage.getItem('olympd_prefix') || '{}');
+            const userEmail = olympdPrefixData.email;
+
+            if (userEmail) {
+                const q = query(collection(firestore, 'm24Result'), where('email', '==', userEmail));
+                const querySnapshot = await getDocs(q);
+                setEmailFound(!querySnapshot.empty);
+            }
+        };
+
+        checkUserEmail();
     }, []);
 
     const handleStartExamClick = () => {
-        // Navigate to the ExaminationRules page
         navigate('/ExaminationRules');
-
-        // Hide the button after 40 minute
-        setTimeout(() => {
-            // Update localStorage to set examStarted to true
-            const olympdPrefixData = JSON.parse(localStorage.getItem('olympd_prefix') || '{}');
-            olympdPrefixData.examStarted = true;
-            localStorage.setItem('olympd_prefix', JSON.stringify(olympdPrefixData));
-            setExamStarted(true);
-
-            // Hide the button
-            setShowStartExamButton(false);
-            window.location.reload();
-        }, 40 * 60 * 1000); // 40 minute in milliseconds
+        setShowStartExamButton(false);
     };
 
     const handleClick = (path: string) => {
         setActiveButton(path);
         navPath(path);
     };
+
+    const renderExamButton = () => (
+        emailFound ? (
+            <span className="startedNote">You have already completed the exam.</span>
+        ) : (
+            <>
+                <button onClick={handleStartExamClick} disabled={!showStartExamButton}>
+                    Start Exam
+                </button>
+                {examMessage && <span className="scheduledMessage">{examMessage}</span>}
+            </>
+        )
+    );
 
     return (
         <div className='navigation'>
@@ -63,59 +91,16 @@ const PageNavigation = ({ navPath }: any) => {
             >
                 Check Exam System
             </button>
-            {showStartExamButton ? (
-                <button onClick={handleStartExamClick}>Start Exam</button>
-            ) : examStarted ? (
-                <span className="startedNote">Your exam has started</span>
-            ) : null}
-            {/* <button
-                className={activeButton === '/AboutOlympiad' ? 'active' : ''}
-                onClick={() => handleClick('/AboutOlympiad')}
-            >
-                About this Olympiad
-            </button>
-            <button
-                className={activeButton === '/ReferEarn' ? 'active' : ''}
-                onClick={() => handleClick('/ReferEarn')}
-            >
-                Refer & Earn
-            </button>
-            <button
-                className={activeButton === '/Awards' ? 'active' : ''}
-                onClick={() => handleClick('/Awards')}
-            >
-                Awards
-            </button>
-            <button
-                className={activeButton === '/FAQ' ? 'active' : ''}
-                onClick={() => handleClick('/FAQ')}
-            >
-                FAQ
-            </button>
-            <button
-                className={activeButton === '/LiveMasterClass' ? 'active' : ''}
-                onClick={() => handleClick('/LiveMasterClass')}
-            >
-                Live Masterclass
-            </button>
-            <button
-                className={activeButton === '/Report' ? 'active' : ''}
-                onClick={() => handleClick('/Report')}
-            >
-                Report
-            </button> */}
-            <button
-                className={activeButton === '/AboutUpEducators' ? 'active' : ''}
-                onClick={() => handleClick('/AboutUpEducators')}
-            >
-                About upEducators
-            </button>
-            {/* <button
-                className={activeButton === '/CoursesForEducators' ? 'active' : ''}
-                onClick={() => handleClick('/CoursesForEducators')}
-            >
-                Courses for Educators
-            </button> */}
+            {renderExamButton()}
+            {['/AboutOlympiad', '/ReferEarn', '/Awards', '/FAQ', '/LiveMasterClass', '/Report', '/AboutUpEducators', '/CoursesForEducators'].map(path => (
+                <button
+                    key={path}
+                    className={activeButton === path ? 'active' : ''}
+                    onClick={() => handleClick(path)}
+                >
+                    {path.slice(1).replace(/([A-Z])/g, ' $1').trim()}
+                </button>
+            ))}
         </div>
     );
 };

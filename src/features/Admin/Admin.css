@@ -34,6 +34,10 @@ table.admin-table td, table.admin-table th{
     border-bottom: 1px solid var(--gray);
     margin-bottom: 30px;
 }
+.admin-cta-row h2{
+    border: 0;
+    padding: 0;
+}
 .admin-cta{
     margin-right: 0;
 }
@@ -49,4 +53,7 @@ table.admin-table td, table.admin-table th{
 }
 .csv-upload{
     margin-top: 80px;
+}
+h2 button{
+    margin: 0 0 0 auto;
 }
