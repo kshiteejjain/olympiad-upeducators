@@ -7,7 +7,7 @@ const AboutOlympiad = () => {
             <div className='olympiad-banner'>
                 <img src={Banner} />
             </div>
-            {/* <h3>About</h3>
+            <h3>About</h3>
             <div className='faq'>
                 <details>
                     <summary>A Two-Phase Olympiad for a Comprehensive Assessment</summary>
@@ -112,7 +112,7 @@ const AboutOlympiad = () => {
                     <p>For reference, we have added sample paper in this LMS.</p>
 
                 </details>
-            </div> */}
+            </div>
 
         </div>
     )

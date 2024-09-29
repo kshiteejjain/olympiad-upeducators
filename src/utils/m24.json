@@ -1,379 +1,1089 @@
-[
-  {
-    "topic": "Pedagogical Knowledge L3",
-    "question": "What is the main principle behind the \"Concrete-Representational-Abstract\" (CRA) approach in mathematics instruction?",
-    "options": [
-      "Starting with abstract concepts and moving to concrete examples",
-      "Using only concrete materials throughout the instruction",
-      "Progressing from concrete manipulatives to abstract symbols ",
-      "To introduce mathematical concepts through direct instruction before allowing hands-on activities"
-    ],
-    "type": "radio",
-    "answer": "Progressing from concrete manipulatives to abstract symbols "
-  },
-  {
-    "topic": "Pedagogical Knowledge L3",
-    "question": "Which learning theory suggests that students' understanding of mathematical concepts is influenced by mental processes such as memory, perception, and problem-solving strategies?",
-    "options": [
-      "Behaviorism",
-      "Cognitivism",
-      " Constructivism",
-      "Social Learning Theory"
-    ],
-    "type": "radio",
-    "answer": "Cognitivism"
-  },
-  {
-    "topic": "Pedagogical Knowledge L3",
-    "question": "A higher secondary mathematics teacher observes that students struggle with applying probability concepts to solve complex probability problems. Which of the following strategies would be least effective in improving their ability to tackle these problems?",
-    "options": [
-      "Encouraging students to create and solve their own probability problems",
-      "Providing a list of probability formulas and their associated problem types",
-      "Allowing students to struggle with challenging probability problems before providing guidance",
-      "Presenting probability problems that have multiple possible solutions or approaches"
-    ],
-    "type": "radio",
-    "answer": "Providing a list of probability formulas and their associated problem types"
-  },
-  {
-    "topic": "Real-world Applications L3",
-    "question": "Assertion (A): Blended learning models enhance student engagement more effectively than traditional classroom settings alone. \nReason (R): Blended learning allows students to interact with digital content at their own pace, which caters to individual learning speeds.",
-    "options": [
-      "Both A and R are true",
-      "Both A and R are false",
-      "A is true, but R is false ",
-      "A is false, but R is true "
-    ],
-    "type": "radio",
-    "answer": "Both A and R are true"
-  },
-  {
-    "topic": "Real-world Applications L3",
-    "question": "A teacher wants to demonstrate the practical application of quadratic equations. Which example is most appropriate?",
-    "options": [
-      "Determining the speed of a car travelling at a constant velocity",
-      " Plotting the trajectory of a ball thrown in the air",
-      "Solving simple interest problems",
-      "Understanding the concept of number sets"
-    ],
-    "type": "radio",
-    "answer": " Plotting the trajectory of a ball thrown in the air"
-  },
-  {
-    "topic": "Real-world Applications L3",
-    "question": "You are explaining the function of derivatives to your class. To make the topic tangible, you use the example of speed changes in a car. Why is this approach effective in teaching derivatives?",
-    "options": [
-      "It standardizes the teaching of calculus",
-      "It closely aligns with theoretical mathematical principles",
-      "It makes the concept of derivatives concrete by applying it to a common experience",
-      " It illustrates the relationship between derivatives and integral calculus"
-    ],
-    "type": "radio",
-    "answer": "It makes the concept of derivatives concrete by applying it to a common experience"
-  },
-  {
-    "topic": "Technology Integration L3",
-    "question": "In the context of using digital tools for Mathematical Modelling, which statement is most accurate?",
-    "options": [
-      "Modeling software can handle complex calculations but limits students' understanding of underlying concepts",
-      "Digital modelling tools allow students to explore and manipulate variables quickly, enhancing their ability to test hypotheses and analyze relationships",
-      "Digital modelling tools simplify the learning process by doing all the work, thus students may become passive learners",
-      "Mathematical modelling software always produces more accurate results than traditional analytical methods"
-    ],
-    "type": "radio",
-    "answer": "Digital modelling tools allow students to explore and manipulate variables quickly, enhancing their ability to test hypotheses and analyze relationships"
-  },
-  {
-    "topic": "Technology Integration L3",
-    "question": "Mr Gupta, a maths teacher at a high school, is considering implementing a virtual lab to help his students better understand the concepts of limits and continuity. He has found a simulation that allows students to manipulate functions graphically and observe the behaviour of limits as they approach various points. Which of the following best describes the most significant potential benefit of using this virtual lab in Mr Gupta's maths class?",
-    "options": [
-      "It eliminates the need for teacher involvement in guiding students through complex calculus problems",
-      " Students can explore a wider range of functions more quickly than by hand-graphing, allowing them to discover patterns ",
-      "The virtual lab primarily serves as an assessment and also eliminates the need for traditional problem-solving exercises ",
-      "Students develop fine motor skills by manipulating tools and materials, which enhances their understanding of limits and continuity"
-    ],
-    "type": "radio",
-    "answer": " Students can explore a wider range of functions more quickly than by hand-graphing, allowing them to discover patterns "
-  },
-  {
-    "topic": "Technology Integration L3",
-    "question": "Mr. Sharma, a higher secondary mathematics teacher, is introducing his students to more advanced concepts in coordinate geometry, including plotting points, graphing lines, and exploring geometric transformations on the coordinate plane. He wants to incorporate technology to help his students visualize and interact with these concepts in real time. Which technology tool would be most effective in enhancing his students' understanding of coordinate geometry?",
-    "options": [
-      "A math puzzle game app like Math Blaster\n",
-      " Minecraft: Education Edition",
-      " GeoGebra",
-      "Kahoot!"
-    ],
-    "type": "radio",
-    "answer": " GeoGebra"
-  },
-  {
-    "topic": "Cross-Disciplinary Integration L3",
-    "question": "Which of the following is NOT typically a component of integrating cross-disciplinary approaches in mathematics education?",
-    "options": [
-      "Real-world application of mathematical concepts ",
-      "Collaborations with teachers from other disciplines ",
-      "Mandatory use of at least two non-mathematical fields in every math lesson",
-      "Utilizing technology from computer science to enhance mathematical understanding"
-    ],
-    "type": "radio",
-    "answer": "Mandatory use of at least two non-mathematical fields in every math lesson"
-  },
-  {
-    "topic": "Cross-Disciplinary Integration L3",
-    "question": "Assertion (A): Introducing too many cross-disciplinary projects in a mathematics curriculum can detract from mastering core mathematical skills. \nReasoning (R): Students may spend more time on contextual understanding from other disciplines than on developing essential mathematical techniques.",
-    "options": [
-      "Both A and R are true, and R is the correct explanation of A",
-      "Both A and R are true, but R is not the correct explanation of A",
-      "A is true, but R is false",
-      "A is false, but R is true"
-    ],
-    "type": "radio",
-    "answer": "Both A and R are true, and R is the correct explanation of A"
-  },
-  {
-    "topic": "Cross-Disciplinary Integration L3",
-    "question": "Which of the following statements best describes the impact of cross-disciplinary learning on students' preparation for future careers?",
-    "options": [
-      "Narrows students' career choices by focusing on interdisciplinary fields only",
-      "It overemphasizes general knowledge at the expense of specialized skills",
-      "Encourages students to pursue academic interests outside their primary field of study",
-      "It equips students with a versatile skill set and adaptability in a rapidly changing job market"
-    ],
-    "type": "radio",
-    "answer": "It equips students with a versatile skill set and adaptability in a rapidly changing job market"
-  },
-  {
-    "topic": "Innovative Teaching Strategies L3",
-    "question": "In the context of teaching mathematics, what does \"scaffolding\" refer to?",
-    "options": [
-      "Providing a structured sequence of activities that build on students' prior knowledge to understand new concepts",
-      "Using real-life examples to explain mathematical theories",
-      "Encouraging students to solve problems without teacher intervention to promote independence",
-      "Assigning peer teaching roles to facilitate cooperative learning in the classroom"
-    ],
-    "type": "radio",
-    "answer": "Providing a structured sequence of activities that build on students' prior knowledge to understand new concepts"
-  },
-  {
-    "topic": "Innovative Teaching Strategies L3",
-    "question": "In a classroom setting where you are teaching Statistics, you want to employ a teaching strategy that emphasizes students discovering statistical patterns and relationships through their own explorations. Which strategy would be most effective in encouraging students to learn autonomously by actively engaging with statistical concepts and their applications?",
-    "options": [
-      "Experiential Learning",
-      " Virtual Reality Simulations",
-      " Flipped Classroom",
-      "Inquiry-based learning"
-    ],
-    "type": "radio",
-    "answer": "Inquiry-based learning"
-  },
-  {
-    "topic": "Assessment and Evaluation L3",
-    "question": "Which of the following best describes the concept of mathematical fluency?",
-    "options": [
-      "The ability to perform calculations quickly",
-      "Always using mental math",
-      "Understanding and applying mathematical concepts in various contexts",
-      "The ability to perform advanced operations"
-    ],
-    "type": "radio",
-    "answer": "Understanding and applying mathematical concepts in various contexts"
-  },
-  {
-    "topic": "Assessment and Evaluation L3",
-    "question": "After concluding a lesson on exponential and logarithmic functions, you're aiming to quickly assess your students' understanding before they leave. Which of the following strategies would most effectively evaluate student comprehension while providing you with actionable insights for your next lesson? ",
-    "options": [
-      "Announce a pop quiz on exponential and logarithmic functions to be held at the start of tomorrow's class",
-      "Distribute \"exit tickets\" asking students to solve a problem that involves transforming an exponential equation into logarithmic form and vice versa",
-      "Assign a challenging problem set for homework that requires students to apply today's lessons to real-world scenarios",
-      "Invite selected students to solve complex problems on the board and discuss their methodology with the class"
-    ],
-    "type": "radio",
-    "answer": "Distribute \"exit tickets\" asking students to solve a problem that involves transforming an exponential equation into logarithmic form and vice versa"
-  },
-  {
-    "topic": "Classroom Management L3",
-    "question": "Assertion (A): Establishing clear behavioural expectations at the beginning of the school year leads to a more orderly classroom environment.\nReason (R): When students clearly understand the rules, they are less likely to misbehave because they know exactly what behaviour is acceptable and what is not.",
-    "options": [
-      "Both A and R are true, and R is the correct explanation of A",
-      "Both A and R are true, but R is NOT the correct explanation of A",
-      "A is true, but R is false",
-      "A is false, but R is true"
-    ],
-    "type": "radio",
-    "answer": "Both A and R are true, and R is the correct explanation of A"
-  },
-  {
-    "topic": "Classroom Management L3",
-    "question": "Which strategy helps maintain an orderly classroom during math activities?",
-    "options": [
-      "Allowing students to choose their groups and seating arrangements",
-      "Establishing clear expectations and routines",
-      "Encouraging unrestricted movement around the classroom",
-      "Using verbal warnings to address disruptive behaviour"
-    ],
-    "type": "radio",
-    "answer": "Establishing clear expectations and routines"
-  },
-  {
-    "topic": "Professional Development L3",
-    "question": "Which approach to professional development is most likely to result in sustained improvement of mathematics teaching practices? ",
-    "options": [
-      "Subscribing to a professional journal on mathematics education",
-      "Participating in action research projects in one's own classroom",
-      "Attending annual math education conferences to network with other educators",
-      "Completing self-paced online courses on advanced mathematical concepts"
-    ],
-    "type": "radio",
-    "answer": "Participating in action research projects in one's own classroom"
-  },
-  {
-    "topic": "Professional Development L3",
-    "question": "How will the integration of Artificial Intelligence in education shift the role of teachers?",
-    "options": [
-      "The role of teachers remains unchanged as AI is just another classroom tool ",
-      "AI primarily serves to automate grading, leaving instructional responsibilities unchanged",
-      "AI takes over all assessment and grading tasks, freeing teachers to focus solely on content delivery",
-      "Allowing educators to focus more on developing students' critical thinking and creativity skills"
-    ],
-    "type": "radio",
-    "answer": "Allowing educators to focus more on developing students' critical thinking and creativity skills"
-  },
-  {
-    "topic": "Professional Development L3",
-    "question": "Rank the following professional development strategies from most effective (1) to least effective (4) for enhancing your ability to differentiate instruction as a High School Teacher:\n\nA) Participating in a data analysis workshop to learn how to use student performance information for tailoring instruction\nB) Watching video tutorials of expert teachers on cognitive development theories to better understand learning behaviours\nC) Engaging with educational blogs and social media posts about differentiation during personal time \nD) Joining Professional Learning Communities (PLCs) focused on sharing best practices for differentiated instruction",
-    "options": [
-      "1. A, 2. C, 3. B, 4. D",
-      "1. A, 2. D, 3. B, 4. C",
-      "1. D, 2. B, 3. A, 4. C",
-      "1. D, 2. A, 3. B, 4. C"
-    ],
-    "type": "radio",
-    "answer": "1. D, 2. A, 3. B, 4. C"
-  },
-  {
-    "topic": "Student Engagement and Differentiated Instruction L3",
-    "question": "In the context of student engagement, what does the \"Zone of Proximal Development\" refer to?",
-    "options": [
-      "The optimal physical environment for learning, including lighting, temperature, and seating arrangements",
-      "The range of tasks that a student can perform with the help and guidance of a teacher or more capable peers",
-      "The gap between a student's current academic performance and their expected grade-level achievement",
-      "The difference between what a student can do before and after a learning session"
-    ],
-    "type": "radio",
-    "answer": "The range of tasks that a student can perform with the help and guidance of a teacher or more capable peers"
-  },
-  {
-    "topic": "Student Engagement and Differentiated Instruction L3",
-    "question": "Which strategy best supports differentiated instruction in a math classroom?",
-    "options": [
-      "Encouraging students to work independently to build self-reliance",
-      "Allowing faster students to assist those who are struggling",
-      "Providing tiered assignments and flexible grouping ",
-      "Grouping students by ability and focusing more on struggling students"
-    ],
-    "type": "radio",
-    "answer": "Providing tiered assignments and flexible grouping "
-  },
-  {
-    "topic": "Student Engagement and Differentiated Instruction L3",
-    "question": "Which of the following techniques is best for fostering a growth mindset in students during mathematics lessons? ",
-    "options": [
-      "Focusing on correct answers and speed of calculation",
-      "Praising students for their successes ",
-      "Encouraging students to appreciate effort over correct answers ",
-      "Emphasizing healthy competition between students"
-    ],
-    "type": "radio",
-    "answer": "Encouraging students to appreciate effort over correct answers "
-  },
-  {
-    "topic": "Inclusive Mathematics Education L3",
-    "question": "How can a teacher best support a student with ADHD in math class?",
-    "options": [
-      "Introducing competitive math games to increase engagement",
-      "Breaking tasks into smaller, manageable parts",
-      "Occasionally allowing the use of calculators to speed up problem-solving",
-      "Implementing a token economy system for completed assignments"
-    ],
-    "type": "radio",
-    "answer": "Breaking tasks into smaller, manageable parts"
-  },
-  {
-    "topic": "Inclusive Mathematics Education L3",
-    "question": "Match the inclusive mathematics teaching strategies (1-6) with their primary benefits for diverse learners (A-F):\nStrategies:\n1. Think-aloud problem-solving\n2. Use of mathematical journals\n3. Universal Design for Learning (UDL)\n4. Use of manipulatives for hands-on learning\n5. Individualized Education Plans (IEPs)\n6. Multi-sensory instruction\nBenefits:\nA. Addresses multiple learning modalities (visual, auditory, kinesthetic)\nB. Provides multiple means of engagement, representation, and expression\nC. Enhances metacognitive skills and mathematical communication\nD. Models cognitive processes and problem-solving strategies\nE. Strengthens understanding through practical experiences\nF. Provides tailored support to students with specific learning needs",
-    "options": [
-      "1-D, 2-C, 3-B, 4-E, 5-F, 6-A",
-      "1-C, 2-D, 3-A, 4-B, 5-E, 6-F",
-      "1-E, 2-A, 3-C, 4-D, 5-B, 6-F",
-      "1-B, 2-F, 3-D, 4-A, 5-C, 6-E"
-    ],
-    "type": "radio",
-    "answer": "1-D, 2-C, 3-B, 4-E, 5-F, 6-A"
-  },
-  {
-    "topic": "Inclusive Mathematics Education L3",
-    "question": "During a professional development workshop on inclusive education, high school math teachers discuss how to teach complex trigonometric functions to their diverse learners. The workshop facilitator asks them to select the most effective approach for ensuring all students, regardless of their learning differences, can grasp these advanced mathematical concepts. Which method should the teachers choose?",
-    "options": [
-      "Provide comprehensive written explanations and step-by-step examples of trigonometric problems for students to study independently",
-      "Maintain a uniform pace for all students, covering trigonometric concepts through lectures and assessing understanding via standardized written tests",
-      "Implement multi-sensory teaching strategies, combining visual graphs, hands-on manipulatives, and interactive software to explore trigonometric functions",
-      "Organize students into ability-based groups for long-term projects exploring real-world applications of trigonometry"
-    ],
-    "type": "radio",
-    "answer": "Implement multi-sensory teaching strategies, combining visual graphs, hands-on manipulatives, and interactive software to explore trigonometric functions"
-  },
-  {
-    "topic": "Innovative Teaching Strategies L3",
-    "question": "Which of the following are examples of Universal Design for Learning (UDL) in mathematics? (Select all that apply)",
-    "options": [
-        "Administering standardized tests to all students to ensure uniform assessment",
-        "Offering multiple representations of mathematical concepts",
-        "Allowing students to demonstrate their understanding through various means",
-        "Grouping students by ability and providing different content to each group",
-        "Rotating students through different learning stations with varied activities in each math class",
-        "Using game-based learning platforms for all math practice and assessment"
-    ],
-    "type": "checkbox",
-    "answer": [
-        "Offering multiple representations of mathematical concepts",
-        "Allowing students to demonstrate their understanding through various means",
-        "Rotating students through different learning stations with varied activities in each math class"
-    ]
-},
 {
-    "topic": "Assessment and Evaluation L3",
-    "question": "Mrs. Sinha, a math teacher, is preparing to assign a complex project to her students. Which of the following best describes why Mrs. Sinha should consider using a rubric for this assignment. (Select all that apply)",
-    "options": [
-        "To rank students and promote healthy competition",
-        "To provide clear criteria for performance",
-        "To help students self-assess their work",
-        "To standardize all student responses"
-    ],
-    "type": "checkbox",
-    "answer": [
-        "To provide clear criteria for performance",
-        "To help students self-assess their work"
-    ]
-},
-{
-    "topic": "Classroom Management L3",
-    "question": "Which are the most appropriate ways to handle math anxiety in the classroom? (Select all that apply)",
-    "options": [
-        "Teach coping strategies",
-        "Reduce the difficulty of math tasks ",
-        "Using timed tests to assess students' math skills",
-        "Encourage the use of calculators or other digital tools ",
-        "Provide scaffolded support",
-        "Use formative assessments to identify and address specific areas of difficulty"
-    ],
-    "type": "checkbox",
-    "answer": [
-        "Teach coping strategies",
-        "Encourage the use of calculators or other digital tools ",
-        "Provide scaffolded support",
-        "Use formative assessments to identify and address specific areas of difficulty"
-    ]
-}
-]
+  "Level1": [
+    {
+      "topic": "History",
+      "question": "Who was the first President of the United States?",
+      "options": [
+        "Abraham Lincoln",
+        "Thomas Jefferson",
+        "George Washington",
+        "John Adams"
+      ],
+      "type": "radio",
+      "answer": "George Washington"
+    },
+    {
+      "topic": "History",
+      "question": "In which year did the World War II end?",
+      "options": [
+        "1945",
+        "1939",
+        "1918",
+        "1963"
+      ],
+      "type": "radio",
+      "answer": "1945"
+    },
+    {
+      "topic": "History",
+      "question": "The ancient city of Rome was built on how many hills?",
+      "options": [
+        "Five",
+        "Seven",
+        "Nine",
+        "Eleven"
+      ],
+      "type": "radio",
+      "answer": "Seven"
+    },
+    {
+      "topic": "Geography",
+      "question": "What is the longest river in the world?",
+      "options": [
+        "Nile River",
+        "Amazon River",
+        "Yangtze River",
+        "Mississippi River"
+      ],
+      "type": "radio",
+      "answer": "Nile River"
+    },
+    {
+      "topic": "Geography",
+      "question": "Which country has the largest population in the world?",
+      "options": [
+        "India",
+        "United States",
+        "China",
+        "Indonesia"
+      ],
+      "type": "radio",
+      "answer": "China"
+    },
+    {
+      "topic": "Geography",
+      "question": "Mount Everest is located in which mountain range?",
+      "options": [
+        "Andes",
+        "Rocky Mountains",
+        "Himalayas",
+        "Alps"
+      ],
+      "type": "radio",
+      "answer": "Himalayas"
+    },
+    {
+      "topic": "Science",
+      "question": "What is the chemical symbol for Gold?",
+      "options": [
+        "Au",
+        "Ag",
+        "Gd",
+        "Go"
+      ],
+      "type": "radio",
+      "answer": "Au"
+    },
+    {
+      "topic": "Science",
+      "question": "What planet is known as the Red Planet?",
+      "options": [
+        "Venus",
+        "Mars",
+        "Jupiter",
+        "Saturn"
+      ],
+      "type": "radio",
+      "answer": "Mars"
+    },
+    {
+      "topic": "Science",
+      "question": "What gas do plants absorb from the atmosphere?",
+      "options": [
+        "Oxygen",
+        "Nitrogen",
+        "Carbon Dioxide",
+        "Hydrogen"
+      ],
+      "type": "radio",
+      "answer": "Carbon Dioxide"
+    },
+    {
+      "topic": "Literature",
+      "question": "Who wrote 'Romeo and Juliet'?",
+      "options": [
+        "Charles Dickens",
+        "William Shakespeare",
+        "Jane Austen",
+        "Mark Twain"
+      ],
+      "type": "radio",
+      "answer": "William Shakespeare"
+    },
+    {
+      "topic": "Literature",
+      "question": "What is the first book of the Old Testament?",
+      "options": [
+        "Exodus",
+        "Genesis",
+        "Leviticus",
+        "Numbers"
+      ],
+      "type": "radio",
+      "answer": "Genesis"
+    },
+    {
+      "topic": "Literature",
+      "question": "Who is the author of '1984'?",
+      "options": [
+        "George Orwell",
+        "Aldous Huxley",
+        "F. Scott Fitzgerald",
+        "Ernest Hemingway"
+      ],
+      "type": "radio",
+      "answer": "George Orwell"
+    },
+    {
+      "topic": "Sports",
+      "question": "How many players are there in a soccer team on the field?",
+      "options": [
+        "9",
+        "10",
+        "11",
+        "12"
+      ],
+      "type": "radio",
+      "answer": "11"
+    },
+    {
+      "topic": "Sports",
+      "question": "Which country won the FIFA World Cup in 2018?",
+      "options": [
+        "Germany",
+        "Brazil",
+        "France",
+        "Argentina"
+      ],
+      "type": "radio",
+      "answer": "France"
+    },
+    {
+      "topic": "Sports",
+      "question": "In which sport is the term 'love' used?",
+      "options": [
+        "Basketball",
+        "Tennis",
+        "Cricket",
+        "Baseball"
+      ],
+      "type": "radio",
+      "answer": "Tennis"
+    },
+    {
+      "topic": "Technology",
+      "question": "What does 'CPU' stand for in computer terminology?",
+      "options": [
+        "Central Processing Unit",
+        "Computer Personal Unit",
+        "Central Performance Utility",
+        "Control Processing Unit"
+      ],
+      "type": "radio",
+      "answer": "Central Processing Unit"
+    },
+    {
+      "topic": "Technology",
+      "question": "Which company developed the Android operating system?",
+      "options": [
+        "Apple",
+        "Microsoft",
+        "Google",
+        "Samsung"
+      ],
+      "type": "radio",
+      "answer": "Google"
+    },
+    {
+      "topic": "Technology",
+      "question": "What does 'HTTP' stand for?",
+      "options": [
+        "HyperText Transfer Protocol",
+        "HighText Transfer Protocol",
+        "HyperText Transmission Protocol",
+        "HyperTransfer Text Protocol"
+      ],
+      "type": "radio",
+      "answer": "HyperText Transfer Protocol"
+    },
+    {
+      "topic": "Art",
+      "question": "Who painted the Mona Lisa?",
+      "options": [
+        "Vincent Van Gogh",
+        "Pablo Picasso",
+        "Leonardo da Vinci",
+        "Michelangelo"
+      ],
+      "type": "radio",
+      "answer": "Leonardo da Vinci"
+    },
+    {
+      "topic": "Art",
+      "question": "The Starry Night is a famous painting by which artist?",
+      "options": [
+        "Claude Monet",
+        "Vincent Van Gogh",
+        "Salvador Dalí",
+        "Edgar Degas"
+      ],
+      "type": "radio",
+      "answer": "Vincent Van Gogh"
+    },
+    {
+      "topic": "Art",
+      "question": "What art movement is Salvador Dalí associated with?",
+      "options": [
+        "Impressionism",
+        "Cubism",
+        "Surrealism",
+        "Baroque"
+      ],
+      "type": "radio",
+      "answer": "Surrealism"
+    },
+    {
+      "topic": "Politics",
+      "question": "Who is the current Secretary-General of the United Nations as of 2024?",
+      "options": [
+        "António Guterres",
+        "Ban Ki-moon",
+        "Kofi Annan",
+        "Ursula von der Leyen"
+      ],
+      "type": "radio",
+      "answer": "António Guterres"
+    },
+    {
+      "topic": "Politics",
+      "question": "Which political ideology emphasizes minimal state intervention in the economy?",
+      "options": [
+        "Socialism",
+        "Communism",
+        "Liberalism",
+        "Libertarianism"
+      ],
+      "type": "radio",
+      "answer": "Libertarianism"
+    },
+    {
+      "topic": "Politics",
+      "question": "The Magna Carta was signed in which year?",
+      "options": [
+        "1215",
+        "1066",
+        "1492",
+        "1776"
+      ],
+      "type": "radio",
+      "answer": "1215"
+    },
+    {
+      "topic": "Entertainment",
+      "question": "Which movie won the Academy Award for Best Picture in 2023?",
+      "options": [
+        "Everything Everywhere All at Once",
+        "The Power of the Dog",
+        "Nomadland",
+        "CODA"
+      ],
+      "type": "radio",
+      "answer": "Everything Everywhere All at Once"
+    },
+    {
+      "topic": "Entertainment",
+      "question": "Who is known as the 'King of Pop'?",
+      "options": [
+        "Elvis Presley",
+        "Michael Jackson",
+        "Prince",
+        "Madonna"
+      ],
+      "type": "radio",
+      "answer": "Michael Jackson"
+    },
+    {
+      "topic": "Entertainment",
+      "question": "Which TV series features a chemistry teacher turned methamphetamine manufacturer?",
+      "options": [
+        "Breaking Bad",
+        "The Sopranos",
+        "Game of Thrones",
+        "Stranger Things"
+      ],
+      "type": "radio",
+      "answer": "Breaking Bad"
+    },
+    {
+      "topic": "General Science",
+      "question": "What is the powerhouse of the cell?",
+      "options": [
+        "Nucleus",
+        "Mitochondria",
+        "Ribosome",
+        "Endoplasmic Reticulum"
+      ],
+      "type": "radio",
+      "answer": "Mitochondria"
+    },
+    {
+      "topic": "General Science",
+      "question": "What is the chemical formula for water?",
+      "options": [
+        "H2O",
+        "CO2",
+        "NaCl",
+        "O2"
+      ],
+      "type": "radio",
+      "answer": "H2O"
+    },
+    {
+      "topic": "General Science",
+      "question": "What force keeps us on the ground?",
+      "options": [
+        "Magnetism",
+        "Gravity",
+        "Friction",
+        "Electricity"
+      ],
+      "type": "radio",
+      "answer": "Gravity"
+    }
+  ],
 
+  "Level2": [
+    {
+      "topic": "History",
+      "question": "L2: Which empire was ruled by Genghis Khan?",
+      "options": [
+        "Roman Empire",
+        "Ottoman Empire",
+        "Mongol Empire",
+        "British Empire"
+      ],
+      "type": "radio",
+      "answer": "Mongol Empire"
+    },
+    {
+      "topic": "History",
+      "question": "L2: The Renaissance began in which country?",
+      "options": [
+        "France",
+        "Italy",
+        "Germany",
+        "Spain"
+      ],
+      "type": "radio",
+      "answer": "Italy"
+    },
+    {
+      "topic": "History",
+      "question": "L2: Who was the British Prime Minister during World War II?",
+      "options": [
+        "Winston Churchill",
+        "Margaret Thatcher",
+        "Neville Chamberlain",
+        "Tony Blair"
+      ],
+      "type": "radio",
+      "answer": "Winston Churchill"
+    },
+    {
+      "topic": "Geography",
+      "question": "L2: Which desert is the largest hot desert in the world?",
+      "options": [
+        "Sahara Desert",
+        "Gobi Desert",
+        "Kalahari Desert",
+        "Arabian Desert"
+      ],
+      "type": "radio",
+      "answer": "Sahara Desert"
+    },
+    {
+      "topic": "Geography",
+      "question": "L2: What is the capital city of Canada?",
+      "options": [
+        "Toronto",
+        "Vancouver",
+        "Montreal",
+        "Ottawa"
+      ],
+      "type": "radio",
+      "answer": "Ottawa"
+    },
+    {
+      "topic": "Geography",
+      "question": "L2: Which country has the most natural lakes?",
+      "options": [
+        "Canada",
+        "Brazil",
+        "United States",
+        "Russia"
+      ],
+      "type": "radio",
+      "answer": "Canada"
+    },
+    {
+      "topic": "Science",
+      "question": "L2: What is the most abundant gas in the Earth's atmosphere?",
+      "options": [
+        "Oxygen",
+        "Nitrogen",
+        "Carbon Dioxide",
+        "Hydrogen"
+      ],
+      "type": "radio",
+      "answer": "Nitrogen"
+    },
+    {
+      "topic": "Science",
+      "question": "L2: What is the speed of light in a vacuum?",
+      "options": [
+        "3 x 10^8 m/s",
+        "3 x 10^6 m/s",
+        "3 x 10^5 km/s",
+        "3 x 10^7 m/s"
+      ],
+      "type": "radio",
+      "answer": "3 x 10^8 m/s"
+    },
+    {
+      "topic": "Science",
+      "question": "L2: What element has the atomic number 1?",
+      "options": [
+        "Helium",
+        "Oxygen",
+        "Hydrogen",
+        "Carbon"
+      ],
+      "type": "radio",
+      "answer": "Hydrogen"
+    },
+    {
+      "topic": "Literature",
+      "question": "L2: Who wrote 'Pride and Prejudice'?",
+      "options": [
+        "Charlotte Brontë",
+        "Jane Austen",
+        "Emily Dickinson",
+        "George Eliot"
+      ],
+      "type": "radio",
+      "answer": "Jane Austen"
+    },
+    {
+      "topic": "Literature",
+      "question": "L2: 'To Kill a Mockingbird' is a novel by which author?",
+      "options": [
+        "Harper Lee",
+        "F. Scott Fitzgerald",
+        "Ernest Hemingway",
+        "Mark Twain"
+      ],
+      "type": "radio",
+      "answer": "Harper Lee"
+    },
+    {
+      "topic": "Literature",
+      "question": "L2: In which novel does the character Atticus Finch appear?",
+      "options": [
+        "1984",
+        "Moby Dick",
+        "To Kill a Mockingbird",
+        "The Great Gatsby"
+      ],
+      "type": "radio",
+      "answer": "To Kill a Mockingbird"
+    },
+    {
+      "topic": "Sports",
+      "question": "L2: How many rings are there on the Olympic flag?",
+      "options": [
+        "Five",
+        "Six",
+        "Seven",
+        "Eight"
+      ],
+      "type": "radio",
+      "answer": "Five"
+    },
+    {
+      "topic": "Sports",
+      "question": "L2: Which country hosted the 2016 Summer Olympics?",
+      "options": [
+        "China",
+        "Brazil",
+        "United Kingdom",
+        "Russia"
+      ],
+      "type": "radio",
+      "answer": "Brazil"
+    },
+    {
+      "topic": "Sports",
+      "question": "L2: In which sport is the term 'hat-trick' used?",
+      "options": [
+        "Basketball",
+        "Cricket",
+        "Soccer",
+        "Baseball"
+      ],
+      "type": "radio",
+      "answer": "Soccer"
+    },
+    {
+      "topic": "Technology",
+      "question": "L2: What does 'RAM' stand for in computer hardware?",
+      "options": [
+        "Random Access Memory",
+        "Readily Available Memory",
+        "Rapid Action Module",
+        "Random Allocation Module"
+      ],
+      "type": "radio",
+      "answer": "Random Access Memory"
+    },
+    {
+      "topic": "Technology",
+      "question": "L2: Which programming language is primarily used for web development and starts with 'J'?",
+      "options": [
+        "Java",
+        "JavaScript",
+        "Julia",
+        "Jython"
+      ],
+      "type": "radio",
+      "answer": "JavaScript"
+    },
+    {
+      "topic": "Technology",
+      "question": "L2: What does 'SSD' stand for in computer storage?",
+      "options": [
+        "Solid State Drive",
+        "Single Storage Device",
+        "Secure Storage Disk",
+        "System Storage Drive"
+      ],
+      "type": "radio",
+      "answer": "Solid State Drive"
+    },
+    {
+      "topic": "Art",
+      "question": "L2: Which artist is known for the sculpture 'The Thinker'?",
+      "options": [
+        "Auguste Rodin",
+        "Michelangelo",
+        "Donatello",
+        "Leonardo da Vinci"
+      ],
+      "type": "radio",
+      "answer": "Auguste Rodin"
+    },
+    {
+      "topic": "Art",
+      "question": "L2: What art technique involves using tiny dots of color to create an image?",
+      "options": [
+        "Impressionism",
+        "Pointillism",
+        "Cubism",
+        "Surrealism"
+      ],
+      "type": "radio",
+      "answer": "Pointillism"
+    },
+    {
+      "topic": "Art",
+      "question": "L2: 'The Persistence of Memory' is a famous painting by which artist?",
+      "options": [
+        "Pablo Picasso",
+        "Salvador Dalí",
+        "Vincent Van Gogh",
+        "Claude Monet"
+      ],
+      "type": "radio",
+      "answer": "Salvador Dalí"
+    },
+    {
+      "topic": "Politics",
+      "question": "L2: Which document outlines the fundamental laws and principles of a government?",
+      "options": [
+        "Magna Carta",
+        "Constitution",
+        "Bill of Rights",
+        "Declaration of Independence"
+      ],
+      "type": "radio",
+      "answer": "Constitution"
+    },
+    {
+      "topic": "Politics",
+      "question": "L2: Who was the first female Prime Minister of the United Kingdom?",
+      "options": [
+        "Theresa May",
+        "Margaret Thatcher",
+        "Angela Merkel",
+        "Indira Gandhi"
+      ],
+      "type": "radio",
+      "answer": "Margaret Thatcher"
+    },
+    {
+      "topic": "Politics",
+      "question": "L2: The term 'Brexit' refers to the United Kingdom's exit from which organization?",
+      "options": [
+        "United Nations",
+        "NATO",
+        "European Union",
+        "World Trade Organization"
+      ],
+      "type": "radio",
+      "answer": "European Union"
+    },
+    {
+      "topic": "Entertainment",
+      "question": "L2: Which actor played the character of Jack Dawson in the movie 'Titanic'?",
+      "options": [
+        "Brad Pitt",
+        "Leonardo DiCaprio",
+        "Tom Cruise",
+        "Johnny Depp"
+      ],
+      "type": "radio",
+      "answer": "Leonardo DiCaprio"
+    },
+    {
+      "topic": "Entertainment",
+      "question": "L2: What is the highest-grossing film of all time as of 2024?",
+      "options": [
+        "Avatar",
+        "Avengers: Endgame",
+        "Titanic",
+        "Star Wars: The Force Awakens"
+      ],
+      "type": "radio",
+      "answer": "Avengers: Endgame"
+    },
+    {
+      "topic": "Entertainment",
+      "question": "L2: Which singer released the album 'Thriller' in 1982?",
+      "options": [
+        "Prince",
+        "Madonna",
+        "Michael Jackson",
+        "Whitney Houston"
+      ],
+      "type": "radio",
+      "answer": "Michael Jackson"
+    },
+    {
+      "topic": "General Science",
+      "question": "L2: What is the boiling point of water at sea level in Celsius?",
+      "options": [
+        "90°C",
+        "100°C",
+        "110°C",
+        "120°C"
+      ],
+      "type": "radio",
+      "answer": "100°C"
+    },
+    {
+      "topic": "General Science",
+      "question": "L2: What is the process by which plants make their food?",
+      "options": [
+        "Respiration",
+        "Transpiration",
+        "Photosynthesis",
+        "Fermentation"
+      ],
+      "type": "radio",
+      "answer": "Photosynthesis"
+    },
+    {
+      "topic": "General Science",
+      "question": "L2: Which part of the human body is responsible for pumping blood?",
+      "options": [
+        "Lungs",
+        "Liver",
+        "Heart",
+        "Kidneys"
+      ],
+      "type": "radio",
+      "answer": "Heart"
+    }
+  ],
+  "Level3": [
+    {
+      "topic": "History",
+      "question": "L3: What was the primary cause of the Cold War?",
+      "options": [
+        "Economic competition between the US and China",
+        "Ideological differences between the US and the Soviet Union",
+        "Territorial disputes in Europe",
+        "Alliances formed during World War II"
+      ],
+      "type": "radio",
+      "answer": "Ideological differences between the US and the Soviet Union"
+    },
+    {
+      "topic": "History",
+      "question": "L3: The Magna Carta was signed in which century?",
+      "options": [
+        "10th Century",
+        "11th Century",
+        "12th Century",
+        "13th Century"
+      ],
+      "type": "radio",
+      "answer": "13th Century"
+    },
+    {
+      "topic": "History",
+      "question": "L3: Who was the Egyptian queen known for her relationships with Julius Caesar and Mark Antony?",
+      "options": [
+        "Nefertiti",
+        "Cleopatra",
+        "Hatshepsut",
+        "Isis"
+      ],
+      "type": "radio",
+      "answer": "Cleopatra"
+    },
+    {
+      "topic": "Geography",
+      "question": "L3: Which country has the most time zones?",
+      "options": [
+        "United States",
+        "Russia",
+        "China",
+        "Australia"
+      ],
+      "type": "radio",
+      "answer": "France"
+    },
+    {
+      "topic": "Geography",
+      "question": "L3: What is the smallest country in the world by land area?",
+      "options": [
+        "Monaco",
+        "Nauru",
+        "Vatican City",
+        "San Marino"
+      ],
+      "type": "radio",
+      "answer": "Vatican City"
+    },
+    {
+      "topic": "Geography",
+      "question": "L3: Which river flows through the Grand Canyon?",
+      "options": [
+        "Colorado River",
+        "Mississippi River",
+        "Rio Grande",
+        "Columbia River"
+      ],
+      "type": "radio",
+      "answer": "Colorado River"
+    },
+    {
+      "topic": "Science",
+      "question": "L3: What is the most abundant element in the universe?",
+      "options": [
+        "Oxygen",
+        "Hydrogen",
+        "Carbon",
+        "Nitrogen"
+      ],
+      "type": "radio",
+      "answer": "Hydrogen"
+    },
+    {
+      "topic": "Science",
+      "question": "L3: What is the second law of motion formulated by Newton?",
+      "options": [
+        "Every action has an equal and opposite reaction",
+        "Force equals mass times acceleration",
+        "An object in motion stays in motion",
+        "Gravity acts at a distance"
+      ],
+      "type": "radio",
+      "answer": "Force equals mass times acceleration"
+    },
+    {
+      "topic": "Science",
+      "question": "L3: What type of bond involves the sharing of electron pairs between atoms?",
+      "options": [
+        "Ionic Bond",
+        "Covalent Bond",
+        "Hydrogen Bond",
+        "Metallic Bond"
+      ],
+      "type": "radio",
+      "answer": "Covalent Bond"
+    },
+    {
+      "topic": "Literature",
+      "question": "L3: 'The Catcher in the Rye' is a novel by which author?",
+      "options": [
+        "J.D. Salinger",
+        "Ernest Hemingway",
+        "F. Scott Fitzgerald",
+        "Mark Twain"
+      ],
+      "type": "radio",
+      "answer": "J.D. Salinger"
+    },
+    {
+      "topic": "Literature",
+      "question": "L3: Which epic poem is attributed to Homer?",
+      "options": [
+        "The Aeneid",
+        "The Odyssey",
+        "Paradise Lost",
+        "Beowulf"
+      ],
+      "type": "radio",
+      "answer": "The Odyssey"
+    },
+    {
+      "topic": "Literature",
+      "question": "L3: 'Brave New World' was written by which author?",
+      "options": [
+        "Aldous Huxley",
+        "George Orwell",
+        "Ray Bradbury",
+        "Philip K. Dick"
+      ],
+      "type": "radio",
+      "answer": "Aldous Huxley"
+    },
+    {
+      "topic": "Sports",
+      "question": "L3: In which sport would you perform a slam dunk?",
+      "options": [
+        "Volleyball",
+        "Basketball",
+        "Tennis",
+        "Soccer"
+      ],
+      "type": "radio",
+      "answer": "Basketball"
+    },
+    {
+      "topic": "Sports",
+      "question": "L3: The term 'alley-oop' is associated with which sport?",
+      "options": [
+        "Football",
+        "Basketball",
+        "Baseball",
+        "Hockey"
+      ],
+      "type": "radio",
+      "answer": "Basketball"
+    },
+    {
+      "topic": "Sports",
+      "question": "L3: How many Grand Slam titles has Serena Williams won in her career?",
+      "options": [
+        "20",
+        "23",
+        "19",
+        "25"
+      ],
+      "type": "radio",
+      "answer": "23"
+    },
+    {
+      "topic": "Technology",
+      "question": "L3: What does 'AI' stand for in technology?",
+      "options": [
+        "Artificial Intelligence",
+        "Advanced Interface",
+        "Automated Integration",
+        "Analog Input"
+      ],
+      "type": "radio",
+      "answer": "Artificial Intelligence"
+    },
+    {
+      "topic": "Technology",
+      "question": "L3: What is the name of the first commercially successful smartphone?",
+      "options": [
+        "iPhone",
+        "BlackBerry",
+        "Nokia 3310",
+        "Motorola DynaTAC"
+      ],
+      "type": "radio",
+      "answer": "Motorola DynaTAC"
+    },
+    {
+      "topic": "Technology",
+      "question": "L3: Which technology is used to make telephone calls over the Internet possible?",
+      "options": [
+        "FTP",
+        "VoIP",
+        "HTTP",
+        "SMTP"
+      ],
+      "type": "radio",
+      "answer": "VoIP"
+    },
+    {
+      "topic": "Art",
+      "question": "L3: Which artist is famous for the painting 'Guernica'?",
+      "options": [
+        "Pablo Picasso",
+        "Salvador Dalí",
+        "Frida Kahlo",
+        "Andy Warhol"
+      ],
+      "type": "radio",
+      "answer": "Pablo Picasso"
+    },
+    {
+      "topic": "Art",
+      "question": "L3: What is the art of paper folding called?",
+      "options": [
+        "Origami",
+        "Calligraphy",
+        "Sculpture",
+        "Mosaic"
+      ],
+      "type": "radio",
+      "answer": "Origami"
+    },
+    {
+      "topic": "Art",
+      "question": "L3: Which art movement is characterized by abstract shapes and vibrant colors, often associated with Wassily Kandinsky?",
+      "options": [
+        "Impressionism",
+        "Cubism",
+        "Abstract Expressionism",
+        "Baroque"
+      ],
+      "type": "radio",
+      "answer": "Abstract Expressionism"
+    },
+    {
+      "topic": "Politics",
+      "question": "L3: Which amendment to the US Constitution guarantees freedom of speech?",
+      "options": [
+        "First Amendment",
+        "Second Amendment",
+        "Fourth Amendment",
+        "Fifth Amendment"
+      ],
+      "type": "radio",
+      "answer": "First Amendment"
+    },
+    {
+      "topic": "Politics",
+      "question": "L3: Who was the first African American President of the United States?",
+      "options": [
+        "Barack Obama",
+        "Bill Clinton",
+        "George W. Bush",
+        "Donald Trump"
+      ],
+      "type": "radio",
+      "answer": "Barack Obama"
+    },
+    {
+      "topic": "Politics",
+      "question": "L3: The Treaty of Versailles ended which major conflict?",
+      "options": [
+        "World War I",
+        "World War II",
+        "The Cold War",
+        "The Korean War"
+      ],
+      "type": "radio",
+      "answer": "World War I"
+    },
+    {
+      "topic": "Entertainment",
+      "question": "L3: Who directed the movie 'Inception'?",
+      "options": [
+        "Steven Spielberg",
+        "Christopher Nolan",
+        "James Cameron",
+        "Martin Scorsese"
+      ],
+      "type": "radio",
+      "answer": "Christopher Nolan"
+    },
+    {
+      "topic": "Entertainment",
+      "question": "L3: Which TV show features the character Eleven with telekinetic powers?",
+      "options": [
+        "Stranger Things",
+        "The X-Files",
+        "Supernatural",
+        "Lost"
+      ],
+      "type": "radio",
+      "answer": "Stranger Things"
+    },
+    {
+      "topic": "Entertainment",
+      "question": "L3: What is the highest-grossing animated film of all time as of 2024?",
+      "options": [
+        "Frozen II",
+        "The Lion King",
+        "Toy Story 4",
+        "Frozen"
+      ],
+      "type": "radio",
+      "answer": "The Lion King"
+    },
+    {
+      "topic": "General Science",
+      "question": "L3: What is the chemical symbol for sodium?",
+      "options": [
+        "S",
+        "Na",
+        "So",
+        "Sn"
+      ],
+      "type": "radio",
+      "answer": "Na"
+    },
+    {
+      "topic": "General Science",
+      "question": "L3: What is the largest planet in our solar system?",
+      "options": [
+        "Earth",
+        "Saturn",
+        "Jupiter",
+        "Neptune"
+      ],
+      "type": "radio",
+      "answer": "Jupiter"
+    },
+    {
+      "topic": "General Science",
+      "question": "L3: What part of the cell contains the genetic material?",
+      "options": [
+        "Cytoplasm",
+        "Nucleus",
+        "Cell membrane",
+        "Mitochondria"
+      ],
+      "type": "radio",
+      "answer": "Nucleus"
+    }
+  ]
+}

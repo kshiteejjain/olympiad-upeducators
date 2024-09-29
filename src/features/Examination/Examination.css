@@ -281,3 +281,18 @@
   border: 1px solid var(--gray);
   padding: 10px;
 }
+.level-selection{
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+.level-selection h3{
+  width: 100%;
+}
+.level-selection button {
+  width: 31%;
+  padding: 40px 20px;
+  border-radius: 8px;
+  border-color: 1px solid var(--primary);
+  font-size: calc(var(--baseFontSize) + 10px);
+}

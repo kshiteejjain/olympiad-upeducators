@@ -76,7 +76,12 @@ const Header = () => {
               onChange={handleOlympiadChange}
             >
               {uniqueOlympiads.map((olympiad, index) => {
-                const olympiadLabel = olympiad === 's24' ? 'Science 2024' : olympiad === 'm24' ? 'Maths 2024' : olympiad;
+                const olympiadLabel = 
+                olympiad === 's24' ? 'Science 2024' :
+                olympiad === 'm24' ? 'Maths 2024' :
+                olympiad === 's24_2' ? 'Science 2024 - 2' :
+                olympiad === 'm24_2' ? 'Maths 2024 - 2' :
+                olympiad;
 
                 return (
                   <option key={index} value={olympiad}>

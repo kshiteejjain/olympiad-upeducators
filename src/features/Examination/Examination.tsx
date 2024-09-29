@@ -11,65 +11,164 @@ import './Examination.css';
 
 type Option = string;
 type Question = {
+    topic: string;
     question: string;
-    options: Option[];
+    options: string[];
     type: 'radio' | 'checkbox';
     answer: string | string[];
-    topic: string;
 };
 type ExamQuestionsType = Question[];
 type SelectedAnswers = { [key: number]: Option[] | Option };
 
+type LevelQuestions = {
+    topic: string;
+    question: string;
+    options: string[];
+    type: 'radio' | 'checkbox';
+    answer: string | string[];
+};
+
+type ExamQuestionsByLevel = {
+    Level1: LevelQuestions[];
+    Level2: LevelQuestions[];
+    Level3: LevelQuestions[];
+};
+
 const Examination = () => {
-    const examDurationInMinutes = 40; // You can set this to any duration you need, e.g., 60 minutes
+    const examDurationInMinutes = 40;
     const examDurationInSeconds = examDurationInMinutes * 60;
 
     const [questions, setQuestions] = useState<ExamQuestionsType>([]);
     const [currentIndex, setCurrentIndex] = useState<number>(0);
     const [attempted, setAttempted] = useState<boolean[]>([]);
     const [selectedAnswers, setSelectedAnswers] = useState<SelectedAnswers>({});
-    const [timer, setTimer] = useState<number>(examDurationInSeconds); // Set initial timer to exam duration
+    const [timer, setTimer] = useState<number>(examDurationInSeconds);
     const [cameraAccess, setCameraAccess] = useState<boolean | null>(null);
     const [canRequestPermission, setCanRequestPermission] = useState<boolean>(false);
     const [loading, setLoading] = useState(false);
-    const [startTime, setStartTime] = useState<number | null>(null); // Start time should be null initially
+    const [startTime, setStartTime] = useState<number | null>(null);
     const [alertShown, setAlertShown] = useState<boolean>(false);
 
-    const [jsonFileName, setJsonFileName] = useState<string | null>(null); // New state to store the filename
+    const [jsonFileName, setJsonFileName] = useState<string | null>(null);
+    const [selectedLevel, setSelectedLevel] = useState<string | null>(null);
+    const [filteredQuestions, setFilteredQuestions] = useState<ExamQuestionsType>([]);
+    const [hasLevels, setHasLevels] = useState<boolean>(false);
 
-useEffect(() => {
-    const olympiadData = JSON.parse(localStorage.getItem('olympd_prefix') || '{}');
-    const olympiadNames = olympiadData?.olympiad || []; // Default to 'm24' if not set
-    const olympiadName = olympiadNames[0] || 'm24';
+    // Prevent Copy Paste
+    useEffect(() => {
+        const handleCopy = (event:  any) => {
+            event.preventDefault();
+        };
 
-    import(`../../utils/${olympiadName}.json`)
-        .then((module) => {
-            setQuestions(module.default as ExamQuestionsType);
-            setAttempted(new Array(module.default.length).fill(false));
-            setJsonFileName(`${olympiadName}.json`); // Store the filename
-            setStartTime(Date.now()); // Set start time when questions are loaded
-        })
-        .catch((error) => {
-            console.error('Error loading JSON file:', error);
-        });
-}, []);
+        const handleCut = (event: any) => {
+            event.preventDefault();
+        };
 
+        const handlePaste = (event: any) => {
+            event.preventDefault();
+        };
 
+        // Add event listeners to the document
+        document.addEventListener('copy', handleCopy);
+        document.addEventListener('cut', handleCut);
+        document.addEventListener('paste', handlePaste);
 
-    // Alert effect when timer is less than or equal to 60 seconds
+        // Cleanup event listeners on component unmount
+        return () => {
+            document.removeEventListener('copy', handleCopy);
+            document.removeEventListener('cut', handleCut);
+            document.removeEventListener('paste', handlePaste);
+        };
+    }, []);
+
+    useEffect(() => {
+        const olympiadData = JSON.parse(localStorage.getItem('olympd_prefix') || '{}');
+        const olympiadNames = olympiadData?.olympiad || [];
+        const olympiadName = olympiadNames[0] || 'm24';
+
+        import(`../../utils/${olympiadName}.json`)
+            .then((module) => {
+                const jsonData = module.default;
+                const levelsExist = jsonData.Level1 || jsonData.Level2 || jsonData.Level3;
+                setHasLevels(levelsExist);
+                setJsonFileName(`${olympiadName}.json`);
+                if (levelsExist) {
+                    const allQuestions = [
+                        ...(jsonData.Level1 || []),
+                        ...(jsonData.Level2 || []),
+                        ...(jsonData.Level3 || [])
+                    ];
+                    setQuestions(allQuestions);
+                    setFilteredQuestions(allQuestions);
+                } else {
+                    setQuestions(jsonData);
+                    setFilteredQuestions(jsonData);
+                    setStartTime(Date.now());
+                }
+            })
+            .catch((error) => {
+                console.error('Error loading JSON file:', error);
+            });
+    }, []);
+
+    useEffect(() => {
+        const olympd_prefix = localStorage.getItem('olympd_prefix');
+        if (olympd_prefix) {
+            const sessionData = JSON.parse(olympd_prefix);
+            const savedLevel = sessionData.selectedLevel;
+            if (savedLevel) {
+                setSelectedLevel(savedLevel);
+            }
+        }
+    }, []);
+
+    useEffect(() => {
+        if (selectedLevel) {
+            const levelQuestions = ExamQuestions[selectedLevel as keyof ExamQuestionsByLevel] || [];
+    
+            const filtered: ExamQuestionsType = levelQuestions.map((question) => ({
+                topic: question.topic || 'Unknown Topic',
+                question: question.question,
+                options: question.options,
+                type: question.type as 'radio' | 'checkbox', // Ensure correct type
+                answer: question.answer // This can be either string or string[]
+            }));
+    
+            setFilteredQuestions(filtered); // Now filtered is of type ExamQuestionsType
+            setCurrentIndex(0);
+            setAttempted(new Array(filtered.length).fill(false));
+            setStartTime(Date.now());
+        } else {
+            setFilteredQuestions(questions);
+        }
+    }, [selectedLevel, questions]);
+    
+
+    const handleLevelSelect = (level: string) => {
+        setSelectedLevel(level);
+        const session = localStorage.getItem('olympd_prefix');
+        if (session) {
+            const sessionData = JSON.parse(session);
+            sessionData.selectedLevel = level;
+            localStorage.setItem('olympd_prefix', JSON.stringify(sessionData));
+        }
+        setStartTime(Date.now());
+    };
+
     useEffect(() => {
         if (timer <= 300 && !alertShown) {
-            alert("You have 5 minute remaining!");
-            setAlertShown(true); // Ensure alert is shown only once
+            alert("You have 5 minutes remaining!");
+            setAlertShown(true);
         }
     }, [timer, alertShown]);
 
-    // LocalStorage effect
     useEffect(() => {
         const savedAttempted = JSON.parse(localStorage.getItem('attempted') || '[]') as boolean[];
         const savedSelectedAnswers = JSON.parse(localStorage.getItem('selectedAnswers') || '{}') as SelectedAnswers;
-
-        setAttempted(savedAttempted.length ? savedAttempted : new Array(ExamQuestions.length).fill(false));
+        const totalQuestions = selectedLevel 
+        ? (ExamQuestions[selectedLevel as keyof ExamQuestionsByLevel] || []).length 
+        : questions.length;
+        setAttempted(savedAttempted.length ? savedAttempted : new Array(totalQuestions).fill(false));
         setSelectedAnswers(savedSelectedAnswers);
     }, []);
 
@@ -78,7 +177,6 @@ useEffect(() => {
         localStorage.setItem('selectedAnswers', JSON.stringify(selectedAnswers));
     }, [attempted, selectedAnswers]);
 
-    // Camera access effect
     useEffect(() => {
         const requestCameraAccess = async () => {
             try {
@@ -95,7 +193,6 @@ useEffect(() => {
         requestCameraAccess();
     }, []);
 
-    // Effect to update attempted questions
     useEffect(() => {
         setAttempted(questions.map((_, index) => {
             const answers = selectedAnswers[index];
@@ -135,62 +232,58 @@ useEffect(() => {
     };
 
     const submitReport = useCallback(async () => {
-        if (!startTime) return; // Ensure startTime is valid
+        if (!startTime) return;
         alert('Submitting the exam?')
         setLoading(true);
         const olympiadData = JSON.parse(localStorage.getItem('olympd_prefix') || '{}');
-        const olympiadName = olympiadData?.olympiadName || 'm24'; // Default to 'm24' if not set
-        const userEmail = olympiadData?.email || 'defaultUser'; // Assuming you have the user's email in localStorage
+        const olympiadName = olympiadData?.olympiadName || 'm24';
+        const userEmail = olympiadData?.email || 'defaultUser';
         const userName = olympiadData?.name;
-    
-        // Create the report object
+
         const report = questions.map((question, index) => {
-            const userAnswer = selectedAnswers[index] !== undefined ? selectedAnswers[index] : ''; // Fallback for undefined
+            const userAnswer = selectedAnswers[index] !== undefined ? selectedAnswers[index] : '';
             const correctAnswer = question.answer;
-    
+
             const isCorrect = Array.isArray(correctAnswer)
                 ? Array.isArray(userAnswer) && correctAnswer.every(a => userAnswer.includes(a)) && userAnswer.every(a => correctAnswer.includes(a))
                 : userAnswer === correctAnswer;
-    
+
             return {
                 questionIndex: index,
-                topic: question.topic || 'Unknown Topic', // Include topic of each question
+                topic: question.topic || 'Unknown Topic',
                 chosenAnswer: userAnswer,
-                correctAnswer: correctAnswer || 'N/A', // Fallback for undefined
-                isCorrect: isCorrect
+                correctAnswer: correctAnswer || 'N/A',
+                isCorrect: isCorrect,
+                level: selectedLevel
             };
         });
-    
-        // Calculate total marks
+
         const totalMarks = report.reduce((count, item) => (item.isCorrect ? count + 1 : count), 0);
-    
-        // Structure the report data
+
         const reportData = {
-            email: userEmail, // Store email directly
-            name: userName || 'Unknown', // Fallback if name is not provided
+            email: userEmail,
+            name: userName || 'Unknown',
+            level: selectedLevel,
             details: report,
             totalMarks: totalMarks,
             timestamp: new Date().toISOString(),
             startTime: new Date(startTime).toISOString(),
             endTime: new Date().toISOString()
         };
-    
+
         try {
-            // Check the filename to determine if it is testQuestions.json
-            if (jsonFileName !== 'testQuestions.json') { // Only store data if not from testQuestions.json
+            if (jsonFileName !== 'testQuestions.json') {
                 const userDocRef = doc(firestore, `${olympiadName}Result`, userEmail);
-    
-                // Save the report data as the document under the user's email
                 await setDoc(userDocRef, reportData);
-    
                 console.log('Report successfully saved to Firestore.');
             } else {
                 console.log('Not submitting report to Firestore as the questions are from testQuestions.json');
             }
-    
+
             setLoading(false);
             localStorage.removeItem('selectedAnswers');
             localStorage.removeItem('attempted');
+            localStorage.removeItem('selectedLevel');
             const olympd_prefix = localStorage.getItem('olympd_prefix');
             let isExamOver = olympd_prefix ? JSON.parse(olympd_prefix) : {};
             isExamOver.examOver = true;
@@ -201,17 +294,15 @@ useEffect(() => {
             setLoading(false);
         }
     }, [questions, selectedAnswers, startTime, jsonFileName]);
-    
 
-    // Timer effect with auto-submit
     useEffect(() => {
-        if (startTime === null) return; // Ensure startTime is set
+        if (startTime === null) return;
 
         const interval = setInterval(() => {
             setTimer(prev => {
                 const currentTime = Math.max(prev - 1, 0);
                 if (currentTime === 0) {
-                    submitReport(); // Auto-submit when time is over
+                    submitReport();
                     clearInterval(interval);
                 }
                 return currentTime;
@@ -233,6 +324,7 @@ useEffect(() => {
             </div>
         );
     }
+
     return (
         <div className='exam-started'>
             {loading && <Loader />}
@@ -243,88 +335,96 @@ useEffect(() => {
                             <h2>Examination</h2>
                             <div className="timer">Time Left: <span>{formatTime(timer)}</span></div>
                         </div>
-                        {questions.length > 0 && (
+
+                        {hasLevels && selectedLevel === null ? (
+                            <div className="level-selection">
+                                <h3>Select Your Level For Question Paper:</h3>
+                                <Button type="button" title="Level 1" onClick={() => handleLevelSelect('Level1')} />
+                                <Button type="button" title="Level 2" onClick={() => handleLevelSelect('Level2')} />
+                                <Button type="button" title="Level 3" onClick={() => handleLevelSelect('Level3')} />
+                            </div>
+                        ) : (
                             <>
-                                <div className="question">
-                                    <h3>
-                                        {currentIndex + 1}.{" "}
-                                        {questions[currentIndex].question.split('\n').map((line, index) => (
-                                            <span key={index}>
-                                                {line}
-                                                {index < questions[currentIndex].question.split('\n').length - 1 && <br />}
-                                            </span>
-                                        ))}
-                                    </h3>
-                                    <div className="answer-options">
-                                        {questions[currentIndex].type === 'radio' ? (
-                                            questions[currentIndex].options.map((option, index) => (
-                                                <div key={index} className="option">
-                                                    <input
-                                                        type="radio"
-                                                        id={`radio-${index}`}
-                                                        name={`question-${currentIndex}`}
-                                                        value={option}
-                                                        checked={selectedAnswers[currentIndex] === option}
-                                                        onChange={handleRadioChange}
-                                                    />
-                                                    <label htmlFor={`radio-${index}`}>{option}</label>
-                                                </div>
-                                            ))
-                                        ) : (
-                                            questions[currentIndex].options.map((option, index) => (
-                                                <div key={index} className="option">
-                                                    <input
-                                                        type="checkbox"
-                                                        id={`checkbox-${index}`}
-                                                        name={`checkbox-${index}`}
-                                                        value={option}
-                                                        checked={selectedAnswers[currentIndex]?.includes(option) || false}
-                                                        onChange={handleCheckboxChange}
-                                                    />
-                                                    <label htmlFor={`checkbox-${index}`}>{option}</label>
-                                                </div>
-                                            ))
-                                        )}
-                                    </div>
-                                </div>
-                                <div className="question-nav">
-                                    <Button
-                                        type="button"
-                                        title="Previous Question"
-                                        isIcon
-                                        onClick={() => handleNavigation(-1)}
-                                        isDisabled={currentIndex === 0}
-                                    />
-                                    {questions.length > 0 && (
-                                        <Button
-                                            type="button"
-                                            title="Next Question"
-                                            isIcon
-                                            onClick={() => handleNavigation(1)}
-                                            isDisabled={currentIndex === questions.length - 1}
-                                        />
-                                    )}
-                                </div>
-                                <Button type="button" title="Submit Exam" onClick={() => submitReport()} />
-                                <CheckInternet />
+                                {filteredQuestions.length > 0 && (
+                                    <>
+                                        <div className="question">
+                                            <h3>
+                                                {currentIndex + 1}.{" "}
+                                                {filteredQuestions[currentIndex].question.split('\n').map((line, index) => (
+                                                    <span key={index}>
+                                                        {line}
+                                                        {index < filteredQuestions[currentIndex].question.split('\n').length - 1 && <br />}
+                                                    </span>
+                                                ))}
+                                            </h3>
+                                            <div className="answer-options">
+                                                {filteredQuestions[currentIndex].type === 'radio' ? (
+                                                    filteredQuestions[currentIndex].options.map((option, index) => (
+                                                        <div key={index} className="option">
+                                                            <input
+                                                                type="radio"
+                                                                id={`radio-${index}`}
+                                                                name={`question-${currentIndex}`}
+                                                                value={option}
+                                                                checked={selectedAnswers[currentIndex] === option}
+                                                                onChange={handleRadioChange}
+                                                            />
+                                                            <label htmlFor={`radio-${index}`}>{option}</label>
+                                                        </div>
+                                                    ))
+                                                ) : (
+                                                    filteredQuestions[currentIndex].options.map((option, index) => (
+                                                        <div key={index} className="option">
+                                                            <input
+                                                                type="checkbox"
+                                                                id={`checkbox-${index}`}
+                                                                name={`checkbox-${index}`}
+                                                                value={option}
+                                                                checked={selectedAnswers[currentIndex]?.includes(option) || false}
+                                                                onChange={handleCheckboxChange}
+                                                            />
+                                                            <label htmlFor={`checkbox-${index}`}>{option}</label>
+                                                        </div>
+                                                    ))
+                                                )}
+                                            </div>
+                                        </div>
+                                        <div className="question-nav">
+                                            <Button
+                                                type="button"
+                                                title="Previous Question"
+                                                onClick={() => handleNavigation(-1)}
+                                                isDisabled={currentIndex === 0}
+                                            />
+                                            <Button
+                                                type="button"
+                                                title="Next Question"
+                                                onClick={() => handleNavigation(1)}
+                                                isDisabled={currentIndex === filteredQuestions.length - 1}
+                                            />
+                                        </div>
+                                        <Button type="button" title="Submit Exam" onClick={() => submitReport()} />
+                                        <CheckInternet />
+                                    </>
+                                )}
                             </>
                         )}
                     </div>
                 </div>
-                <WebcamPermission /> {/* Pass position prop to position the webcam */}
+                <WebcamPermission />
             </div>
             <div className="question-list">
-                <div className='listing'>
-                    {questions.map((_, index) => (
-                        <button
-                            key={index}
-                            className={`question-item ${attempted[index] ? 'attempted' : 'not-attempted'}`}
-                            onClick={() => setCurrentIndex(index)}
-                        >
-                            {index + 1}
-                        </button>
-                    ))}
-                </div>
+                    <div className='listing'>
+                        {filteredQuestions.map((_, index) => (
+                            <button
+                                key={index}
+                                className={`question-item ${attempted[index] ? 'attempted' : 'not-attempted'}`}
+                                onClick={() => setCurrentIndex(index)}
+                            >
+                                {index + 1}
+                            </button>
+                        ))}
+                    </div>
             </div>
         </div>
     );
