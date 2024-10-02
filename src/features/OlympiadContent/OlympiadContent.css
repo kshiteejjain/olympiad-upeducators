@@ -97,7 +97,7 @@
   
   .faq details {
     border: 1px solid var(--gray);
-    cursor: pointer;
+
     position: relative;
     background-color: var(--grayBlue);
     margin-bottom: 15px;
@@ -116,6 +116,7 @@
     align-items: center;
     font-weight: bold;
     width: 100%;
+    cursor: pointer;
   }
   
   .faq details p {
@@ -134,6 +135,14 @@
     padding: 20px;
     border-radius: 8px;
     margin: 30px 0 35px 0;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
+  }
+
+  .faq-topics input{
+    width: 100%;
+    margin-bottom: 25px;
   }
   
   .faq-topics h2 {

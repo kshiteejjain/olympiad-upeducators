@@ -1,20 +1,47 @@
+import { useEffect, useState } from 'react';
 import Banner from '../../../assets/banner.jpg';
+import { fetchUserRegistrationDate } from '../../../utils/firebaseUtils'; // Adjust the path as necessary
+
+const TARGET_DATE = new Date('2024-09-21T17:00:00');
+const OLYMPIAD_B_DATE = new Date('2024-10-19T17:00:00');
+const COMPARE_DATE = new Date('2024-09-30T00:00:00');
 
 const AboutOlympiad = () => {
+    const [displayDate, setDisplayDate] = useState<Date | null>(null);
+
+    useEffect(() => {
+        const userEmail = JSON.parse(localStorage.getItem('olympd_prefix') || '{}')?.email;
+        if (userEmail) {
+            fetchUserRegistrationDate(userEmail)
+                .then(date => {
+                    const finalDate = date && date < COMPARE_DATE ? TARGET_DATE : OLYMPIAD_B_DATE;
+                    setDisplayDate(finalDate);
+                })
+                .catch(error => console.error("Error fetching user data:", error));
+        } else {
+            console.warn('No email found in local storage.');
+            setDisplayDate(OLYMPIAD_B_DATE); // Default to Olympiad B date if no email
+        }
+    }, []);
+
+    if (!displayDate) {
+        return <div>Loading...</div>; // Loading state while fetching the date
+    }
+
     return (
         <div className='content'>
-            <h2>About the Olympiad Science 24</h2>
+            <h2>About the Olympiad Math 2024</h2>
             <div className='olympiad-banner'>
-                <img src={Banner} />
+                <img src={Banner} alt="Olympiad Banner" />
             </div>
-            {/* <h3>About</h3>
+            <h3>About</h3>
             <div className='faq'>
                 <details>
                     <summary>A Two-Phase Olympiad for a Comprehensive Assessment</summary>
-                    <p><strong>This Olympiad is divided into 2 phases: </strong></p>
+                    <p><strong>This Olympiad is divided into 2 phases:</strong></p>
                     <p><strong>Phase 1: The Instructional Proficiency Test</strong></p>
                     <ul className='list'>
-                        <li>Date: 21 September, 2024</li>
+                        <li>Date: {displayDate.toLocaleString()}</li>
                         <li>Format: Multiple Choice Questions</li>
                         <li>No. of Questions: 30</li>
                         <li>Exam Duration: 40 Minutes</li>
@@ -51,7 +78,7 @@ const AboutOlympiad = () => {
                 </details>
                 <details>
                     <summary>Curriculum</summary>
-                    <p>Any teacher or aspirant would feel at ease while taking this Olympiad test. The topics covered are commonly known to Math Educators. Nevertheless, it's a good idea to review your basics and stay updated with the latest teaching methods to boost your chances of achieving a top rank in the exam</p>
+                    <p>Any teacher or aspirant would feel at ease while taking this Olympiad test. The topics covered are commonly known to Math Educators. Nevertheless, it's a good idea to review your basics and stay updated with the latest teaching methods to boost your chances of achieving a top rank in the exam.</p>
                     <p><strong>Topics Covered:</strong></p>
                     <ul className='list'>
                         <li>Pedagogical Knowledge</li>
@@ -71,14 +98,10 @@ const AboutOlympiad = () => {
                     <p><strong>Check the Sample Paper as per the Grade you have selected</strong></p>
                     <h3>Sample Paper for Grade 1 to 5</h3>
                     <a href=''>PDF attachment</a>
-
                     <h3>Sample Paper for Grade 6 to 10</h3>
                     <a href=''>PDF attachment</a>
-
                     <h3>Sample Paper for Grade 11 and above</h3>
                     <a href=''>PDF attachment</a>
-
-
                 </details>
                 <details>
                     <summary>Process of Attempting the Olympiad</summary>
@@ -100,22 +123,11 @@ const AboutOlympiad = () => {
                         <li><strong>System Test:</strong> Check your System compatibility 1 day before the exam from the Exam mail.</li>
                     </ul>
                     <p><strong>Technical Support:</strong></p>
-                    <p>In case of technical difficulties, please reach out to the numbers given in Exam mail for assistance. </p>
+                    <p>If you encounter any technical issues during the exam, please contact our support team immediately using the contact details provided in the Exam mail.</p>
                 </details>
-                <details>
-                    <summary>Link to attempt the exam </summary>
-                    <p>We will provide the link of the exam 1 day before the exam time on your registered email id.</p>
-                </details>
-                <details>
-                    <summary>Q. What kind of preparation is required for the Olympiad?</summary>
-                    <p>A. No special preparation is required for this Olympiad. The competition is structured to assess and celebrate your dedication and creativity in early childhood education. It's an opportunity to showcase your knowledge, pedagogical skills, critical thinking, and problem-solving abilities. However, familiarity with the key concepts and best practices in Pre-primary education will be beneficial.</p>
-                    <p>For reference, we have added sample paper in this LMS.</p>
-
-                </details>
-            </div> */}
-
+            </div>
         </div>
-    )
+    );
 };
 
 export default AboutOlympiad;

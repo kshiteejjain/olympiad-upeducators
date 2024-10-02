@@ -24,3 +24,26 @@ export const fetchUserOlympiadData = async (email: string): Promise<UserData[]> 
     throw new Error('Error fetching user Olympiad data');
   }
 };
+
+export const fetchUserRegistrationDate = async (userEmail: string) => {
+  const userQuery = query(collection(firestore, 'OlympiadUsers'), where('email', '==', userEmail));
+  const userSnapshot = await getDocs(userQuery);
+  
+  if (!userSnapshot.empty) {
+      const userDoc = userSnapshot.docs[0].data();
+      const userTimeStamp = userDoc.timeStamp;
+
+      // Handle both Firestore Timestamp and Date
+      if (userTimeStamp && typeof userTimeStamp.toDate === 'function') {
+          return userTimeStamp.toDate();
+      } else if (userTimeStamp instanceof Date) {
+          return userTimeStamp; // Already a Date
+      } else {
+          // Handle cases where timestamp is a string or other format
+          return new Date(userTimeStamp);
+      }
+  } else {
+      console.warn('No user found with this email.');
+      return null;
+  }
+};

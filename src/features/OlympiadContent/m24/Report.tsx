@@ -1,22 +1,14 @@
 const SessionsData = [{
-    name: 'Gamification in Education: Making Learning Fun and Effective',
-    duration: '2 hours live workshop',
-    image: 'https://www.upeducators.com/wp-content/uploads/2022/08/google-certified-educators-homepage.jpg'
+    name: 'Assess your Overall Performance',
+    image: '/src/assets/report-img1.png'
 },
 {
-    name: 'Innovative Math Teaching: Incorporating STEP and Robotics',
-    duration: '2 hours live workshop',
-    image: 'https://www.upeducators.com/wp-content/uploads/2022/08/microsft-certified-educators-homepage1.jpg'
+    name: 'Discover your strengths and gaps',
+    image: '/src/assets/report-img2.png'
 },
 {
-    name: 'Transforming Math Education with Artificial intelligence',
-    duration: '2 hours live workshop',
-    image: 'https://www.upeducators.com/wp-content/uploads/2022/10/gc-trainer-5761.jpg'
-},
-{
-    name: 'Project Based Learning in Mathematics',
-    duration: '2 hours live workshop',
-    image: 'https://www.upeducators.com/wp-content/uploads/2022/10/online-teaching-5761.jpg'
+    name: 'Track progress with detailed insights',
+    image: '/src/assets/report-img3.png'
 }];
 
 const CoursesCard = () => {
@@ -26,7 +18,6 @@ const CoursesCard = () => {
                 <img src={item.image} alt='' />
                 <div className='details'>
                     <h4>{item.name}</h4>
-                    <p className='duration'>{item.duration}</p>
                 </div>
             </div>
         ))

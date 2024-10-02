@@ -199,61 +199,74 @@ h3 {
   background-color: var(--lightGray);
   color: var(--darkgray);
 }
-.flex{
+
+.flex {
   display: flex;
 }
 
-.flex-card{
+.flex-card {
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-between;
   margin-bottom: 50px;
 }
-.flex-card h3{
+
+.flex-card h3 {
   width: 100%;
   margin: 20px 0;
 }
-.flex-card .card img{
+
+.flex-card .card img {
   border-radius: 8px 8px 0 0;
 }
-.flex-card .card{
+
+.flex-card .card {
   width: 24%;
-  margin-bottom: 20px;
+  margin:0 20px 20px 0;
   background: linear-gradient(90deg, rgba(105, 219, 123, 0.15) 30%, rgba(52, 109, 242, 0.15) 70%, rgba(82, 149, 252, 0.15) 100%);
+  border: 1px solid var(--gray);
 }
-.flex-card .card:nth-child(odd){
-background: linear-gradient(60deg, #abecd6 0%, #fbed96 100%);
+
+.flex-card .card:nth-child(odd) {
+  background: linear-gradient(60deg, #abecd6 0%, #fbed96 100%);
 
 }
-.flex-card .details{
+
+.flex-card .details {
   padding: 15px;
 }
-.flex-card .details h4{
+
+.flex-card .details h4 {
   font-weight: bold;
-  margin:0 0 10px 0;
+  margin: 0 0 10px 0;
   font-size: calc(var(--baseFontSize) + 2px);
 }
-.flex-card .details p{
+
+.flex-card .details p {
   font-size: calc(var(--baseFontSize) - 2px);
   line-height: 25px;
   color: var(--darkGray);
   margin-bottom: 0;
 }
-.flex-card .details .designation{
+
+.flex-card .details .designation {
   color: var(--black);
   font-weight: bold;
   margin-bottom: 10px;
 }
-.flex-card .details .duration{
+
+.flex-card .details .duration {
   border-top: 1px solid var(--gray);
   margin-top: 15px;
   padding-top: 5px;
+  margin-bottom: 10px;
 }
 
-.flex-card .card.coursesCard{
+.flex-card .card.coursesCard {
   background: var(--white);
+  width: 30%;
 }
-.flex-card .card.coursesCard h4{
+
+.flex-card .card.coursesCard h4 {
   font-size: calc(var(--baseFontSize) + 1px);
 }
 
@@ -263,38 +276,45 @@ background: linear-gradient(60deg, #abecd6 0%, #fbed96 100%);
   }
 }
 
-@media(max-width: 767px){
+@media(max-width: 767px) {
   .earning-box p {
-      font-size: calc(var(--baseFontSize) - 3px);
-      line-height: normal;
+    font-size: calc(var(--baseFontSize) - 3px);
+    line-height: normal;
   }
-  .how-it-works{
-      flex-direction: column;
-      margin: 20px 0;
+
+  .how-it-works {
+    flex-direction: column;
+    margin: 20px 0;
   }
-  .works-card{
-      width: 100%;
-      margin-bottom: 20px;
-      padding: 15px;
+
+  .works-card {
+    width: 100%;
+    margin-bottom: 20px;
+    padding: 15px;
   }
-  .works-card-title{
-      flex-direction: column;
+
+  .works-card-title {
+    flex-direction: column;
   }
-  .works-card h1{
-      font-size: calc(var(--baseFontSize) + 1px);
+
+  .works-card h1 {
+    font-size: calc(var(--baseFontSize) + 1px);
   }
+
   .works-card .number {
-      margin: 0 0 10px 0;
-      height: 25px;
-      min-width: 25px;
-      min-height: 25px;
-      line-height: 25px;
+    margin: 0 0 10px 0;
+    height: 25px;
+    min-width: 25px;
+    min-height: 25px;
+    line-height: 25px;
   }
-  .works-card .cta{
-      flex-direction: column;
+
+  .works-card .cta {
+    flex-direction: column;
   }
+
   .works-card button {
-      margin: 0 0 8px 0 !important;
+    margin: 0 0 8px 0 !important;
   }
 }
 
@@ -316,17 +336,19 @@ background: linear-gradient(60deg, #abecd6 0%, #fbed96 100%);
   }
 }
 
-@media(max-width: 767px){
-  .awards{
-      flex-direction: column;
+@media(max-width: 767px) {
+  .awards {
+    flex-direction: column;
   }
-  .awards-card{
-      width: 100%;
-      margin-bottom: 15px;
+
+  .awards-card {
+    width: 100%;
+    margin-bottom: 15px;
   }
-  .awards-card h1{
-      font-size: calc(var(--baseFontSize) + 1px);
-      margin-bottom: 10px;
+
+  .awards-card h1 {
+    font-size: calc(var(--baseFontSize) + 1px);
+    margin-bottom: 10px;
   }
 }
 
@@ -376,10 +398,12 @@ background: linear-gradient(60deg, #abecd6 0%, #fbed96 100%);
     padding: 5px 10px;
     font-size: calc(var(--baseFontSize) - 4px);
   }
-  .flex-card{
+
+  .flex-card {
     flex-direction: column;
   }
-  .flex-card .card{
+
+  .flex-card .card {
     width: 100%;
   }
 }

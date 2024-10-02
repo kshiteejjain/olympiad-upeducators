@@ -13,44 +13,35 @@ const PageNavigation = ({ navPath }: any) => {
     const [userDate, setUserDate] = useState<Date | null>(null);
     const navigate = useNavigate();
 
-    const targetDate = new Date('2024-09-21T17:00:00'); // 5 PM on September 21, 2024
+    const targetDate = new Date('2024-10-02T08:57:00'); // 5 PM on September 21, 2024
     const olympiadBDate = new Date('2024-10-19T17:00:00'); // 5 PM on Oct 19, 2024
     const compareDate = '2024-09-30T00:00:00'
 
-    useEffect(() => {
-        const checkExamStatus = () => {
-            const now = new Date();
-            const twoHoursPast = new Date(targetDate.getTime() + 2 * 60 * 60 * 1000);
-            
-            // Determine the effective date based on user's registration date
-            const effectiveDate = userDate && userDate < new Date(compareDate) ? targetDate : olympiadBDate;
+    // useEffect(() => {
+    //     const checkExamStatus = () => {
+    //         const now = new Date();
 
-            // Check if the current time matches the effective date
-            const isEffectiveDateNow = Math.abs(now.getTime() - effectiveDate.getTime()) < 1000; // 1 second tolerance
+    //         // Determine the effective date based on user's registration date
+    //         const olympiadNextDate = userDate && userDate < new Date(compareDate) ? targetDate : olympiadBDate;
 
-            if (now < effectiveDate) {
-                // Future date
-                setShowStartExamButton(false);
-                setExamMessage(`Exam Date: ${effectiveDate.toLocaleString()}`);
-            } else if (isEffectiveDateNow) {
-                // Exact effective date time
-                setShowStartExamButton(true);
-                setExamMessage('1');
-            } else if (now > twoHoursPast) {
-                // More than 2 hours past effective date
-                setShowStartExamButton(false);
-                setExamMessage("Exam date is gone.");
-            } else {
-                // Between effective date and two hours past
-                setShowStartExamButton(true);
-                setExamMessage(null);
-            }
-        };
+    //         // Condition 1: If current timestamp matches targetDate or targetDate is older than current timestamp
+    //         if (now >= olympiadNextDate) {
+    //             setShowStartExamButton(true);
+    //         }
+    //         console.log(now >= olympiadNextDate)
 
-        checkExamStatus();
-        const intervalId = setInterval(checkExamStatus, 1000);
-        return () => clearInterval(intervalId);
-    }, [targetDate]);
+    //         // Condition 2: If current timestamp is older than 2 hours past olympiadNextDate
+    //         const twoHoursPast = new Date(olympiadNextDate.getTime() + 2 * 60 * 60 * 1000);
+    //         if (now > twoHoursPast) {
+    //             setShowStartExamButton(false);
+    //         }
+    //     };
+
+    //     checkExamStatus();
+    //     const intervalId = setInterval(checkExamStatus, 1000);
+    //     return () => clearInterval(intervalId);
+    // }, [targetDate]);
+
 
     const userTimestampLogic = async (userEmail: string) => {
         try {
@@ -74,18 +65,18 @@ const PageNavigation = ({ navPath }: any) => {
 
                 // Store user registration date for future use
                 setUserDate(retrievedUserDate);
-
+                console.log(userDate)
                 if (retrievedUserDate < comparisonDate) {
-                    alert(1);
-                } else {
-                    alert(2);
+                    setExamMessage(`Exam Date: ${targetDate.toLocaleString()}`); // If user register is before 30th sept
+                }else{
+                    setExamMessage(`Exam Date: ${olympiadBDate.toLocaleString()}`); // If user register is after 30th sept
                 }
             }
         } catch (error) {
             console.error("Error fetching user data:", error);
         }
     };
-    
+
 
     useEffect(() => {
         const checkUserEmail = async () => {
