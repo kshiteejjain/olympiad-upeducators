@@ -30,7 +30,7 @@ const AboutOlympiad = () => {
 
     return (
         <div className='content'>
-            <h2>About the Olympiad Math 2024</h2>
+            <h2>About the Olympiad Science 2024</h2>
             <div className='olympiad-banner'>
                 <img src={Banner} alt="Olympiad Banner" />
             </div>

@@ -40,6 +40,7 @@ const LoginWithEmail = () => {
                 const phone = userData.phone || 'No Phone'; // Adjust according to your schema
                 const image = userData?.profile?.image; // Adjust according to your schema
                 const olympiad = userData?.olympiad.map((item: any) => item.toLowerCase());
+                const olympiadName = userData?.olympiad[0];
 
                 // Update localStorage with user details
                 const olympdPrefix = JSON.parse(localStorage.getItem('olympd_prefix') || '{}');
@@ -48,6 +49,7 @@ const LoginWithEmail = () => {
                 olympdPrefix.phone = phone;
                 olympdPrefix.image = image;
                 olympdPrefix.olympiad = olympiad;
+                olympdPrefix.olympiadName = olympiadName
                 localStorage.setItem('olympd_prefix', JSON.stringify(olympdPrefix));
                 navigate('/EnterOTP');
                 // Send email

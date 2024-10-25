@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import Banner from '../../../assets/banner.jpg';
+import Banner from '../../../assets/banner.png';
 import { fetchUserRegistrationDate } from '../../../utils/firebaseUtils'; // Adjust the path as necessary
 
 const TARGET_DATE = new Date('2024-09-21T17:00:00');

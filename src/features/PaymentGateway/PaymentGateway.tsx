@@ -51,7 +51,7 @@ const PaymentGateway = () => {
 
     const referralCode = params.get('referral');
     const source = params.get('source');
-    const olympiad = params.get('olympiad');
+    const olympiad = params.get('olympiad')?.trim() || null;
 
     setUrlParams({ referralCode, source, olympiad });
 
@@ -85,7 +85,6 @@ const PaymentGateway = () => {
         console.log('Fetched user data from Firestore:', userData);
 
         const userOlympiads = userData.olympiad || [];
-        console.log('User Olympiads:', userOlympiads);
 
         // If they are already registered for the exact Olympiad, alert the user
         if (userOlympiads.includes(urlOlympiad)) {
@@ -107,133 +106,67 @@ const PaymentGateway = () => {
   };
 
 
-  const handleSubmit = async (paymentDetails: any) => {
+  
+  const handleSubmit = async () => {
     const canRegister = await checkOlympiadMatch(); // Check if user can register
     if (canRegister) return; // If user can't register, exit
 
     const { name, email, phone } = userDetails;
     const emailLowerCase = email.toLowerCase();
     const olympiadId = urlParams.olympiad;
-    const referralCode = urlParams.referralCode;
     const source = urlParams.source;
 
     if (!olympiadId) {
-      alert('Olympiad ID (Olympiad) is required. Please ensure the URL contains the correct parameter.');
-      return;
+        alert('Olympiad ID (Olympiad) is required. Please ensure the URL contains the correct parameter.');
+        return;
     }
 
     try {
-      // Fetch existing document data for the new user
-      const docRef = doc(firestore, 'OlympiadUsers', emailLowerCase);
-      const docSnap = await getDoc(docRef);
+        const docRef = doc(firestore, 'OlympiadUsers', emailLowerCase);
+        const docSnap = await getDoc(docRef);
 
-      let docData = docSnap.exists() ? docSnap.data() : {};
+        let docData = docSnap.exists() ? docSnap.data() : {};
 
-      // Initialize arrays if they don't exist
-      if (!docData.olympiad) docData.olympiad = [];
-      if (!docData.source) docData.source = [];
+        if (!docData.olympiad) docData.olympiad = [];
+        if (!docData.source) docData.source = [];
 
-      // Add new values if they are not already present
-      if (olympiadId && !docData.olympiad.includes(olympiadId)) {
-        docData.olympiad.push(olympiadId);
-      }
-      if (source && !docData.source.includes(source)) {
-        docData.source.push(source);
-      }
+        const isNewUser = !docSnap.exists();
 
-      // Save the updated data for the new user
-      await setDoc(docRef, {
-        ...docData,
-        name,
-        email: emailLowerCase,
-        phone,
-        timeStamp: new Date().toISOString(),
-        paymentDetails,
-        isNewUser: true
-      });
+        if (olympiadId && !docData.olympiad.includes(olympiadId)) {
+            docData.olympiad.push(olympiadId);
+        }
+        if (source && !docData.source.includes(source)) {
+            docData.source.push(source);
+        }
 
-      // Check if the referral code is available
-      if (referralCode) {
-        console.log(`Referral code received: ${referralCode}`);
-
-        // Query to check if the referral code exists in OlympiadUsers
-        const usersCollection = collection(firestore, 'OlympiadUsers');
-        const querySnapshot = await getDocs(usersCollection);
-
-        let referrerEmail: string | null = null;
-
-        querySnapshot.forEach((doc: any) => {
-          const data = doc.data();
-          if (data.referral && data.referral.includes(referralCode)) {
-            referrerEmail = doc.id; // Document ID is the email of the referrer
-          }
+        // Save the updated data for the user
+        await setDoc(docRef, {
+            ...docData,
+            name,
+            email: emailLowerCase,
+            phone,
+            timeStamp: new Date().toISOString(),
+            isNewUser
         });
 
-        if (referrerEmail) {
-          console.log(`Referral code exists, referrer's email found: ${referrerEmail}`);
+        // Do not include referral code handling
 
-          // Fetch the referrer's document
-          const referrerDocRef = doc(firestore, 'OlympiadUsers', referrerEmail);
-          const referrerDocSnap = await getDoc(referrerDocRef);
-
-          if (referrerDocSnap.exists()) {
-            const referrerData = referrerDocSnap.data();
-
-            console.log('Referrer document exists:', referrerData);
-
-            // Calculate the referral amount (10% of total payment)
-            const referralAmount = totalPrice * 0.10;
-
-            // Add the referral amount as an independent field
-            if (!referrerData.referralAmount) {
-              referrerData.referralAmount = referralAmount;
-            } else {
-              referrerData.referralAmount += referralAmount;
-            }
-
-            // Initialize referrerUsers array if it doesn't exist
-            if (!referrerData.referrerUsers) referrerData.referrerUsers = [];
-
-            // Add the current user's email, name, and phone if not already present
-            const userExists = referrerData.referrerUsers.some((user: any) => user.email === emailLowerCase);
-
-            if (!userExists) {
-              const referrerUsersDetails = {
-                email: emailLowerCase,
-                name: userDetails.name,
-                phone: userDetails.phone,
-                timestamp: new Date().toISOString()
-              };
-
-              referrerData.referrerUsers.push(referrerUsersDetails);
-            }
-
-            // Update the referrer's document with the new referrerUsers array and referralAmount
-            await setDoc(referrerDocRef, referrerData);
-            console.log('Added/Updated current user in referrerUsers and updated referralAmount:', emailLowerCase);
-
-          } else {
-            console.log('Referrer document not found for email:', referrerEmail);
-          }
-        } else {
-          console.log('No referrer found for referral code:', referralCode);
+        if (isNewUser) {
+            await sendEmail(
+                emailLowerCase,
+                import.meta.env.VITE_OLYMPIAD_WELCOME_EMAIL_TEMPLATE,
+                { name, email: emailLowerCase, phone }
+            );
+            await sendWhatsappMessage(userDetails.phone);
         }
-      }
 
-      // Send confirmation email to the new user
-      await sendEmail(
-        emailLowerCase,
-        import.meta.env.VITE_OLYMPIAD_WELCOME_EMAIL_TEMPLATE,
-        { name, email: emailLowerCase, phone }
-      );
-
-      setUserDetails({ name: '', email: '', phone: '' });
-      alert('User data saved successfully');
+        setUserDetails({ name: '', email: '', phone: '' });
+        alert('User data saved successfully');
     } catch (error) {
-      alert('Error storing data in Firestore: ' + error);
-      console.error('Error storing data in Firestore:', error);
+        alert('Error storing data in Firestore: ' + error);
+        console.error('Error storing data in Firestore:', error);
     }
-  };
+};
 
 
   const options: RazorpayOptions = {
@@ -244,7 +177,6 @@ const PaymentGateway = () => {
     image: "https://www.upeducators.com/wp-content/uploads/2022/01/Upeducator-logo-tech-for-educators.png",
     handler: (response) => {
       handleSubmit(response).then(() => {
-        sendWhatsappMessage(userDetails.phone);
         setTimeout(() => navigate('/'), 2000);
       });
     },
@@ -263,36 +195,35 @@ const PaymentGateway = () => {
   const openPayModal = async () => {
     if (isFormValid && urlParams.olympiad) {
       const emailLowerCase = userDetails.email.toLowerCase();
-  
+
       // Fetch existing document data for the user
       const docRef = doc(firestore, 'OlympiadUsers', emailLowerCase);
       const docSnap = await getDoc(docRef);
-  
+
       // If user document exists
       if (docSnap.exists()) {
         const userData = docSnap.data();
         const olympiadFromUser = userData.olympiad || []; // Fetch user's olympiad data
-  
+
         // Check if the first three characters of any registered olympiad match the URL parameter
         const urlOlympiadPrefix = urlParams.olympiad.slice(0, 3); // Safely slice since we checked for null
         const isMatchingOlympiad = olympiadFromUser.some((o: string) => o.slice(0, 3) === urlOlympiadPrefix);
-  
+
         console.log('isMatchingOlympiad', urlOlympiadPrefix);
-        console.log('userData.olympiad', userData.olympiad);
-  
+
         if (isMatchingOlympiad) {
           alert('You are already registered for this Olympiad, Please contact admin.'); // Alert to user
           return; // Exit without opening the payment modal
         }
       }
-  
+
       // If no matching Olympiad, open payment modal
       new (window as unknown as RazorpayWindow).Razorpay(options).open();
     } else {
       alert('Please fill in all required fields and make sure Olympiad ID is available.');
     }
   };
-  
+
 
 
   useEffect(() => {

@@ -110,6 +110,7 @@ const EnterOTP = () => {
                             value={otp}
                             onChange={handleOtpChange}
                             maxLength={10}
+                            autoFocus
                         />
                         {isError && <ErrorBoundary message='Invalid OTP. Please try again.' />}
                         <p className='input-note'>Note: Enter passcode received on your email,  if not check spam.</p>

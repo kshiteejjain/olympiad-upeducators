@@ -1,6 +1,6 @@
 import { Suspense, lazy, useState, useEffect, ComponentType } from 'react';
 import PageNavigation from '../../components/PageNavigation/PageNavigation';
-import { fetchUserOlympiadData } from '../../utils/firebaseUtils'; // Import the utility function
+import { fetchUserOlympiadData } from '../../utils/firebaseUtils';
 
 import './OlympiadContent.css';
 
@@ -8,7 +8,10 @@ import './OlympiadContent.css';
 const olympdPrefix = JSON.parse(localStorage.getItem('olympd_prefix') || '{}');
 
 // Dynamically load components based on olympiadName
-const loadComponent = (componentName: string) => lazy(() => import(`./${olympdPrefix.olympiadName || 'm24'}/${componentName}.tsx`));
+const loadComponent = (componentName: string) => {
+    const olympiadName = olympdPrefix.olympiadName; // Get olympiadName from localStorage
+    return lazy(() => import(`./${olympiadName}/${componentName}.tsx`)); // Load the component dynamically
+};
 
 // Load components
 const AboutOlympiad = loadComponent('AboutOlympiad');
@@ -40,7 +43,8 @@ const DefaultComponent = AboutOlympiad;
 const OlympiadContent = () => {
     const [CurrentComponent, setCurrentComponent] = useState<ComponentType<any>>(DefaultComponent);
     const [olympiads, setOlympiads] = useState<string[]>([]); // State to store Olympiad names
-    const olympiadName = olympdPrefix.olympiad;
+    const [isLoading, setIsLoading] = useState(true); // Loading state
+    const olympiadName = olympdPrefix.olympiad; // Get olympiadName from localStorage
 
     useEffect(() => {
         // Check if the component has been loaded for the first time
@@ -48,11 +52,11 @@ const OlympiadContent = () => {
 
         if (!isFirstLoad) {
             localStorage.setItem('isFirstLoad', 'true');
-            window.location.reload();
+            window.location.reload(); // Reload on first load
         }
 
         const fetchData = async () => {
-            if (!olympiadName) {
+            if (!olympiadName) { // Fetch data only if olympiadName is not set
                 try {
                     const email = olympdPrefix.email;
                     if (email) {
@@ -65,17 +69,17 @@ const OlympiadContent = () => {
                     console.error('Error fetching user data:', err);
                 }
             }
+            setIsLoading(false); // Set loading to false after data fetch
         };
 
         fetchData();
-    }, [olympiadName]); // Dependency array includes olympiadName to re-run effect if it changes
+    }, [olympiadName]); // Dependency array includes olympiadName
 
     useEffect(() => {
-        if (olympiadName) {
-            const path = `/${olympiadName}`; // Dynamic path for the component
-            const newComponent = componentMap[path] || DefaultComponent;
-            setCurrentComponent(newComponent);
-        }
+        // Fetch the olympiad from local storage
+        const path = `/${olympiadName}`; // Set path based on olympiadName
+        const newComponent = componentMap[path] || DefaultComponent; // Load component based on path
+        setCurrentComponent(newComponent); // Set the current component to be displayed
     }, [olympiadName]); // Set CurrentComponent based on olympiadName
 
     const handlePathChange = (path: string) => {
@@ -87,24 +91,26 @@ const OlympiadContent = () => {
     const handleOlympiadClick = (selectedOlympiad: string) => {
         const storedData = localStorage.getItem('olympd_prefix');
         const olympadPrefix = storedData ? JSON.parse(storedData) : { olympiad: [] };
-    
-        // Replace the existing olympiad array with the new selection
-        olympadPrefix.olympiad = [selectedOlympiad];
+        
+        // Replace the existing olympiad name with the new selection
+        olympadPrefix.olympiadName = selectedOlympiad;
         
         // Save the updated object to localStorage
         localStorage.setItem('olympd_prefix', JSON.stringify(olympadPrefix));
-    
+        
         // Reload the window to reflect changes
         window.location.reload();
     };
-    
 
     return (
         <Suspense fallback={<div>Loading...</div>}>
             <PageNavigation navPath={handlePathChange} />
-            {/* Render the Olympiad data if olympiadName is not set */}
-            {!olympiadName &&  olympiads.length > 1 ? (
-                <>
+            {/* Display loading spinner until olympiadName is fetched */}
+            {isLoading ? (
+                <div className="loading">Loading Olympiad Data...</div> // Loader component
+            ) : (
+                // Render the Olympiad data if olympiadName is not set
+                !olympiadName && olympiads.length > 1 ? (
                     <div className="content">
                         <h2>Available Olympiads</h2>
                         <ul className='fetched-olympiads'>
@@ -124,11 +130,10 @@ const OlympiadContent = () => {
                                 <CurrentComponent />
                             )}
                         </ul>
-
                     </div>
-                </>
-            ) : (
-                <CurrentComponent />
+                ) : (
+                    <CurrentComponent /> // Render the current component
+                )
             )}
         </Suspense>
     );
