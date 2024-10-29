@@ -339,9 +339,9 @@ const Examination = () => {
                         {hasLevels && selectedLevel === null ? (
                             <div className="level-selection">
                                 <h3>Select Your Level For Question Paper:</h3>
-                                <Button type="button" title="Level 1" onClick={() => handleLevelSelect('Level1')} />
-                                <Button type="button" title="Level 2" onClick={() => handleLevelSelect('Level2')} />
-                                <Button type="button" title="Level 3" onClick={() => handleLevelSelect('Level3')} />
+                                <Button type="button" title="Grade 1 to 5" onClick={() => handleLevelSelect('Level1')} />
+                                <Button type="button" title="Grade 6 to 1" onClick={() => handleLevelSelect('Level2')} />
+                                <Button type="button" title="Grade 11 and above" onClick={() => handleLevelSelect('Level3')} />
                             </div>
                         ) : (
                             <>

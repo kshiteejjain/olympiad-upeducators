@@ -79,6 +79,7 @@ const Header = () => {
                 const olympiadLabel = 
                 olympiad === 's24' ? 'Science 2024' :
                 olympiad === 'm24' ? 'Maths 2024' :
+                olympiad === 'p24' ? 'Primary 2024' :
                 olympiad === 's24_2' ? 'Science 2024 - 2' :
                 olympiad === 'm24_2' ? 'Maths 2024 - 2' :
                 olympiad;

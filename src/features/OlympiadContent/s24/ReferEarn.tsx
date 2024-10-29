@@ -17,12 +17,14 @@ type Referrer = {
   phone: string;
   name: string;
   email: string;
+  olympiadName?: string; // Add olympiadName as an optional property
 };
+
 
 type User = {
   email: string;
   referral?: string;
-  referrerUsers?: Referrer[] | string[];
+  referrerUsers?: (Referrer | string)[]; // Allow an array of either Referrer or string
 };
 
 const ReferEarn = () => {
@@ -30,19 +32,26 @@ const ReferEarn = () => {
   const [hasReferral, setHasReferral] = useState<boolean>(false);
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const [isModal, setIsModal] = useState<boolean>(false);
+  const [referralUrl, setReferralUrl] = useState<string>(''); // New state for referral URL
 
-  const referralData = `Hey! I am participating in the International Maths Teachers' Olympiad.
-  It's a fantastic opportunity for us teachers to get feedback on our teaching skills and get recognition for it!!
-  I found all the details in this video here: upeducators.com.
-  If you like it too, you can use my referral link for a 10% discount. `;
+  const olympdPrefix = JSON.parse(localStorage.getItem('olympd_prefix') || '{}');
+  const { email, olympiadName } = olympdPrefix;
 
-  const domain = window.location.origin;
+  let olympiadLabelName = olympiadName === 's24' ? 'Science 2024' :
+    olympiadName === 'm24' ? 'Maths 2024' :
+      olympiadName === 'p24' ? 'Primary 2024' :
+        olympiadName === 's24_2' ? 'Science 2024 - 2' :
+          olympiadName === 'm24_2' ? 'Maths 2024 - 2' :
+            olympiadName;
+
+  const referralData = `Hey! I am participating in the International ${olympiadLabelName} Teachers' Olympiad.
+It's a fantastic opportunity for us teachers to get feedback on our teaching skills and get recognition for it!!
+I found all the details in this video here: upeducators.com.
+If you like it too, you can use my referral link for a 10% discount.\n\n`;
 
   const generateReferralCode = (): string => Math.random().toString(36).substring(2, 12);
 
   const fetchUser = useCallback(async () => {
-    const olympdPrefix = JSON.parse(localStorage.getItem('olympd_prefix') || '{}');
-    const { email } = olympdPrefix;
 
     if (!email) {
       console.log('No logged-in email found in localStorage.');
@@ -59,21 +68,28 @@ const ReferEarn = () => {
 
     querySnapshot.forEach((docSnapshot) => {
       const userData = docSnapshot.data() as User;
+
+      // Fetch registered Olympiad
+      if (userData.referrerUsers) {
+        userData.referrerUsers.forEach((referrer) => {
+          if (typeof referrer === 'object' && referrer !== null) {
+            // It's an object, so treat it as a Referrer
+            console.log('Registered Olympiad:', referrer.olympiadName);
+          } else if (typeof referrer === 'string') {
+            // Handle the case where referrer is a string, if needed
+            console.log('Referrer is a string:', referrer);
+          } else {
+            console.log('Unexpected referrer type:', referrer);
+          }
+        });
+      }
+
       if (userData.referral) {
-        setReferral(`${referralData}${userData.referral}`);
+        setReferralUrl(`https://eduolympiad.upeducators.com/#/PaymentGateway?olympiad=${olympiadName}&source=internal&referral=${userData.referral}`); // Set referral URL
+        setReferral(`${referralData}`); // Only set the referral data here
         setHasReferral(true);
       }
     });
-  }, []);
-
-  const fetchReferralUsers = useCallback(async () => {
-    const olympdPrefix = JSON.parse(localStorage.getItem('olympd_prefix') || '{}');
-    const { email } = olympdPrefix;
-
-    if (!email) {
-      console.log('No email found in localStorage.');
-      return;
-    }
   }, []);
 
   const updateReferral = async () => {
@@ -98,9 +114,10 @@ const ReferEarn = () => {
 
     querySnapshot.forEach(async (docSnapshot) => {
       const userDocRef = doc(firestore, 'OlympiadUsers', docSnapshot.id);
-      const referralUrl = generateReferralCode();
-      await updateDoc(userDocRef, { referral: referralUrl });
-      setReferral(`${domain}${referralData}${referralUrl}`);
+      const referralCode = generateReferralCode();
+      await updateDoc(userDocRef, { referral: referralCode });
+      setReferral(`${referralData}`);
+      setReferralUrl(`https://eduolympiad.upeducators.com/#/PaymentGateway?olympiad=m24&source=internal&referral=${referralCode}`); // Update the URL with new code
       setHasReferral(true);
       setIsModal(true);
       setIsLoading(false);
@@ -109,12 +126,11 @@ const ReferEarn = () => {
 
   useEffect(() => {
     fetchUser();
-    fetchReferralUsers();
-  }, [fetchUser, fetchReferralUsers]);
+  }, [fetchUser]);
 
   const handleCopyToClipboard = async () => {
     try {
-      await navigator.clipboard.writeText(referral);
+      await navigator.clipboard.writeText(`${referral}${referralUrl}`); // Use the state variable for the URL
       alert('Referral data copied to clipboard!');
     } catch (err) {
       console.error('Failed to copy: ', err);
@@ -133,7 +149,7 @@ const ReferEarn = () => {
           data={referral}
           onClose={handleCloseModal}
         >
-          <Button title="Copy Referral Data" type="button" isIcon iconPath={CopyClipboard} onClick={handleCopyToClipboard} />
+          <Button title="Invite People" type="button" isIcon iconPath={CopyClipboard} onClick={handleCopyToClipboard} />
         </Modal>
       )}
 
@@ -155,7 +171,7 @@ const ReferEarn = () => {
                 {!hasReferral ? (
                   <Button title='Generate Referral Code' type='button' onClick={updateReferral} />
                 ) : (
-                  <Button title='Invite Others' type='button' isIcon iconPath={WhatsappIcon} onClick={() => setIsModal(true)} />
+                  <Button title='Invite People' type='button' isIcon iconPath={WhatsappIcon} onClick={() => setIsModal(true)} />
                 )}
               </div>
             </div>

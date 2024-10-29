@@ -5,7 +5,16 @@ import { fetchUserRegistrationDate } from '../../../utils/firebaseUtils'; // Adj
 const TARGET_DATE = new Date('2024-09-21T17:00:00');
 const OLYMPIAD_B_DATE = new Date('2024-10-19T17:00:00');
 const COMPARE_DATE = new Date('2024-09-30T00:00:00');
-
+const formatDateTime = (date: any) => {
+    return date.toLocaleString('en-GB', {
+        day: '2-digit',
+        month: '2-digit',
+        year: 'numeric',
+        hour: '2-digit',
+        minute: '2-digit',
+        hour12: true // Use 12-hour format
+    });
+};
 const AboutOlympiad = () => {
     const [displayDate, setDisplayDate] = useState<Date | null>(null);
 
@@ -41,7 +50,7 @@ const AboutOlympiad = () => {
                     <p><strong>This Olympiad is divided into 2 phases:</strong></p>
                     <p><strong>Phase 1: The Instructional Proficiency Test</strong></p>
                     <ul className='list'>
-                        <li>Date: {displayDate.toLocaleString()}</li>
+                    <li>Date: {formatDateTime(displayDate)}</li>
                         <li>Format: Multiple Choice Questions</li>
                         <li>No. of Questions: 30</li>
                         <li>Exam Duration: 40 Minutes</li>

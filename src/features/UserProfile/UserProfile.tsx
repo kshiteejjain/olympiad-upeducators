@@ -140,7 +140,23 @@ const UserProfile = () => {
                                         </tr>
                                         <tr>
                                             <td>Registered Olympiad</td>
-                                            <td>{data?.olympiad.join(',')}</td>
+                                            <td>
+                                                {data?.olympiad
+                                                    ?.map((olymp: any) => {
+                                                        const olympiadMap = {
+                                                            s24: 'Science 2024',
+                                                            m24: 'Maths 2024',
+                                                            p24: 'Primary 2024',
+                                                            s24_2: 'Science 2024 - 2',
+                                                            m24_2: 'Maths 2024 - 2'
+                                                        } as const;
+
+                                                        return olympiadMap[olymp as keyof typeof olympiadMap] || null; // Ensure olympp is a key
+                                                    })
+                                                    .filter(Boolean) // Remove any null values
+                                                    .join(', ')}
+                                            </td>
+
                                         </tr>
                                     </tbody>
                                 </table>

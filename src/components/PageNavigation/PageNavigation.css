@@ -6,7 +6,7 @@
     min-width: 20%;
     align-items: flex-start;
     box-sizing: border-box;
-    margin: 40px 2% 40px 0;
+    margin: 30px 2% 30px 0;
     padding: 0;
     border-radius: 10px;
 }
@@ -45,14 +45,6 @@
     padding: 20px 20px 10px 20px;
     color: var(--error);
     font-weight: bold;
-}
-
-.scheduledMessage{
-    font-size: calc(var(--baseFontSize) - 3px);
-    padding:5px 20px;
-    font-weight: bold;
-    color: var(--primary);
-    margin-bottom: 15px;
 }
 .navigation button:disabled {
     opacity: 0.6;

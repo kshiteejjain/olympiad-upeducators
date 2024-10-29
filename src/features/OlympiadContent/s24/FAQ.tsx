@@ -29,7 +29,7 @@ const FAQ: FC = () => {
             title: 'About the Olympiad',
             questions: [
                 {
-                    summary: 'Who is organizing this International Maths Teachers’ Olympiad?',
+                    summary: 'Who is organizing this International Maths Science Olympiad?',
                     answer: (
                         <>
                             upEducators, a distinguished Google For Education Partner Company, is proudly organizing this Maths Teachers’ Olympiad. We are dedicated to empowering educators with innovative teaching methodologies and achieving excellence. For more insights into our mission and initiatives, please <a href="https://www.upeducators.com/about" target="_blank" rel="noopener noreferrer">click here</a>.

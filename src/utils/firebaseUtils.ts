@@ -17,13 +17,22 @@ export const fetchUserOlympiadData = async (email: string): Promise<UserData[]> 
       collection(firestore, 'OlympiadUsers'),
       where('email', '==', email)
     );
+
     const querySnapshot = await getDocs(userQuery);
-    return querySnapshot.empty ? [] : querySnapshot.docs.map(doc => doc.data() as UserData);
+
+    if (querySnapshot.empty) {
+      console.log('No matching documents found');
+      return [];
+    } else {
+      const userDataArray = querySnapshot.docs.map(doc => doc.data() as UserData);
+      return userDataArray;
+    }
   } catch (err) {
     console.error('Error fetching user Olympiad data:', err);
     throw new Error('Error fetching user Olympiad data');
   }
 };
+
 
 export const fetchUserRegistrationDate = async (userEmail: string) => {
   const userQuery = query(collection(firestore, 'OlympiadUsers'), where('email', '==', userEmail));
