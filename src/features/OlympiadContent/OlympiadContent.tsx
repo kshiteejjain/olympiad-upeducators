@@ -7,18 +7,31 @@ import './OlympiadContent.css';
 // Retrieve olympiad prefix from localStorage
 const olympdPrefix = JSON.parse(localStorage.getItem('olympd_prefix') || '{}');
 
-// Dynamically load components based on component name
+// Dynamically load components based on olympiadName
 const loadComponent = (componentName: string) => {
-    const componentsWithoutPrefix = ['ExamData']; // ExamData is a special case
-    const path = componentsWithoutPrefix.includes(componentName) 
-        ? `../../features/OlympiadContent/${componentName}.tsx` // Adjusted path for ExamData
-        : `./${olympdPrefix.olympiadName}/${componentName}.tsx`;
-    return lazy(() => import(path));
+    if (componentName === 'ExamData') {
+        return lazy(() => import(`./ExamData.tsx`));
+    }
+    if (componentName === 'CoursesForEducators') {
+        return lazy(() => import(`./CoursesForEducators.tsx`));
+    }
+    if (componentName === 'AboutUpEducators') {
+        return lazy(() => import(`./AboutUpEducators.tsx`));
+    }
+    if (componentName === 'CheckExamSystem') {
+        return lazy(() => import(`./CheckExamSystem.tsx`));
+    }
+    if (componentName === 'ReferEarn') {
+        return lazy(() => import(`./ReferEarn.tsx`));
+    }
+
+    const olympiadName = olympdPrefix.olympiadName; // Get olympiadName from localStorage
+    return lazy(() => import(`./${olympiadName}/${componentName}.tsx`)); // Load other components dynamically
 };
 
 // Load components
-const ExamData = loadComponent('ExamData');
 const AboutOlympiad = loadComponent('AboutOlympiad');
+const ExamData = loadComponent('ExamData');
 const ReferEarn = loadComponent('ReferEarn');
 const Awards = loadComponent('Awards');
 const FAQ = loadComponent('FAQ');
@@ -30,8 +43,8 @@ const CheckExamSystem = loadComponent('CheckExamSystem');
 
 // Map paths to components
 const componentMap: Record<string, ComponentType<any>> = {
-    '/ExamData': ExamData, // Path for ExamData
     '/AboutOlympiad': AboutOlympiad,
+    '/ExamData': ExamData,
     '/ReferEarn': ReferEarn,
     '/Awards': Awards,
     '/FAQ': FAQ,
@@ -47,8 +60,8 @@ const DefaultComponent = AboutOlympiad;
 
 const OlympiadContent = () => {
     const [CurrentComponent, setCurrentComponent] = useState<ComponentType<any>>(DefaultComponent);
-    const [olympiads, setOlympiads] = useState<string[]>([]);
-    const olympiadName = olympdPrefix.olympiad;
+    const [olympiads, setOlympiads] = useState<string[]>([]); // State to store Olympiad names
+    const olympiadName = olympdPrefix.olympiad; // Get olympiadName from localStorage
 
     useEffect(() => {
         const isFirstLoad = localStorage.getItem('isFirstLoad');
@@ -63,22 +76,21 @@ const OlympiadContent = () => {
                 const data = await fetchUserOlympiadData(email);
                 const userOlympiads = data.flatMap(user => user.olympiad || []);
                 setOlympiads(Array.from(new Set(userOlympiads)));
-                console.log('olympiads', olympiads);
             }
         };
 
         fetchData();
-    }, [olympiadName]);
+    }, [olympiadName]); // Dependency array includes olympiadName
 
     useEffect(() => {
-        if (olympiadName) {
-            const path = `/${olympiadName}`;
-            const newComponent = componentMap[path] || DefaultComponent;
-            setCurrentComponent(newComponent);
-        }
-    }, [olympiadName]);
+        // Fetch the olympiad from local storage
+        const path = `/${olympiadName}`; // Set path based on olympiadName
+        const newComponent = componentMap[path] || DefaultComponent; // Load component based on path
+        setCurrentComponent(newComponent); // Set the current component to be displayed
+    }, [olympiadName]); // Set CurrentComponent based on olympiadName
 
     const handlePathChange = (path: string) => {
+        // Update the current component based on the path
         const newComponent = componentMap[path] || DefaultComponent;
         setCurrentComponent(newComponent);
     };
@@ -86,9 +98,19 @@ const OlympiadContent = () => {
     const handleOlympiadClick = (selectedOlympiad: string) => {
         const storedData = localStorage.getItem('olympd_prefix');
         const olympadPrefix = storedData ? JSON.parse(storedData) : { olympiad: [] };
+        
+        // Replace the existing olympiad name with the new selection
         olympadPrefix.olympiadName = selectedOlympiad;
+        
+        // Save the updated object to localStorage
         localStorage.setItem('olympd_prefix', JSON.stringify(olympadPrefix));
+        
+        // Reload the window to reflect changes
         window.location.reload();
+    };
+
+    const handleCheckDemoExam = () => {
+        handlePathChange('/CheckExamSystem');
     };
 
     return (
@@ -99,21 +121,15 @@ const OlympiadContent = () => {
                     <div className="fetched-olympiads-parent">
                         <h3>Your Registered Olympiad's</h3>
                         <ul className='fetched-olympiads'>
-                            {olympiads.map((olympiad, index) => {
-                                const olympiadLabel = olympiad === 's24' ? 'Science 2024'
-                                    : olympiad === 'm24' ? 'Maths 2024'
-                                    : olympiad;
-
-                                return (
-                                    <li key={index} onClick={() => handleOlympiadClick(olympiad)}>
-                                        {olympiadLabel}
-                                    </li>
-                                );
-                            })}
+                            {olympiads.map((olympiad, index) => (
+                                <li key={index} onClick={() => handleOlympiadClick(olympiad)}>
+                                    {olympiad === 's24' ? 'Science 2024' : olympiad === 'm24' ? 'Maths 2024' : olympiad}
+                                </li>
+                            ))}
                         </ul>
                     </div>
                 )}
-                <CurrentComponent />
+                <CurrentComponent loadComponent={loadComponent} onCheckDemoExam={handleCheckDemoExam} />
             </div>
         </Suspense>
     );

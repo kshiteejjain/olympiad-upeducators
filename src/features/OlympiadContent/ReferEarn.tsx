@@ -1,16 +1,16 @@
 import { useState, useEffect, useCallback } from 'react';
-import { firestore } from '../../../utils/firebase';
+import { firestore } from '../../utils/firebase';
 import { collection, doc, getDocs, query, updateDoc, where } from 'firebase/firestore';
-import Loader from '../../../components/Loader/Loader';
-import Button from '../../../components/Buttons/Button';
-import Card from '../../../components/Card/Card';
-import ReferralHistory from '../ReferralHistory';
-import WhatsappIcon from '../../../assets/whatsapp.svg';
-import CopyClipboard from '../../../assets/share.svg';
-import invite from '../../../assets/invite.svg';
-import withdraw from '../../../assets/withdraw.svg';
-import Modal from '../../../components/Modal/Modal';
-import ReferralEarnings from '../ReferralEarnings';
+import Loader from '../../components/Loader/Loader';
+import Button from '../../components/Buttons/Button';
+import Card from '../../components/Card/Card';
+import ReferralHistory from './ReferralHistory';
+import WhatsappIcon from '../../assets/whatsapp.svg';
+import CopyClipboard from '../../assets/share.svg';
+import invite from '../../assets/invite.svg';
+import withdraw from '../../assets/withdraw.svg';
+import Modal from '../../components/Modal/Modal';
+import ReferralEarnings from './ReferralEarnings';
 
 type Referrer = {
   timestamp: string;

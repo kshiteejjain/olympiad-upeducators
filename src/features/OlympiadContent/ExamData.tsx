@@ -2,16 +2,14 @@ import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { firestore } from '../../utils/firebase';
 import { getDocs, collection, query, where } from 'firebase/firestore';
-
 import Button from "../../components/Buttons/Button";
 
-const ExamData = () => {
+const ExamData = ({ onCheckDemoExam }: any) => {
     const [showStartExamButton, setShowStartExamButton] = useState<boolean>(false);
     const navigate = useNavigate();
 
     const [examMessage, setExamMessage] = useState<string | null>(null);
     const [emailFound, setEmailFound] = useState<boolean>(false);
-    const [userDate, setUserDate] = useState<Date | null>(null);
 
     const targetDate = new Date('2024-10-02T08:57:00'); // 5 PM on September 21, 2024
     const olympiadBDate = new Date('2024-10-19T17:00:00'); // 5 PM on Oct 19, 2024
@@ -48,10 +46,6 @@ const ExamData = () => {
                 }
 
                 const comparisonDate = new Date(compareDate); // Sept 30, 2024
-
-                // Store user registration date for future use
-                setUserDate(retrievedUserDate);
-                console.log(userDate)
                 if (retrievedUserDate < comparisonDate) {
                     setExamMessage(`Exam Date: ${formatDateTime(targetDate)}`); // If user register is before 30th sept
                 } else {
@@ -80,23 +74,26 @@ const ExamData = () => {
 
         checkUserEmail();
     }, []);
-    
+
     const handleStartExamClick = () => {
         navigate('/ExaminationRules');
         setShowStartExamButton(false);
     };
     const renderExamButton = () => (
         emailFound ? (
-            <span className="startedNote">You have already completed the exam.</span>
+            <p className="startedNote">You have already completed the exam.</p>
         ) : (
             <>
-                <Button onClick={handleStartExamClick} isDisabled={!showStartExamButton} title="Start Exam" type="button" />
+                {examMessage && <p>{examMessage}</p>} {/* Conditionally show the exam message */}
+                <div className="cta">
+                    <Button onClick={handleStartExamClick} isDisabled={showStartExamButton} title="Start Exam" type="button" />
+                </div>
             </>
         )
     );
     return (
-        <div className='how-it-works'>
-            <h3>How It Works?</h3>
+        <div className='how-it-works content'>
+            <h3>Start Exam</h3>
 
             <div className='works-card'>
                 <div className='works-card-title'>
@@ -104,7 +101,7 @@ const ExamData = () => {
                         <h1>Check Your System Guidelines</h1>
                         <p>Lorem Ipsum has been the industry's standard dummy text ever since the 1500.</p>
                         <div className='cta'>
-                            <Button title='Check Demo Exam' type='button' />
+                            <Button title='Check Demo Exam' type='button' onClick={onCheckDemoExam} />
                         </div>
                     </div>
                 </div>
@@ -113,10 +110,7 @@ const ExamData = () => {
                 <div className='works-card-title'>
                     <div className='works-card-description'>
                         <h1> Start Exam</h1>
-                        <p>{examMessage && examMessage}</p>
-                        <div className='cta'>
-                            {renderExamButton()}
-                        </div>
+                        {renderExamButton()}
                     </div>
                 </div>
             </div>

@@ -1,5 +1,4 @@
 import { useState } from "react";
-
 import './PageNavigation.css';
 
 const PageNavigation = ({ navPath }: any) => {
@@ -10,28 +9,28 @@ const PageNavigation = ({ navPath }: any) => {
         navPath(path);
     };
 
+    const paths = ['/AboutOlympiad', '/ReferEarn', '/Awards', '/FAQ', '/LiveMasterClass', '/Report', '/AboutUpEducators', '/CoursesForEducators'];
+
     return (
         <div className='navigation'>
-            <button
-                className={activeButton === '/ExamData' ? 'active' : ''}
-                onClick={() => handleClick('/ExamData')}
-            >
-                Test
-            </button>
-            <button
-                className={activeButton === '/CheckExamSystem' ? 'active' : ''}
-                onClick={() => handleClick('/CheckExamSystem')}
-            >
-                Check Demo Exam
-            </button>
-            {['/AboutOlympiad', '/ReferEarn', '/Awards', '/FAQ', '/LiveMasterClass', '/Report', '/AboutUpEducators', '/CoursesForEducators'].map(path => (
-                <button
-                    key={path}
-                    className={activeButton === path ? 'active' : ''}
-                    onClick={() => handleClick(path)}
-                >
-                    {path.slice(1).replace(/([A-Z])/g, ' $1').trim()}
-                </button>
+            {paths.map((path) => (
+                <>
+                    <button
+                        className={activeButton === path ? 'active' : ''}
+                        onClick={() => handleClick(path)}
+                    >
+                        {path.slice(1).replace(/([A-Z])/g, ' $1').trim()}
+                    </button>
+                    {/* Add Start Exam button after AboutOlympiad */}
+                    {path === '/AboutOlympiad' && (
+                        <button
+                            className={activeButton === '/ExamData' ? 'active' : ''}
+                            onClick={() => handleClick('/ExamData')}
+                        >
+                            Start Exam
+                        </button>
+                    )}
+                </>
             ))}
         </div>
     );

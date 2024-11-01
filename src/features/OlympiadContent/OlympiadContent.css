@@ -1,4 +1,10 @@
 /* Shared Olympiad Pages */
+.olympiad-landing{
+  width: 100%;
+}
+.how-it-works{
+  display: flex !important;
+}
 .close {
   max-width: 23px;
   position: absolute;
@@ -202,7 +208,7 @@ summary::-webkit-details-marker {
 
 .how-it-works h3 {
   width: 100%;
-  margin-bottom: 15px;
+  margin: 0 0 15px 0;
 }
 
 .how-it-works h4 {

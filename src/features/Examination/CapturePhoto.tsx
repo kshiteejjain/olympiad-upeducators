@@ -92,7 +92,7 @@ const CapturePhoto = () => {
         const examWindow = window.open(
             '/#/Examination',
             '_blank',
-            'width=screen.width,height=screen.height,fullscreen=yes'
+            'width=' + window.screen.width + ',height=' + window.screen.height,
         );
 
         if (examWindow) {

@@ -1,15 +1,21 @@
-const SessionsData = [{
-    name: 'Assess your Overall Performance',
-    image: '/src/assets/report-img1.png'
-},
-{
-    name: 'Discover your strengths and gaps',
-    image: '/src/assets/report-img2.png'
-},
-{
-    name: 'Track progress with detailed insights',
-    image: '/src/assets/report-img3.png'
-}];
+import reportImg1 from '/src/assets/report-img1.png';
+import reportImg2 from '/src/assets/report-img2.png';
+import reportImg3 from '/src/assets/report-img3.png';
+
+const SessionsData = [
+    {
+        name: 'Assess your Overall Performance',
+        image: reportImg1 // Use imported image
+    },
+    {
+        name: 'Discover your strengths and gaps',
+        image: reportImg2 // Use imported image
+    },
+    {
+        name: 'Track progress with detailed insights',
+        image: reportImg3 // Use imported image
+    }
+];
 
 const CoursesCard = () => {
     return (
@@ -21,8 +27,8 @@ const CoursesCard = () => {
                 </div>
             </div>
         ))
-    )
-}
+    );
+};
 
 const Report = () => {
     return (
@@ -35,7 +41,7 @@ const Report = () => {
             <p><strong>What the Excellence Report Entails:</strong></p>
             <p>Your personalized Excellence Report will offer a comprehensive evaluation across diverse, crucial parameters. It’s designed to highlight your strengths and identify potential areas for growth, empowering you to achieve excellence in Math Education.</p>
             <p><strong>Key Evaluation Parameters:</strong></p>
-            <p>Pedagogical Knowledge:  Deep understanding of mathematics-specific teaching theories, methodologies and practices that facilitate effective teaching and enhance student learning outcomes.</p>
+            <p>Pedagogical Knowledge: Deep understanding of mathematics-specific teaching theories, methodologies and practices that facilitate effective teaching and enhance student learning outcomes.</p>
 
             <p><strong>Innovative Teaching Strategies:</strong> Ability to implement creative and effective methods that enhance mathematical understanding and problem-solving skills in students of varying abilities.</p>
 
@@ -55,7 +61,7 @@ const Report = () => {
 
             <p><strong>Student Engagement and Differentiated Instruction:</strong> Skill in tailoring mathematical instruction to individual student needs, interests, and learning styles, while maintaining high levels of engagement across the classroom.</p>
         </div>
-    )
+    );
 };
 
 export default Report;

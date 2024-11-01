@@ -153,7 +153,7 @@ const PaymentGateway = () => {
     name: "upEducators",
     description: "upEducators Olympiad",
     image: "https://www.upeducators.com/wp-content/uploads/2022/01/Upeducator-logo-tech-for-educators.png",
-    handler: async (response) => {
+    handler: async () => {
       setLoading(true); // Start loader
       await handleSubmit();
       setLoading(false); // Stop loader

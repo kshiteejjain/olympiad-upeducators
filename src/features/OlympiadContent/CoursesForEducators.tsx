@@ -1,4 +1,6 @@
-import Button from "../../../components/Buttons/Button";
+import Button from "../../components/Buttons/Button";
+import impactImg1 from '/src/assets/Nursery-Teachers-Training-Course.png';
+import impactImg2 from '/src/assets/ECCEd-course.png';
 
 const sessionsData = [
     {
@@ -35,19 +37,19 @@ const sessionsData = [
         name: 'Nursery Teachers Training Course',
         duration: 'With Dual Certification from Skill India and Google',
         link: 'https://www.upeducators.com/nursery-teachers-training/',
-        image: '/src/assets/Nursery-Teachers-Training-Course.png'
+        image: impactImg1
     },
     {
         name: 'ECCEd Course',
         duration: 'Learn skills to excel in early childhood education',
         link: 'https://www.upeducators.com/ecced-course/',
-        image: '/src/assets/ECCEd-course.png'
+        image: impactImg2
     },
     {
         name: 'Google Certified Trainer Course',
         duration: 'Make classrooms more efficient and foster leadership skills',
         link: 'https://www.upeducators.com/google-certified-trainer/',
-        image: '/src/assets/google-certified-trainer.png'
+        image: impactImg2
     }
 ];
 

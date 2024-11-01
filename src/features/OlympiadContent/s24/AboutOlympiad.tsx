@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import Banner from '../../../assets/banner.jpg';
 import { fetchUserRegistrationDate } from '../../../utils/firebaseUtils'; // Adjust the path as necessary
+import Loader from '../../../components/Loader/Loader';
 
 const TARGET_DATE = new Date('2024-09-21T17:00:00');
 const OLYMPIAD_B_DATE = new Date('2024-10-19T17:00:00');
@@ -25,7 +26,7 @@ const AboutOlympiad = () => {
     }, []);
 
     if (!displayDate) {
-        return <div>Loading...</div>; // Loading state while fetching the date
+        return <Loader />; // Loading state while fetching the date
     }
 
     return (

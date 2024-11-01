@@ -1,6 +1,6 @@
 import { useNavigate } from "react-router-dom";
-import CheckInternet from "../../../utils/CheckInternet";
-import Button from "../../../components/Buttons/Button";
+import CheckInternet from "../../utils/CheckInternet";
+import Button from "../../components/Buttons/Button";
 
 const CheckExamSystem = () => {
     const navigate = useNavigate();
