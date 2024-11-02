@@ -20,11 +20,21 @@ type Referrer = {
   olympiadName?: string; // Add olympiadName as an optional property
 };
 
-
 type User = {
   email: string;
   referral?: string;
   referrerUsers?: (Referrer | string)[]; // Allow an array of either Referrer or string
+};
+
+const getBaseUrl = (olympiadName: string): string => {
+  switch (olympiadName) {
+    case 'p24':
+      return "https://www.upeducators.com/international-primary-teachers-olympiad/";
+    case 'm24':
+      return "https://www.upeducators.com/international-math-teachers-olympiad/";
+    default:
+      return "https://eduolympiad.upeducators.com/#/PaymentGateway";
+  }
 };
 
 const ReferEarn = () => {
@@ -42,6 +52,7 @@ const ReferEarn = () => {
       olympiadName === 'p24' ? 'Primary 2024' :
         olympiadName === 's24_2' ? 'Science 2024 - 2' :
           olympiadName === 'm24_2' ? 'Maths 2024 - 2' :
+          olympiadName === 'p24_2' ? 'Primary 2024 - 2' :
             olympiadName;
 
   const referralData = `Hey! I am participating in the International ${olympiadLabelName} Teachers' Olympiad.
@@ -52,7 +63,6 @@ If you like it too, you can use my referral link for a 10% discount.\n\n`;
   const generateReferralCode = (): string => Math.random().toString(36).substring(2, 12);
 
   const fetchUser = useCallback(async () => {
-
     if (!email) {
       console.log('No logged-in email found in localStorage.');
       return;
@@ -69,14 +79,11 @@ If you like it too, you can use my referral link for a 10% discount.\n\n`;
     querySnapshot.forEach((docSnapshot) => {
       const userData = docSnapshot.data() as User;
 
-      // Fetch registered Olympiad
       if (userData.referrerUsers) {
         userData.referrerUsers.forEach((referrer) => {
           if (typeof referrer === 'object' && referrer !== null) {
-            // It's an object, so treat it as a Referrer
             console.log('Registered Olympiad:', referrer.olympiadName);
           } else if (typeof referrer === 'string') {
-            // Handle the case where referrer is a string, if needed
             console.log('Referrer is a string:', referrer);
           } else {
             console.log('Unexpected referrer type:', referrer);
@@ -85,12 +92,14 @@ If you like it too, you can use my referral link for a 10% discount.\n\n`;
       }
 
       if (userData.referral) {
-        setReferralUrl(`https://eduolympiad.upeducators.com/#/PaymentGateway?olympiad=${olympiadName}&source=internal&referral=${userData.referral}`); // Set referral URL
+        const baseUrl = getBaseUrl(olympiadName);
+        const referralParams = `?olympiad=${olympiadName}&source=internal&referral=${userData.referral}`;
+        setReferralUrl(`${baseUrl}${referralParams}`); // Construct the full URL with parameters
         setReferral(`${referralData}`); // Only set the referral data here
         setHasReferral(true);
       }
     });
-  }, []);
+  }, [email, olympiadName]);
 
   const updateReferral = async () => {
     setIsLoading(true);
@@ -116,8 +125,10 @@ If you like it too, you can use my referral link for a 10% discount.\n\n`;
       const userDocRef = doc(firestore, 'OlympiadUsers', docSnapshot.id);
       const referralCode = generateReferralCode();
       await updateDoc(userDocRef, { referral: referralCode });
+      const baseUrl = getBaseUrl(olympiadName);
+      const referralParams = `?olympiad=${olympiadName}&source=internal&referral=${referralCode}`;
       setReferral(`${referralData}`);
-      setReferralUrl(`https://eduolympiad.upeducators.com/#/PaymentGateway?olympiad=m24&source=internal&referral=${referralCode}`); // Update the URL with new code
+      setReferralUrl(`${baseUrl}${referralParams}`); // Update the URL with new code
       setHasReferral(true);
       setIsModal(true);
       setIsLoading(false);

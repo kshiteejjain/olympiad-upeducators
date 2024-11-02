@@ -321,6 +321,11 @@ summary::-webkit-details-marker {
     display: inline-block;
     color: var(--white);
 }
+.fetched-olympiads li.active {
+  background-color: var(--white);
+  color: var(--primary);
+  font-weight: bold;
+}
 
 .fetched-olympiads li:hover {
   background-color: var(--white);

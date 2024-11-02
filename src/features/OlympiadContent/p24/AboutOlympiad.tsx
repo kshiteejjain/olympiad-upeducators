@@ -31,7 +31,7 @@ const AboutOlympiad = () => {
 
     return (
         <div className='content'>
-            <h2>About the Olympiad Science 2024</h2>
+            <h2>About the Olympiad</h2>
             <div className='olympiad-banner'>
                 <img src={Banner} alt="Olympiad Banner" />
             </div>
@@ -51,7 +51,7 @@ const AboutOlympiad = () => {
                         <li>Participation: Open to all Educators</li>
                         <li>Date of Result: 25 October, 2024</li>
                         <li>Outcome:
-                            <span>The Top 200 scorers will advance to the Maths Educator Excellence Award</span>
+                            <span>The Top 200 scorers will advance to the Primary Educator Excellence Award</span>
                         </li>
                         <li>Rewards for All the Participants:
                             <span>Certificate of Participation (who attempt the exam)</span>
@@ -59,7 +59,7 @@ const AboutOlympiad = () => {
                             <span>8 Expert-Led Live Training Sessions</span>
                         </li>
                     </ul>
-                    <p><strong>Phase 2: Maths Educator Excellence Award</strong></p>
+                    <p><strong>Phase 2: Primary Educator Excellence Award</strong></p>
                     <ul className='list'>
                         <li><strong>Task:</strong> Submission of a Lesson Plan using Innovative Teaching Practices in Math Education, and a video of 3-5 minutes explaining the lesson.</li>
                         <li><strong>Participation:</strong> Top 200 scorers will be eligible for participation</li>

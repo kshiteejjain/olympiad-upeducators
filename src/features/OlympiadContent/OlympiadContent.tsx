@@ -98,13 +98,13 @@ const OlympiadContent = () => {
     const handleOlympiadClick = (selectedOlympiad: string) => {
         const storedData = localStorage.getItem('olympd_prefix');
         const olympadPrefix = storedData ? JSON.parse(storedData) : { olympiad: [] };
-        
+
         // Replace the existing olympiad name with the new selection
         olympadPrefix.olympiadName = selectedOlympiad;
-        
+
         // Save the updated object to localStorage
         localStorage.setItem('olympd_prefix', JSON.stringify(olympadPrefix));
-        
+
         // Reload the window to reflect changes
         window.location.reload();
     };
@@ -121,11 +121,18 @@ const OlympiadContent = () => {
                     <div className="fetched-olympiads-parent">
                         <h3>Your Registered Olympiad's</h3>
                         <ul className='fetched-olympiads'>
-                            {olympiads.map((olympiad, index) => (
-                                <li key={index} onClick={() => handleOlympiadClick(olympiad)}>
-                                    {olympiad === 's24' ? 'Science 2024' : olympiad === 'm24' ? 'Maths 2024' : olympiad}
-                                </li>
-                            ))}
+                            {olympiads.map((olympiad, index) => {
+                                const isActive = olympiad === olympdPrefix.olympiadName; // Check if the olympiad is active
+                                return (
+                                    <li
+                                        key={index}
+                                        onClick={() => handleOlympiadClick(olympiad)}
+                                        className={isActive ? 'active' : ''} // Apply active class if the olympiad is active
+                                    >
+                                        {olympiad === 'p24' ? 'Primary 2024' : olympiad === 'm24' ? 'Maths 2024' : olympiad}
+                                    </li>
+                                );
+                            })}
                         </ul>
                     </div>
                 )}

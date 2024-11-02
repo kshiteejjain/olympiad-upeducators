@@ -37,7 +37,7 @@ const Report = () => {
             <div className='flex-card'>
                 <CoursesCard />
             </div>
-            <p>At upEducators, we recognize the pivotal role of Math teachers in shaping young minds. Following the <strong>International Maths Teachers’ Olympiad</strong>, we are committed to providing each participant with a detailed Olympiad Excellence Report. This report is not just a reflection of your performance in the Olympiad; it's a roadmap for your ongoing professional journey in Math Education.</p>
+            <p>At upEducators, we recognize the pivotal role of Math teachers in shaping young minds. Following the <strong>International Primary Teachers’ Olympiad</strong>, we are committed to providing each participant with a detailed Olympiad Excellence Report. This report is not just a reflection of your performance in the Olympiad; it's a roadmap for your ongoing professional journey in Math Education.</p>
             <p><strong>What the Excellence Report Entails:</strong></p>
             <p>Your personalized Excellence Report will offer a comprehensive evaluation across diverse, crucial parameters. It’s designed to highlight your strengths and identify potential areas for growth, empowering you to achieve excellence in Math Education.</p>
             <p><strong>Key Evaluation Parameters:</strong></p>

@@ -29,10 +29,10 @@ const FAQ: FC = () => {
             title: 'About the Olympiad',
             questions: [
                 {
-                    summary: 'Who is organizing this International Maths Science Olympiad?',
+                    summary: 'Who is organizing this International Primary Olympiad?',
                     answer: (
                         <>
-                            upEducators, a distinguished Google For Education Partner Company, is proudly organizing this Maths Teachers’ Olympiad. We are dedicated to empowering educators with innovative teaching methodologies and achieving excellence. For more insights into our mission and initiatives, please <a href="https://www.upeducators.com/about" target="_blank" rel="noopener noreferrer">click here</a>.
+                            upEducators, a distinguished Google For Education Partner Company, is proudly organizing this Primary Teachers’ Olympiad. We are dedicated to empowering educators with innovative teaching methodologies and achieving excellence. For more insights into our mission and initiatives, please <a href="https://www.upeducators.com/about" target="_blank" rel="noopener noreferrer">click here</a>.
                         </>
                     ),
                 },
@@ -93,7 +93,7 @@ const FAQ: FC = () => {
                     answer: (
                         <ul className='list'>
                             <li>All the Participants will attempt the Olympiad exam (Phase 1).</li>
-                            <li>Top 200 participants will then get selected for Maths Educator Excellence Award. The selected educators need to submit a Lesson Plan using Innovative Teaching Practices in Mathematics Education and a video of 3-5 minutes explaining the lesson.</li>
+                            <li>Top 200 participants will then get selected for Primary Educator Excellence Award. The selected educators need to submit a Lesson Plan using Innovative Teaching Practices in Mathematics Education and a video of 3-5 minutes explaining the lesson.</li>
                             <li>The submitted Lesson plan will be evaluated by a Team of National Awardee Teachers and Top Mathematics Educators in India.</li>
                             <li>After the evaluation, One winner will be selected from each grade level (Eg. Grade 1 to 5, Grade 6 to 10, Grade 11 and above).</li>
                             <li>Each winner will receive a cash prize of Rs. 50,000.</li>

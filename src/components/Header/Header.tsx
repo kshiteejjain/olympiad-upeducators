@@ -82,6 +82,7 @@ const Header = () => {
                 olympiad === 'p24' ? 'Primary 2024' :
                 olympiad === 's24_2' ? 'Science 2024 - 2' :
                 olympiad === 'm24_2' ? 'Maths 2024 - 2' :
+                olympiad === 'p24_2' ? 'Primary 2024 - 2' :
                 olympiad;
 
                 return (
