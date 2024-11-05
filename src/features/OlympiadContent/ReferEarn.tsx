@@ -150,10 +150,6 @@ If you like it too, you can use my referral link for a 10% discount.\n\n`;
 
   const handleCloseModal = () => setIsModal(false);
 
-  const referralUrlSPlit = referralUrl.split('?')
-  const finalURL = referralUrlSPlit[1].split('referral')
-  const displayURL = `${referralUrlSPlit[0]}?referral${finalURL[1]}`;
-
   return (
     <div className='content'>
       {isLoading && <Loader title='Loading...' />}
@@ -161,7 +157,7 @@ If you like it too, you can use my referral link for a 10% discount.\n\n`;
         <Modal
           modalTitle="Referral"
           title="Copy to clipboard"
-          data={`${referral} <br /> ${displayURL}`}
+          data={`${referral} <br /> ${referralUrl}`}
           onClose={handleCloseModal}
         >
           <Button title="Copy Referral Message" type="button" isIcon iconPath={CopyClipboard} onClick={handleCopyToClipboard} />
