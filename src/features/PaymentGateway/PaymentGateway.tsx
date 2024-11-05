@@ -48,7 +48,7 @@ const PaymentGateway = () => {
   const [userDetails, setUserDetails] = useState({ name: '', email: '', phone: '' });
   const [isFormValid, setIsFormValid] = useState(false);
   const [urlParams, setUrlParams] = useState<UrlParams>({ referralCode: null, source: null, olympiad: null });
-  const totalPrice = 2;
+  const totalPrice = 369;
   const [discountedPrice, setDiscountedPrice] = useState(totalPrice);
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
@@ -64,7 +64,7 @@ const PaymentGateway = () => {
 
     if (referralCode) {
       const discount = totalPrice * 0.10;
-      setDiscountedPrice(totalPrice - discount);
+      setDiscountedPrice(Math.ceil(totalPrice - discount));
     }
   }, [totalPrice]);
 

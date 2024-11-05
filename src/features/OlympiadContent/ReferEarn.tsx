@@ -52,12 +52,12 @@ const ReferEarn = () => {
       olympiadName === 'p24' ? 'Primary 2024' :
         olympiadName === 's24_2' ? 'Science 2024 - 2' :
           olympiadName === 'm24_2' ? 'Maths 2024 - 2' :
-          olympiadName === 'p24_2' ? 'Primary 2024 - 2' :
-            olympiadName;
+            olympiadName === 'p24_2' ? 'Primary 2024 - 2' :
+              olympiadName;
 
-  const referralData = `Hey! I am participating in the International ${olympiadLabelName} Teachers' Olympiad.
-It's a fantastic opportunity for us teachers to get feedback on our teaching skills and get recognition for it!!
-I found all the details in this video here: upeducators.com.
+  const referralData = `Hey! I am participating in the International ${olympiadLabelName} Teachers' Olympiad.\n
+It's a fantastic opportunity for us teachers to get feedback on our teaching skills and get recognition for it!!\n
+I found all the details in this video here: youtube.com/upeducators.com.\n
 If you like it too, you can use my referral link for a 10% discount.\n\n`;
 
   const generateReferralCode = (): string => Math.random().toString(36).substring(2, 12);
@@ -142,7 +142,7 @@ If you like it too, you can use my referral link for a 10% discount.\n\n`;
   const handleCopyToClipboard = async () => {
     try {
       await navigator.clipboard.writeText(`${referral}${referralUrl}`); // Use the state variable for the URL
-      alert('Referral data copied to clipboard!');
+      alert('Messege copied, now you can share with others!');
     } catch (err) {
       console.error('Failed to copy: ', err);
     }
@@ -150,17 +150,21 @@ If you like it too, you can use my referral link for a 10% discount.\n\n`;
 
   const handleCloseModal = () => setIsModal(false);
 
+  const referralUrlSPlit = referralUrl.split('?')
+  const finalURL = referralUrlSPlit[1].split('referral')
+  const displayURL = `${referralUrlSPlit[0]}?referral${finalURL[1]}`;
+
   return (
     <div className='content'>
       {isLoading && <Loader title='Loading...' />}
       {isModal && (
         <Modal
-          modalTitle="Copy Referral"
+          modalTitle="Referral"
           title="Copy to clipboard"
-          data={referral}
+          data={`${referral} <br /> ${displayURL}`}
           onClose={handleCloseModal}
         >
-          <Button title="Invite People" type="button" isIcon iconPath={CopyClipboard} onClick={handleCopyToClipboard} />
+          <Button title="Copy Referral Message" type="button" isIcon iconPath={CopyClipboard} onClick={handleCopyToClipboard} />
         </Modal>
       )}
 
@@ -182,7 +186,7 @@ If you like it too, you can use my referral link for a 10% discount.\n\n`;
                 {!hasReferral ? (
                   <Button title='Generate Referral Code' type='button' onClick={updateReferral} />
                 ) : (
-                  <Button title='Invite People' type='button' isIcon iconPath={WhatsappIcon} onClick={() => setIsModal(true)} />
+                  <Button title='Copy Referral Message' type='button' isIcon iconPath={WhatsappIcon} onClick={() => setIsModal(true)} />
                 )}
               </div>
             </div>
