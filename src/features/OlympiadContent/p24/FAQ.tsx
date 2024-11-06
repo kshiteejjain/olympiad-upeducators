@@ -29,10 +29,10 @@ const FAQ: FC = () => {
             title: 'About the Olympiad',
             questions: [
                 {
-                    summary: 'Who is organizing this International Primary Olympiad?',
+                    summary: 'Who is organizing this International Primary Teachers’ Olympiad?',
                     answer: (
                         <>
-                            upEducators, a distinguished Google For Education Partner Company, is proudly organizing this Primary Teachers’ Olympiad. We are dedicated to empowering educators with innovative teaching methodologies and achieving excellence. For more insights into our mission and initiatives, please <a href="https://www.upeducators.com/about" target="_blank" rel="noopener noreferrer">click here</a>.
+                            upEducators, a distinguished Google For Education Partner Company, is proudly organizing this Pre-Primary Teachers’ Olympiad. We are dedicated to empowering educators with innovative teaching methodologies and achieving excellence. For more insights into our mission and initiatives, please <a href="https://www.upeducators.com" target="_blank" rel="noopener noreferrer">click here</a>.
                         </>
                     ),
                 },
@@ -43,10 +43,6 @@ const FAQ: FC = () => {
             title: 'Registration',
             questions: [
                 {
-                    summary: 'What is the process after I register myself?',
-                    answer: 'You will get the Learning Management System (LMS) access on your registered email within 1 working day. You have to check the Email on Laptop/PC and NOT ON MOBILE. You need to sign up on LMS from the mail and you will get all the further details there.',
-                },
-                {
                     summary: 'Can I cancel my registration or request for a refund?',
                     answer: 'We do not offer cancellations or refunds under any circumstances. Once registration is completed, it is considered final, and refunds or cancellations cannot be processed. We advise reviewing all details before confirming your registration to avoid any inconvenience.',
                 },
@@ -56,8 +52,8 @@ const FAQ: FC = () => {
                 },
                 {
                     summary: 'Can I change the Registered Email id?',
-                    answer: 'You need to mail at olympiad@upeducators.com before 31st August 2024 along with the payment receipt. After the deadline, your details will not be changed in any case.',
-                },
+                    answer: 'You need to mail at olympiad@upeducators.com before 25th December 2024 along with the payment receipt. After the deadline, your details will not be changed in any case.',
+                }
             ],
         },
         {
@@ -65,12 +61,12 @@ const FAQ: FC = () => {
             title: 'Exam & Preparation',
             questions: [
                 {
-                    summary: 'What kind of preparation is required for the Olympiad?',
-                    answer: 'No special preparation is required for this Olympiad. The competition is structured to assess and celebrate your dedication and creativity in early childhood education. It\'s an opportunity to showcase your knowledge, pedagogical skills, critical thinking, and problem-solving abilities. However, familiarity with the key concepts and best practices in Pre-primary education will be beneficial.',
+                    summary: 'How to prepare for this Olympiad?',
+                    answer: 'No special preparation is required for this Olympiad. The competition is structured to assess and celebrate your dedication and creativity in primary education. It"s an opportunity to showcase your knowledge, pedagogical skills, critical thinking, and problem-solving abilities. However, familiarity with the key concepts and best practices in education will be beneficial. And for more idea on what kind of questions will come in the Olympiad exam, please refer to sample questions available in this Olympiad portal.',
                 },
                 {
                     summary: 'Where can I attempt this test?',
-                    answer: 'You can attempt this test from your Windows Desktop or Laptop with working webcam.',
+                    answer: 'You can attempt this test from your Windows Desktop or Laptop with working webcam',
                 },
                 {
                     summary: 'Can I attempt this Exam from my Mobile?',
@@ -78,7 +74,7 @@ const FAQ: FC = () => {
                 },
                 {
                     summary: 'Will I get sample questions for the Olympiad preparation?',
-                    answer: 'Yes, you will get sample questions once you register for the Olympiad.',
+                    answer: 'Yes, sample questions are already uploaded in this Olympiad Portal under the “About Olympiad” section.',
                 },
                 {
                     summary: 'Will I be getting any certificate?',
@@ -87,19 +83,7 @@ const FAQ: FC = () => {
                 {
                     summary: 'What if I am not available at the Exam time, can Exam date/time be changed?',
                     answer: 'Exam date and time will not be changed in any circumstances and also no refund will be provided.',
-                },
-                {
-                    summary: 'How the Top 3 Winners will be Decided?',
-                    answer: (
-                        <ul className='list'>
-                            <li>All the Participants will attempt the Olympiad exam (Phase 1).</li>
-                            <li>Top 200 participants will then get selected for Primary Educator Excellence Award. The selected educators need to submit a Lesson Plan using Innovative Teaching Practices in Mathematics Education and a video of 3-5 minutes explaining the lesson.</li>
-                            <li>The submitted Lesson plan will be evaluated by a Team of National Awardee Teachers and Top Mathematics Educators in India.</li>
-                            <li>After the evaluation, One winner will be selected from each grade level (Eg. Grade 1 to 5, Grade 6 to 10, Grade 11 and above).</li>
-                            <li>Each winner will receive a cash prize of Rs. 50,000.</li>
-                        </ul>
-                    ),
-                },
+                }
             ],
         },
         {
@@ -113,6 +97,10 @@ const FAQ: FC = () => {
                 {
                     summary: 'When will I get the Masterclasses?',
                     answer: 'Masterclasses will be conducted after the Result.',
+                },
+                {
+                    summary: 'Will I get the Certificate for the Masterclasses?',
+                    answer: 'Yes, you will be getting the Certificate of Participation for each Masterclass for the Masterclass you attend Live (chatgpt).',
                 },
             ],
         },
@@ -147,7 +135,7 @@ const FAQ: FC = () => {
     return (
         <div className='content'>
             <h2>Frequently Asked Questions</h2>
-            <div className='faq-topics'>
+            <div className='faq-topics gradient'>
                 <h2>Categories</h2>
                 <input
                     type="search"

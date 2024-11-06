@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import Banner from '../../../assets/banner.png';
+import Banner from '../../../assets/banner-test1.jpg';
 import { fetchUserRegistrationDate } from '../../../utils/firebaseUtils'; // Adjust the path as necessary
 import Loader from '../../../components/Loader/Loader';
 

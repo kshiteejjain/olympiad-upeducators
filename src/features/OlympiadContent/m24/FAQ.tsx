@@ -147,7 +147,7 @@ const FAQ: FC = () => {
     return (
         <div className='content'>
             <h2>Frequently Asked Questions</h2>
-            <div className='faq-topics'>
+            <div className='faq-topics gradient'>
                 <h2>Categories</h2>
                 <input
                     type="search"

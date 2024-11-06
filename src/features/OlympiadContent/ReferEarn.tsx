@@ -157,7 +157,7 @@ If you like it too, you can use my referral link for a 10% discount.\n\n`;
         <Modal
           modalTitle="Referral"
           title="Copy to clipboard"
-          data={`${referral} <br /> ${referralUrl}`}
+          data={`${referral} <br /> <strong>Registration Link:</strong> ${referralUrl}`}
           onClose={handleCloseModal}
         >
           <Button title="Copy Referral Message" type="button" isIcon iconPath={CopyClipboard} onClick={handleCopyToClipboard} />

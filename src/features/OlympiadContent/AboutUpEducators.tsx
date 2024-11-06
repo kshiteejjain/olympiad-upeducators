@@ -10,18 +10,28 @@ const SessionsData = [
         image: impactImg1 // Use imported image
     },
     {
-        name: 'Educators trained from 8000+ Schools & Colleges',
-        duration: 'We\'ve trained and instilled confidence in educators from more than 5,000 schools and colleges, including prestigious institutions.',
+        name: 'Educators trained from 9000+ Schools & Colleges',
+        duration: 'We"ve trained and instilled confidence in educators from more than 9,000 schools and colleges, including prestigious institutions.',
         image: impactImg2 // Use imported image
     },
     {
-        name: 'Rated 4.9/5 by 2000+ Educators on Google Reviews',
-        duration: 'Our commitment to quality is reflected in our near-perfect rating of 4.9 out of 5 on Google Reviews, based on feedback from over 2,000+ educators.',
+        name: 'Rated 4.9/5 by 2200+ Educators on Google Reviews',
+        duration: 'Our commitment to quality is reflected in our near-perfect rating of 4.9 out of 5 on Google Reviews, based on feedback from over 2,200+ educators.',
         image: impactImg3 // Use imported image
     },
     {
         name: '1200+ Certified Educators',
         duration: 'We have successfully guided over 1,200+ educators in achieving Google and Microsoft Educator Certifications, marking them as leaders in the field of digital education.',
+        image: impactImg4 // Use imported image
+    },
+    {
+        name: 'Trained 25000+ Educators',
+        duration: 'We"ve empowered over 25,000 educators with essential skills, fostering growth and excellence in classrooms across diverse regions.',
+        image: impactImg4 // Use imported image
+    },
+    {
+        name: 'Trained Educators from 30+ Countries',
+        duration: 'Our training programs have reached educators in 30+ countries, promoting global teaching standards and supporting educators around the world in their professional growth.',
         image: impactImg4 // Use imported image
     }
 ];
@@ -45,7 +55,7 @@ const AboutUpEducators = () => {
         <div className='content'>
             <h2>About UpEducators</h2>
             <p>upEducators is a leader in educational technology in India. As a Google for Education Partner, we focus on helping teachers use the latest digital tools and teaching methods. Our goal is to give educators the skills and knowledge they need to succeed in today's changing education world.</p>
-            <p><strong>Our Impact:</strong></p>
+            <p><strong>Our Achievements:</strong></p>
             <div className='flex-card'>
                 <CoursesCard />
             </div>

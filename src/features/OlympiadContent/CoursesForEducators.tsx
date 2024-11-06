@@ -16,7 +16,7 @@ const sessionsData = [
         image: 'https://www.upeducators.com/wp-content/uploads/2022/08/microsft-certified-educators-homepage1.jpg'
     },
     {
-        name: 'STEM Robotics Course',
+        name: 'STEM Robotics Course for Educators',
         duration: 'A Course specifically designed for Maths, Science and ICT Teachers',
         link: 'https://www.upeducators.com/stem-robotics-course-for-educators/',
         image: 'https://www.upeducators.com/wp-content/uploads/2022/10/applied-digital-skills-5761.jpg'
@@ -28,7 +28,7 @@ const sessionsData = [
         image: 'https://www.upeducators.com/wp-content/uploads/2022/10/innovative-teaching-5761.jpg'
     },
     {
-        name: 'Online Teaching Course',
+        name: 'Professional Certificate in Online Teaching Course',
         duration: 'Learn A to Z of Online Teaching with Google Certification',
         link: 'https://www.upeducators.com/professional-certificate-in-online-teaching/',
         image: 'https://www.upeducators.com/wp-content/uploads/2022/10/online-teaching-5761.jpg'
@@ -40,7 +40,7 @@ const sessionsData = [
         image: impactImg1
     },
     {
-        name: 'ECCEd Course',
+        name: 'Early Childhood Care and Education (ECCEd)',
         duration: 'Learn skills to excel in early childhood education',
         link: 'https://www.upeducators.com/ecced-course/',
         image: impactImg2
@@ -48,6 +48,12 @@ const sessionsData = [
     {
         name: 'Google Certified Trainer Course',
         duration: 'Make classrooms more efficient and foster leadership skills',
+        link: 'https://www.upeducators.com/google-certified-trainer/',
+        image: impactImg2
+    },
+    {
+        name: 'Advanced AI Course for Educators',
+        duration: 'Build Your Second Brain with AI & Get Google Gemini Certification',
         link: 'https://www.upeducators.com/google-certified-trainer/',
         image: impactImg2
     }

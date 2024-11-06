@@ -1,25 +1,49 @@
 const TeachersData = [{
-    name: 'Ms. Sangeeta Gulati',
-    data: 'Unleashing The Power of Play. How Digital manipulatives Can Boost Math Learning',
-    designation: 'National ICT Awardee 2016, HOD Mathematics at Sanskriti School, New Delhi',
+    name: 'Ms. Ankita Shaw',
+    data: 'AI In Primary Education: Shaping Tomorrow’s Classrooms',
+    designation: 'Google Certified Trainer, Microsoft Certified Trainer, Trained 3000+ Educators on AI in Education',
     image: 'https://media.istockphoto.com/id/678420920/photo/portrait-of-an-indian-lady-teacher.jpg?s=612x612&w=0&k=20&c=N46IVDbat0L9cZgU3lFwcP_hqufN-BRrM1RJHCZlBzc='
 },
 {
-    name: 'Mr. Manoj Kumar Singh',
-    data: 'Topic: Innovative Teaching Strategies in Math',
-    designation: 'National ICT Awardee 2021, Math and Science Teacher, Hindustan Mitra Mandal Middle School, Jharkhand',
+    name: 'Ms. Nishita Israni',
+    data: 'Mastering Effective Assessment Methodologies',
+    designation: 'Ex Vice Principal, Trained 1000+ Teachers in Innovative Teaching Practices',
     image: 'https://img.freepik.com/premium-photo/indian-male-teacher-smiling-classroom_856987-1606.jpg'
 },
 {
-    name: 'Ms. Achala Verma',
-    data: 'Beyond Blackboards: Exploring Math"s Motion with GeoGebra,',
-    designation: 'National ICT Awardee 2021, Dean Academics, Birla Balika Vidhyapeeth, Pilani',
+    name: 'Ms. Mukta Sareen',
+    data: 'Project-based Learning: Bridging Theory and Practice',
+    designation: '10 years of Teaching experience in International Schools, Microsoft Certified Educator',
     image: 'https://static.vecteezy.com/system/resources/thumbnails/041/955/211/small_2x/ai-generated-portrait-of-a-smiling-indian-female-teacher-standing-with-arms-crossed-in-classroom-photo.jpg'
 },
 {
-    name: 'Ms. Sangeeta Gulati',
-    data: 'Unleashing The Power of Play. How Digital manipulatives Can Boost Math Learning',
-    designation: 'National ICT Awardee 2016, HOD Mathematics at Sanskriti School, New Delhi',
+    name: 'Ms. Lopamudra Mohanty',
+    data: 'Art of Storytelling: Engaging Young Minds through Stories',
+    designation: 'TedX Speaker | Storyteller| Founder, BBW Education Pvt Ltd, Cheers2Bhasha',
+    image: 'https://img.freepik.com/premium-photo/indian-female-teacher-writing-chalkboard-classroom-school-education-concept_979520-60588.jpg'
+},
+{
+    name: 'Ms. Manju Borkar',
+    data: 'STEM for Primary Education: Building Future Innovators',
+    designation: 'Ex Principal, Expert in STEM Education, Google Certified Traine',
+    image: 'https://img.freepik.com/premium-photo/indian-female-teacher-writing-chalkboard-classroom-school-education-concept_979520-60588.jpg'
+},
+{
+    name: 'Ms. Shephali Saxena',
+    data: 'Technology in Primary Education: Nurturing Brilliance',
+    designation: 'Google Certified Trainer, 10 years of Experience in Primary & Pre Primary Teaching',
+    image: 'https://img.freepik.com/premium-photo/indian-female-teacher-writing-chalkboard-classroom-school-education-concept_979520-60588.jpg'
+},
+{
+    name: 'Mr. Ankush Bhandari',
+    data: 'Building a Free Teaching Portfolio Website',
+    designation: 'Google Certified Trainer, Trained 5000+ Educators on building a Website',
+    image: 'https://img.freepik.com/premium-photo/indian-female-teacher-writing-chalkboard-classroom-school-education-concept_979520-60588.jpg'
+},
+{
+    name: 'Mr. Nanjappa KC',
+    data: 'Create Engaging Learning Materials using Canva',
+    designation: 'Google Certified Trainer, Trained 5000+ Educators on Design skills using Canva',
     image: 'https://img.freepik.com/premium-photo/indian-female-teacher-writing-chalkboard-classroom-school-education-concept_979520-60588.jpg'
 }];
 

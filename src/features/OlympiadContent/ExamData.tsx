@@ -11,9 +11,9 @@ const ExamData = ({ onCheckDemoExam }: any) => {
     const [examMessage, setExamMessage] = useState<string | null>(null);
     const [emailFound, setEmailFound] = useState<boolean>(false);
 
-    const targetDate = new Date('2024-10-02T08:57:00'); // 5 PM on September 21, 2024
-    const olympiadBDate = new Date('2024-10-19T17:00:00'); // 5 PM on Oct 19, 2024
-    const compareDate = '2024-09-30T00:00:00'
+    const targetDate = new Date('2025-01-11T17:00:00');
+    const olympiadBDate = new Date('2024-10-19T17:00:00');
+    const compareDate = '2024-11-05T00:00:00'
 
     // Helper function to format date in DD-MM-YY format
     const formatDateTime = (date: any) => {
@@ -86,20 +86,20 @@ const ExamData = ({ onCheckDemoExam }: any) => {
             <>
                 {examMessage && <p>{examMessage}</p>} {/* Conditionally show the exam message */}
                 <div className="cta">
-                    <Button onClick={handleStartExamClick} isDisabled={showStartExamButton} title="Start Exam" type="button" />
+                    <Button onClick={handleStartExamClick} isDisabled={!showStartExamButton} title="Start Exam" type="button" />
                 </div>
             </>
         )
     );
     return (
         <div className='how-it-works content'>
-            <h3>Start Exam</h3>
+            <h3>Check Exam System Guidelines</h3>
 
             <div className='works-card'>
                 <div className='works-card-title'>
                     <div className='works-card-description'>
-                        <h1>Check Your System Guidelines</h1>
-                        <p>Lorem Ipsum has been the industry's standard dummy text ever since the 1500.</p>
+                        <h1>Check Exam System</h1>
+                        <p>Check your system setup, including camera and microphone, and familiarize yourself with the exam interface to ensure a smooth experience during the main exam</p>
                         <div className='cta'>
                             <Button title='Check Demo Exam' type='button' onClick={onCheckDemoExam} />
                         </div>

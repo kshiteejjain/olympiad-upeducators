@@ -1,9 +1,9 @@
 import { useEffect, useState } from 'react';
-import Banner from '../../../assets/banner.jpg';
+import Banner from '../../../assets/banner-test2.jpg';
 import { fetchUserRegistrationDate } from '../../../utils/firebaseUtils'; // Adjust the path as necessary
 import Loader from '../../../components/Loader/Loader';
 
-const TARGET_DATE = new Date('2024-09-21T17:00:00');
+const TARGET_DATE = new Date('2025-01-11T17:00:00');
 const OLYMPIAD_B_DATE = new Date('2024-10-19T17:00:00');
 const COMPARE_DATE = new Date('2024-09-30T00:00:00');
 
@@ -49,7 +49,7 @@ const AboutOlympiad = () => {
                         <li>Time: 5 PM</li>
                         <li>Mode: Online</li>
                         <li>Participation: Open to all Educators</li>
-                        <li>Date of Result: 25 October, 2024</li>
+                        <li>Date of Result: 15 February, 2025</li>
                         <li>Outcome:
                             <span>The Top 200 scorers will advance to the Primary Educator Excellence Award</span>
                         </li>
@@ -61,53 +61,55 @@ const AboutOlympiad = () => {
                     </ul>
                     <p><strong>Phase 2: Primary Educator Excellence Award</strong></p>
                     <ul className='list'>
-                        <li><strong>Task:</strong> Submission of a Lesson Plan using Innovative Teaching Practices in Math Education, and a video of 3-5 minutes explaining the lesson.</li>
-                        <li><strong>Participation:</strong> Top 200 scorers will be eligible for participation</li>
-                        <li><strong>Last date of Submission:</strong> 11 November, 2024</li>
-                        <li><strong>Evaluation:</strong> By a Team of National Awardee Teachers and Top Mathematics Educators in India.</li>
-                        <li><strong>Goal:</strong> To highlight creativity, active engagement, and innovative practices (specific to math education) in lesson planning.</li>
-                        <li><strong>Result:</strong> 30th November, 2024</li>
+                        <li>Task: Submission of a Lesson Plan using Innovative Teaching Practices, and a video of 3-5 minutes explaining the lesson.</li>
+                        <li>Participation: Top 200 scorers will be eligible for participation</li>
+                        <li>Last date of Submission: 1st March, 2025</li>
+                        <li>Goal: To highlight creativity, active engagement, and innovative practices in lesson planning.</li>
+                        <li>Result: 15th March, 2025</li>
                         <li>Rewards for all the selected participants:
                             <span>Certificate of Achievements</span>
                             <span>Access to India’s First AI Portal for Educators</span>
                             <span>100% Scholarships for Google Educators Exam Fee Level 2 Worth Rs.2500</span>
                         </li>
                         <li>Rewards for the Top 3 Winners:
-                            <span>Cash prize of ₹ 50,000 each</span>
+                            <span>Winner: Cash prize of ₹1 Lakhs or $1,200</span>
+                            <span>1st Runner up: Cash prize of ₹50,000 or $600</span>
+                            <span>2nd Runner up: Cash prize of ₹25,000 or $300</span>
                         </li>
                     </ul>
                 </details>
                 <details>
                     <summary>Curriculum</summary>
-                    <p>Any teacher or aspirant would feel at ease while taking this Olympiad test. The topics covered are commonly known to Math Educators. Nevertheless, it's a good idea to review your basics and stay updated with the latest teaching methods to boost your chances of achieving a top rank in the exam.</p>
+                    <p>The exam aims to evaluate educators' comprehensive understanding and practical application of essential concepts in primary education. It serves as a platform for educators to showcase their teaching skills, critical thinking, and problem-solving abilities. The topics covered are relevant to primary education, and the questions will not be specific to any particular grade or subject.</p>
                     <p><strong>Topics Covered:</strong></p>
                     <ul className='list'>
-                        <li>Pedagogical Knowledge</li>
-                        <li>Innovative Teaching Strategies</li>
-                        <li>Technology Integration</li>
-                        <li>Classroom Management</li>
-                        <li>Assessment and Evaluation</li>
-                        <li>Professional Development</li>
-                        <li>Real-world Applications</li>
-                        <li>Inclusive Mathematics Education</li>
-                        <li>Cross-Disciplinary Integration</li>
-                        <li>Student Engagement and Differentiated Instruction</li>
+                        <li> Child Development and Psychology</li>
+                        <li>Primary Education Theories and Pedagogy</li>
+                        <li>Lesson Planning, Assessment, and Feedback</li>
+                        <li>Innovative Teaching Strategies and Student Engagement </li>
+                        <li>Real-world Applications and Cross-Disciplinary Integration</li>
+                        <li>Technology Integration in the Classroom</li>
+                        <li>Classroom Management and Differentiated Instruction</li>
+                        <li>Inclusive Education and Special Needs</li>
+                        <li>Professional Development and Ethics</li>
+                        <li>Parental Engagement and Community Involvement</li>
                     </ul>
                 </details>
                 <details>
                     <summary>Sample Papers</summary>
                     <p><strong>Check the Sample Paper as per the Grade you have selected</strong></p>
-                    <h3>Sample Paper for Grade 1 to 5</h3>
-                    <a href=''>PDF attachment</a>
-                    <h3>Sample Paper for Grade 6 to 10</h3>
-                    <a href=''>PDF attachment</a>
-                    <h3>Sample Paper for Grade 11 and above</h3>
-                    <a href=''>PDF attachment</a>
+                    <h3>View the Sample Paper with the link below:</h3>
+                    <a href=''>View Sample Paper</a>
                 </details>
                 <details>
                     <summary>Process of Attempting the Olympiad</summary>
                     <p><strong>Accessing the Olympiad:</strong></p>
-                    <p>1 day before the exam's scheduled start, we will send a dedicated link for the Olympiad on your registered email id. Please ensure you check the email on time to access the link and read all the instructions. Once the link is live, simply click on 'Start Test' button in the mail to begin your Olympiad journey.</p>
+                    <ul className='list'>
+                        <li>Open Olympiad Portal 1 day before your scheduled exam.</li>
+                        <li>Click 'Exam Link' 'Check Exam System' to verify your camera, microphone, and familiarize yourself with the interface to ensure a smooth experience during the main exam.</li>
+                        <li>Please read all the instructions carefully and conduct a System check.</li>
+                        <li>At the exam time, click 'Exam Link' 'Start Exam' to begin.</li>
+                    </ul>
                     <p><strong>Exam Environment and Integrity:</strong></p>
                     <p>The Olympiad will be conducted in a secure online environment. To maintain the integrity of the exam:</p>
                     <ul className='list'>
@@ -123,8 +125,19 @@ const AboutOlympiad = () => {
                         <li><strong>Compatible Browser:</strong> Check that you are using a compatible web browser. Further details will be sent in Exam mail.</li>
                         <li><strong>System Test:</strong> Check your System compatibility 1 day before the exam from the Exam mail.</li>
                     </ul>
+                    <p><strong>IMPORTANT INSTRUCTIONS:</strong></p>
+                    <ul className='list'>
+                        <li>Don’t click/switch outside the exam window during the exam</li>
+                        <li>Keep a Govt-issued ID card ready before exam (Driving License, Passport, Aadhar etc.)</li>
+                        <li>Make sure your system doesn't get disconnected.</li>
+                        <li>In case of power outage or net disconnection or any other interruption, upEducators isn't responsible</li>
+                        <li>This exam can only be taken on a Windows Laptop or PC.</li>
+                        <li>Ensure your device date and time are correct.</li>
+                    </ul>
+                    <p><strong>For Queries:</strong></p>
+                    <p>If you have any query before the Exam, please write an email to <a href='mailto:olympiad@upeducators.com'>olympiad@upeducators.com</a> and our team will get back to you within 24 working hours.</p>
                     <p><strong>Technical Support:</strong></p>
-                    <p>If you encounter any technical issues during the exam, please contact our support team immediately using the contact details provided in the Exam mail.</p>
+                    <p>If you encounter any technical issues during the exam, please contact our support team immediately at <strong>+919870980678</strong> or <strong>+919595011824</strong></p>
                 </details>
             </div>
         </div>
