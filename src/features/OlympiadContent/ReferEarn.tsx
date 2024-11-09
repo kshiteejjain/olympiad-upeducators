@@ -57,7 +57,7 @@ const ReferEarn = () => {
 
   const referralData = `Hey! I am participating in the International ${olympiadLabelName} Teachers' Olympiad.\n
 It's a fantastic opportunity for us teachers to get feedback on our teaching skills and get recognition for it!!\n
-I found all the details in this video here: youtube.com/upeducators.com.\n
+I found all the details in this video here: https://www.youtube.com/shorts/PQbG53FFA6s.\n
 If you like it too, you can use my referral link for a 10% discount.\n\n`;
 
   const generateReferralCode = (): string => Math.random().toString(36).substring(2, 12);
@@ -93,7 +93,7 @@ If you like it too, you can use my referral link for a 10% discount.\n\n`;
 
       if (userData.referral) {
         const baseUrl = getBaseUrl(olympiadName);
-        const referralParams = `?olympiad=${olympiadName}&source=internal&referral=${userData.referral}`;
+        const referralParams = `?olympiad=${olympiadName}&source=referral&referral=${userData.referral}`;
         setReferralUrl(`${baseUrl}${referralParams}`); // Construct the full URL with parameters
         setReferral(`${referralData}`); // Only set the referral data here
         setHasReferral(true);

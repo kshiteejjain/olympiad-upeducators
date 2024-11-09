@@ -82,4 +82,7 @@
         width: 92%;
         margin:40px auto 0 auto;
     }
+    .payment-form{
+        width: 100%;
+    }
 }

@@ -320,7 +320,7 @@ h3 {
 
 @media(max-width:767px) {
   .faq details {
-    padding: 15px 20px 15px 0;
+    padding: 15px 20px 15px 10px;
   }
 
   .faq details summary {
@@ -404,6 +404,9 @@ h3 {
   }
 
   .flex-card .card {
+    width: 100%;
+  }
+  .flex-card .card.coursesCard{
     width: 100%;
   }
 }

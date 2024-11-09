@@ -1,6 +1,8 @@
 import Button from "../../components/Buttons/Button";
-import impactImg1 from '/src/assets/Nursery-Teachers-Training-Course.png';
-import impactImg2 from '/src/assets/ECCEd-course.png';
+import impactImg1 from '/src/assets/NTT.png';
+import impactImg2 from '/src/assets/ECCEd.png';
+import googleCertifiedImg from '/src/assets/Google-Certified-Trainer.png';
+import advancedAICourseImg from '/src/assets/Advanced-AI-Course-for-Educator.png';
 
 const sessionsData = [
     {
@@ -49,15 +51,16 @@ const sessionsData = [
         name: 'Google Certified Trainer Course',
         duration: 'Make classrooms more efficient and foster leadership skills',
         link: 'https://www.upeducators.com/google-certified-trainer/',
-        image: impactImg2
+        image: googleCertifiedImg
     },
     {
         name: 'Advanced AI Course for Educators',
         duration: 'Build Your Second Brain with AI & Get Google Gemini Certification',
         link: 'https://www.upeducators.com/google-certified-trainer/',
-        image: impactImg2
+        image: advancedAICourseImg
     }
 ];
+
 
 const CoursesForEducators = () => (
     <div className='content'>

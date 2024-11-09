@@ -93,4 +93,10 @@
   .header-right .username {
     font-size: calc(var(--baseFontSize) - 3px);
   }
+  .language-option{
+    margin-right: 10px;
+  }
+  .language-option .form-control{
+    margin-left: 10px;
+  }
 }

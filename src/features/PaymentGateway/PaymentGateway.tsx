@@ -1,10 +1,10 @@
 import { useState, useEffect } from "react";
 import Button from "../../components/Buttons/Button";
-import { doc, getDoc, setDoc } from 'firebase/firestore';
+import { collection, doc, getDoc, getDocs, setDoc } from 'firebase/firestore';
 import { firestore } from '../../utils/firebase';
 import { useNavigate } from "react-router-dom";
 import { sendEmail } from "../SendEmail/SendEmail";
-import { sendWhatsappMessage } from "../SendWhatsappMessage/SendWhatsappMessage";
+// import { sendWhatsappMessage } from "../SendWhatsappMessage/SendWhatsappMessage";
 import whatsappSvg from "../../assets/whatsappSvg.svg";
 import logoWhite from "../../assets/logo-white.png";
 import Loader from "../../components/Loader/Loader";
@@ -48,7 +48,7 @@ const PaymentGateway = () => {
   const [userDetails, setUserDetails] = useState({ name: '', email: '', phone: '' });
   const [isFormValid, setIsFormValid] = useState(false);
   const [urlParams, setUrlParams] = useState<UrlParams>({ referralCode: null, source: null, olympiad: null });
-  const totalPrice = 369;
+  const totalPrice = 2;
   const [discountedPrice, setDiscountedPrice] = useState(totalPrice);
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
@@ -64,7 +64,7 @@ const PaymentGateway = () => {
 
     if (referralCode) {
       const discount = totalPrice * 0.10;
-      setDiscountedPrice(Math.ceil(totalPrice - discount));
+      setDiscountedPrice(totalPrice - discount);
     }
   }, [totalPrice]);
 
@@ -109,6 +109,7 @@ const PaymentGateway = () => {
     const emailLowerCase = email.toLowerCase();
     const olympiadId = urlParams.olympiad;
     const source = urlParams.source;
+    const referralCode = urlParams.referralCode;
 
     if (!olympiadId) {
       alert('Olympiad ID (Olympiad) is required. Please ensure the URL contains the correct parameter.');
@@ -137,8 +138,57 @@ const PaymentGateway = () => {
         timeStamp: new Date().toISOString(),
       });
 
+      if (referralCode) {
+        // Query all documents in the OlympiadUsers collection to find the referrer
+        const usersCollection = collection(firestore, 'OlympiadUsers');
+        const querySnapshot = await getDocs(usersCollection);
+
+        let referrerEmail = null;
+
+        querySnapshot.forEach((doc: any) => {
+          const data = doc.data();
+          if (data.referral && data.referral.includes(referralCode)) {
+            referrerEmail = doc.id;  // Document ID is the email of the referrer
+          }
+        });
+
+        if (referrerEmail) {
+          // Fetch the referrer's document
+          const referrerDocRef = doc(firestore, 'OlympiadUsers', referrerEmail);
+          const referrerDocSnap = await getDoc(referrerDocRef);
+
+          if (referrerDocSnap.exists()) {
+            const referrerData = referrerDocSnap.data();
+
+            // Log referrer's email for debugging
+            console.log('Referrer found:', referrerEmail);
+
+            // Initialize referrerUsers array if it doesn't exist
+            if (!referrerData.referrerUsers) referrerData.referrerUsers = [];
+
+            // Log the action of storing the new user's email
+            if (!referrerData.referrerUsers.includes(emailLowerCase)) {
+              const referrerUsersDetails = {
+                email: emailLowerCase,
+                name: userDetails.name,
+                timestamp: new Date().toISOString()
+              };
+
+              referrerData.referrerUsers.push(JSON.stringify(referrerUsersDetails));
+              // referrerData.referrerUsers.push(emailLowerCase + 'N_' + userDetails.name + 'D_' + new Date().toISOString());
+              await setDoc(referrerDocRef, referrerData);
+              console.log('Stored new user email in referrer document:', emailLowerCase);
+            }
+          } else {
+            console.log('Referrer document not found for email:', referrerEmail);
+          }
+        } else {
+          console.log('No referrer found for referral code:', referralCode);
+        }
+      }
+
       await sendEmail(emailLowerCase, import.meta.env.VITE_OLYMPIAD_WELCOME_EMAIL_TEMPLATE, { name, email: emailLowerCase, phone });
-      await sendWhatsappMessage(userDetails.phone);
+      //await sendWhatsappMessage(userDetails.phone);
 
       setUserDetails({ name: '', email: '', phone: '' });
     } catch (error) {

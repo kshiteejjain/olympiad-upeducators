@@ -92,6 +92,7 @@ form {
     .login-form{
         width: 100%;
         padding: 15px;
+        height: auto;
     }
     form{
         width: 100%;

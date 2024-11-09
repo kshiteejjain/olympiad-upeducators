@@ -61,8 +61,7 @@
   box-sizing: border-box;
   position: relative;
   padding: 25px;
-  color: var(--white);
-  /* background: linear-gradient(90deg, rgba(105, 219, 123, 0.15) 30%, rgba(52, 109, 242, 0.15) 70%, rgba(82, 149, 252, 0.15) 100%); */
+  background: linear-gradient(60deg, #abecd6 0%, #fbed96 100%);
 }
 
 
@@ -147,7 +146,7 @@ summary::-webkit-details-marker {
 }
 
 .faq-topics {
-  background: linear-gradient(90deg, rgba(105, 219, 123, 0.15) 30%, rgba(52, 109, 242, 0.15) 70%, rgba(82, 149, 252, 0.15) 100%);
+  background: linear-gradient(60deg, #abecd6 0%, #fbed96 100%);
   padding: 20px;
   border-radius: 8px;
   margin: 30px 0 35px 0;
@@ -251,6 +250,7 @@ summary::-webkit-details-marker {
   justify-content: space-between;
   color: var(--white);
   padding: 9px 20px;
+  justify-content: center;
 }
 
 .works-card button:focus {
@@ -347,4 +347,42 @@ summary::-webkit-details-marker {
   margin: 0 15px 0 0;
   color: var(--white);
   white-space: nowrap;
+}
+
+.card.teachers-card {
+  margin: 0 20px 20px 0;
+  max-width: 22%;
+  padding: 10px;
+  box-sizing: border-box;
+  background: #ffffff;
+}
+.card.teachers-card img{
+  padding:0 5px;
+  box-sizing: border-box;
+}
+.card.teachers-card .details
+{
+  padding: 0;
+}
+@media(max-width:767px){
+  .fetched-olympiads-parent{
+    flex-wrap: wrap;
+    margin: 15px 15px 0 15px;
+  }
+  .fetched-olympiads-parent h3{
+    margin-bottom: 10px;
+  }
+  .works-card .icon{
+    max-width: 35px;
+    margin: 0 0 10px 0;
+  }
+  .faq-topics a{
+    margin-bottom: 5px;
+  }
+  .card.teachers-card{
+    max-width: 100%;
+  }
+  .card.teachers-card img{
+    max-width: 150px;
+  }
 }

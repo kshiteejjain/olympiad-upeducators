@@ -27,7 +27,7 @@ const PageNavigation = ({ navPath }: any) => {
                             className={activeButton === '/ExamData' ? 'active' : ''}
                             onClick={() => handleClick('/ExamData')}
                         >
-                            Start Exam
+                            Exam Corner
                         </button>
                     )}
                 </>

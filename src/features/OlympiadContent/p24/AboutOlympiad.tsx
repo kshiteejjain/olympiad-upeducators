@@ -1,10 +1,10 @@
 import { useEffect, useState } from 'react';
-import Banner from '../../../assets/banner-test2.jpg';
+import Banner from '../../../assets/primary-banner.png';
 import { fetchUserRegistrationDate } from '../../../utils/firebaseUtils'; // Adjust the path as necessary
 import Loader from '../../../components/Loader/Loader';
 
 const TARGET_DATE = new Date('2025-01-11T17:00:00');
-const OLYMPIAD_B_DATE = new Date('2024-10-19T17:00:00');
+const OLYMPIAD_B_DATE = new Date('2025-01-11T17:00:00');
 const COMPARE_DATE = new Date('2024-09-30T00:00:00');
 
 const AboutOlympiad = () => {
@@ -29,6 +29,17 @@ const AboutOlympiad = () => {
         return <Loader />; // Loading state while fetching the date
     }
 
+    const formatDateTime = (date: any) => {
+        return date.toLocaleString('en-GB', {
+            day: '2-digit',
+            month: '2-digit',
+            year: 'numeric',
+            hour: '2-digit',
+            minute: '2-digit',
+            hour12: true // Use 12-hour format
+        });
+    };
+
     return (
         <div className='content'>
             <h2>About the Olympiad</h2>
@@ -42,7 +53,7 @@ const AboutOlympiad = () => {
                     <p><strong>This Olympiad is divided into 2 phases:</strong></p>
                     <p><strong>Phase 1: The Instructional Proficiency Test</strong></p>
                     <ul className='list'>
-                        <li>Date: {displayDate.toLocaleString()}</li>
+                        <li>Date: {formatDateTime(displayDate)}</li>
                         <li>Format: Multiple Choice Questions</li>
                         <li>No. of Questions: 30</li>
                         <li>Exam Duration: 40 Minutes</li>
@@ -99,7 +110,7 @@ const AboutOlympiad = () => {
                     <summary>Sample Papers</summary>
                     <p><strong>Check the Sample Paper as per the Grade you have selected</strong></p>
                     <h3>View the Sample Paper with the link below:</h3>
-                    <a href=''>View Sample Paper</a>
+                    <a href='https://drive.google.com/file/d/1lng8wtXd0gUtNJ7dgFX9dLyLcDeWR6Qs/view?pli=1' target='_blank'>View Sample Paper</a>
                 </details>
                 <details>
                     <summary>Process of Attempting the Olympiad</summary>
