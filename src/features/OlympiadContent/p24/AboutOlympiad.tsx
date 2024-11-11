@@ -3,8 +3,8 @@ import Banner from '../../../assets/primary-banner.png';
 import { fetchUserRegistrationDate } from '../../../utils/firebaseUtils'; // Adjust the path as necessary
 import Loader from '../../../components/Loader/Loader';
 
-const TARGET_DATE = new Date('2025-01-11T17:00:00');
-const OLYMPIAD_B_DATE = new Date('2025-01-11T17:00:00');
+const TARGET_DATE = new Date('2025-01-18T17:00:00');
+const OLYMPIAD_B_DATE = new Date('2025-01-18T17:00:00');
 const COMPARE_DATE = new Date('2024-09-30T00:00:00');
 
 const AboutOlympiad = () => {
@@ -60,7 +60,7 @@ const AboutOlympiad = () => {
                         <li>Time: 5 PM</li>
                         <li>Mode: Online</li>
                         <li>Participation: Open to all Educators</li>
-                        <li>Date of Result: 15 February, 2025</li>
+                        <li>Date of Result: 22 February, 2025</li>
                         <li>Outcome:
                             <span>The Top 200 scorers will advance to the Primary Educator Excellence Award</span>
                         </li>
