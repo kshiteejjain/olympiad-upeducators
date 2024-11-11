@@ -12,22 +12,52 @@ import ProfilePlaceholder from '../../assets/profile-placeholder.png';
 import './LMSForm.css';
 
 const countryOptions = [
-    // List of country names
-    "United States", "Canada", "India", "United Kingdom", "Australia", "China", "Japan", // add more countries
+    "Afghanistan", "Albania", "Algeria", "Andorra", "Angola", "Antigua and Barbuda", "Argentina", "Armenia", "Australia", "Austria", 
+    "Azerbaijan", "Bahamas", "Bahrain", "Bangladesh", "Barbados", "Belarus", "Belgium", "Belize", "Benin", "Bhutan", 
+    "Bolivia", "Bosnia and Herzegovina", "Botswana", "Brazil", "Brunei", "Bulgaria", "Burkina Faso", "Burundi", "Cabo Verde", 
+    "Cambodia", "Cameroon", "Canada", "Central African Republic", "Chad", "Chile", "China", "Colombia", "Comoros", "Congo", 
+    "Congo (Democratic Republic)", "Costa Rica", "Croatia", "Cuba", "Cyprus", "Czech Republic", "Denmark", "Djibouti", "Dominica", 
+    "Dominican Republic", "Ecuador", "Egypt", "El Salvador", "Equatorial Guinea", "Eritrea", "Estonia", "Eswatini", "Ethiopia", 
+    "Fiji", "Finland", "France", "Gabon", "Gambia", "Georgia", "Germany", "Ghana", "Greece", "Grenada", "Guatemala", "Guinea", 
+    "Guinea-Bissau", "Guyana", "Haiti", "Honduras", "Hungary", "Iceland", "India", "Indonesia", "Iran", "Iraq", "Ireland", 
+    "Israel", "Italy", "Jamaica", "Japan", "Jordan", "Kazakhstan", "Kenya", "Kiribati", "Korea (North)", "Korea (South)", 
+    "Kuwait", "Kyrgyzstan", "Laos", "Latvia", "Lebanon", "Lesotho", "Liberia", "Libya", "Liechtenstein", "Lithuania", 
+    "Luxembourg", "Madagascar", "Malawi", "Malaysia", "Maldives", "Mali", "Malta", "Marshall Islands", "Mauritania", "Mauritius", 
+    "Mexico", "Micronesia", "Moldova", "Monaco", "Mongolia", "Montenegro", "Morocco", "Mozambique", "Myanmar", "Namibia", "Nauru", 
+    "Nepal", "Netherlands", "New Zealand", "Nicaragua", "Niger", "Nigeria", "North Macedonia", "Norway", "Oman", "Pakistan", 
+    "Palau", "Panama", "Papua New Guinea", "Paraguay", "Peru", "Philippines", "Poland", "Portugal", "Qatar", "Romania", 
+    "Russia", "Rwanda", "Saint Kitts and Nevis", "Saint Lucia", "Saint Vincent and the Grenadines", "Samoa", "San Marino", 
+    "Sao Tome and Principe", "Saudi Arabia", "Senegal", "Serbia", "Seychelles", "Sierra Leone", "Singapore", "Slovakia", 
+    "Slovenia", "Solomon Islands", "Somalia", "South Africa", "South Sudan", "Spain", "Sri Lanka", "Sudan", "Suriname", 
+    "Sweden", "Switzerland", "Syria", "Taiwan", "Tajikistan", "Tanzania", "Thailand", "Timor-Leste", "Togo", "Tonga", 
+    "Trinidad and Tobago", "Tunisia", "Turkey", "Turkmenistan", "Tuvalu", "Uganda", "Ukraine", "United Arab Emirates", 
+    "United Kingdom", "United States", "Uruguay", "Uzbekistan", "Vanuatu", "Vatican City", "Venezuela", "Vietnam", 
+    "Yemen", "Zambia", "Zimbabwe"
 ];
+
 const organizationTypes = [
-    "School", "College", "Coaching Class", "Private Education Institute", "Self Employed", "Other"
+    "School", "College", "Coaching Class", "Private Education Institute", "Ed Tech", "Self Employed", "Other"
 ];
 const boards = [
     "State Board", "CBSE", "ICSE", "Cambridge", "IB", "Other", "Not Applicable"
 ];
 const roles = [
-    "Teacher - Primary and Preprimary", "Teacher - Middle School", "Teacher - High School or Higher Secondary",
-    "Admin", "Coaching or Education institute owner", "Private Tutor/Trainer", "Professor or College Teacher",
-    "Principal / Vice Principal", "Freelance Trainer", "Trainee Teacher", "Other"
+    "Teacher - Pre Primary", 
+    "Teacher - Primary", 
+    "Teacher - Middle School", 
+    "Teacher - High School or Higher Secondary",
+    "Admin / Coordinator", 
+    "Coaching or Education institute owner", 
+    "Private Tutor/Trainer", 
+    "Professor or College Teacher",
+    "Principal / Vice Principal", 
+    "Management / Director", 
+    "Freelance Trainer", 
+    "Trainee Teacher", 
+    "Other ( Text Field)"
 ];
 const gradeLevels = [
-    "Grade 1 to 5", "Grade 6 to 10", "Grade 11 and above"
+    "Pre Primary Grades", "Grade 1 to 5", "Grade 6 to 10", "Grade 11 and above"
 ];
 
 const LMSForm = () => {
@@ -44,6 +74,7 @@ const LMSForm = () => {
         board: '',
         role: '',
         gradeLevel: '',
+        subjectTeaching: ''
     });
 
     const [isError, setIsError] = useState(false);
@@ -150,7 +181,7 @@ const LMSForm = () => {
             setUserDetails({
                 name: '', whatsappNumber: '', email: '',
                 city: '', country: '', dateOfBirth: '', organizationType: '', organizationName: '',
-                board: '', role: '', gradeLevel: '',
+                board: '', role: '', gradeLevel: '', subjectTeaching: ''
             });
             setProfilePictureError(false);
             navigate('/AboutOlympiad');
@@ -347,6 +378,18 @@ const LMSForm = () => {
                                 <option key={level} value={level}>{level}</option>
                             ))}
                         </select>
+                    </div>
+                    <div className='form-group'>
+                        <label htmlFor='subjectTeaching'>Subjects you teach ( If not teaching, then write NA)<span className="asterisk">*</span></label>
+                        <input
+                            type='text'
+                            className='form-control'
+                            required
+                            name="subjectTeaching"
+                            autoComplete="off"
+                            value={userDetails.subjectTeaching}
+                            onChange={handleInputChange}
+                        />
                     </div>
                     <Button title='Submit' type='submit' />
                     {profilePictureError && <ErrorBoundary message='Please upload your profile picture.' />}

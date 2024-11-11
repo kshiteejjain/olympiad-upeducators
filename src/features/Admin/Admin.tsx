@@ -204,7 +204,7 @@ const Admin = () => {
                             <thead>
                                 <tr>
                                     {[
-                                        'Name', 'Email', 'WhatsApp', 'Olympiad', 'Payment Id', 'Registered Date',
+                                        'Name', 'Email', 'WhatsApp', 'Olympiad', 'Payment Id', 'Source', 'Registered Date',
                                         'Board', 'City', 'Country', 'Date of Birth', 'Grade Level',
                                         'Organization Name', 'Organization Type', 'Role', 'Action'
                                     ].map((header, index) => (
@@ -219,7 +219,8 @@ const Admin = () => {
                                         <td>{user?.email}</td>
                                         <td>{user?.phone}</td>
                                         <td>{(user?.olympiad || []).join(', ')}</td>
-                                        <td>{user.paymentDetails?.razorpay_payment_id}</td>
+                                        <td>{user.paymentId || 'NA'}</td>
+                                        <td>{user.source || 'NA'}</td>
                                         <td>{formatDate(user.timeStamp)}</td>
                                         <td>{user?.profile?.board}</td>
                                         <td>{user?.profile?.city}</td>

@@ -8,15 +8,7 @@ type Props = {
   };
   
   const courseNames = [
-    'A Google For Education Partner Company',
-    'We offer Digital Marketing Course',
-    'We offer Google Certified Educator Course',
-    'We offer Microsoft Certified Educator Course',
-    'We offer Coding & AI for Educators Course',
-    'We offer STEM Robotics Course',
-    'Trained 15,000+ Educators from 5000+ Schools and Colleges',
-    '1000+ Google and Microsoft Certified Educators',
-    'Join Community of 3,30,000+ Educators on Social Media',
+    "Welcome to International Teacher's Olympiad",
   ];
 
   const CourseDisplay = ({ courses = [], delay = 2000 }: Props) => {

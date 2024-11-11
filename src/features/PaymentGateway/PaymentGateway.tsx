@@ -101,7 +101,7 @@ const PaymentGateway = () => {
     }
   };
 
-  const handleSubmit = async () => {
+  const handleSubmit = async (paymentId?: string) => {
     const canRegister = await checkOlympiadMatch();
     if (canRegister) return;
 
@@ -130,20 +130,28 @@ const PaymentGateway = () => {
         docData.source.push(source);
       }
 
+      // Add paymentId to the user's Firestore document
+    if (paymentId) {
+      docData.paymentId = paymentId;  // Store the payment ID in Firestore
+    }
+
       await setDoc(docRef, {
         ...docData,
         name,
         email: emailLowerCase,
         phone,
         timeStamp: new Date().toISOString(),
+        isNewUser: true
       });
+
+      let referralAmount = 0
 
       if (referralCode) {
         // Query all documents in the OlympiadUsers collection to find the referrer
         const usersCollection = collection(firestore, 'OlympiadUsers');
         const querySnapshot = await getDocs(usersCollection);
 
-        const referralAmount = totalPrice * 0.10; // 10% of totalPrice
+        referralAmount = totalPrice * 0.10; // 10% of totalPrice
         docData.referralAmount = referralAmount;
 
         let referrerEmail = null;
@@ -162,6 +170,9 @@ const PaymentGateway = () => {
 
           if (referrerDocSnap.exists()) {
             const referrerData = referrerDocSnap.data();
+            const referralAmount = totalPrice * 0.10; // 10% of totalPrice
+            console.log('referralAmount', referralAmount)
+            docData.referralAmount = referralAmount;
 
             // Log referrer's email for debugging
             console.log('Referrer found:', referrerEmail);
@@ -179,6 +190,7 @@ const PaymentGateway = () => {
 
               referrerData.referrerUsers.push(JSON.stringify(referrerUsersDetails));
               // referrerData.referrerUsers.push(emailLowerCase + 'N_' + userDetails.name + 'D_' + new Date().toISOString());
+              referrerData.referralAmount = (referrerData.referralAmount || 0) + referralAmount;
               await setDoc(referrerDocRef, referrerData);
               console.log('Stored new user email in referrer document:', emailLowerCase);
             }
@@ -206,9 +218,13 @@ const PaymentGateway = () => {
     name: "upEducators",
     description: "upEducators Olympiad",
     image: "https://www.upeducators.com/wp-content/uploads/2022/01/Upeducator-logo-tech-for-educators.png",
-    handler: async () => {
+    handler: async (response) => {
       setLoading(true); // Start loader
-      await handleSubmit();
+      const paymentId = response?.razorpay_payment_id;  // Capture the Razorpay Payment ID
+    if (paymentId) {
+      // Store the payment ID in Firestore and send email notification
+      await handleSubmit(paymentId);  // Pass the payment ID to handleSubmit
+    }
       setLoading(false); // Stop loader
       navigate('/'); // Redirect after loader is hidden
     },
