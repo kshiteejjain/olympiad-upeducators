@@ -1,6 +1,6 @@
-import reportImg1 from '/src/assets/report-img1.png';
-import reportImg2 from '/src/assets/report-img2.png';
-import reportImg3 from '/src/assets/report-img3.png';
+import reportImg1 from '/src/assets/Overall-Performance.png';
+import reportImg2 from '/src/assets/Strengths-Gaps.png';
+import reportImg3 from '/src/assets/insight.png';
 
 const SessionsData = [
     {

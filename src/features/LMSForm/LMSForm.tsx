@@ -54,7 +54,7 @@ const roles = [
     "Management / Director", 
     "Freelance Trainer", 
     "Trainee Teacher", 
-    "Other ( Text Field)"
+    "Other"
 ];
 const gradeLevels = [
     "Pre Primary Grades", "Grade 1 to 5", "Grade 6 to 10", "Grade 11 and above"

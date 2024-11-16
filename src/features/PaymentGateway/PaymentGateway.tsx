@@ -321,7 +321,7 @@ const PaymentGateway = () => {
             <div className='form-group'>
               <label htmlFor='phone'>Phone<span className="asterisk">*</span></label>
               <input
-                type='tel'
+                type='number'
                 className='form-control'
                 required
                 name="phone"
