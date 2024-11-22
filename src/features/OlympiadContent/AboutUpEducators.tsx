@@ -55,7 +55,7 @@ const AboutUpEducators = () => {
 
     return (
         <div className='content'>
-            <h2>About UpEducators</h2>
+            <h2>About upEducators</h2>
             <p>upEducators is a leader in educational technology in India. As a Google for Education Partner, we focus on helping teachers use the latest digital tools and teaching methods. Our goal is to give educators the skills and knowledge they need to succeed in today's changing education world.</p>
             <p><strong>Our Achievements:</strong></p>
             <div className='flex-card'>

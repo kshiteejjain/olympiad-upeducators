@@ -9,8 +9,15 @@ const PageNavigation = ({ navPath }: any) => {
         navPath(path);
     };
 
-    const paths = ['/AboutOlympiad', '/ReferEarn', '/Awards', '/FAQ', '/LiveMasterClass', '/Report', '/AboutUpEducators', '/CoursesForEducators'];
-
+    const paths = ['/AboutOlympiad', '/ReferEarn', '/Awards', '/FAQ', '/LiveMasterClass', '/Report', '/AboutupEducators', '/CoursesForEducators'];
+    const formatPathName = (path: string) => {
+        // Special case for 'AboutupEducators'
+        if (path === '/AboutupEducators') {
+            return 'About upEducators';
+        }
+        // General rule for formatting other paths
+        return path.slice(1).replace(/([A-Z])/g, ' $1').trim();
+    };
     return (
         <div className='navigation'>
             {paths.map((path) => (
@@ -19,7 +26,7 @@ const PageNavigation = ({ navPath }: any) => {
                         className={activeButton === path ? 'active' : ''}
                         onClick={() => handleClick(path)}
                     >
-                        {path.slice(1).replace(/([A-Z])/g, ' $1').trim()}
+                        {formatPathName(path)}
                     </button>
                     {/* Add Start Exam button after AboutOlympiad */}
                     {path === '/AboutOlympiad' && (

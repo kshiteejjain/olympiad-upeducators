@@ -74,9 +74,9 @@ const AboutOlympiad = () => {
                     <ul className='list'>
                         <li>Task: Submission of a Lesson Plan using Innovative Teaching Practices, and a video of 3-5 minutes explaining the lesson.</li>
                         <li>Participation: Top 200 scorers will be eligible for participation</li>
-                        <li>Last date of Submission: 1st March, 2025</li>
+                        <li>Last date of Submission: 8th March, 2025</li>
                         <li>Goal: To highlight creativity, active engagement, and innovative practices in lesson planning.</li>
-                        <li>Result: 15th March, 2025</li>
+                        <li>Result: 22nd March, 2025</li>
                         <li>Rewards for all the selected participants:
                             <span>Certificate of Achievements</span>
                             <span>Access to India’s First AI Portal for Educators</span>
@@ -117,9 +117,9 @@ const AboutOlympiad = () => {
                     <p><strong>Accessing the Olympiad:</strong></p>
                     <ul className='list'>
                         <li>Open Olympiad Portal 1 day before your scheduled exam.</li>
-                        <li>Click 'Exam Link' 'Check Exam System' to verify your camera, microphone, and familiarize yourself with the interface to ensure a smooth experience during the main exam.</li>
+                        <li> Click 'Exam Corner' {'>'} 'Check Demo Exam' to verify your camera, microphone, and familiarize yourself with the interface to ensure a smooth experience during the main exam.</li>
                         <li>Please read all the instructions carefully and conduct a System check.</li>
-                        <li>At the exam time, click 'Exam Link' 'Start Exam' to begin.</li>
+                        <li>At the exam time, click 'Exam Corner' {'>'} 'Start Exam' to begin</li>
                     </ul>
                     <p><strong>Exam Environment and Integrity:</strong></p>
                     <p>The Olympiad will be conducted in a secure online environment. To maintain the integrity of the exam:</p>
