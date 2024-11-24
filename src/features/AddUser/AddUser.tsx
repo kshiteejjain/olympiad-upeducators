@@ -83,7 +83,29 @@ const AddUser: React.FC = () => {
                 import.meta.env.VITE_OLYMPIAD_WELCOME_EMAIL_TEMPLATE,
                 { name, email: emailLowerCase, phone }
             );
-            await sendWhatsappMessage(phone);
+            const olympiadLabel = olympiad.map((item) => {
+                switch (item) {
+                    case 's24':
+                        return 'Science 2024';
+                    case 'm24':
+                        return 'Maths 2024';
+                    case 'p24':
+                        return 'Primary 2024';
+                    case 's24_2':
+                        return 'Science 2024 - 2';
+                    case 'm24_2':
+                        return 'Maths 2024 - 2';
+                    case 'p24_2':
+                        return 'Primary 2024 - 2';
+                    default:
+                        return item; // Default to the olympiad ID if no match is found
+                }
+            }).join(', ');
+
+            const var1 = name;      // Name
+            const var2 = olympiadLabel;     // Olympiad Name
+            const var3 = emailLowerCase; // Email
+            await sendWhatsappMessage(phone, var1, var2, var3);
 
             setUserDetails({
                 name: '',
@@ -191,7 +213,30 @@ const AddUser: React.FC = () => {
                         import.meta.env.VITE_OLYMPIAD_WELCOME_EMAIL_TEMPLATE,
                         { name, email: emailLowerCase, phone }
                     );
-                    await sendWhatsappMessage(phone);
+                    const olympiadLabel = olympiad.map((item: any) => {
+                        switch (item) {
+                            case 's24':
+                                return 'Science 2024';
+                            case 'm24':
+                                return 'Maths 2024';
+                            case 'p24':
+                                return 'Primary 2024';
+                            case 's24_2':
+                                return 'Science 2024 - 2';
+                            case 'm24_2':
+                                return 'Maths 2024 - 2';
+                            case 'p24_2':
+                                return 'Primary 2024 - 2';
+                            default:
+                                return item; // Default to the olympiad ID if no match is found
+                        }
+                    }).join(', ');
+        
+                    const var1 = name;      // Name
+                    const var2 = olympiadLabel;     // Olympiad Name
+                    const var3 = emailLowerCase; // Email
+                    await sendWhatsappMessage(phone, var1, var2, var3);
+        
                     setSuccessfulCount(prev => prev + 1);
                 } catch (err) {
                     console.error('Error uploading data:', err);

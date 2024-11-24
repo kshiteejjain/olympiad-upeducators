@@ -121,6 +121,7 @@ const LMSForm = () => {
 
                 const userDoc = querySnapshot.docs[0];
                 const { isNewUser } = userDoc.data();
+                console.log('isNewUser', isNewUser)
                 // Redirect based on isNewUser value
                 if (isNewUser === false) {
                     const olympdPrefix = JSON.parse(localStorage.getItem('olympd_prefix') || '{}');

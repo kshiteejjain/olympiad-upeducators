@@ -4,7 +4,7 @@ import { collection, doc, getDoc, getDocs, setDoc } from 'firebase/firestore';
 import { firestore } from '../../utils/firebase';
 import { useNavigate } from "react-router-dom";
 import { sendEmail } from "../SendEmail/SendEmail";
-// import { sendWhatsappMessage } from "../SendWhatsappMessage/SendWhatsappMessage";
+import { sendWhatsappMessage } from "../SendWhatsappMessage/SendWhatsappMessage";
 import whatsappSvg from "../../assets/whatsappSvg.svg";
 import logoWhite from "../../assets/logo-white.png";
 import Loader from "../../components/Loader/Loader";
@@ -48,7 +48,7 @@ const PaymentGateway = () => {
   const [userDetails, setUserDetails] = useState({ name: '', email: '', phone: '' });
   const [isFormValid, setIsFormValid] = useState(false);
   const [urlParams, setUrlParams] = useState<UrlParams>({ referralCode: null, source: null, olympiad: null });
-  const totalPrice = 369;
+  const totalPrice = 2;
   const [discountedPrice, setDiscountedPrice] = useState(totalPrice);
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
@@ -131,9 +131,9 @@ const PaymentGateway = () => {
       }
 
       // Add paymentId to the user's Firestore document
-    if (paymentId) {
-      docData.paymentId = paymentId;  // Store the payment ID in Firestore
-    }
+      if (paymentId) {
+        docData.paymentId = paymentId;  // Store the payment ID in Firestore
+      }
 
       await setDoc(docRef, {
         ...docData,
@@ -203,7 +203,18 @@ const PaymentGateway = () => {
       }
 
       await sendEmail(emailLowerCase, import.meta.env.VITE_OLYMPIAD_WELCOME_EMAIL_TEMPLATE, { name, email: emailLowerCase, phone });
-      //await sendWhatsappMessage(userDetails.phone);
+      const olympiadLabel =
+        olympiadId === 's24' ? 'Science 2024' :
+          olympiadId === 'm24' ? 'Maths 2024' :
+            olympiadId === 'p24' ? 'Primary 2024' :
+              olympiadId === 's24_2' ? 'Science 2024 - 2' :
+                olympiadId === 'm24_2' ? 'Maths 2024 - 2' :
+                  olympiadId === 'p24_2' ? 'Primary 2024 - 2' :
+                    olympiadId;  // Default to olympiadId if no match is found
+      const var1 = name;      // Name
+      const var2 = olympiadLabel;     // Olympiad Name
+      const var3 = emailLowerCase; // Email
+      await sendWhatsappMessage(phone, var1, var2, var3);
 
       setUserDetails({ name: '', email: '', phone: '' });
     } catch (error) {
@@ -221,10 +232,10 @@ const PaymentGateway = () => {
     handler: async (response) => {
       setLoading(true); // Start loader
       const paymentId = response?.razorpay_payment_id;  // Capture the Razorpay Payment ID
-    if (paymentId) {
-      // Store the payment ID in Firestore and send email notification
-      await handleSubmit(paymentId);  // Pass the payment ID to handleSubmit
-    }
+      if (paymentId) {
+        // Store the payment ID in Firestore and send email notification
+        await handleSubmit(paymentId);  // Pass the payment ID to handleSubmit
+      }
       setLoading(false); // Stop loader
       navigate('/'); // Redirect after loader is hidden
     },

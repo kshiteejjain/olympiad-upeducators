@@ -7,6 +7,7 @@ import Loader from "../../components/Loader/Loader";
 import LoginAnimation from "./LoginAnimation";
 
 import './Login.css';
+import { sendWhatsappMessageOTP } from "../SendWhatsappMessage/SendWhatsappMessage";
 
 const EnterOTP = () => {
     const [otp, setOtp] = useState('');
@@ -14,6 +15,8 @@ const EnterOTP = () => {
     const [isLoader, setIsLoader] = useState(false);
     const navigate = useNavigate();
     const generateOTP = Math.floor(Math.random() * 1000000).toString();
+    const olympdPrefix = JSON.parse(localStorage.getItem('olympd_prefix') || '{}');
+    const isPhoneOTP = olympdPrefix?.isPhoneOTP;
 
     useEffect(() => {
         const olympdPrefix = localStorage.getItem('olympd_prefix');
@@ -84,12 +87,33 @@ const EnterOTP = () => {
                     import.meta.env.VITE_OLYMPIAD_EMAIL_TEMPLATE,
                     { generateOTP }
                 );
-                alert('Passcode sent, Please check your  email');
+                alert('Passcode sent, Please check your email');
             } else {
                 alert('No email found. Please check your details.');
             }
         }
     };
+
+    const handleResendOTPPhone = async () => {
+        const olympd_prefix = localStorage.getItem('olympd_prefix');
+        if (olympd_prefix) {
+            const user = JSON.parse(olympd_prefix);
+            const phone = user?.phone; // Assuming email is stored here
+            const var1 = generateOTP;  
+            if (phone) {
+                await sendWhatsappMessageOTP(phone, var1);
+                alert('Passcode sent, Please check your whatsApp');
+            } else {
+                alert('No email found. Please check your details.');
+            }
+        }
+    };
+
+    const handleBackToLogin = () => {
+        navigate('/');
+        localStorage.removeItem('olympd_prefix')
+    }
+
 
     return (
         <><div className="login-wrapper">
@@ -98,7 +122,7 @@ const EnterOTP = () => {
                 <LoginAnimation isCarousal />
                 {isLoader && <Loader title='Loading..' />}
                 <form onSubmit={handleSubmit}>
-                    <h1>Verify Passcode (check your email)</h1>
+                    <h1>Verify Passcode (check your  {`${isPhoneOTP ? 'whatsApp' : 'email'}`})</h1>
                     <div className='form-group'>
                         <label htmlFor='otp'>Enter Passcode<span className="asterisk">*</span></label>
                         <input
@@ -113,13 +137,13 @@ const EnterOTP = () => {
                             autoFocus
                         />
                         {isError && <ErrorBoundary message='Invalid OTP. Please try again.' />}
-                        <p className='input-note'>Note: Enter passcode received on your email,  if not check spam.</p>
+                        <p className='input-note'>Note: Enter passcode received on your {`${isPhoneOTP ? 'whatsApp.' : 'email. ,  if not check spam.'}`}</p>
                     </div>
                     <Button title='Verify' type='submit' />
                 </form>
                 <div className="flex">
-                    <span className="login-option" onClick={handleResendOTP}>Resend Passcode?</span>
-                    <span className="login-option" onClick={() => navigate('/')}>Back to login?</span>
+                    <span className="login-option" onClick={isPhoneOTP ? handleResendOTPPhone : handleResendOTP}>Resend Passcode?</span>
+                    <span className="login-option" onClick={handleBackToLogin}>Back to login?</span>
                 </div>
             </div>
         </div>
