@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { firestore } from '../../utils/firebase';
-import { collection, getDocs, query, doc, deleteDoc, DocumentData } from 'firebase/firestore';
+import { collection, getDocs, query, doc, deleteDoc, updateDoc, DocumentData } from 'firebase/firestore';
 import Button from '../../components/Buttons/Button';
 import Loader from '../../components/Loader/Loader';
 import ErrorBoundary from '../../components/ErrorBoundary/ErrorBoundary';
@@ -20,7 +20,7 @@ const formatDate = (dateString: string): string => {
 // Utility function to convert JSON data to CSV
 const jsonToCSV = (data: DocumentData[]) => {
     const headers = [
-        'Name', 'Email', 'WhatsApp', 'Olympiad', 'Payment Id', 'Registered Date',
+        'Name', 'Email', 'WhatsApp', 'Olympiad', 'Payment Id', 'Source', 'Registered Date',
         'Board', 'City', 'Country', 'Date of Birth', 'Grade Level',
         'Organization Name', 'Organization Type', 'Role'
     ];
@@ -37,6 +37,7 @@ const jsonToCSV = (data: DocumentData[]) => {
             user.phone,
             (user.olympiad || []).join(', '),
             user.paymentDetails?.razorpay_payment_id,
+            user.source,
             formatDate(user.timeStamp),
             user.profile?.board,
             user.profile?.city,
@@ -62,6 +63,7 @@ const Admin = () => {
     const [startDate, setStartDate] = useState('');
     const [endDate, setEndDate] = useState('');
     const [selectedOlympiad, setSelectedOlympiad] = useState('');
+    const [editingOlympiad, setEditingOlympiad] = useState<{ [key: string]: string }>({});
     const navigate = useNavigate();
 
     useEffect(() => {
@@ -134,6 +136,32 @@ const Admin = () => {
                 console.error('Error deleting user:', err);
                 setError('Error deleting user');
             }
+        }
+    };
+
+    const handleOlympiadChange = (userId: string, newOlympiad: string) => {
+        setEditingOlympiad(prev => ({
+            ...prev,
+            [userId]: newOlympiad
+        }));
+    };
+
+    const saveOlympiad = async (userId: string, olympiad: string) => {
+        try {
+            const userRef = doc(firestore, 'OlympiadUsers', userId);
+            await updateDoc(userRef, {
+                olympiad: olympiad.split(',').map(item => item.trim()) // assuming comma-separated values for Olympiad
+            });
+            setEditingOlympiad(prev => {
+                const { [userId]: _, ...rest } = prev;
+                return rest;
+            });
+            // Update the local state with the new Olympiad
+            setData(prevData => prevData.map(user => user.id === userId ? { ...user, olympiad: olympiad.split(',').map(item => item.trim()) } : user));
+            setFilteredData(prevFiltered => prevFiltered.map(user => user.id === userId ? { ...user, olympiad: olympiad.split(',').map(item => item.trim()) } : user));
+        } catch (err) {
+            console.error('Error saving Olympiad:', err);
+            setError('Error saving Olympiad');
         }
     };
 
@@ -214,11 +242,22 @@ const Admin = () => {
                             </thead>
                             <tbody>
                                 {filteredData.map((user, index) => (
-                                    <tr key={index}>
+                                    <tr key={index} className={user.olympiad && user.olympiad.includes('p24') ? 'red-olympiad' : ''}>
                                         <td>{user?.name}</td>
                                         <td>{user?.email}</td>
                                         <td>{user?.phone}</td>
-                                        <td>{(user?.olympiad || []).join(', ')}</td>
+                                        <td>
+                                            {editingOlympiad[user.id] ? (
+                                                <input
+                                                    type="text"
+                                                    value={editingOlympiad[user.id]}
+                                                    autoFocus
+                                                    onChange={(e) => handleOlympiadChange(user.id, e.target.value)}
+                                                />
+                                            ) : (
+                                                (user?.olympiad || []).join(', ')
+                                            )}
+                                        </td>
                                         <td>{user.paymentId || 'NA'}</td>
                                         <td>{user.source || 'NA'}</td>
                                         <td>{formatDate(user.timeStamp)}</td>
@@ -231,6 +270,20 @@ const Admin = () => {
                                         <td>{user?.profile?.organizationType}</td>
                                         <td>{user?.profile?.role}</td>
                                         <td>
+                                            {editingOlympiad[user.id] ? (
+                                                <Button
+                                                    type="button"
+                                                    title="Save"
+                                                    onClick={() => saveOlympiad(user.id, editingOlympiad[user.id])}
+                                                />
+                                            ) : (
+                                                <Button
+                                                    type="button"
+                                                    title="Edit"
+                                                    isSecondary
+                                                    onClick={() => setEditingOlympiad({ ...editingOlympiad, [user.id]: (user.olympiad || []).join(', ') })}
+                                                />
+                                            )}
                                             <Button 
                                                 type='button' 
                                                 isError

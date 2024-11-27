@@ -20,7 +20,7 @@ const Header = () => {
   const [selectedOlympiad, setSelectedOlympiad] = useState<string>('');
   const navigate = useNavigate();
   const olympdPrefix = JSON.parse(localStorage.getItem('olympd_prefix') || '{}');
-  const isAdmin = olympdPrefix.email === 'namank@upeducators.com' || olympdPrefix.email === 'kshiteejjain@gmail.com' ||  olympdPrefix.email === 'ankushb@upeducators.com';
+  const isAdmin = olympdPrefix.email === 'namank@upeducators.com' || olympdPrefix.email === 'kshiteejjain@gmail.com' ||  olympdPrefix.email === 'ankushb@upeducators.com' || olympdPrefix.email === 'ankitam@upeducators.com' || olympdPrefix.email === 'lakshmi.upeducators@gmail.com';
 
   useEffect(() => {
     const fetchData = async () => {
@@ -79,10 +79,10 @@ const Header = () => {
                 const olympiadLabel = 
                 olympiad === 's24' ? 'Science 2024' :
                 olympiad === 'm24' ? 'Maths 2024' :
-                olympiad === 'p24' ? 'Primary 2024' :
+                olympiad === 'p25' ? 'Primary 2025' :
                 olympiad === 's24_2' ? 'Science 2024 - 2' :
                 olympiad === 'm24_2' ? 'Maths 2024 - 2' :
-                olympiad === 'p24_2' ? 'Primary 2024 - 2' :
+                olympiad === 'p25_2' ? 'Primary 2025 - 2' :
                 olympiad;
 
                 return (

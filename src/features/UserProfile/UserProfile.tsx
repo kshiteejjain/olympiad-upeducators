@@ -146,7 +146,7 @@ const UserProfile = () => {
                                                         const olympiadMap = {
                                                             s24: 'Science 2024',
                                                             m24: 'Maths 2024',
-                                                            p24: 'Primary 2024',
+                                                            p25: 'Primary 2025',
                                                             s24_2: 'Science 2024 - 2',
                                                             m24_2: 'Maths 2024 - 2'
                                                         } as const;

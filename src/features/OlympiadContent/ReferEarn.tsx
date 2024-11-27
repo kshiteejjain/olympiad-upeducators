@@ -28,7 +28,7 @@ type User = {
 
 const getBaseUrl = (olympiadName: string): string => {
   switch (olympiadName) {
-    case 'p24':
+    case 'p25':
       return "https://www.upeducators.com/international-primary-teachers-olympiad/";
     case 'm24':
       return "https://www.upeducators.com/international-math-teachers-olympiad/";
@@ -49,10 +49,10 @@ const ReferEarn = () => {
 
   let olympiadLabelName = olympiadName === 's24' ? 'Science 2024' :
     olympiadName === 'm24' ? 'Maths 2024' :
-      olympiadName === 'p24' ? 'Primary 2024' :
+      olympiadName === 'p25' ? 'Primary 2025' :
         olympiadName === 's24_2' ? 'Science 2024 - 2' :
           olympiadName === 'm24_2' ? 'Maths 2024 - 2' :
-            olympiadName === 'p24_2' ? 'Primary 2024 - 2' :
+            olympiadName === 'p25_2' ? 'Primary 2025 - 2' :
               olympiadName;
 
   const referralData = `Hey! I am participating in the International ${olympiadLabelName} Teachers' Olympiad.\n

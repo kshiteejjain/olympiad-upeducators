@@ -48,7 +48,7 @@ const PaymentGateway = () => {
   const [userDetails, setUserDetails] = useState({ name: '', email: '', phone: '' });
   const [isFormValid, setIsFormValid] = useState(false);
   const [urlParams, setUrlParams] = useState<UrlParams>({ referralCode: null, source: null, olympiad: null });
-  const totalPrice = 2;
+  const totalPrice = 369;
   const [discountedPrice, setDiscountedPrice] = useState(totalPrice);
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
@@ -206,10 +206,10 @@ const PaymentGateway = () => {
       const olympiadLabel =
         olympiadId === 's24' ? 'Science 2024' :
           olympiadId === 'm24' ? 'Maths 2024' :
-            olympiadId === 'p24' ? 'Primary 2024' :
+            olympiadId === 'p25' ? 'Primary 2025' :
               olympiadId === 's24_2' ? 'Science 2024 - 2' :
                 olympiadId === 'm24_2' ? 'Maths 2024 - 2' :
-                  olympiadId === 'p24_2' ? 'Primary 2024 - 2' :
+                  olympiadId === 'p25_2' ? 'Primary 2025 - 2' :
                     olympiadId;  // Default to olympiadId if no match is found
       const var1 = name;      // Name
       const var2 = olympiadLabel;     // Olympiad Name

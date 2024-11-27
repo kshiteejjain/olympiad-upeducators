@@ -129,7 +129,7 @@ const OlympiadContent = () => {
                                         onClick={() => handleOlympiadClick(olympiad)}
                                         className={isActive ? 'active' : ''} // Apply active class if the olympiad is active
                                     >
-                                        {olympiad === 'p24' ? 'Primary 2024' : olympiad === 'm24' ? 'Maths 2024' : olympiad}
+                                        {olympiad === 'p25' ? 'Primary 2025' : olympiad === 'm24' ? 'Maths 2024' : olympiad}
                                     </li>
                                 );
                             })}

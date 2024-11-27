@@ -89,14 +89,14 @@ const AddUser: React.FC = () => {
                         return 'Science 2024';
                     case 'm24':
                         return 'Maths 2024';
-                    case 'p24':
-                        return 'Primary 2024';
+                    case 'p25':
+                        return 'Primary 2025';
                     case 's24_2':
                         return 'Science 2024 - 2';
                     case 'm24_2':
                         return 'Maths 2024 - 2';
-                    case 'p24_2':
-                        return 'Primary 2024 - 2';
+                    case 'p25_2':
+                        return 'Primary 2025 - 2';
                     default:
                         return item; // Default to the olympiad ID if no match is found
                 }
@@ -219,14 +219,14 @@ const AddUser: React.FC = () => {
                                 return 'Science 2024';
                             case 'm24':
                                 return 'Maths 2024';
-                            case 'p24':
-                                return 'Primary 2024';
+                            case 'p25':
+                                return 'Primary 2025';
                             case 's24_2':
                                 return 'Science 2024 - 2';
                             case 'm24_2':
                                 return 'Maths 2024 - 2';
-                            case 'p24_2':
-                                return 'Primary 2024 - 2';
+                            case 'p25_2':
+                                return 'Primary 2025 - 2';
                             default:
                                 return item; // Default to the olympiad ID if no match is found
                         }

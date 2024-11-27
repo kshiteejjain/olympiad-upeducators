@@ -57,3 +57,6 @@ table.admin-table td, table.admin-table th{
 h2 button{
     margin: 0 0 0 auto;
 }
+.red-olympiad{
+    background-color: red;
+}
