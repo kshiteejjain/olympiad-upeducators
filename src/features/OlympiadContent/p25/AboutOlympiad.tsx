@@ -3,8 +3,8 @@ import Banner from '../../../assets/primary-banner.png';
 import { fetchUserRegistrationDate } from '../../../utils/firebaseUtils'; // Adjust the path as necessary
 import Loader from '../../../components/Loader/Loader';
 
-const TARGET_DATE = new Date('2025-01-18T17:00:00');
-const OLYMPIAD_B_DATE = new Date('2025-01-18T17:00:00');
+const TARGET_DATE = new Date('2025-01-25T17:00:00');
+const OLYMPIAD_B_DATE = new Date('2025-01-25T17:00:00');
 const COMPARE_DATE = new Date('2024-09-30T00:00:00');
 
 const AboutOlympiad = () => {
@@ -60,7 +60,7 @@ const AboutOlympiad = () => {
                         <li>Time: 5 PM</li>
                         <li>Mode: Online</li>
                         <li>Participation: Open to all Educators</li>
-                        <li>Date of Result: 22 February, 2025</li>
+                        <li>Date of Result: 29th March, 2025</li>
                         <li>Outcome:
                             <span>The Top 200 scorers will advance to the Primary Educator Excellence Award</span>
                         </li>
@@ -74,18 +74,18 @@ const AboutOlympiad = () => {
                     <ul className='list'>
                         <li>Task: Submission of a Lesson Plan using Innovative Teaching Practices, and a video of 3-5 minutes explaining the lesson.</li>
                         <li>Participation: Top 200 scorers will be eligible for participation</li>
-                        <li>Last date of Submission: 8th March, 2025</li>
+                        <li>Last date of Submission: 15th March, 2025</li>
                         <li>Goal: To highlight creativity, active engagement, and innovative practices in lesson planning.</li>
-                        <li>Result: 22nd March, 2025</li>
+                        <li>Result: 29th March, 2025</li>
                         <li>Rewards for all the selected participants:
                             <span>Certificate of Achievements</span>
                             <span>Access to India’s First AI Portal for Educators</span>
                             <span>100% Scholarships for Google Educators Exam Fee Level 2 Worth Rs.2500</span>
                         </li>
                         <li>Rewards for the Top 3 Winners:
-                            <span>Winner: Cash prize of ₹1 Lakhs or $1,200</span>
-                            <span>1st Runner up: Cash prize of ₹50,000 or $600</span>
-                            <span>2nd Runner up: Cash prize of ₹25,000 or $300</span>
+                            <span>Winner: Cash prize of ₹50,000 or $600</span>
+                            <span>1st Runner up: Cash prize of ₹25,000 or $300</span>
+                            <span>2nd Runner up: Cash prize of ₹10,000 or $120</span>
                         </li>
                     </ul>
                 </details>
