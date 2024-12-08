@@ -38,7 +38,7 @@ const SessionsData = [
     }
 ];
 
-const AboutUpEducators = () => {
+const AboutupEducators = () => {
     const CoursesCard = () => {
         return (
             SessionsData.map((item, index) => (
@@ -65,4 +65,4 @@ const AboutUpEducators = () => {
     );
 };
 
-export default AboutUpEducators;
+export default AboutupEducators;

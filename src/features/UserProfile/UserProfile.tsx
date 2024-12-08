@@ -144,10 +144,10 @@ const UserProfile = () => {
                                                 {data?.olympiad
                                                     ?.map((olymp: any) => {
                                                         const olympiadMap = {
-                                                            s24: 'Science 2024',
+                                                            e25: 'English 2025',
                                                             m24: 'Maths 2024',
                                                             p25: 'Primary 2025',
-                                                            s24_2: 'Science 2024 - 2',
+                                                            e25_2: 'English 2025 - 2',
                                                             m24_2: 'Maths 2024 - 2'
                                                         } as const;
 

@@ -15,7 +15,7 @@ const loadComponent = (componentName: string) => {
     if (componentName === 'CoursesForEducators') {
         return lazy(() => import(`./CoursesForEducators.tsx`));
     }
-    if (componentName === 'AboutUpEducators') {
+    if (componentName === 'AboutupEducators') {
         return lazy(() => import(`./AboutUpEducators.tsx`));
     }
     if (componentName === 'CheckExamSystem') {
@@ -37,7 +37,7 @@ const Awards = loadComponent('Awards');
 const FAQ = loadComponent('FAQ');
 const LiveMasterClass = loadComponent('LiveMasterClass');
 const Report = loadComponent('Report');
-const AboutUpEducators = loadComponent('AboutUpEducators');
+const AboutupEducators = loadComponent('AboutupEducators');
 const CoursesForEducators = loadComponent('CoursesForEducators');
 const CheckExamSystem = loadComponent('CheckExamSystem');
 
@@ -50,7 +50,7 @@ const componentMap: Record<string, ComponentType<any>> = {
     '/FAQ': FAQ,
     '/LiveMasterClass': LiveMasterClass,
     '/Report': Report,
-    '/AboutUpEducators': AboutUpEducators,
+    '/AboutupEducators': AboutupEducators,
     '/CoursesForEducators': CoursesForEducators,
     '/CheckExamSystem': CheckExamSystem
 };
@@ -129,7 +129,10 @@ const OlympiadContent = () => {
                                         onClick={() => handleOlympiadClick(olympiad)}
                                         className={isActive ? 'active' : ''} // Apply active class if the olympiad is active
                                     >
-                                        {olympiad === 'p25' ? 'Primary 2025' : olympiad === 'm24' ? 'Maths 2024' : olympiad}
+                                        {olympiad === 'p25' ? 'Primary 2025'
+                                            : olympiad === 'm24' ? 'Maths 2024'
+                                                : olympiad === 'e25' ? 'English 2025'
+                                                    : olympiad}
                                     </li>
                                 );
                             })}

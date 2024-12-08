@@ -29,10 +29,10 @@ const FAQ: FC = () => {
             title: 'About the Olympiad',
             questions: [
                 {
-                    summary: 'Who is organizing this International Primary Teachers’ Olympiad?',
+                    summary: 'Who is organizing this International English Teachers’ Olympiad?',
                     answer: (
                         <>
-                            upEducators, a distinguished Google For Education Partner Company, is proudly organizing this Pre-Primary Teachers’ Olympiad. We are dedicated to empowering educators with innovative teaching methodologies and achieving excellence. For more insights into our mission and initiatives, please <a href="https://www.upeducators.com" target="_blank" rel="noopener noreferrer">click here</a>.
+                            upEducators, a distinguished Google For Education Partner Company, is proudly organizing this International English Teachers’ Olympiad. We are dedicated to empowering educators and helping them achieve excellence. For more insights into our mission and initiatives, please <a href="https://www.upeducators.com" target="_blank" rel="noopener noreferrer">click here</a>.
                         </>
                     ),
                 },
@@ -44,15 +44,15 @@ const FAQ: FC = () => {
             questions: [
                 {
                     summary: 'Can I cancel my registration or request for a refund?',
-                    answer: 'We do not offer cancellations or refunds under any circumstances. Once registration is completed, it is considered final, and refunds or cancellations cannot be processed. We advise reviewing all details before confirming your registration to avoid any inconvenience.',
+                    answer: 'We do not offer cancellations or refunds under any circumstances. Once registration is completed, it is considered final, and refunds or cancellations cannot be processed. We advise you to review all the details before confirming your registration to avoid any inconvenience.',
                 },
                 {
                     summary: 'How can I get support if I have any queries?',
-                    answer: 'Please mail your query to olympiad@upeducators.com and you will get a reply in your mail within 2 working days.',
+                    answer: 'Please mail your query to olympiad@upeducators.com and you will get a reply on your mail within 2 working days.',
                 },
                 {
-                    summary: 'Can I change the Registered Email id?',
-                    answer: 'You need to mail at olympiad@upeducators.com before 25th December 2024 along with the payment receipt. After the deadline, your details will not be changed in any case.',
+                    summary: 'Can I change the Registered Email ID?',
+                    answer: 'You need to mail to olympiad@upeducators.com before 25th January 2025 along with the payment receipt. After the deadline, your details will not be changed in any case.',
                 }
             ],
         },
@@ -61,28 +61,32 @@ const FAQ: FC = () => {
             title: 'Exam & Preparation',
             questions: [
                 {
-                    summary: 'How to prepare for this Olympiad?',
-                    answer: 'No special preparation is required for this Olympiad. The competition is structured to assess and celebrate your dedication and creativity in primary education. It"s an opportunity to showcase your knowledge, pedagogical skills, critical thinking, and problem-solving abilities. However, familiarity with the key concepts and best practices in education will be beneficial. And for more idea on what kind of questions will come in the Olympiad exam, please refer to sample questions available in this Olympiad portal.',
+                    summary: 'What kind of preparation is required for the Olympiad?',
+                    answer: 'No special preparation is required for this Olympiad. The competition is designed to evaluate your existing knowledge, teaching methodologies, and ability to foster language and communication skills in learners. However, familiarity with key concepts, best practices in English education, and innovative strategies for language teaching will be advantageous.',
                 },
                 {
                     summary: 'Where can I attempt this test?',
-                    answer: 'You can attempt this test from your Windows Desktop or Laptop with working webcam',
+                    answer: 'You can attempt this test from your Windows Desktop or Laptop with a working webcam.',
                 },
                 {
-                    summary: 'Can I attempt this Exam from my Mobile?',
-                    answer: 'No, this Exam can be given only from a Windows Laptop/PC with a functional webcam.',
+                    summary: 'Can I attempt this exam on my mobile?',
+                    answer: 'No, this exam can be given only from a Windows Laptop/PC with a functional webcam.',
                 },
                 {
                     summary: 'Will I get sample questions for the Olympiad preparation?',
-                    answer: 'Yes, sample questions are already uploaded in this Olympiad Portal under the “About Olympiad” section.',
+                    answer: 'Yes, you will get sample questions once you register for the Olympiad.',
                 },
                 {
                     summary: 'Will I be getting any certificate?',
                     answer: 'Yes, all the participants will be getting an International Certificate of Participation. Top performers will also get a Certificate of Achievement.',
                 },
                 {
-                    summary: 'What if I am not available at the Exam time, can Exam date/time be changed?',
-                    answer: 'Exam date and time will not be changed in any circumstances and also no refund will be provided.',
+                    summary: 'What if I am not available at the exam time, can the exam date/time be changed?',
+                    answer: 'The exam date and time will not be changed in any circumstances and also no refund will be provided.',
+                },
+                {
+                    summary: 'How the Top 3 Winners will be Decided?',
+                    answer: 'All the Participants will be attempting the Olympiad exam (Phase 1). The top 200 participants will then be selected for the English Educator Excellence Award. The selected educators need to submit a Lesson Plan using Innovative Language Teaching Practices and a video of 3-5 minutes explaining the lesson. The submitted Lesson plan will be evaluated by a Team of National Awardee Teachers and Top English Educators in India. After the evaluation, one winner will be selected from each grade level category (Eg. Grade 1 to 5, Grade 6 to 10, Grade 11 and above). Each winner will receive a cash prize of Rs. 50,000.',
                 }
             ],
         },
@@ -92,11 +96,11 @@ const FAQ: FC = () => {
             questions: [
                 {
                     summary: 'Will I have to pay additional fees for attending the Live Training Sessions?',
-                    answer: 'No additional fee payments are required for attending the Live Training Sessions. These enriching educational experiences are included in the Registration Fee of Rs. 369/- without any hidden or extra charges.',
+                    answer: 'No additional fee payments are required for attending the Live Training Sessions. These enriching educational experiences are included in the Registration Fee of Rs. 379/- without any hidden or extra charges.',
                 },
                 {
                     summary: 'When will I get the Masterclasses?',
-                    answer: 'Masterclasses will be conducted after the Result.',
+                    answer: 'Masterclasses will be conducted after the result announcement.',
                 },
                 {
                     summary: 'Will I get the Certificate for the Masterclasses?',

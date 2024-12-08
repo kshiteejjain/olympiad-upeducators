@@ -11,9 +11,11 @@ const ExamData = ({ onCheckDemoExam }: any) => {
     const [examMessage, setExamMessage] = useState<string | null>(null);
     const [emailFound, setEmailFound] = useState<boolean>(false);
 
-    const targetDate = new Date('2025-01-18T17:00:00');
-    const olympiadBDate = new Date('2025-01-18T17:00:00');
-    const compareDate = '2024-11-05T00:00:00'
+    const olympiadValue = JSON.parse(localStorage.getItem('olympd_prefix') || '{}').olympiadName || '';
+    const [targetDate, olympiadBDate] = olympiadValue === 'p25'
+        ? [new Date('2025-01-18'), new Date('2025-01-18')]
+        : [new Date('2025-02-15'), new Date('2025-02-15')];
+    const compareDate = '2024-11-05T00:00:00';
 
     // Helper function to format date in DD-MM-YY format
     const formatDateTime = (date: any) => {

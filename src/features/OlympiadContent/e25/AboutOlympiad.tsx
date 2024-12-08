@@ -1,10 +1,10 @@
 import { useEffect, useState } from 'react';
-import Banner from '../../../assets/primary-banner.png';
+import Banner from '../../../assets/english-banner.png';
 import { fetchUserRegistrationDate } from '../../../utils/firebaseUtils'; // Adjust the path as necessary
 import Loader from '../../../components/Loader/Loader';
 
-const TARGET_DATE = new Date('2025-01-25T17:00:00');
-const OLYMPIAD_B_DATE = new Date('2025-01-25T17:00:00');
+const TARGET_DATE = new Date('2025-02-15T17:00:00');
+const OLYMPIAD_B_DATE = new Date('2025-02-15T17:00:00');
 const COMPARE_DATE = new Date('2024-09-30T00:00:00');
 
 const AboutOlympiad = () => {
@@ -57,60 +57,59 @@ const AboutOlympiad = () => {
                         <li>Format: Multiple Choice Questions</li>
                         <li>No. of Questions: 30</li>
                         <li>Exam Duration: 40 Minutes</li>
-                        <li>Time: 5 PM</li>
+                        <li>Time: 5 PM IST</li>
                         <li>Mode: Online</li>
                         <li>Participation: Open to all Educators</li>
-                        <li>Date of Result: 1st March, 2025</li>
+                        <li>Date of Result: 22nd March, 2025</li>
                         <li>Outcome:
-                            <span>The Top 200 scorers will advance to the Primary Educator Excellence Award</span>
+                            <span>The Top 200 scorers will advance to the English Educator Excellence Award</span>
                         </li>
                         <li>Rewards for All the Participants:
-                            <span>Certificate of Participation (who attempt the exam)</span>
-                            <span>Olympiad Excellence Report</span>
+                            <span>Certificate of Participation (who attempts the exam)</span>
+                            <span>Olympiad Competency Report</span>
                             <span>8 Expert-Led Live Training Sessions</span>
                         </li>
                     </ul>
-                    <p><strong>Phase 2: Primary Educator Excellence Award</strong></p>
+                    <p><strong>Phase 2: English Educator Excellence Award</strong></p>
                     <ul className='list'>
-                        <li>Task: Submission of a Lesson Plan using Innovative Teaching Practices, and a video of 3-5 minutes explaining the lesson.</li>
+                        <li>Task: Submission of a Lesson Plan using Innovative Language Teaching Practices, and a video of 3-5 minutes explaining the lesson.</li>
                         <li>Participation: Top 200 scorers will be eligible for participation</li>
-                        <li>Last date of Submission: 15th March, 2025</li>
-                        <li>Goal: To highlight creativity, active engagement, and innovative practices in lesson planning.</li>
-                        <li>Result: 29th March, 2025</li>
+                        <li>Last date of Submission: 6th April, 2025</li>
+                        <li>Evaluation: By a Team of National Awardee Teachers and Top English Educators in India.</li>
+                        <li>Goal: To highlight creativity, active engagement, and innovative practices (specific to English education) in lesson planning.</li>
+                        <li>Result: 19th April, 2025</li>
                         <li>Rewards for all the selected participants:
                             <span>Certificate of Achievements</span>
                             <span>Access to India’s First AI Portal for Educators</span>
                             <span>100% Scholarships for Google Educators Exam Fee Level 2 Worth Rs.2500</span>
                         </li>
                         <li>Rewards for the Top 3 Winners:
-                            <span>Winner: Cash prize of ₹50,000 or $600</span>
-                            <span>1st Runner up: Cash prize of ₹25,000 or $300</span>
-                            <span>2nd Runner up: Cash prize of ₹10,000 or $120</span>
+                            <span>Cash prize of ₹ 50,000 each</span>
                         </li>
                     </ul>
                 </details>
                 <details>
                     <summary>Curriculum</summary>
-                    <p>The exam aims to evaluate educators' comprehensive understanding and practical application of essential concepts in primary education. It serves as a platform for educators to showcase their teaching skills, critical thinking, and problem-solving abilities. The topics covered are relevant to primary education, and the questions will not be specific to any particular grade or subject.</p>
+                    <p>Any teacher or aspirant would feel at ease while taking this Olympiad test. The topics covered are commonly known to English Educators. Nevertheless, reviewing your basics and staying updated with the latest teaching methods is a good idea to boost your chances of achieving a top rank in the exam.</p>
                     <p><strong>Topics Covered:</strong></p>
                     <ul className='list'>
-                        <li> Child Development and Psychology</li>
-                        <li>Primary Education Theories and Pedagogy</li>
-                        <li>Lesson Planning, Assessment, and Feedback</li>
-                        <li>Innovative Teaching Strategies and Student Engagement </li>
-                        <li>Real-world Applications and Cross-Disciplinary Integration</li>
-                        <li>Technology Integration in the Classroom</li>
-                        <li>Classroom Management and Differentiated Instruction</li>
+                        <li>Pedagogical Knowledge</li>
+                        <li>Innovative Teaching Strategies</li>
+                        <li>Technology Integration in Language Learning</li>
+                        <li>Language and Literacy Development</li>
                         <li>Inclusive Education and Special Needs</li>
+                        <li>Classroom Management and Differentiated Language Teaching</li>
+                        <li>Cross-Disciplinary Integration and Real-world Applications</li>
+                        <li>Student Engagement</li>
+                        <li>Assessment and Evaluation</li>
                         <li>Professional Development and Ethics</li>
-                        <li>Parental Engagement and Community Involvement</li>
                     </ul>
                 </details>
                 <details>
                     <summary>Sample Papers</summary>
-                    <p><strong>Check the Sample Paper as per the Grade you have selected</strong></p>
-                    <h3>View the Sample Paper with the link below:</h3>
-                    <a href='https://drive.google.com/file/d/1lng8wtXd0gUtNJ7dgFX9dLyLcDeWR6Qs/view?pli=1' target='_blank'>View Sample Paper</a>
+                    <p><strong>Sample Papers will updated by 15th December 2024</strong></p>
+                    {/* <h3>View the Sample Paper with the link below:</h3>
+                    <a href='https://drive.google.com/file/d/1lng8wtXd0gUtNJ7dgFX9dLyLcDeWR6Qs/view?pli=1' target='_blank'>View Sample Paper</a> */}
                 </details>
                 <details>
                     <summary>Process of Attempting the Olympiad</summary>

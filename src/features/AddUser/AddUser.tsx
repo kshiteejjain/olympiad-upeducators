@@ -85,14 +85,14 @@ const AddUser: React.FC = () => {
             );
             const olympiadLabel = olympiad.map((item) => {
                 switch (item) {
-                    case 's24':
-                        return 'Science 2024';
+                    case 'e24':
+                        return 'English 2025';
                     case 'm24':
                         return 'Maths 2024';
                     case 'p25':
                         return 'Primary 2025';
-                    case 's24_2':
-                        return 'Science 2024 - 2';
+                    case 'e25_2':
+                        return 'English 2025 - 2';
                     case 'm24_2':
                         return 'Maths 2024 - 2';
                     case 'p25_2':
@@ -215,14 +215,14 @@ const AddUser: React.FC = () => {
                     );
                     const olympiadLabel = olympiad.map((item: any) => {
                         switch (item) {
-                            case 's24':
-                                return 'Science 2024';
+                            case 'e25':
+                                return 'English 2025';
                             case 'm24':
                                 return 'Maths 2024';
                             case 'p25':
                                 return 'Primary 2025';
-                            case 's24_2':
-                                return 'Science 2024 - 2';
+                            case 'e25_2':
+                                return 'English 2025 - 2';
                             case 'm24_2':
                                 return 'Maths 2024 - 2';
                             case 'p25_2':

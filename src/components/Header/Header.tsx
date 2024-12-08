@@ -77,10 +77,10 @@ const Header = () => {
             >
               {uniqueOlympiads.map((olympiad, index) => {
                 const olympiadLabel = 
-                olympiad === 's24' ? 'Science 2024' :
+                olympiad === 'e25' ? 'English 2025' :
                 olympiad === 'm24' ? 'Maths 2024' :
                 olympiad === 'p25' ? 'Primary 2025' :
-                olympiad === 's24_2' ? 'Science 2024 - 2' :
+                olympiad === 'e25_2' ? 'English 2025 - 2' :
                 olympiad === 'm24_2' ? 'Maths 2024 - 2' :
                 olympiad === 'p25_2' ? 'Primary 2025 - 2' :
                 olympiad;

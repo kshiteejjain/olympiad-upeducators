@@ -47,10 +47,10 @@ const ReferEarn = () => {
   const olympdPrefix = JSON.parse(localStorage.getItem('olympd_prefix') || '{}');
   const { email, olympiadName } = olympdPrefix;
 
-  let olympiadLabelName = olympiadName === 's24' ? 'Science 2024' :
+  let olympiadLabelName = olympiadName === 'e25' ? 'English 2025' :
     olympiadName === 'm24' ? 'Maths 2024' :
       olympiadName === 'p25' ? 'Primary 2025' :
-        olympiadName === 's24_2' ? 'Science 2024 - 2' :
+        olympiadName === 'e25_2' ? 'English 2025 - 2' :
           olympiadName === 'm24_2' ? 'Maths 2024 - 2' :
             olympiadName === 'p25_2' ? 'Primary 2025 - 2' :
               olympiadName;

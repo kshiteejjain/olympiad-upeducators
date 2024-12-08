@@ -204,10 +204,10 @@ const PaymentGateway = () => {
 
       await sendEmail(emailLowerCase, import.meta.env.VITE_OLYMPIAD_WELCOME_EMAIL_TEMPLATE, { name, email: emailLowerCase, phone });
       const olympiadLabel =
-        olympiadId === 's24' ? 'Science 2024' :
+        olympiadId === 'e25' ? 'English 2025' :
           olympiadId === 'm24' ? 'Maths 2024' :
             olympiadId === 'p25' ? 'Primary 2025' :
-              olympiadId === 's24_2' ? 'Science 2024 - 2' :
+              olympiadId === 'e25_2' ? 'English 2025 - 2' :
                 olympiadId === 'm24_2' ? 'Maths 2024 - 2' :
                   olympiadId === 'p25_2' ? 'Primary 2025 - 2' :
                     olympiadId;  // Default to olympiadId if no match is found
