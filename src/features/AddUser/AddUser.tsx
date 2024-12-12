@@ -4,7 +4,7 @@ import * as XLSX from 'xlsx';
 import { doc, setDoc, getDoc } from 'firebase/firestore';
 import { firestore } from '../../utils/firebase';
 import { sendEmail } from '../SendEmail/SendEmail';
-import { sendWhatsappMessage } from '../SendWhatsappMessage/SendWhatsappMessage';
+// import { sendWhatsappMessage } from '../SendWhatsappMessage/SendWhatsappMessage';
 import Button from '../../components/Buttons/Button';
 import ErrorBoundary from '../../components/ErrorBoundary/ErrorBoundary';
 import Loader from '../../components/Loader/Loader';
@@ -83,29 +83,30 @@ const AddUser: React.FC = () => {
                 import.meta.env.VITE_OLYMPIAD_WELCOME_EMAIL_TEMPLATE,
                 { name, email: emailLowerCase, phone }
             );
-            const olympiadLabel = olympiad.map((item) => {
-                switch (item) {
-                    case 'e24':
-                        return 'English 2025';
-                    case 'm24':
-                        return 'Maths 2024';
-                    case 'p25':
-                        return 'Primary 2025';
-                    case 'e25_2':
-                        return 'English 2025 - 2';
-                    case 'm24_2':
-                        return 'Maths 2024 - 2';
-                    case 'p25_2':
-                        return 'Primary 2025 - 2';
-                    default:
-                        return item; // Default to the olympiad ID if no match is found
-                }
-            }).join(', ');
+            // const olympiadLabel = olympiad.map((item) => {
+            //     switch (item) {
+            //         case 'e24':
+            //             return 'English 2025';
+            //         case 'm24':
+            //             return 'Maths 2024';
+            //         case 'p25':
+            //             return 'Primary 2025';
+            //         case 'e25_2':
+            //             return 'English 2025 - 2';
+            //         case 'm24_2':
+            //             return 'Maths 2024 - 2';
+            //         case 'p25_2':
+            //             return 'Primary 2025 - 2';
+            //         default:
+            //             return item; // Default to the olympiad ID if no match is found
+            //     }
+            // }).join(', ');
 
-            const var1 = name;      // Name
-            const var2 = olympiadLabel;     // Olympiad Name
-            const var3 = emailLowerCase; // Email
-            await sendWhatsappMessage(phone, var1, var2, var3);
+            // const var1 = name;      // Name
+            // const var2 = olympiadLabel;     // Olympiad Name
+            // const var3 = emailLowerCase; // Email
+            // const var4 = olympiadDate;
+            // await sendWhatsappMessage(phone, var1, var2, var3, var4);
 
             setUserDetails({
                 name: '',
@@ -213,29 +214,30 @@ const AddUser: React.FC = () => {
                         import.meta.env.VITE_OLYMPIAD_WELCOME_EMAIL_TEMPLATE,
                         { name, email: emailLowerCase, phone }
                     );
-                    const olympiadLabel = olympiad.map((item: any) => {
-                        switch (item) {
-                            case 'e25':
-                                return 'English 2025';
-                            case 'm24':
-                                return 'Maths 2024';
-                            case 'p25':
-                                return 'Primary 2025';
-                            case 'e25_2':
-                                return 'English 2025 - 2';
-                            case 'm24_2':
-                                return 'Maths 2024 - 2';
-                            case 'p25_2':
-                                return 'Primary 2025 - 2';
-                            default:
-                                return item; // Default to the olympiad ID if no match is found
-                        }
-                    }).join(', ');
+                    // const olympiadLabel = olympiad.map((item: any) => {
+                    //     switch (item) {
+                    //         case 'e25':
+                    //             return 'English 2025';
+                    //         case 'm24':
+                    //             return 'Maths 2024';
+                    //         case 'p25':
+                    //             return 'Primary 2025';
+                    //         case 'e25_2':
+                    //             return 'English 2025 - 2';
+                    //         case 'm24_2':
+                    //             return 'Maths 2024 - 2';
+                    //         case 'p25_2':
+                    //             return 'Primary 2025 - 2';
+                    //         default:
+                    //             return item; // Default to the olympiad ID if no match is found
+                    //     }
+                    // }).join(', ');
         
-                    const var1 = name;      // Name
-                    const var2 = olympiadLabel;     // Olympiad Name
-                    const var3 = emailLowerCase; // Email
-                    await sendWhatsappMessage(phone, var1, var2, var3);
+                    // const var1 = name;      // Name
+                    // const var2 = olympiadLabel;     // Olympiad Name
+                    // const var3 = emailLowerCase; // Email
+                    // const var3 = emailLowerCase; // Email
+                    // await sendWhatsappMessage(phone, var1, var2, var3, var4);
         
                     setSuccessfulCount(prev => prev + 1);
                 } catch (err) {

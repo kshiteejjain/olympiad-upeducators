@@ -60,7 +60,7 @@ const AboutOlympiad = () => {
                         <li>Time: 5 PM IST</li>
                         <li>Mode: Online</li>
                         <li>Participation: Open to all Educators</li>
-                        <li>Date of Result: 22nd March, 2025</li>
+                        <li>Date of Result: 25th March, 2025</li>
                         <li>Outcome:
                             <span>The Top 200 scorers will advance to the English Educator Excellence Award</span>
                         </li>
@@ -74,10 +74,10 @@ const AboutOlympiad = () => {
                     <ul className='list'>
                         <li>Task: Submission of a Lesson Plan using Innovative Language Teaching Practices, and a video of 3-5 minutes explaining the lesson.</li>
                         <li>Participation: Top 200 scorers will be eligible for participation</li>
-                        <li>Last date of Submission: 6th April, 2025</li>
+                        <li>Last date of Submission: 27th April, 2025</li>
                         <li>Evaluation: By a Team of National Awardee Teachers and Top English Educators in India.</li>
                         <li>Goal: To highlight creativity, active engagement, and innovative practices (specific to English education) in lesson planning.</li>
-                        <li>Result: 19th April, 2025</li>
+                        <li>Result: 17th May, 2025</li>
                         <li>Rewards for all the selected participants:
                             <span>Certificate of Achievements</span>
                             <span>Access to India’s First AI Portal for Educators</span>

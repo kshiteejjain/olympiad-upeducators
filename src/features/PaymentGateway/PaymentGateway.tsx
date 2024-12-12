@@ -48,7 +48,10 @@ const PaymentGateway = () => {
   const [userDetails, setUserDetails] = useState({ name: '', email: '', phone: '' });
   const [isFormValid, setIsFormValid] = useState(false);
   const [urlParams, setUrlParams] = useState<UrlParams>({ referralCode: null, source: null, olympiad: null });
-  const totalPrice = 369;
+  const totalPrice =
+    urlParams?.olympiad === 'e25' ? 379 :
+      urlParams?.olympiad === 'p25' ? 369 : 369;
+  const olympiadDate = urlParams?.olympiad === 'p25' ? '1st Feb 2025, 5:00pm IST' : '15th Feb 2025, 5:00pm IST';
   const [discountedPrice, setDiscountedPrice] = useState(totalPrice);
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
@@ -120,14 +123,21 @@ const PaymentGateway = () => {
       const docRef = doc(firestore, 'OlympiadUsers', emailLowerCase);
       const docSnap = await getDoc(docRef);
       let docData = docSnap.exists() ? docSnap.data() : {};
-      if (!docData.olympiad) docData.olympiad = [];
-      if (!docData.source) docData.source = [];
 
+      // Ensure 'olympiad' and 'source' are arrays
+      if (!Array.isArray(docData.olympiad)) {
+        docData.olympiad = [];
+      }
+      if (!Array.isArray(docData.source)) {
+        docData.source = [];  // Ensure source is always an array
+      }
+
+      // Adding the Olympiad ID and source to the user's data
       if (olympiadId && !docData.olympiad.includes(olympiadId)) {
         docData.olympiad.push(olympiadId);
       }
       if (source && !docData.source.includes(source)) {
-        docData.source.push(source);
+        docData.source.push(source);  // Now it's safe to use push()
       }
 
       // Add paymentId to the user's Firestore document
@@ -202,7 +212,6 @@ const PaymentGateway = () => {
         }
       }
 
-      await sendEmail(emailLowerCase, import.meta.env.VITE_OLYMPIAD_WELCOME_EMAIL_TEMPLATE, { name, email: emailLowerCase, phone });
       const olympiadLabel =
         olympiadId === 'e25' ? 'English 2025' :
           olympiadId === 'm24' ? 'Maths 2024' :
@@ -214,7 +223,9 @@ const PaymentGateway = () => {
       const var1 = name;      // Name
       const var2 = olympiadLabel;     // Olympiad Name
       const var3 = emailLowerCase; // Email
-      await sendWhatsappMessage(phone, var1, var2, var3);
+      const var4 = olympiadDate;
+      await sendWhatsappMessage(phone, var1, var2, var3, var4);
+      await sendEmail(emailLowerCase, import.meta.env.VITE_OLYMPIAD_WELCOME_EMAIL_TEMPLATE, { name, email: emailLowerCase, phone, olympiad: olympiadLabel, olympiadDate });
 
       setUserDetails({ name: '', email: '', phone: '' });
     } catch (error) {
