@@ -8,6 +8,7 @@ import { sendWhatsappMessage } from "../SendWhatsappMessage/SendWhatsappMessage"
 import whatsappSvg from "../../assets/whatsappSvg.svg";
 import logoWhite from "../../assets/logo-white.png";
 import Loader from "../../components/Loader/Loader";
+import { sendFacebookEvent } from "./SendFacebookEvent";
 
 import './PaymentGateway.css';
 
@@ -49,22 +50,25 @@ const PaymentGateway = () => {
   const [isFormValid, setIsFormValid] = useState(false);
   const [urlParams, setUrlParams] = useState<UrlParams>({ referralCode: null, source: null, olympiad: null });
   const totalPrice =
-    urlParams?.olympiad === 'e25' ? 379 :
-      urlParams?.olympiad === 'p25' ? 369 : 369;
+    urlParams?.olympiad === 'e25' ? 2 :
+      urlParams?.olympiad === 'p25' ? 1 : 369;
   const olympiadDate = urlParams?.olympiad === 'p25' ? '1st Feb 2025, 5:00pm IST' : '15th Feb 2025, 5:00pm IST';
   const [discountedPrice, setDiscountedPrice] = useState(totalPrice);
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
 
+
+  const hash = window.location.hash;
+  const params = new URLSearchParams(hash.includes('?') ? hash.split('?')[1] : '');
+  const isFacebookLead = params.get('source')?.split('_')[0];
+  console.log('isFacebookLead', isFacebookLead === 'facebook')
   useEffect(() => {
-    const hash = window.location.hash;
-    const params = new URLSearchParams(hash.includes('?') ? hash.split('?')[1] : '');
+
     const referralCode = params.get('referral');
     const source = params.get('source');
     const olympiad = params.get('olympiad')?.trim() || null;
 
     setUrlParams({ referralCode, source, olympiad });
-
     if (referralCode) {
       const discount = totalPrice * 0.10;
       setDiscountedPrice(Math.round(totalPrice - discount));
@@ -102,6 +106,17 @@ const PaymentGateway = () => {
       console.error('Error fetching user data:', error);
       return false;
     }
+  };
+
+  const hashValue = (value: string) => {
+    // Create a buffer from the string and hash it using SHA-256
+    return crypto.subtle.digest('SHA-256', new TextEncoder().encode(value))
+      .then((hashBuffer) => {
+        // Convert the ArrayBuffer to a hex string
+        const hashArray = Array.from(new Uint8Array(hashBuffer)); // Convert buffer to byte array
+        const hashHex = hashArray.map(byte => byte.toString(16).padStart(2, '0')).join(''); // Convert bytes to hex string
+        return hashHex;
+      });
   };
 
   const handleSubmit = async (paymentId?: string) => {
@@ -246,6 +261,30 @@ const PaymentGateway = () => {
       if (paymentId) {
         // Store the payment ID in Firestore and send email notification
         await handleSubmit(paymentId);  // Pass the payment ID to handleSubmit
+      }
+      if (isFacebookLead === 'facebook') {
+        const hashedEmail = await hashValue(userDetails.email);
+        const hashedPhone = await hashValue(userDetails.phone);
+        const eventData = {
+          "event_name": "Purchase",
+          "event_time": Math.floor(Date.now() / 1000), // Use current timestamp in seconds
+          "action_source": "website",
+          "user_data": {
+            "em": [hashedEmail], // Use hashed email
+            "ph": [hashedPhone], // Use hashed phone
+          },
+          "custom_data": {
+            "currency": "INR",
+            "value": totalPrice
+          },
+          "original_event_data": {
+            "event_name": "Purchase",
+            "event_time": Math.floor(Date.now() / 1000)
+          }
+        };
+
+        // Send the Facebook event
+        sendFacebookEvent(eventData, import.meta.env.VITE_FACEBOOK_PIXEL_ACCESS_TOKEN, import.meta.env.VITE_FACEBOOK_PIXEL_ID);
       }
       setLoading(false); // Stop loader
       navigate('/'); // Redirect after loader is hidden
