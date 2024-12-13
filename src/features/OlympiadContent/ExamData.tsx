@@ -13,8 +13,8 @@ const ExamData = ({ onCheckDemoExam }: any) => {
 
     const olympiadValue = JSON.parse(localStorage.getItem('olympd_prefix') || '{}').olympiadName || '';
     const [targetDate, olympiadBDate] = olympiadValue === 'p25'
-        ? [new Date('2025-01-18'), new Date('2025-01-18')]
-        : [new Date('2025-02-15'), new Date('2025-02-15')];
+        ? [new Date('2025-02-01T17:00:00'), new Date('2025-02-01T17:00:00')]
+        : [new Date('2025-02-15T17:00:00'), new Date('2025-02-15T17:00:00')];
     const compareDate = '2024-11-05T00:00:00';
 
     // Helper function to format date in DD-MM-YY format

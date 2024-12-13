@@ -65,10 +65,15 @@ const OlympiadContent = () => {
 
     useEffect(() => {
         const isFirstLoad = localStorage.getItem('isFirstLoad');
+        
+        // If the page is loading for the first time, reload the page
         if (!isFirstLoad) {
             localStorage.setItem('isFirstLoad', 'true');
             window.location.reload();
         }
+    }, []);
+
+    useEffect(() => {
 
         const fetchData = async () => {
             const email = olympdPrefix.email;

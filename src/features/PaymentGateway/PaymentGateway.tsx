@@ -50,8 +50,8 @@ const PaymentGateway = () => {
   const [isFormValid, setIsFormValid] = useState(false);
   const [urlParams, setUrlParams] = useState<UrlParams>({ referralCode: null, source: null, olympiad: null });
   const totalPrice =
-    urlParams?.olympiad === 'e25' ? 2 :
-      urlParams?.olympiad === 'p25' ? 1 : 369;
+    urlParams?.olympiad === 'e25' ? 379 :
+      urlParams?.olympiad === 'p25' ? 369 : 369;
   const olympiadDate = urlParams?.olympiad === 'p25' ? '1st Feb 2025, 5:00pm IST' : '15th Feb 2025, 5:00pm IST';
   const [discountedPrice, setDiscountedPrice] = useState(totalPrice);
   const [loading, setLoading] = useState(false);
@@ -61,19 +61,24 @@ const PaymentGateway = () => {
   const hash = window.location.hash;
   const params = new URLSearchParams(hash.includes('?') ? hash.split('?')[1] : '');
   const isFacebookLead = params.get('source')?.split('_')[0];
-  console.log('isFacebookLead', isFacebookLead === 'facebook')
-  useEffect(() => {
 
+  console.log('isFacebookLead', isFacebookLead === 'facebook')
+
+  useEffect(() => {
     const referralCode = params.get('referral');
     const source = params.get('source');
     const olympiad = params.get('olympiad')?.trim() || null;
 
     setUrlParams({ referralCode, source, olympiad });
-    if (referralCode) {
-      const discount = totalPrice * 0.10;
-      setDiscountedPrice(Math.round(totalPrice - discount));
-    }
-  }, [totalPrice]);
+
+    // Apply discount if referralCode is present
+  if (referralCode) {
+    const discount = totalPrice * 0.10; // 10% discount
+    setDiscountedPrice(Math.round(totalPrice - discount));
+  } else {
+    setDiscountedPrice(totalPrice); // No discount, use totalPrice
+  }
+}, [totalPrice]);
 
   useEffect(() => {
     setIsFormValid(userDetails.name !== '' && userDetails.email !== '' && userDetails.phone !== '');
