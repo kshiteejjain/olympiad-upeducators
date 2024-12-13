@@ -31,4 +31,5 @@ const Awards = () => {
         </div>
     )
 };
+
 export default Awards;

@@ -74,7 +74,6 @@ const OlympiadContent = () => {
     }, []);
 
     useEffect(() => {
-
         const fetchData = async () => {
             const email = olympdPrefix.email;
             if (email) {

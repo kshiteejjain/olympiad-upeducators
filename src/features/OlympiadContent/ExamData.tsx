@@ -59,7 +59,6 @@ const ExamData = ({ onCheckDemoExam }: any) => {
         }
     };
 
-
     useEffect(() => {
         const checkUserEmail = async () => {
             const olympdPrefixData = JSON.parse(localStorage.getItem('olympd_prefix') || '{}');

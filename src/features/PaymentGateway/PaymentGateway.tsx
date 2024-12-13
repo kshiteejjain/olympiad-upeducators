@@ -406,5 +406,4 @@ const PaymentGateway = () => {
     </div>
   );
 };
-
 export default PaymentGateway;
