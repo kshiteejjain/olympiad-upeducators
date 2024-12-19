@@ -64,6 +64,7 @@ const Admin = () => {
     const [endDate, setEndDate] = useState('');
     const [selectedOlympiad, setSelectedOlympiad] = useState('');
     const [editingOlympiad, setEditingOlympiad] = useState<{ [key: string]: string }>({});
+    const [selectedDateRange, setSelectedDateRange] = useState('');
     const navigate = useNavigate();
 
     useEffect(() => {
@@ -84,19 +85,85 @@ const Admin = () => {
         fetchData();
     }, []);
 
+    // Utility function to convert a UTC date string to IST (Indian Standard Time)
+    const convertToIST = (dateString: string): string => {
+        const date = new Date(dateString);
+        const istDate = new Date(date.toLocaleString('en-US', { timeZone: 'Asia/Kolkata' }));
+        istDate.setHours(0, 0, 0, 0); // Set time to 00:00 (midnight) IST
+        return istDate.toISOString().split('T')[0]; // return as "YYYY-MM-DD"
+    };
+
+    // Get today's date in IST with time set to midnight (00:00)
+    const getToday = () => {
+        const today = new Date();
+        today.setHours(0, 0, 0, 0); // Set time to 00:00 (midnight)
+        return convertToIST(today.toISOString()); // Return as IST "YYYY-MM-DD"
+    };
+
+    // Get yesterday's date in IST with time set to midnight (00:00)
+    const getYesterday = () => {
+        const yesterday = new Date();
+        yesterday.setDate(yesterday.getDate() - 1);
+        yesterday.setHours(0, 0, 0, 0); // Set time to 00:00 (midnight)
+        return convertToIST(yesterday.toISOString()); // Return as IST "YYYY-MM-DD"
+    };
+
+    // Get the date for 7 days ago in IST with time set to midnight (00:00)
+    const getLast7Days = () => {
+        const last7Days = new Date();
+        last7Days.setDate(last7Days.getDate() - 7);
+        last7Days.setHours(0, 0, 0, 0); // Set time to 00:00 (midnight)
+        return convertToIST(last7Days.toISOString()); // Return as IST "YYYY-MM-DD"
+    };
+
     useEffect(() => {
         const filterData = () => {
-            const filteredByDate = startDate && endDate
-                ? data.filter(user => {
-                    const userDate = new Date(user.timeStamp || '');
-                    return !isNaN(userDate.getTime()) && userDate.toISOString().split('T')[0] >= startDate && userDate.toISOString().split('T')[0] <= endDate;
-                })
-                : data;
+            let filteredByDate = data;
 
+            // Date range filters: Today, Yesterday, Last 7 days, or All
+            if (startDate && endDate) {
+                filteredByDate = data.filter(user => {
+                    const userDateInIST = convertToIST(user.timeStamp || ''); // Convert to IST
+                    return userDateInIST >= startDate && userDateInIST <= endDate;
+                });
+            } else if (selectedDateRange) {
+                const today = getToday(); // Today's date in IST (midnight)
+                const yesterday = getYesterday(); // Yesterday's date in IST (midnight)
+                const last7Days = getLast7Days(); // Last 7 days date in IST (midnight)
+
+                switch (selectedDateRange) {
+                    case 'today':
+                        filteredByDate = data.filter(user => {
+                            const userDateInIST = convertToIST(user.timeStamp || '');
+                            return userDateInIST === today; // Only today's date in IST
+                        });
+                        break;
+                    case 'yesterday':
+                        filteredByDate = data.filter(user => {
+                            const userDateInIST = convertToIST(user.timeStamp || '');
+                            return userDateInIST === yesterday; // Only yesterday's date in IST
+                        });
+                        break;
+                    case 'last7days':
+                        filteredByDate = data.filter(user => {
+                            const userDateInIST = convertToIST(user.timeStamp || '');
+                            return userDateInIST >= last7Days && userDateInIST <= today; // Filter last 7 days
+                        });
+                        break;
+                    case 'all': // Handle "All" option to show all data
+                        filteredByDate = data;
+                        break;
+                    default:
+                        break;
+                }
+            }
+
+            // Filter by Olympiad
             const filteredByOlympiad = selectedOlympiad
                 ? filteredByDate.filter(user => (user.olympiad || []).includes(selectedOlympiad))
                 : filteredByDate;
 
+            // Filter by search query
             const filteredBySearch = searchQuery
                 ? filteredByOlympiad.filter(user => {
                     const searchLower = searchQuery.toLowerCase();
@@ -110,7 +177,7 @@ const Admin = () => {
         };
 
         filterData();
-    }, [startDate, endDate, searchQuery, selectedOlympiad, data]);
+    }, [startDate, endDate, searchQuery, selectedOlympiad, selectedDateRange, data]);
 
     const handleReset = () => {
         setStartDate('');
@@ -215,6 +282,20 @@ const Admin = () => {
                             className='form-control'
                             onChange={(e) => setEndDate(e.target.value)}
                         />
+                    </div>
+                    <div className='form-group'>
+                        <label>Date Range:</label>
+                        <select
+                            className='form-control'
+                            value={selectedDateRange}
+                            onChange={(e) => setSelectedDateRange(e.target.value)}
+                        >
+                            <option value="">Select Date Range</option>
+                            <option value="all">All</option>
+                            <option value="today">Today</option>
+                            <option value="yesterday">Yesterday</option>
+                            <option value="last7days">Last 7 Days</option>
+                        </select>
                     </div>
                     <div className='form-group'>
                         <label>Olympiad:</label>

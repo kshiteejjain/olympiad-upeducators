@@ -183,13 +183,13 @@ const PaymentGateway = () => {
         docData.referralAmount = referralAmount;
 
         let referrerEmail = null;
-        let referrerName = null;
+        //let referrerName = null;
 
         querySnapshot.forEach((doc: any) => {
           const data = doc.data();
           if (data.referral && data.referral.includes(referralCode)) {
             referrerEmail = doc.id;
-            referrerName = data.name;
+            //referrerName = data.name;
           }
         });
 

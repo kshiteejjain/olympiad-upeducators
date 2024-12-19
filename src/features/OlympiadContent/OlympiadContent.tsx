@@ -6,9 +6,16 @@ import './OlympiadContent.css';
 
 // Retrieve olympiad prefix from localStorage
 const olympdPrefix = JSON.parse(localStorage.getItem('olympd_prefix') || '{}');
+const checkOlympiadName = olympdPrefix?.olympiadName || 'defaultOlympiad';
 
 // Dynamically load components based on olympiadName
 const loadComponent = (componentName: string) => {
+    // Ensure olympiadName is not undefined
+    if (!checkOlympiadName) {
+        console.error('Olympiad name is undefined!');
+        return lazy(() => import(`./defaultOlympiad/${componentName}.tsx`)); // Fallback path
+    }
+
     if (componentName === 'ExamData') {
         return lazy(() => import(`./ExamData.tsx`));
     }
