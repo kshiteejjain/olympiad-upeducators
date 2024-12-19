@@ -110,7 +110,7 @@ const AboutOlympiad = () => {
                     <summary>Sample Papers</summary>
                     <p><strong>Check the Sample Paper as per the Grade you have selected</strong></p>
                     <h3>View the Sample Paper with the link below:</h3>
-                    <a href='https://drive.google.com/file/d/1lng8wtXd0gUtNJ7dgFX9dLyLcDeWR6Qs/view?pli=1' target='_blank'>View Sample Paper</a>
+                    <a href='https://drive.google.com/file/d/1343LH9Xf5WsulbVvx1VCr7BZ1azpcejD/view?usp=sharing' target='_blank'>View Sample Paper</a>
                 </details>
                 <details>
                     <summary>Process of Attempting the Olympiad</summary>

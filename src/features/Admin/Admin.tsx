@@ -146,6 +146,16 @@ const Admin = () => {
         }));
     };
 
+    const handleImageClick = (imageUrl: string) => {
+        const newWindow = window.open('', '_blank');
+        if (newWindow) {
+            newWindow.document.write(`<img src="${imageUrl}" alt="Profile Image" style="width:100%; height:auto;" />`);
+        } else {
+            console.error('Failed to open new window');
+        }
+    };
+
+
     const saveOlympiad = async (userId: string, olympiad: string) => {
         try {
             const userRef = doc(firestore, 'OlympiadUsers', userId);
@@ -232,7 +242,7 @@ const Admin = () => {
                             <thead>
                                 <tr>
                                     {[
-                                        'Name', 'Email', 'WhatsApp', 'Olympiad', 'Payment Id', 'Source', 'Registered Date',
+                                        'Name', 'Email', 'Profile Picture', 'WhatsApp', 'Olympiad', 'Payment Id', 'Source', 'Registered Date',
                                         'Board', 'City', 'Country', 'Date of Birth', 'Grade Level',
                                         'Organization Name', 'Organization Type', 'Role', 'Action'
                                     ].map((header, index) => (
@@ -245,6 +255,11 @@ const Admin = () => {
                                     <tr key={index} className={user.olympiad && user.olympiad.includes('p24') ? 'red-olympiad' : ''}>
                                         <td>{user?.name}</td>
                                         <td>{user?.email}</td>
+                                        <td>
+                                            {user?.profile?.image ? (
+                                                <a href="javascript:void(0)" onClick={() => handleImageClick(user?.profile?.image)}>Click Here</a>
+                                            ) : 'NA'}
+                                        </td>
                                         <td>{user?.phone}</td>
                                         <td>
                                             {editingOlympiad[user.id] ? (
@@ -284,11 +299,11 @@ const Admin = () => {
                                                     onClick={() => setEditingOlympiad({ ...editingOlympiad, [user.id]: (user.olympiad || []).join(', ') })}
                                                 />
                                             )}
-                                            <Button 
-                                                type='button' 
+                                            <Button
+                                                type='button'
                                                 isError
-                                                title='Delete' 
-                                                onClick={() => handleDelete(user.id)} 
+                                                title='Delete'
+                                                onClick={() => handleDelete(user.id)}
                                             />
                                         </td>
                                     </tr>

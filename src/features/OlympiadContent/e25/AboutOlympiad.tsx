@@ -107,7 +107,7 @@ const AboutOlympiad = () => {
                 </details>
                 <details>
                     <summary>Sample Papers</summary>
-                    <p><strong>Sample Papers will updated by 15th December 2024</strong></p>
+                    <p><strong>Sample Paper will be updated by 25th December 2024</strong></p>
                     {/* <h3>View the Sample Paper with the link below:</h3>
                     <a href='https://drive.google.com/file/d/1lng8wtXd0gUtNJ7dgFX9dLyLcDeWR6Qs/view?pli=1' target='_blank'>View Sample Paper</a> */}
                 </details>

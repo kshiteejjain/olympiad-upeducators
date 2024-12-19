@@ -72,13 +72,13 @@ const PaymentGateway = () => {
     setUrlParams({ referralCode, source, olympiad });
 
     // Apply discount if referralCode is present
-  if (referralCode) {
-    const discount = totalPrice * 0.10; // 10% discount
-    setDiscountedPrice(Math.round(totalPrice - discount));
-  } else {
-    setDiscountedPrice(totalPrice); // No discount, use totalPrice
-  }
-}, [totalPrice]);
+    if (referralCode) {
+      const discount = totalPrice * 0.10; // 10% discount
+      setDiscountedPrice(Math.round(totalPrice - discount));
+    } else {
+      setDiscountedPrice(totalPrice); // No discount, use totalPrice
+    }
+  }, [totalPrice]);
 
   useEffect(() => {
     setIsFormValid(userDetails.name !== '' && userDetails.email !== '' && userDetails.phone !== '');
@@ -113,15 +113,13 @@ const PaymentGateway = () => {
     }
   };
 
-  const hashValue = (value: string) => {
+  const hashValue = async (value: string) => {
     // Create a buffer from the string and hash it using SHA-256
-    return crypto.subtle.digest('SHA-256', new TextEncoder().encode(value))
-      .then((hashBuffer) => {
-        // Convert the ArrayBuffer to a hex string
-        const hashArray = Array.from(new Uint8Array(hashBuffer)); // Convert buffer to byte array
-        const hashHex = hashArray.map(byte => byte.toString(16).padStart(2, '0')).join(''); // Convert bytes to hex string
-        return hashHex;
-      });
+    const hashBuffer = await crypto.subtle.digest('SHA-256', new TextEncoder().encode(value));
+    // Convert the ArrayBuffer to a hex string
+    const hashArray = Array.from(new Uint8Array(hashBuffer)); // Convert buffer to byte array
+    const hashHex = hashArray.map(byte => byte.toString(16).padStart(2, '0')).join(''); // Convert bytes to hex string
+    return hashHex;
   };
 
   const handleSubmit = async (paymentId?: string) => {
@@ -185,11 +183,13 @@ const PaymentGateway = () => {
         docData.referralAmount = referralAmount;
 
         let referrerEmail = null;
+        let referrerName = null;
 
         querySnapshot.forEach((doc: any) => {
           const data = doc.data();
           if (data.referral && data.referral.includes(referralCode)) {
-            referrerEmail = doc.id;  // Document ID is the email of the referrer
+            referrerEmail = doc.id;
+            referrerName = data.name;
           }
         });
 
@@ -223,6 +223,9 @@ const PaymentGateway = () => {
               referrerData.referralAmount = (referrerData.referralAmount || 0) + referralAmount;
               await setDoc(referrerDocRef, referrerData);
               console.log('Stored new user email in referrer document:', emailLowerCase);
+
+              // Show an alert with the referrer's details
+              //alert(`Referral Email sent to: ${referrerName} (${referrerEmail})`);
             }
           } else {
             console.log('Referrer document not found for email:', referrerEmail);
@@ -267,30 +270,6 @@ const PaymentGateway = () => {
         // Store the payment ID in Firestore and send email notification
         await handleSubmit(paymentId);  // Pass the payment ID to handleSubmit
       }
-      if (isFacebookLead === 'facebook') {
-        const hashedEmail = await hashValue(userDetails.email);
-        const hashedPhone = await hashValue(userDetails.phone);
-        const eventData = {
-          "event_name": "Purchase",
-          "event_time": Math.floor(Date.now() / 1000), // Use current timestamp in seconds
-          "action_source": "website",
-          "user_data": {
-            "em": [hashedEmail], // Use hashed email
-            "ph": [hashedPhone], // Use hashed phone
-          },
-          "custom_data": {
-            "currency": "INR",
-            "value": totalPrice
-          },
-          "original_event_data": {
-            "event_name": "Purchase",
-            "event_time": Math.floor(Date.now() / 1000)
-          }
-        };
-
-        // Send the Facebook event
-        sendFacebookEvent(eventData, import.meta.env.VITE_FACEBOOK_PIXEL_ACCESS_TOKEN, import.meta.env.VITE_FACEBOOK_PIXEL_ID);
-      }
       setLoading(false); // Stop loader
       navigate('/'); // Redirect after loader is hidden
     },
@@ -323,6 +302,33 @@ const PaymentGateway = () => {
           return;
         }
       }
+
+      // Facebook purchase event
+      if (isFacebookLead === 'facebook') {
+        const hashedEmail = await hashValue(userDetails.email);
+        const hashedPhone = await hashValue(userDetails.phone);
+        const eventData = {
+          "event_name": "Purchase",
+          "event_time": Math.floor(Date.now() / 1000), // Use current timestamp in seconds
+          "action_source": "website",
+          "user_data": {
+            "em": [hashedEmail], // Use hashed email
+            "ph": [hashedPhone], // Use hashed phone
+          },
+          "custom_data": {
+            "currency": "INR",
+            "value": totalPrice
+          },
+          "original_event_data": {
+            "event_name": "Purchase",
+            "event_time": Math.floor(Date.now() / 1000)
+          }
+        };
+
+        // Send the Facebook event
+        sendFacebookEvent(eventData, import.meta.env.VITE_FACEBOOK_PIXEL_ACCESS_TOKEN, import.meta.env.VITE_FACEBOOK_PIXEL_ID);
+      }
+
 
       new (window as unknown as RazorpayWindow).Razorpay(options).open();
     } else {
