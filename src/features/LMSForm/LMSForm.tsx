@@ -118,7 +118,6 @@ const LMSForm = () => {
                     navigate('/');
                     return;
                 }
-
                 const userDoc = querySnapshot.docs[0];
                 const { isNewUser } = userDoc.data();
                 console.log('isNewUser', isNewUser)
