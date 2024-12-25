@@ -84,7 +84,7 @@ const AboutOlympiad = () => {
                             <span>100% Scholarships for Google Educators Exam Fee Level 2 Worth Rs.2500</span>
                         </li>
                         <li>Rewards for the Top 3 Winners:
-                            <span>Cash prize of ₹ 50,000 each</span>
+                            <span>Cash prize of ₹ 30,000 each</span>
                         </li>
                     </ul>
                 </details>

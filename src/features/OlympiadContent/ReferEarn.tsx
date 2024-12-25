@@ -47,6 +47,12 @@ const ReferEarn = () => {
   const olympdPrefix = JSON.parse(localStorage.getItem('olympd_prefix') || '{}');
   const { email, olympiadName } = olympdPrefix;
 
+  const detailVideo = olympiadName === 'e25' 
+  ? 'https://youtube.com/shorts/ucqKAeBt1vE?feature=share'
+  : olympiadName === 'p25' 
+    ? 'https://youtube.com/shorts/x4199aehS08?feature=share'
+    : 'https://youtube.com/shorts/defaultVideo?feature=share';
+
   let olympiadLabelName = olympiadName === 'e25' ? 'English 2025' :
     olympiadName === 'm24' ? 'Maths 2024' :
       olympiadName === 'p25' ? 'Primary 2025' :
@@ -57,7 +63,7 @@ const ReferEarn = () => {
 
   const referralData = `Hey! I am participating in the International ${olympiadLabelName} Teachers' Olympiad.\n
 It's a fantastic opportunity for us teachers to get feedback on our teaching skills and get recognition for it!!\n
-I found all the details in this video here: https://www.youtube.com/shorts/PQbG53FFA6s.\n
+I found all the details in this video here: ${detailVideo}\n
 If you like it too, you can use my referral link for a 10% discount.\n\n`;
 
   const generateReferralCode = (): string => Math.random().toString(36).substring(2, 12);
@@ -142,7 +148,7 @@ If you like it too, you can use my referral link for a 10% discount.\n\n`;
   const handleCopyToClipboard = async () => {
     try {
       await navigator.clipboard.writeText(`${referral}${referralUrl}`); // Use the state variable for the URL
-      alert('Messege copied, now you can share with others!');
+      alert('Message copied! You can now share it with others.');
     } catch (err) {
       console.error('Failed to copy: ', err);
     }

@@ -30,7 +30,7 @@ const AddUser: React.FC = () => {
         paymentId: 'internal',
         source: 'internal',
         olympiad: [],
-        isNewUser: false,
+        isNewUser: true,
         paymentDetails: { razorpay_payment_id: 'internal' }
     });
     const [validationError, setValidationError] = useState<boolean>(false);
