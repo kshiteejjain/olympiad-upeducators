@@ -28,7 +28,7 @@ const AddUser: React.FC = () => {
         email: '',
         phone: '',
         paymentId: 'internal',
-        source: 'internal',
+        source: '',
         olympiad: [],
         isNewUser: true,
         paymentDetails: { razorpay_payment_id: 'internal' }
@@ -314,6 +314,18 @@ const AddUser: React.FC = () => {
                             required
                             name='olympiad'
                             value={userDetails.olympiad.join(', ')}
+                            onChange={handleInputChange}
+                            autoComplete='off'
+                        />
+                    </div>
+                    <div className='form-group'>
+                        <label htmlFor='olympiad'>Source<span className="asterisk">*</span></label>
+                        <input
+                            type='text'
+                            className='form-control'
+                            required
+                            name='source'
+                            value={userDetails.source}
                             onChange={handleInputChange}
                             autoComplete='off'
                         />
