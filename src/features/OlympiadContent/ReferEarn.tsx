@@ -1,6 +1,7 @@
 import { useState, useEffect, useCallback } from 'react';
 import { firestore } from '../../utils/firebase';
 import { collection, doc, getDocs, query, updateDoc, where } from 'firebase/firestore';
+import { Slide, ToastContainer, toast } from 'react-toastify';
 import Loader from '../../components/Loader/Loader';
 import Button from '../../components/Buttons/Button';
 import Card from '../../components/Card/Card';
@@ -78,7 +79,7 @@ If you like it too, you can use my referral link for a 10% discount.\n\n`;
     const querySnapshot = await getDocs(userQuery);
 
     if (querySnapshot.empty) {
-      console.log('No user found with the given email.');
+      toast.error('No user found with the given email.');
       return;
     }
 
@@ -113,7 +114,7 @@ If you like it too, you can use my referral link for a 10% discount.\n\n`;
     const { email } = olympdPrefix;
 
     if (!email) {
-      console.log('No logged-in email found in localStorage.');
+      toast.error('No logged-in email found.');
       setIsLoading(false);
       return;
     }
@@ -148,9 +149,9 @@ If you like it too, you can use my referral link for a 10% discount.\n\n`;
   const handleCopyToClipboard = async () => {
     try {
       await navigator.clipboard.writeText(`${referral}${referralUrl}`); // Use the state variable for the URL
-      alert('Message copied! You can now share it with others.');
+      toast.success('Message copied! You can now share it with others.');
     } catch (err) {
-      console.error('Failed to copy: ', err);
+      toast.success('Failed to copy: ' + err);
     }
   };
 
@@ -205,6 +206,7 @@ If you like it too, you can use my referral link for a 10% discount.\n\n`;
         </div>
       </div>
       <ReferralHistory />
+      <ToastContainer position="bottom-center" autoClose={5000} pauseOnFocusLoss draggable pauseOnHover theme="dark" transition={Slide} />
     </div>
   );
 };

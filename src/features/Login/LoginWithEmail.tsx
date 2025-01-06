@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { collection, getDocs, query, where } from 'firebase/firestore';
 import { firestore } from '../../utils/firebase';
 import { sendEmail } from "../SendEmail/SendEmail";
+import { Slide, ToastContainer, toast } from 'react-toastify';
 import Button from '../../components/Buttons/Button';
 import ErrorBoundary from "../../components/ErrorBoundary/ErrorBoundary";
 import Loader from "../../components/Loader/Loader";
@@ -61,10 +62,12 @@ const LoginWithEmail = () => {
                     import.meta.env.VITE_OLYMPIAD_EMAIL_TEMPLATE,
                     { generateOTP }
                 );
+                toast.success('Passcode sent to your email.');
                 setIsLoader(false)
             }
         } catch (error) {
-            alert('Error querying data from Firestore: ' + error);
+            toast.error('Error querying data from Firestore: ' + error);
+            
         }
     };
 
@@ -95,6 +98,7 @@ const LoginWithEmail = () => {
                 </div>
                 <Button title='Send' type='submit' />
             </form>
+            <ToastContainer position="bottom-center" autoClose={5000} pauseOnFocusLoss draggable pauseOnHover theme="dark" transition={Slide} />
         </>
     );
 };

@@ -66,11 +66,11 @@ const FAQ: FC = () => {
                 },
                 {
                     summary: 'Where can I attempt this test?',
-                    answer: 'You can attempt this test from your Windows Desktop or Laptop with a working webcam.',
+                    answer: 'You can attempt this test on your Windows Desktop or Laptop with a working webcam.',
                 },
                 {
                     summary: 'Can I attempt this exam on my mobile?',
-                    answer: 'No, this exam can be given only from a Windows Laptop/PC with a functional webcam.',
+                    answer: 'No, this exam can be given only on a Windows Laptop or Desktop with a functional webcam.',
                 },
                 {
                     summary: 'Will I get sample questions for the Olympiad preparation?',

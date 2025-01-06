@@ -107,9 +107,15 @@ const AboutOlympiad = () => {
                 </details>
                 <details>
                     <summary>Sample Papers</summary>
-                    <p><strong>Sample Paper will be updated by 25th December 2024</strong></p>
-                    {/* <h3>View the Sample Paper with the link below:</h3>
-                    <a href='https://drive.google.com/file/d/1lng8wtXd0gUtNJ7dgFX9dLyLcDeWR6Qs/view?pli=1' target='_blank'>View Sample Paper</a> */}
+                    <p>Check the Sample Paper as per the Grade you have selected</p>
+                    <h3>A. Grade 1 to 5</h3>
+                    <a href='https://drive.google.com/file/d/1PyrPzB19GT5BnmKHpYSh4PFHFN9fNYyc/view?usp=sharing' target='_blank'>View Sample Paper</a>
+
+                    <h3>B. Grade 6 to 10</h3>
+                    <a href='https://drive.google.com/file/d/1D1lAclqj4OgwlHPJexlQQImwFa1TIrmV/view?usp=sharing' target='_blank'>View Sample Paper</a>
+
+                    <h3>C. Grade 11 & above</h3>
+                    <a href='https://drive.google.com/file/d/1WSR5kjSbIJMfJJnxI89pJiqkcRGy5Ndz/view?usp=sharing' target='_blank'>View Sample Paper</a>
                 </details>
                 <details>
                     <summary>Process of Attempting the Olympiad</summary>

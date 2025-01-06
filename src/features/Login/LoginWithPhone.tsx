@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { collection, getDocs, query, where } from 'firebase/firestore';
 import { firestore } from '../../utils/firebase';
+import { Slide, ToastContainer, toast } from 'react-toastify';
 import Button from '../../components/Buttons/Button';
 import { sendWhatsappMessageOTP } from "../SendWhatsappMessage/SendWhatsappMessage";
 import ErrorBoundary from "../../components/ErrorBoundary/ErrorBoundary";
@@ -62,6 +63,7 @@ const LoginWithPhone = () => {
       }
     } catch (error) {
       alert('Error querying data from Firestore: ' + error);
+      toast.error('Error querying data from Firestore: ' + error);
     }
   };
 
@@ -80,14 +82,14 @@ const LoginWithPhone = () => {
           const querySnapshot = await getDocs(q);
 
           if (querySnapshot.empty) {
-            console.log('User does not exist');
+            toast.error('User dose not exist');
           } else {
             querySnapshot.forEach((doc) => {
               const paymentDetails = doc.data().paymentDetails;
               if (paymentDetails && paymentDetails.razorpay_payment_id) {
-                console.log('Payment details found:', paymentDetails);
+                toast.success('Payment details verified');
               } else {
-                console.log('No payment details available');
+                toast.error('Payment details not found!');
               }
             });
           }
@@ -130,6 +132,7 @@ const LoginWithPhone = () => {
         </div>
         <Button title='Send' type='submit' />
       </form>
+      <ToastContainer position="bottom-center" autoClose={5000} pauseOnFocusLoss draggable pauseOnHover theme="dark" transition={Slide} />
     </>
   );
 };

@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { sendEmail } from "../SendEmail/SendEmail";
+import { Slide, ToastContainer, toast } from 'react-toastify';
 import Button from '../../components/Buttons/Button';
 import ErrorBoundary from "../../components/ErrorBoundary/ErrorBoundary";
 import Loader from "../../components/Loader/Loader";
@@ -87,9 +88,9 @@ const EnterOTP = () => {
                     import.meta.env.VITE_OLYMPIAD_EMAIL_TEMPLATE,
                     { generateOTP }
                 );
-                alert('Passcode sent, Please check your email');
+                toast.success('Passcode sent, Please check your whatsApp');
             } else {
-                alert('No email found. Please check your details.');
+                toast.error('Error occurred');
             }
         }
     };
@@ -99,12 +100,14 @@ const EnterOTP = () => {
         if (olympd_prefix) {
             const user = JSON.parse(olympd_prefix);
             const phone = user?.phone; // Assuming email is stored here
-            const var1 = generateOTP;  
+            const var1 = generateOTP;
             if (phone) {
                 await sendWhatsappMessageOTP(phone, var1);
                 alert('Passcode sent, Please check your whatsApp');
+                toast.success('Passcode sent, Please check your whatsApp');
             } else {
                 alert('No email found. Please check your details.');
+                toast.error('Error occurred');
             }
         }
     };
@@ -147,6 +150,7 @@ const EnterOTP = () => {
                 </div>
             </div>
         </div>
+        <ToastContainer position="bottom-center" autoClose={5000} pauseOnFocusLoss draggable pauseOnHover theme="dark" transition={Slide} />
         </>
     );
 };
