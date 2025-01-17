@@ -88,7 +88,7 @@ const EnterOTP = () => {
                     import.meta.env.VITE_OLYMPIAD_EMAIL_TEMPLATE,
                     { generateOTP }
                 );
-                toast.success('Passcode sent, Please check your whatsApp');
+                toast.success('Passcode sent, Please check your email');
             } else {
                 toast.error('Error occurred');
             }
@@ -97,20 +97,27 @@ const EnterOTP = () => {
 
     const handleResendOTPPhone = async () => {
         const olympd_prefix = localStorage.getItem('olympd_prefix');
-        if (olympd_prefix) {
-            const user = JSON.parse(olympd_prefix);
-            const phone = user?.phone; // Assuming email is stored here
-            const var1 = generateOTP;
-            if (phone) {
-                await sendWhatsappMessageOTP(phone, var1);
-                alert('Passcode sent, Please check your whatsApp');
-                toast.success('Passcode sent, Please check your whatsApp');
-            } else {
-                alert('No email found. Please check your details.');
-                toast.error('Error occurred');
-            }
+        if (!olympd_prefix) return toast.error('Error occurred');
+    
+        const { phone, email } = JSON.parse(olympd_prefix);
+        const otp = generateOTP;
+    
+        if (!phone && !email) {
+            toast.error('No contact information found. Please check your details.');
+            return;
         }
+    
+        phone &&
+            sendWhatsappMessageOTP(phone, otp)
+                .then(() => toast.success('We have re-sent the passcode.'))
+                .catch(() => toast.error('Failed to send WhatsApp OTP'));
+    
+        email &&
+            sendEmail(email, import.meta.env.VITE_OLYMPIAD_EMAIL_TEMPLATE, { generateOTP: otp })
+                .then(() => toast.success('We have re-sent the passcode.'))
+                .catch(() => toast.error('Failed to send email OTP'));
     };
+    
 
     const handleBackToLogin = () => {
         navigate('/');

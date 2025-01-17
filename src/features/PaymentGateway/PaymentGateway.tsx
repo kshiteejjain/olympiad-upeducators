@@ -25,7 +25,9 @@ type RazorpayOptions = {
     email: string;
   };
   notes: {
-    address: string;
+    name: string | null,
+    olympiad: string | null,
+    source: string | null
   };
   theme: {
     color: string;
@@ -61,8 +63,6 @@ const PaymentGateway = () => {
   const hash = window.location.hash;
   const params = new URLSearchParams(hash.includes('?') ? hash.split('?')[1] : '');
   const isFacebookLead = params.get('source')?.split('_')[0];
-
-  console.log('isFacebookLead', isFacebookLead === 'facebook')
 
   useEffect(() => {
     const referralCode = params.get('referral');
@@ -278,7 +278,7 @@ const PaymentGateway = () => {
       contact: userDetails.phone,
       email: userDetails.email
     },
-    notes: { address: "" },
+    notes: { name: userDetails.name, olympiad: urlParams.olympiad, source: urlParams.source },
     theme: {
       color: "#F37254",
       hide_topbar: false

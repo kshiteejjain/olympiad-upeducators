@@ -36,7 +36,7 @@ const countryOptions = [
 ];
 
 const organizationTypes = [
-    "School", "College", "Coaching Class", "Private Education Institute", "Ed Tech", "Self Employed", "Other"
+    "School", "Pre School", "College", "Coaching Class", "Private Education Institute", "Ed Tech", "Self Employed", "Other"
 ];
 const boards = [
     "State Board", "CBSE", "ICSE", "Cambridge", "IB", "Other", "Not Applicable"

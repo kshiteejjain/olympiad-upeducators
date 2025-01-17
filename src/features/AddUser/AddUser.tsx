@@ -5,6 +5,7 @@ import { doc, setDoc, getDoc } from 'firebase/firestore';
 import { firestore } from '../../utils/firebase';
 import { sendEmail } from '../SendEmail/SendEmail';
 // import { sendWhatsappMessage } from '../SendWhatsappMessage/SendWhatsappMessage';
+import { Slide, ToastContainer, toast } from 'react-toastify';
 import Button from '../../components/Buttons/Button';
 import ErrorBoundary from '../../components/ErrorBoundary/ErrorBoundary';
 import Loader from '../../components/Loader/Loader';
@@ -118,9 +119,10 @@ const AddUser: React.FC = () => {
                 isNewUser: false,
                 paymentDetails: { razorpay_payment_id: 'internal' }
             });
-            alert('User Registered. An Email and WhatsApp message have been sent to the user.');
+            toast.success('User Registered. An Email and WhatsApp message have been sent to the user.');
         } catch (error: any) {
             alert('Error saving data to Firestore: ' + error.message);
+            toast.error('Error saving data to Firestore: ' + error.message);
         } finally {
             setIsLoader(false);
         }
@@ -171,7 +173,7 @@ const AddUser: React.FC = () => {
             setFetchedCount(jsonData.length); // Set the number of fetched records
             setUploadData(jsonData);
         } catch (err) {
-            console.error('Error processing file:', err);
+            toast.error('Error processing file:' + err);
             setError('Error processing file: ' + (err as Error).message);
         } finally {
             setCsvLoader(false);
@@ -184,7 +186,7 @@ const AddUser: React.FC = () => {
 
         try {
             for (const row of uploadData) {
-                const [email, name, olympiad, phone] = row;
+                const [email, name, olympiad, phone, source] = row;
                 const emailLowerCase = email?.toString().toLowerCase();
                 if (!emailLowerCase) continue;
 
@@ -207,7 +209,7 @@ const AddUser: React.FC = () => {
                         timeStamp: new Date().toISOString(),
                         isNewUser: false,
                         olympiad: olympiad?.toString().split(',').map((item: any) => item.trim()) || [],
-                        source: 'internal'
+                        source: source?.toString() || ''
                     });
                     await sendEmail(
                         emailLowerCase,
@@ -362,6 +364,7 @@ const AddUser: React.FC = () => {
                     </div>
                 </div>
             </div>
+            <ToastContainer position="bottom-center" autoClose={5000} pauseOnFocusLoss draggable pauseOnHover theme="dark" transition={Slide} />
         </>
     );
 };
