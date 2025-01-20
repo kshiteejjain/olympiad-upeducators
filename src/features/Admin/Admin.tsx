@@ -1,12 +1,11 @@
 import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { firestore } from '../../utils/firebase';
-import { collection, getDocs, query, doc, deleteDoc, updateDoc, DocumentData } from 'firebase/firestore';
+import { collection, getDocs, query, doc, deleteDoc, updateDoc, DocumentData, limit, startAfter, getCountFromServer, QueryDocumentSnapshot } from 'firebase/firestore';
 import Button from '../../components/Buttons/Button';
 import Loader from '../../components/Loader/Loader';
 import ErrorBoundary from '../../components/ErrorBoundary/ErrorBoundary';
 import { saveAs } from 'file-saver';
-
 import ExamResults from './ExamResults';
 
 import './Admin.css';
@@ -65,24 +64,67 @@ const Admin = () => {
     const [selectedOlympiad, setSelectedOlympiad] = useState('');
     const [editingOlympiad, setEditingOlympiad] = useState<{ [key: string]: string }>({});
     const [selectedDateRange, setSelectedDateRange] = useState('');
+    const [lastVisible, setLastVisible] = useState<QueryDocumentSnapshot<DocumentData> | null>(null);
+    const [hasMore, setHasMore] = useState(true);
+    const [totalRecords, setTotalRecords] = useState<number>(0);
     const navigate = useNavigate();
 
-    useEffect(() => {
-        const fetchData = async () => {
-            try {
-                const querySnapshot = await getDocs(query(collection(firestore, 'OlympiadUsers')));
-                const usersData = querySnapshot.empty ? [] : querySnapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }));
-                setData(usersData);
-                setFilteredData(usersData);
-            } catch (err) {
-                console.error('Error fetching data:', err);
-                setError('Error fetching data');
-            } finally {
-                setLoading(false);
-            }
-        };
+    // Fetch total number of records
+    const fetchTotalCount = async () => {
+        try {
+            const q = query(collection(firestore, 'OlympiadUsers'));
+            const snapshot = await getCountFromServer(q);
+            setTotalRecords(snapshot.data().count); // Get the count of records from Firestore
+        } catch (err) {
+            console.log('Error getting total count:', err);
+            setError('Error getting total count');
+        }
+    };
 
-        fetchData();
+
+    useEffect(() => {
+        fetchTotalCount(); // Get total records count
+        fetchData(50, null); // Fetch first 50 records
+    }, []);
+
+    // Fetch initial data
+    const fetchData = async (pageSize: number, lastDoc?: QueryDocumentSnapshot<DocumentData> | null) => {
+        try {
+            setLoading(true);
+            let q = query(collection(firestore, 'OlympiadUsers'), limit(pageSize));
+    
+            if (lastDoc) {
+                q = query(q, startAfter(lastDoc)); // Start after the last document fetched
+            }
+    
+            const querySnapshot = await getDocs(q);
+            const usersData = querySnapshot.empty ? [] : querySnapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }));
+    
+            setData((prevData) => [...prevData, ...usersData]);  // Append new data to existing data
+            setFilteredData((prevData) => [...prevData, ...usersData]);
+    
+            // Update last visible document for the next fetch
+            const lastVisibleDoc = querySnapshot.docs[querySnapshot.docs.length - 1];
+            setLastVisible(lastVisibleDoc);
+    
+            // If the number of fetched docs is less than the requested page size, it means there's no more data
+            setHasMore(querySnapshot.docs.length === pageSize);
+    
+            // Adjust 'hasMore' if the total records loaded are equal to the total number of records in the database
+            if (data.length + usersData.length >= totalRecords) {
+                setHasMore(false); // No more records to load
+            }
+        } catch (err) {
+            console.log('Error during fetch:', err);
+            setError('Error fetching data');
+        } finally {
+            setLoading(false);
+        }
+    };
+        
+
+    useEffect(() => {
+        fetchData(300);  // Fetch initial 50 records when the component mounts
     }, []);
 
     // Utility function to convert a UTC date string to IST (Indian Standard Time)
@@ -222,7 +264,6 @@ const Admin = () => {
         }
     };
 
-
     const saveOlympiad = async (userId: string, olympiad: string) => {
         try {
             const userRef = doc(firestore, 'OlympiadUsers', userId);
@@ -317,7 +358,18 @@ const Admin = () => {
                 <ErrorBoundary message='No Data available.' />
             ) : (
                 <>
-                    <h2 className='flex'>Olympiad Registered Users ({filteredData.length}) <Button type='button' title='Export Users' onClick={exportToCSV} /></h2>
+                    <h2 className='flex justify-between'>Olympiad Registered Users ({filteredData.length})
+                        <span>
+                        <Button type='button' title='Export Users' onClick={exportToCSV} />
+                        {hasMore && (
+                            <Button
+                            type="button"
+                            title={`Load More - ${totalRecords}`}
+                            onClick={() => fetchData(100, lastVisible)} // Load 100 records per click
+                            isDisabled={!hasMore || loading} />
+                        )}
+                        </span>
+                    </h2>
                     <div className='table-wrapper'>
                         <table className='table admin-table'>
                             <thead>

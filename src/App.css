@@ -203,6 +203,9 @@ h3 {
 .flex {
   display: flex;
 }
+.justify-between{
+  justify-content: space-between;
+}
 
 .flex-card {
   display: flex;
