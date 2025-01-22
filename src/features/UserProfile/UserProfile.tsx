@@ -1,8 +1,10 @@
 import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { firestore } from '../../utils/firebase';
-import { collection, getDocs, query, where } from 'firebase/firestore';
+import { collection, doc, getDocs, query, updateDoc, where } from 'firebase/firestore';
 import Loader from '../../components/Loader/Loader';
+import Button from '../../components/Buttons/Button';
+
 import './UserProfile.css';
 
 // Define types for user profile and data
@@ -24,14 +26,53 @@ type UserData = {
     email: string;
     profile: Profile;
     isNewUser?: boolean;
-    olympiad?: any
+    olympiad?: any;
+    name: string
 };
 
 const UserProfile = () => {
     const [data, setData] = useState<UserData | null>(null); // Use null to indicate no data
     const [isError, setIsError] = useState<boolean>(false);
     const [isLoader, setIsLoader] = useState<boolean>(true);
+    const [isEditing, setIsEditing] = useState<boolean>(false);
+    const [name, setName] = useState<string>('');
+
     const navigate = useNavigate();
+
+    useEffect(() => {
+        // Set initial name from data
+        if (data?.name) {
+            setName(data.name);
+        }
+    }, [data]);
+
+    const handleEdit = () => {
+        setIsEditing(true);
+    };
+
+    const handleSave = async () => {
+        try {
+            if (data?.email) {
+                const userRef = doc(firestore, 'OlympiadUsers', data.email);
+                await updateDoc(userRef, {
+                    name: name, // Update data.name
+                    'profile.name': name // Update data.profile.name
+                });
+
+                // Update name in localStorage
+                const olympdPrefix = JSON.parse(localStorage.getItem('olympd_prefix') || '{}');
+                olympdPrefix.name = name;
+                localStorage.setItem('olympd_prefix', JSON.stringify(olympdPrefix));
+
+                setIsEditing(false);
+                alert('Name updated successfully!');
+                window.location.reload();
+            }
+        } catch (error: any) {
+            alert('Error updating name: ' + error.message);
+        }
+    };
+
 
     useEffect(() => {
         const checkIfNewUser = async () => {
@@ -100,7 +141,18 @@ const UserProfile = () => {
                                         </tr>
                                         <tr>
                                             <td>Name</td>
-                                            <td>{data?.profile?.name}</td>
+                                            <td className='justify-between flex'>
+                                                {isEditing ? (
+                                                    <input
+                                                        type="text"
+                                                        value={name}
+                                                        onChange={(e) => setName(e.target.value)}
+                                                    />
+                                                ) : (
+                                                    data?.profile?.name
+                                                )}
+                                                <Button isError type='button' title={isEditing ? 'Save' : 'Edit'} onClick={isEditing ? handleSave : handleEdit} />
+                                            </td>
                                         </tr>
                                         <tr>
                                             <td>Date of Birth</td>

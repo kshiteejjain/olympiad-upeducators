@@ -22,7 +22,7 @@ const Awards = () => {
                 <div className='awards-card'>
                     <h1>English Educator Excellence Award</h1>
                     <ul>
-                        <li>The top 3 Winners will get a Cash prize of ₹ 50,000 each</li>
+                        <li>The top 3 Winners will get a Cash prize of ₹ 30,000 each</li>
                     </ul>
                 </div>
             </div>

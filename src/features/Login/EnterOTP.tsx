@@ -147,7 +147,7 @@ const EnterOTP = () => {
                             autoFocus
                         />
                         {isError && <ErrorBoundary message='Invalid OTP. Please try again.' />}
-                        <p className='input-note'>Note: Enter passcode received on your {`${isPhoneOTP ? 'whatsApp.' : 'email. ,  if not check spam.'}`}</p>
+                        <p className='input-note'>Note: Enter the passcode sent to your {`${isPhoneOTP ? 'whatsApp.' : 'email. ,  if not check spam.'}`}. If you haven’t received it, please wait 5 minutes or check your spam/promotion folder.</p>
                     </div>
                     <Button title='Verify' type='submit' />
                 </form>

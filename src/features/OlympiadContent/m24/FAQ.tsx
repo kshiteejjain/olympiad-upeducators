@@ -25,20 +25,6 @@ const FAQ: FC = () => {
 
     const faqs: FAQItem[] = [
         {
-            id: 'about-the-olympiad',
-            title: 'About the Olympiad',
-            questions: [
-                {
-                    summary: 'Who is organizing this International Maths Teachers’ Olympiad?',
-                    answer: (
-                        <>
-                            upEducators, a distinguished Google For Education Partner Company, is proudly organizing this Maths Teachers’ Olympiad. We are dedicated to empowering educators with innovative teaching methodologies and achieving excellence. For more insights into our mission and initiatives, please <a href="https://www.upeducators.com/about" target="_blank" rel="noopener noreferrer">click here</a>.
-                        </>
-                    ),
-                },
-            ],
-        },
-        {
             id: 'registration',
             title: 'Registration',
             questions: [
@@ -69,6 +55,14 @@ const FAQ: FC = () => {
                     answer: 'No special preparation is required for this Olympiad. The competition is structured to assess and celebrate your dedication and creativity in early childhood education. It\'s an opportunity to showcase your knowledge, pedagogical skills, critical thinking, and problem-solving abilities. However, familiarity with the key concepts and best practices in Pre-primary education will be beneficial.',
                 },
                 {
+                    summary: 'Will I get sample questions for the Olympiad preparation?',
+                    answer: 'Yes, you will get sample questions once you register for the Olympiad.',
+                },
+                {
+                    summary: 'What if I am not available at the Exam time, can Exam date/time be changed?',
+                    answer: 'Exam date and time will not be changed in any circumstances and also no refund will be provided.',
+                },
+                {
                     summary: 'Where can I attempt this test?',
                     answer: 'You can attempt this test on your Windows Desktop or Laptop with a working webcam.',
                 },
@@ -77,16 +71,8 @@ const FAQ: FC = () => {
                     answer: 'No, this exam can be given only on a Windows Laptop or Desktop with a functional webcam.',
                 },
                 {
-                    summary: 'Will I get sample questions for the Olympiad preparation?',
-                    answer: 'Yes, you will get sample questions once you register for the Olympiad.',
-                },
-                {
                     summary: 'Will I be getting any certificate?',
                     answer: 'Yes, all the participants will be getting an International Certificate of Participation. Top performers will also get a Certificate of Achievement.',
-                },
-                {
-                    summary: 'What if I am not available at the Exam time, can Exam date/time be changed?',
-                    answer: 'Exam date and time will not be changed in any circumstances and also no refund will be provided.',
                 },
                 {
                     summary: 'How the Top 3 Winners will be Decided?',

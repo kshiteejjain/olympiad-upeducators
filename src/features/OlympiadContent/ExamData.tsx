@@ -49,9 +49,9 @@ const ExamData = ({ onCheckDemoExam }: any) => {
 
                 const comparisonDate = new Date(compareDate); // Sept 30, 2024
                 if (retrievedUserDate < comparisonDate) {
-                    setExamMessage(`Exam Date: ${formatDateTime(targetDate)}`); // If user register is before 30th sept
+                    setExamMessage(`Exam Date: ${formatDateTime(targetDate)} IST`); // If user register is before 30th sept
                 } else {
-                    setExamMessage(`Exam Date: ${formatDateTime(olympiadBDate)}`); // If user register is after 30th sept
+                    setExamMessage(`Exam Date: ${formatDateTime(olympiadBDate)} IST`); // If user register is after 30th sept
                 }
             }
         } catch (error) {
@@ -100,7 +100,8 @@ const ExamData = ({ onCheckDemoExam }: any) => {
                 <div className='works-card-title'>
                     <div className='works-card-description'>
                         <h1>Check Exam System</h1>
-                        <p>Check your system setup, including camera and microphone, and familiarize yourself with the exam interface to ensure a smooth experience during the main exam</p>
+                        <p>1. You will be able to write the Exam only on Laptop/Desktop and NOT MOBILE.</p>
+                        <p>2. Check your system setup, including camera and microphone, and familiarize yourself with the exam interface to ensure a smooth experience during the main exam</p>
                         <div className='cta'>
                             <Button title='Check Demo Exam' type='button' onClick={onCheckDemoExam} />
                         </div>

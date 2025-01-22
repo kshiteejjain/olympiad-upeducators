@@ -1,12 +1,13 @@
 import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { firestore } from '../../utils/firebase';
-import { collection, getDocs, query, doc, deleteDoc, updateDoc, DocumentData, limit, startAfter, getCountFromServer, QueryDocumentSnapshot } from 'firebase/firestore';
+import { collection, getDocs, query, doc, deleteDoc, updateDoc, DocumentData, limit, startAfter, getCountFromServer, orderBy, QueryDocumentSnapshot } from 'firebase/firestore';
 import Button from '../../components/Buttons/Button';
 import Loader from '../../components/Loader/Loader';
 import ErrorBoundary from '../../components/ErrorBoundary/ErrorBoundary';
 import { saveAs } from 'file-saver';
 import ExamResults from './ExamResults';
+import Pagination from '../../components/Pagination/Pagination';
 
 import './Admin.css';
 
@@ -64,68 +65,81 @@ const Admin = () => {
     const [selectedOlympiad, setSelectedOlympiad] = useState('');
     const [editingOlympiad, setEditingOlympiad] = useState<{ [key: string]: string }>({});
     const [selectedDateRange, setSelectedDateRange] = useState('');
-    const [lastVisible, setLastVisible] = useState<QueryDocumentSnapshot<DocumentData> | null>(null);
-    const [hasMore, setHasMore] = useState(true);
     const [totalRecords, setTotalRecords] = useState<number>(0);
+    const [currentPage, setCurrentPage] = useState(1);
+    const [lastVisible, setLastVisible] = useState<QueryDocumentSnapshot<DocumentData> | null>(null);
+    const recordsPerPage = 100; 
     const navigate = useNavigate();
 
-    // Fetch total number of records
-    const fetchTotalCount = async () => {
-        try {
-            const q = query(collection(firestore, 'OlympiadUsers'));
-            const snapshot = await getCountFromServer(q);
-            setTotalRecords(snapshot.data().count); // Get the count of records from Firestore
-        } catch (err) {
-            console.log('Error getting total count:', err);
-            setError('Error getting total count');
-        }
-    };
-
-
     useEffect(() => {
-        fetchTotalCount(); // Get total records count
-        fetchData(50, null); // Fetch first 50 records
-    }, []);
+        fetchTotalCount();
+        fetchData();
+    }, [currentPage]);
 
-    // Fetch initial data
-    const fetchData = async (pageSize: number, lastDoc?: QueryDocumentSnapshot<DocumentData> | null) => {
-        try {
-            setLoading(true);
-            let q = query(collection(firestore, 'OlympiadUsers'), limit(pageSize));
-    
-            if (lastDoc) {
-                q = query(q, startAfter(lastDoc)); // Start after the last document fetched
-            }
-    
-            const querySnapshot = await getDocs(q);
-            const usersData = querySnapshot.empty ? [] : querySnapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }));
-    
-            setData((prevData) => [...prevData, ...usersData]);  // Append new data to existing data
-            setFilteredData((prevData) => [...prevData, ...usersData]);
-    
-            // Update last visible document for the next fetch
+   const fetchTotalCount = async () => {
+    try {
+        const q = query(collection(firestore, 'OlympiadUsers'));
+        const snapshot = await getCountFromServer(q);
+        setTotalRecords(snapshot.data().count);
+    } catch (err) {
+        console.log('Error getting total count:', err);
+    }
+};
+
+
+    // Pagination function: update the page number
+const handlePageChange = (page: number) => {
+    setCurrentPage(page);
+};
+
+// Ensure that the fetchData fetches the correct slice of data for the current page
+const fetchData = async () => {
+    try {
+        setLoading(true);
+
+        // Construct the query
+        let q;
+
+        if (lastVisible) {
+            // If lastVisible exists, paginate with startAfter
+            q = query(
+                collection(firestore, 'OlympiadUsers'),
+                orderBy('timeStamp', 'desc'),  // Order by 'timeStamp' descending
+                limit(recordsPerPage),
+                startAfter(lastVisible) // Fetch from the last visible document
+            );
+        } else {
+            // For the first load, do not use startAfter, just get the first set of data
+            q = query(
+                collection(firestore, 'OlympiadUsers'),
+                orderBy('timeStamp', 'desc'),  // Order by 'timeStamp' descending
+                limit(recordsPerPage)
+            );
+        }
+
+        const querySnapshot = await getDocs(q);
+        const usersData = querySnapshot.empty ? [] : querySnapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }));
+
+        // Check if there is data
+        if (usersData.length > 0) {
+            setData(usersData);
+            setFilteredData(usersData);
+            // Update the lastVisible for pagination
             const lastVisibleDoc = querySnapshot.docs[querySnapshot.docs.length - 1];
             setLastVisible(lastVisibleDoc);
-    
-            // If the number of fetched docs is less than the requested page size, it means there's no more data
-            setHasMore(querySnapshot.docs.length === pageSize);
-    
-            // Adjust 'hasMore' if the total records loaded are equal to the total number of records in the database
-            if (data.length + usersData.length >= totalRecords) {
-                setHasMore(false); // No more records to load
-            }
-        } catch (err) {
-            console.log('Error during fetch:', err);
-            setError('Error fetching data');
-        } finally {
-            setLoading(false);
+        } else {
+            setFilteredData([]);
         }
-    };
-        
 
-    useEffect(() => {
-        fetchData(300);  // Fetch initial 50 records when the component mounts
-    }, []);
+    } catch (err) {
+        console.log('Error fetching data:', err);
+        setError('Error fetching data');
+    } finally {
+        setLoading(false);
+    }
+};
+
+
 
     // Utility function to convert a UTC date string to IST (Indian Standard Time)
     const convertToIST = (dateString: string): string => {
@@ -358,16 +372,9 @@ const Admin = () => {
                 <ErrorBoundary message='No Data available.' />
             ) : (
                 <>
-                    <h2 className='flex justify-between'>Olympiad Registered Users ({filteredData.length})
+                    <h2 className='flex justify-between'>Olympiad Registered Users ({totalRecords})
                         <span>
-                        <Button type='button' title='Export Users' onClick={exportToCSV} />
-                        {hasMore && (
-                            <Button
-                            type="button"
-                            title={`Load More - ${totalRecords}`}
-                            onClick={() => fetchData(100, lastVisible)} // Load 100 records per click
-                            isDisabled={!hasMore || loading} />
-                        )}
+                            <Button type='button' title='Export Users' onClick={exportToCSV} />
                         </span>
                     </h2>
                     <div className='table-wrapper'>
@@ -375,7 +382,7 @@ const Admin = () => {
                             <thead>
                                 <tr>
                                     {[
-                                        'Name', 'Email', 'Profile Picture', 'WhatsApp', 'Olympiad', 'Payment Id', 'Source', 'Registered Date',
+                                        'Sr.','Name', 'Email', 'Profile Picture', 'WhatsApp', 'Olympiad', 'Payment Id', 'Source', 'Registered Date',
                                         'Board', 'City', 'Country', 'Date of Birth', 'Grade Level',
                                         'Organization Name', 'Organization Type', 'Role', 'Action'
                                     ].map((header, index) => (
@@ -386,6 +393,7 @@ const Admin = () => {
                             <tbody>
                                 {filteredData.map((user, index) => (
                                     <tr key={index} className={user.olympiad && user.olympiad.includes('p24') ? 'red-olympiad' : ''}>
+                                        <td>{index + 1 + (recordsPerPage * (currentPage - 1))}</td>
                                         <td>{user?.name}</td>
                                         <td>{user?.email}</td>
                                         <td>
@@ -443,6 +451,12 @@ const Admin = () => {
                                 ))}
                             </tbody>
                         </table>
+                        <Pagination
+                            currentPage={currentPage}
+                            totalRecords={totalRecords}
+                            recordsPerPage={recordsPerPage}
+                            onPageChange={handlePageChange}
+                        />
                     </div>
                 </>
             )}
