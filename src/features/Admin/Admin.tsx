@@ -69,6 +69,10 @@ const Admin = () => {
     const [currentPage, setCurrentPage] = useState(1);
     const [lastVisible, setLastVisible] = useState<QueryDocumentSnapshot<DocumentData> | null>(null);
     const recordsPerPage = 100; 
+    const [buttonState, setButtonState] = useState({
+        text: 'Export Users',
+        counter: 1
+    });
     const navigate = useNavigate();
 
     useEffect(() => {
@@ -243,11 +247,11 @@ const fetchData = async () => {
         setFilteredData(data);
     };
 
-    const exportToCSV = () => {
-        const csvData = jsonToCSV(filteredData);
-        const blob = new Blob([csvData], { type: 'text/csv;charset=utf-8' });
-        saveAs(blob, 'Olympiad_Users.csv');
-    };
+    // const exportToCSV = () => {
+    //     const csvData = jsonToCSV(filteredData);
+    //     const blob = new Blob([csvData], { type: 'text/csv;charset=utf-8' });
+    //     saveAs(blob, 'Olympiad_Users.csv');
+    // };
 
     const handleDelete = async (userId: string) => {
         if (window.confirm(`Are you sure to delete ${userId}?`)) {
@@ -299,6 +303,57 @@ const fetchData = async () => {
 
     if (loading) return <Loader />;
     if (error) return <div>Error: {error}</div>;
+
+
+    const exportToCSVInBatches = async () => {
+        setButtonState({ text: 'Processing... 1', counter: 1 });  // Start with "Processing... 1"
+        const batchSize = 1000;  // Define a batch size
+        let allData: DocumentData[] = [];
+        let lastVisible = null;
+        let fetching = true;
+    
+        while (fetching) {
+            let q = query(
+                collection(firestore, 'OlympiadUsers'),
+                orderBy('timeStamp'),
+                limit(batchSize)
+            );
+    
+            if (lastVisible) {
+                q = query(q, startAfter(lastVisible));
+            }
+    
+            const snapshot = await getDocs(q);
+    
+            if (snapshot.empty) {
+                fetching = false;
+                break;
+            }
+    
+            snapshot.docs.forEach(doc => {
+                allData.push(doc.data());
+            });
+    
+            lastVisible = snapshot.docs[snapshot.docs.length - 1];
+    
+            // Increment the processing counter after each batch is fetched
+            setButtonState(prevState => {
+                const newCounter = prevState.counter + 1;
+                return {
+                    text: `Processing... ${newCounter}`,  // Update the button title with the new counter
+                    counter: newCounter
+                };
+            });
+        }
+    
+        // Once all data is fetched, convert to CSV and download
+        const csvData = jsonToCSV(allData);
+        const blob = new Blob([csvData], { type: 'text/csv;charset=utf-8' });
+        saveAs(blob, 'Olympiad_Users.csv');
+    
+        setButtonState({ text: 'Export Users', counter: 1 });  // Reset the button text and counter after the download is triggered
+    };
+    
 
     return (
         <div className="content">
@@ -374,7 +429,7 @@ const fetchData = async () => {
                 <>
                     <h2 className='flex justify-between'>Olympiad Registered Users ({totalRecords})
                         <span>
-                            <Button type='button' title='Export Users' onClick={exportToCSV} />
+                            <Button type='button' title={buttonState.text} onClick={exportToCSVInBatches} />
                         </span>
                     </h2>
                     <div className='table-wrapper'>
