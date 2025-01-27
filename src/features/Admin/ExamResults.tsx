@@ -83,6 +83,7 @@ const fetchResultsFromCollection = async (collectionName: string): Promise<UserR
 const ExamResults = () => {
     const [s24Results, setS24Results] = useState<UserResult[]>([]);
     const [m24Results, setM24Results] = useState<UserResult[]>([]);
+    const [p25Results, setp25Results] = useState<UserResult[]>([]);
     const [loading, setLoading] = useState<boolean>(true);
 
     useEffect(() => {
@@ -91,9 +92,11 @@ const ExamResults = () => {
                 setLoading(true);
                 const s24Data = await fetchResultsFromCollection('s24Result');
                 const m24Data = await fetchResultsFromCollection('m24Result');
+                const p25Data = await fetchResultsFromCollection('p25Result');
 
                 setS24Results(s24Data);
                 setM24Results(m24Data);
+                setp25Results(p25Data)
             } catch (error) {
                 console.error('Error fetching results from Firestore:', error);
             } finally {
@@ -144,7 +147,7 @@ const ExamResults = () => {
     };
 
     const exportToCSV = () => {
-        const csvData = jsonToCSV([...s24Results, ...m24Results]);
+        const csvData = jsonToCSV([...s24Results, ...m24Results, ...p25Results]);
         const blob = new Blob([csvData], { type: 'text/csv;charset=utf-8' });
         saveAs(blob, 'Exam_Results.csv');
     };
@@ -209,6 +212,7 @@ const ExamResults = () => {
         <div>
             {renderTable(s24Results, 'S24')}
             {renderTable(m24Results, 'M24')}
+            {renderTable(p25Results, 'P25')}
         </div>
     );
 };

@@ -1,0 +1,579 @@
+[
+    {
+      "topic": "Child Development and Psychology",
+      "question": "Ms. Meera is interested in understanding how her fifth-grade students develop their problem-solving skills. Her co-teacher suggested that she refer to the concept of the Zone of Proximal Development (ZPD). Which of the following best describes the ZPD in the context of her classroom?",
+      "options": [
+        "The range of tasks that a child can perform independently without any assistance",
+        "The difference between what a child can achieve with guidance and what they can achieve alone",
+        "The innate abilities that a child is born with",
+        "The physical environment that supports learning"
+      ],
+      "type": "radio",
+      "answer": [
+        "The difference between what a child can achieve with guidance and what they can achieve alone"
+      ]
+    },
+    {
+      "topic": "Child Development and Psychology",
+      "question": "Assertion (A): According to Vygotsky, the development of higher mental functions (like problem-solving and abstract thinking) is always an individual process and cannot be influenced by social interaction. Reasoning (R): Vygotsky believed that all cognitive development occurs independently, without any influence from the social environment.  Which of the following options is correct?",
+      "options": [
+        "Both A and R are true",
+        "Both A and R are false",
+        "A is true, but R is false",
+        "A is false, but R is true"
+      ],
+      "type": "radio",
+      "answer": [
+        "Both A and R are false"
+      ]
+    },
+    {
+      "topic": "Child Development and Psychology",
+      "question": "During a science lesson, Rohit frequently raises his hand, interrupts his peers, and diverts attention with jokes. While his behavior is disruptive, it is clear that he is seeking attention. How should you address Rohit's behavior in a way that maintains a positive and engaging classroom environment?",
+      "options": [
+        "Provide Rohit with frequent praise and attention to encourage his engagement in the lesson",
+        "Firmly ask Rohit to stop interrupting and remind the class of the importance of waiting their turn, without acknowledging his need for attention",
+        "Ignore Rohit’s behavior, hoping that he will eventually lose interest",
+        "Redirect Rohit’s energy by assigning him a leadership role in the activity, allowing him to contribute meaningfully to the lesson"
+      ],
+      "type": "radio",
+      "answer": [
+        "Redirect Rohit’s energy by assigning him a leadership role in the activity, allowing him to contribute meaningfully to the lesson"
+      ]
+    },
+    {
+      "topic": "Child Development and Psychology",
+      "question": "Which of the following is an early indicator of a developmental delay in language acquisition?",
+      "options": [
+        "Exposure to multiple languages at an early age",
+        "Difficulty pronouncing age-appropriate words",
+        "Frequent engagement with literacy activities",
+        "A preference for solitary activities such as puzzles or drawing"
+      ],
+      "type": "radio",
+      "answer": [
+        "Difficulty pronouncing age-appropriate words"
+      ]
+    },
+    {
+      "topic": "Primary Education Theories and Pedagogy",
+      "question": "Ms. Anika uses a variety of teaching methods, such as storytelling, hands-on experiments, interactive lessons, and collaborative projects, to meet the diverse learning needs of her students. Which educational theory best supports this multifaceted approach?",
+      "options": [
+        "Piaget's Cognitive Development Theory",
+        "Erikson's Psychosocial Development Theory",
+        "Gardner's Multiple Intelligences Theory",
+        "Bandura's Social Learning Theory"
+      ],
+      "type": "radio",
+      "answer": [
+        "Gardner's Multiple Intelligences Theory"
+      ]
+    },
+    {
+      "topic": "Primary Education Theories and Pedagogy",
+      "question": "Ms. Latha notices that her students' attention spans vary significantly during lessons. To enhance attention and engagement, she decided to implement strategies based on attention theories. Which of the following strategies is most effective for optimizing students' sustained attention in the classroom?",
+      "options": [
+        "Using varied teaching methods, such as shifting between visual, auditory, and kinesthetic activities to keep students engaged",
+        "Encouraging students to focus on one task for long periods without breaks to strengthen attention control",
+        "Allowing students to self-regulate tasks with minimal teacher guidance to promote independence",
+        "Providing a fixed classroom routine with strict rules to minimize distractions and enhance focus"
+      ],
+      "type": "radio",
+      "answer": [
+        "Using varied teaching methods, such as shifting between visual, auditory, and kinesthetic activities to keep students engaged"
+      ]
+    },
+    {
+      "topic": "Primary Education Theories and Pedagogy",
+      "question": "Mr. Kiran is developing a lesson plan that encourages students to discover mathematical concepts through exploration and hands-on activities. Which educational theory best supports this approach?",
+      "options": [
+        "Behaviorism",
+        "Constructivism",
+        "Cognitive Load Theory",
+        "Multiple Intelligences"
+      ],
+      "type": "radio",
+      "answer": [
+        "Constructivism"
+      ]
+    },
+    {
+      "topic": "Primary Education Theories and Pedagogy",
+      "question": "Match the developmental domain with the correct description:  Developmental Domain:- 1. Cognitive Development 2. Social-Emotional Development 3. Moral Development 4. Executive Function 5. Social Development  Description:- i) Ability to interact effectively with others, forming social bonds, and understanding social cues ii) Understanding of right and wrong, developing a sense of fairness iii) Developing self-esteem, forming relationships, and managing emotions iv) Ability to plan, organize, and regulate behavior in complex situations v) Skills related to thinking, problem-solving, and understanding",
+      "options": [
+        "1 \u2013 v, 2 \u2013 iii, 3 \u2013 ii, 4 \u2013 iv, 5 \u2013 i",
+        "1 \u2013 v, 2 \u2013 ii, 3 \u2013 iii, 4 \u2013 iv, 5 \u2013 i",
+        "1 \u2013 iv, 2 \u2013 iii, 3 \u2013 v, 4 \u2013 ii, 5 \u2013 i",
+        "1 \u2013 ii, 2 \u2013 v, 3 \u2013 iii, 4 \u2013 i, 5 \u2013 iv"
+      ],
+      "type": "radio",
+      "answer": [
+        "1 \u2013 v, 2 \u2013 iii, 3 \u2013 ii, 4 \u2013 iv, 5 \u2013 i"
+      ]
+    },
+    {
+      "topic": "Lesson Planning, Assessment and Feedback",
+      "question": "Match the formative assessment strategies (1-5) with their primary benefits (i-v):  Strategies: Peer assessments Concept check questions Self-assessment rubrics Exit tickets Diagnostic pre-tests  Benefits: i. Promotes collaborative learning through peer feedback ii. Identifies students' prior knowledge and misconceptions before instruction iii. Checks students' understanding quickly during the lesson iv. Provides feedback at the end of a lesson to guide future instruction v. Encourages student ownership and responsibility for learning",
+      "options": [
+        "1 - ii, 2 - iii, 3 - v, 4 - iv, 5 - i",
+        "1 - i, 2 - iii, 3 - v, 4 - iv, 5 - ii",
+        "1 - iii, 2 - v, 3 - ii, 4 - iv, 5 - i",
+        "1 - v, 2 - ii, 3 - iii, 4 - i, 5 - iv"
+      ],
+      "type": "radio",
+      "answer": [
+        "1 - i, 2 - iii, 3 - v, 4 - iv, 5 - ii"
+      ]
+    },
+    {
+      "topic": "Lesson Planning, Assessment and Feedback",
+      "question": "What is the main principle behind the 'Concrete-Representational-Abstract' (CRA) approach in teaching?",
+      "options": [
+        "Starting with abstract concepts and moving to concrete examples",
+        "Using only concrete materials throughout the instruction",
+        "Introducing concepts through direct instruction before hands-on exploration",
+        "Progressing from concrete manipulatives to abstract symbols"
+      ],
+      "type": "radio",
+      "answer": [
+        "Progressing from concrete manipulatives to abstract symbols"
+      ]
+    },
+    {
+      "topic": "Lesson Planning, Assessment and Feedback",
+      "question": "Which of the following strategies best reflects a critical principle of backward design in lesson planning?",
+      "options": [
+        "Begin with a detailed outline of daily lessons and activities before identifying assessment goals",
+        "Set clear, measurable learning objectives first, then plan assessments and instructional methods that align with those objectives",
+        "Focus primarily on teaching methods, and adjust assessments later based on student progress",
+        "Prioritize creating engaging activities that interest students, and assess their understanding based on their participation"
+      ],
+      "type": "radio",
+      "answer": [
+        "Set clear, measurable learning objectives first, then plan assessments and instructional methods that align with those objectives"
+      ]
+    },
+    {
+      "topic": "Lesson Planning, Assessment and Feedback",
+      "question": "Which of the following statements best describes the most effective formative feedback for students who are struggling? (Select all that apply)",
+      "options": [
+        "Providing grades that reflect students' progress while maintaining focus on the overall outcome of the unit or course",
+        "Providing a detailed analysis of student work with exemplars from high-performing peers",
+        "Offering feedback that identifies mistakes and areas for improvement, along with steps for progress",
+        "Giving praise for the effort to boost confidence, without focusing much on areas for improvement to prevent discouragement",
+        "Breaking down complex tasks into smaller, manageable components and providing specific feedback at each step"
+      ],
+      "type": "checkbox",
+      "answer": [
+        "Offering feedback that identifies mistakes and areas for improvement, along with steps for progress",
+        "Breaking down complex tasks into smaller, manageable components and providing specific feedback at each step"
+      ]
+    },
+    {
+      "topic": "Innovative Teaching Strategies and Student Engagement",
+      "question": "Mr. Raj introduces a group project where students must collaborate to solve a problem using different strategies. While some students thrive in this collaborative environment, others appear disengaged or overwhelmed. How can Mr. Raj modify the activity to ensure all students are actively participating and benefiting from the collaborative learning experience? (Select all that apply)",
+      "options": [
+        "Assign specific roles to each group member to ensure participation",
+        "Incorporate technology tools to facilitate different learning styles",
+        "Make participation optional, allowing students to opt out of group activities if they feel uncomfortable",
+        "Decrease the complexity of the problems to make the project easier for some students",
+        "Allow students to choose their own groups without much structure or teacher input"
+      ],
+      "type": "checkbox",
+      "answer": [
+        "Assign specific roles to each group member to ensure participation",
+        "Incorporate technology tools to facilitate different learning styles"
+      ]
+    },
+    {
+      "topic": "Innovative Teaching Strategies and Student Engagement",
+      "question": "In your primary grade classroom, you aim to adopt a teaching method that promotes students' self-discovery of concepts and ideas through active exploration. Which teaching strategy would best enable your students to engage deeply with the content and independently uncover these concepts?",
+      "options": [
+        "Experiential Learning",
+        "Inquiry-based Learning",
+        "Virtual Reality Simulations",
+        "Blended Learning"
+      ],
+      "type": "radio",
+      "answer": [
+        "Inquiry-based Learning"
+      ]
+    },
+    {
+      "topic": "Innovative Teaching Strategies and Student Engagement",
+      "question": "The primary department of a school is considering implementing a flipped classroom model. Which of the following statements most accurately describes a potential challenge of this approach?",
+      "options": [
+        "Flipped classrooms require more preparation time for teachers as compared to traditional methods",
+        "Students may struggle with self-paced learning and time management outside of class",
+        "The model is incompatible with collaborative learning and group work",
+        "Flipped classrooms can only be implemented in schools with 1:1 device programs"
+      ],
+      "type": "radio",
+      "answer": [
+        "Students may struggle with self-paced learning and time management outside of class"
+      ]
+    },
+    {
+      "topic": "Innovative Teaching Strategies and Student Engagement",
+      "question": "You are leading a professional development workshop for teachers on enhancing student learning outcomes. During a discussion on cognitive strategies, you introduce the concept of 'metacognition.' How would you best describe 'metacognition' in the context of teaching?",
+      "options": [
+        "Performing tasks quickly and automatically without much thought",
+        "Using logical reasoning to connect and analyze different concepts",
+        "Recalling and applying facts automatically without conscious effort",
+        "Being aware of and managing one's own thought processes during problem-solving"
+      ],
+      "type": "radio",
+      "answer": [
+        "Being aware of and managing one's own thought processes during problem-solving"
+      ]
+    },
+    {
+      "topic": "Real-world Applications and Cross-Disciplinary Integration",
+      "question": "During a department meeting, you propose a project where students use real-world data (e.g., climate change, historical events, or social issues) to explore concepts relevant to your subject area. A colleague questions the relevance of this project to the curriculum. Which of the following options will you select to explain the importance of cross-disciplinary integration?",
+      "options": [
+        "It increases specialization in one area by showing how it connects to others, deepening expertise in a single discipline",
+        "It encourages students to connect concepts across subjects, enhancing analysis and evaluation skills",
+        "It simplifies topics to avoid complexity and integration",
+        "It streamlines curriculum delivery by reducing the need for distinct subject teachers"
+      ],
+      "type": "radio",
+      "answer": [
+        "It encourages students to connect concepts across subjects, enhancing analysis and evaluation skills"
+      ]
+    },
+    {
+      "topic": "Real-world Applications and Cross-Disciplinary Integration",
+      "question": "When integrating your subject with other disciplines, which of the following approaches are NOT effective? (Select all that apply)",
+      "options": [
+        "Teaching foundational concepts in isolation before demonstrating their application across various disciplines to preserve each subject's unique methodologies and perspectives",
+        "Designing projects that require students to apply skills and knowledge from your subject alongside another subject to solve complex, interdisciplinary problems",
+        "Using examples from other subjects without deviating from your subject's primary focus to maintain clarity and prevent confusion",
+        "Employing technology that integrates multiple subjects, allowing students to access resources and tools relevant to various disciplines simultaneously"
+      ],
+      "type": "checkbox",
+      "answer": [
+        "Teaching foundational concepts in isolation before demonstrating their application across various disciplines to preserve each subject's unique methodologies and perspectives",
+        "Using examples from other subjects without deviating from your subject's primary focus to maintain clarity and prevent confusion"
+      ]
+    },
+    {
+      "topic": "Real-world Applications and Cross-Disciplinary Integration",
+      "question": "Which of the following are potential challenges of cross-disciplinary integration in primary education? (Select all that apply)",
+      "options": [
+        "Applying subject concepts in real-world scenarios",
+        "Increasing student motivation through diverse learning experiences",
+        "Aligning curriculum standards across different subject areas",
+        "Providing opportunities for interdisciplinary research projects",
+        "Aligning assessment methods across different disciplines",
+        "Incorporating technology tools to facilitate diverse learning styles"
+      ],
+      "type": "checkbox",
+      "answer": [
+        "Aligning curriculum standards across different subject areas",
+        "Aligning assessment methods across different disciplines"
+      ]
+    },
+    {
+      "topic": "Real-world Applications and Cross-Disciplinary Integration",
+      "question": "Assertion (A): Emphasizing real-world applications in lessons improves student engagement and learning outcomes. Reason (R): Connecting concepts to real-life situations always increases students' intrinsic motivation to learn the subject and guarantees academic success.",
+      "options": [
+        "Both A and R are true",
+        "Both A and R are false",
+        "A is true, but R is false",
+        "A is false, but R is true"
+      ],
+      "type": "radio",
+      "answer": [
+        "A is true, but R is false"
+      ]
+    },
+    {
+      "topic": "Technology Integration in the Classroom",
+      "question": "Oakwood High School is planning to implement AI tools in their classrooms. The principal, Ms. Johnson, has called a meeting with the school board, teachers, and IT staff to discuss the implementation strategy. Select all the important considerations they need to make when introducing AI tools in the classroom. (Select all that apply)",
+      "options": [
+        "Maintaining student data privacy and security",
+        "How AI can manage all student disciplinary issues and behavioral management without teacher intervention",
+        "Ensuring AI tools support rather than replace critical thinking skills",
+        "Ensuring that AI tools are aligned with the school's educational goals and curriculum needs",
+        "Balancing AI assistance with human instruction and interaction",
+        "Guaranteeing student success in all academic areas"
+      ],
+      "type": "checkbox",
+      "answer": [
+        "Maintaining student data privacy and security",
+        "Ensuring AI tools support rather than replace critical thinking skills",
+        "Ensuring that AI tools are aligned with the school's educational goals and curriculum needs",
+        "Balancing AI assistance with human instruction and interaction"
+      ]
+    },
+    {
+      "topic": "Technology Integration in the Classroom",
+      "question": "Ms. Lee, a primary school teacher, aims to enhance student engagement and deepen their understanding of complex concepts by implementing Project-Based Learning (PBL) with the help of digital tools. Which of the following outcomes would you most likely expect from using this approach? (Select all that apply)",
+      "options": [
+        "Students will collaborate using online platforms to design and build a digital presentation, integrating lessons from science, math, social studies, and art",
+        "Students will complete individual digital worksheets to practice and reinforce the skills learned during the project",
+        "Students will engage in hands-on experiments, while also using digital simulations to apply concepts learned during the lesson",
+        "Students will work independently on reading assignments related to the project using e-books to build literacy skills",
+        "Students will participate in timed digital quizzes to assess their immediate understanding of the lesson’s content"
+      ],
+      "type": "checkbox",
+      "answer": [
+        "Students will collaborate using online platforms to design and build a digital presentation, integrating lessons from science, math, social studies, and art",
+        "Students will engage in hands-on experiments, while also using digital simulations to apply concepts learned during the lesson"
+      ]
+    },
+    {
+      "topic": "Technology Integration in the Classroom",
+      "question": "How can you effectively integrate technology in a primary classroom while ensuring equitable access for all students?",
+      "options": [
+        "Provide each student with a personal device to replace all traditional learning materials, ensuring uniform access to digital resources",
+        "Create a technology-free zone in the classroom to promote face-to-face interactions and hands-on learning, ensuring that students who may not have access to digital devices at home are not disadvantaged",
+        "Offer optional after-school technology workshops and online tutorials for students who require additional support, allowing those who need it to access digital resources outside regular school hours",
+        "Implement a blended learning approach by incorporating online platforms alongside hands-on activities"
+      ],
+      "type": "radio",
+      "answer": [
+        "Implement a blended learning approach by incorporating online platforms alongside hands-on activities"
+      ]
+    },
+    {
+      "topic": "Technology Integration in the Classroom",
+      "question": "Ms. Green, a primary school teacher, aims to incorporate a digital tool into her classroom that promotes collaboration, creativity, and equitable participation among all students, including those with diverse learning needs. Which of the following tools would be most appropriate for Ms. Green to use?",
+      "options": [
+        "Kahoot!",
+        "Padlet",
+        "Google Slides",
+        "Scratch"
+      ],
+      "type": "radio",
+      "answer": [
+        "Padlet"
+      ]
+    },
+    {
+      "topic": "Classroom Management and Differentiated Instruction",
+      "question": "Match the instructional strategies (1-5) with their main goal in lesson planning for diverse learners (i-v):  Strategies: 1. Differentiated instruction 2. Universal design for learning (UDL) 3. Scaffolding 4. Experiential Learning 5. Socratic Method  Goals: i. Ensures access to learning for all students by providing multiple means of representation, engagement, and expression ii. Builds students' independence by gradually removing supports as they gain competence iii. Develops critical thinking and reasoning skills by engaging students in dialogue through asking and answering questions iv. Builds practical skills and understanding through direct experience, reflection, and application v. Tailors learning experiences to meet the varied needs of students, including different levels of readiness",
+      "options": [
+        "1 - ii, 2 - iii, 3 - v, 4 - iv, 5 - i",
+        "1 - v, 2 - i, 3 - ii, 4 - iv, 5 - iii",
+        "1 - ii, 2 - i, 3 - v, 4 - iv, 5 - iii",
+        "1 - iii, 2 - i, 3 - ii, 4 - v, 5 - iv"
+      ],
+      "type": "radio",
+      "answer": [
+        "1 - v, 2 - i, 3 - ii, 4 - iv, 5 - iii"
+      ]
+    },
+    {
+      "topic": "Classroom Management and Differentiated Instruction",
+      "question": "How can AI assist in addressing diverse learning needs in a classroom?",
+      "options": [
+        "By creating standardized lesson plans",
+        "Through automated grading systems that provide instant feedback",
+        "By generating differentiated activities and explanations",
+        "Through AI chatbots that simulate peer-to-peer discussions"
+      ],
+      "type": "radio",
+      "answer": [
+        "By generating differentiated activities and explanations"
+      ]
+    },
+    {
+      "topic": "Classroom Management and Differentiated Instruction",
+      "question": "Rank the following differentiated instruction techniques from most effective (1) to least effective (5) for accommodating diverse learning styles in a mathematics classroom.  i) Providing periodic mini-lectures followed by group discussions ii) Implementing project-based learning iii) Providing choice boards for homework assignments iv) Presenting new concepts in only one modality (e.g., always visual or always verbal) to avoid complexity v) Employing timed quizzes at the end of each lesson",
+      "options": [
+        "1. ii, 2. i, 3. iii, 4. v, 5. iv",
+        "1. iii, 2. ii, 3. i, 4. iv, 5. v",
+        "1. ii, 2. iii, 3. i, 4. v, 5. iv",
+        "1. i, 2. ii, 3. iii, 4. v, 5. iv"
+      ],
+      "type": "radio",
+      "answer": [
+        "1. ii, 2. iii, 3. i, 4. v, 5. iv"
+      ]
+    },
+    {
+      "topic": "Classroom Management and Differentiated Instruction",
+      "question": "Assertion (A): Using non-verbal cues for classroom management can reduce disruptions during lessons. Reason (R): Non-verbal cues allow teachers to address minor misbehaviors without interrupting the flow of instruction.",
+      "options": [
+        "Both A and R are true",
+        "Both A and R are false",
+        "A is true, but R is false",
+        "A is false, but R is true"
+      ],
+      "type": "radio",
+      "answer": [
+        "Both A and R are true"
+      ]
+    },
+    {
+      "topic": "Inclusive Education and Special Needs",
+      "question": "During a teacher's meeting, Ms. Kavita discusses her student, Arjun, who has been showing signs of anxiety and withdrawal in the classroom. She considers various strategies for addressing his anxiety. Which of the following could be the most effective initial strategy for addressing his anxiety within the classroom setting?",
+      "options": [
+        "Implementing a full-scale individualized education program (IEP) with a focus on social-emotional learning, involving curriculum modifications",
+        "Establish a predictable classroom routine, incorporate mindfulness exercises, and provide a designated \"safe space\" for breaks",
+        "Contacting Arjun's parents immediately to recommend professional counseling and suggesting changes in the family environment",
+        "Implementing a peer mentoring program to enhance Arjun's social connections and provide him with a support system"
+      ],
+      "type": "radio",
+      "answer": [
+        "Establish a predictable classroom routine, incorporate mindfulness exercises, and provide a designated \"safe space\" for breaks"
+      ]
+    },
+    {
+      "topic": "Inclusive Education and Special Needs",
+      "question": "How can a primary school teacher best support a student with ADHD (Attention-Deficit-Hyperactivity Disorder)?",
+      "options": [
+        "Breaking assignments into smaller, manageable steps and providing clear, concise instructions",
+        "Implementing a peer tutoring program, pairing the student with a responsible and organized classmate",
+        "Allowing extended time on assignments and tests to compensate for his slower processing speed",
+        "Implementing a token economy system to reinforce staying on task and completing assignments"
+      ],
+      "type": "radio",
+      "answer": [
+        "Breaking assignments into smaller, manageable steps and providing clear, concise instructions"
+      ]
+    },
+    {
+      "topic": "Inclusive Education and Special Needs",
+      "question": "During a project-based learning unit, you notice that the same students consistently take leadership roles while others remain passive. Which intervention would best promote equitable participation and skill development?",
+      "options": [
+        "Create a rotation system for leadership responsibilities with structured support",
+        "Allow natural group dynamics to develop student confidence over time",
+        "Providing regular positive feedback and recognizing the student's efforts",
+        "Collaborating with a school counselor to develop individualized strategies and interventions"
+      ],
+      "type": "radio",
+      "answer": [
+        "Create a rotation system for leadership responsibilities with structured support"
+      ]
+    },
+    {
+      "topic": "Inclusive Education and Special Needs",
+      "question": "Match the principles of inclusive education (1-5) with their corresponding classroom practices (i-v):  Principles: 1. Accessibility 2. Equity 3. Flexibility 4. Collaborative learning 5. Representation  Practices: i. Offering multiple formats (e.g., visual, auditory, tactile) for content delivery ii. Grouping students with mixed abilities to work together iii. Adapting lesson plans to accommodate different learning paces iv. Providing equal opportunities for participation regardless of ability v. Ensuring physical and digital tools are usable by all students",
+      "options": [
+        "1-i, 2-iv, 3-iii, 4-ii, 5-v",
+        "1-v, 2-iv, 3-iii, 4-ii, 5-i",
+        "1-i, 2-iii, 3-ii, 4-v, 5-iv",
+        "1-v, 2-i, 3-ii, 4-iii, 5-iv"
+      ],
+      "type": "radio",
+      "answer": [
+        "1-v, 2-iv, 3-iii, 4-ii, 5-i"
+      ]
+    },
+    {
+      "topic": "Professional Development and Ethics",
+      "question": "Rank the following professional development strategies from most effective (1) to least effective (4) for enhancing your ability to differentiate instruction as a Primary Teacher:  i) Participating in data analysis workshops to learn how to use student performance information for tailoring instruction ii) Watching video tutorials of expert teachers on cognitive development theories to better understand learning behaviors iii) Engaging with educational blogs and social media posts about differentiation during personal time iv) Observing Experienced Teachers Implementing Differentiated Instruction",
+      "options": [
+        "1. iv, 2. i, 3. ii, 4. iii",
+        "1. i, 2. iv, 3. iii, 4. ii",
+        "1. ii, 2. i, 3. iv, 4. iii",
+        "1. iii, 2. ii, 3. i, 4. iv"
+      ],
+      "type": "radio",
+      "answer": [
+        "1. iv, 2. i, 3. ii, 4. iii"
+      ]
+    },
+    {
+      "topic": "Professional Development and Ethics",
+      "question": "You are mentoring a new teacher who is struggling to effectively assess student understanding. Which of the following approaches would NOT be the most effective in helping them develop formative assessment skills?",
+      "options": [
+        "Encouraging the use of exit tickets and class discussions to regularly gauge student comprehension",
+        "Assisting in designing end-of-unit standardized tests to evaluate overall student performance",
+        "Providing access to a variety of formative assessment tools and strategies tailored to different subjects",
+        "Guiding the teacher in analyzing student responses and identifying common misconceptions to inform instruction"
+      ],
+      "type": "radio",
+      "answer": [
+        "Assisting in designing end-of-unit standardized tests to evaluate overall student performance"
+      ]
+    },
+    {
+      "topic": "Professional Development and Ethics",
+      "question": "A teacher notices a significant disparity in the academic performance of students from different socioeconomic backgrounds within their classroom. What is the most ethical approach to address this issue?",
+      "options": [
+        "Collaborate with community organizations to offer enrichment programs outside of the regular school hours",
+        "Adjust grading criteria to account for students' socioeconomic disadvantages to ensure equitable outcomes",
+        "Focus on providing equal learning opportunities for all students ignoring their background",
+        "Advocate for school-wide policies that address systemic inequities and provide additional resources"
+      ],
+      "type": "radio",
+      "answer": [
+        "Advocate for school-wide policies that address systemic inequities and provide additional resources"
+      ]
+    },
+    {
+      "topic": "Professional Development and Ethics",
+      "question": "A teacher receives a valuable gift from a student's family at the end of the school year. The gift is clearly beyond a token of appreciation. What is the most ethically sound response?",
+      "options": [
+        "Accept the gift with sincere gratitude, and immediately inform the school principal maintaining complete transparency",
+        "Politely decline the gift, explaining the school's policy on accepting gifts",
+        "Accept the gift and display it in the classroom as a reminder of the student's appreciation",
+        "Accept the gift but only use it during school events to benefit the students indirectly"
+      ],
+      "type": "radio",
+      "answer": [
+        "Politely decline the gift, explaining the school's policy on accepting gifts"
+      ]
+    },
+    {
+      "topic": "Parental Engagement and Community Involvement",
+      "question": "A primary school teacher notices that some parents are hesitant to participate in school events due to cultural differences. What is the most appropriate action to promote inclusive parental engagement?",
+      "options": [
+        "Send regular newsletters in multiple languages to keep parents informed about upcoming events and school activities",
+        "Host workshops for parents on the importance of parental involvement in education, emphasizing the benefits for student academic success",
+        "Provide translation services and culturally relevant information during school events to accommodate non-English speaking parents",
+        "Offer incentives for parents to encourage participation in school events"
+      ],
+      "type": "radio",
+      "answer": [
+        "Provide translation services and culturally relevant information during school events to accommodate non-English speaking parents"
+      ]
+    },
+    {
+      "topic": "Parental Engagement and Community Involvement",
+      "question": "Which of the following is NOT a key indicator of successful parental engagement?",
+      "options": [
+        "Consistent attendance at parent-teacher conferences",
+        "Active involvement in school committees and boards",
+        "Parental involvement in classroom behavior management",
+        "Parents setting academic goals for their children and monitoring their progress"
+      ],
+      "type": "radio",
+      "answer": [
+        "Parental involvement in classroom behavior management"
+      ]
+    },
+    {
+      "topic": "Parental Engagement and Community Involvement",
+      "question": "Mr. Lewis organizes a partnership with a nearby library in his first-grade reading program, where students help organize books. The library asks for detailed participation logs to secure funding. How should Mr. Lewis address the library's request while maintaining ethical standards?",
+      "options": [
+        "Provide comprehensive logs including individual student contributions to strengthen the library's funding application",
+        "Share only overall participation numbers without mentioning individual students, after informing parents",
+        "Decline to provide any logs to protect student privacy, despite the library's needs",
+        "Allow the library access to all student data but require them to sign a confidentiality agreement"
+      ],
+      "type": "radio",
+      "answer": [
+        "Share only overall participation numbers without mentioning individual students, after informing parents"
+      ]
+    },
+    {
+      "topic": "Parental Engagement and Community Involvement",
+      "question": "Mrs.Sharma invites a local firefighter to her third-grade class to talk about fire safety and demonstrate firefighting equipment. What is the key advantage of this real-world application in his lesson?",
+      "options": [
+        "Allowing students to watch a demonstration can enhance their interest in emergency services careers",
+        "Providing students with practical knowledge and real-life connections to safety practices",
+        "Aligning with state educational standards for safety education",
+        "Demonstrating effective public speaking and communication skills"
+      ],
+      "type": "radio",
+      "answer": [
+        "Providing students with practical knowledge and real-life connections to safety practices"
+      ]
+    }
+  ]
+  
+  

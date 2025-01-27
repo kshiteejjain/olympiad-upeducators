@@ -83,8 +83,7 @@ const Examination = () => {
 
     useEffect(() => {
         const olympiadData = JSON.parse(localStorage.getItem('olympd_prefix') || '{}');
-        const olympiadNames = olympiadData?.olympiad || [];
-        const olympiadName = olympiadNames[0] || 'm24';
+        const olympiadName = olympiadData.olympiadName;
 
         import(`../../utils/${olympiadName}.json`)
             .then((module) => {
