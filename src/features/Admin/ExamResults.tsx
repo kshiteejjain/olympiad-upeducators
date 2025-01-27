@@ -84,6 +84,7 @@ const ExamResults = () => {
     const [s24Results, setS24Results] = useState<UserResult[]>([]);
     const [m24Results, setM24Results] = useState<UserResult[]>([]);
     const [p25Results, setp25Results] = useState<UserResult[]>([]);
+    const [e25Results, sete25Results] = useState<UserResult[]>([]);
     const [loading, setLoading] = useState<boolean>(true);
 
     useEffect(() => {
@@ -93,10 +94,12 @@ const ExamResults = () => {
                 const s24Data = await fetchResultsFromCollection('s24Result');
                 const m24Data = await fetchResultsFromCollection('m24Result');
                 const p25Data = await fetchResultsFromCollection('p25Result');
+                const e25Data = await fetchResultsFromCollection('e25Result');
 
                 setS24Results(s24Data);
                 setM24Results(m24Data);
                 setp25Results(p25Data)
+                sete25Results(e25Data)
             } catch (error) {
                 console.error('Error fetching results from Firestore:', error);
             } finally {
@@ -213,6 +216,7 @@ const ExamResults = () => {
             {renderTable(s24Results, 'S24')}
             {renderTable(m24Results, 'M24')}
             {renderTable(p25Results, 'P25')}
+            {renderTable(e25Results, 'E25')}
         </div>
     );
 };

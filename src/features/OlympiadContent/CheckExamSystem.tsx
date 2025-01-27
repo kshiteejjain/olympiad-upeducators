@@ -1,26 +1,33 @@
 import { useNavigate } from "react-router-dom";
 import CheckInternet from "../../utils/CheckInternet";
 import Button from "../../components/Buttons/Button";
+import { useEffect, useState } from "react";
 
 const CheckExamSystem = () => {
+    const [olympaidDate, setOlympaidDate] = useState('1 February, 2025 at 5 PM IST');
+    const item = JSON.parse(localStorage.getItem('olympd_prefix') || '{}');
     const navigate = useNavigate();
 
     const openExamWindow = () => {
         navigate('/CapturePhoto')
-        const item = localStorage.getItem('olympd_prefix');
         if (item) {
             const data = JSON.parse(item);
             data.olympiad = ['testQuestions'];
             localStorage.setItem('olympd_prefix', JSON.stringify(data));
         }
     };
+    useEffect(() => {
+    if(item?.olympiadName === 'e25'){
+        setOlympaidDate('15 February, 2025 at 5 PM IST')
+    }
+    },[])
     return (
         <div className="content">
             <h2>Check Your System Guidelines</h2>
             <p><strong>Please Read all the instructions carefully and click on ‘Next’ Button below.</strong></p>
             <div className="exam-rules">
                 <p><strong>1. This is a Demo Exam</strong>: This is a System Check/Demo Exam. In this, we have given you 5 random questions to check your system settings and familiarize yourself with the exam interface to ensure a smooth experience during the main exam. This is a MUST DO Process before starting the Olympiad exam.</p>
-                <p><strong>2. Exam Start Time</strong>: Click on 'Start Exam' button on 21 September, 2024 at 5 PM IST to start the Olympiad Exam. Do not attempt to start the exam before this time.</p>
+                <p><strong>2. Exam Start Time</strong>: Click on 'Start Exam' button on {olympaidDate} to start the Olympiad Exam. Do not attempt to start the exam before this time.</p>
                 <p><strong>3. Use a Laptop or Computer with a Webcam</strong>: Ensure you have a functioning Laptop or Desktop with a working webcam and microphone. These are mandatory for the exam.</p>
                 <p><strong>4. Keep a Govt-issued ID Ready</strong>: Have a valid government-issued ID (Driving License, Passport, Aadhar, etc.) on hand before starting the exam.</p>
                 <p><strong>5. Recommended Browser</strong>: Use Google Chrome or Microsoft Edge browser only to give the exam.</p>

@@ -6,6 +6,7 @@ import Button from '../../components/Buttons/Button';
 import Loader from '../../components/Loader/Loader';
 import WebcamPermission from './WebcamPermission';
 import CheckInternet from '../../utils/CheckInternet';
+import testQuestions from '../../utils/testQuestions.json';
 
 import './Examination.css';
 
@@ -56,7 +57,7 @@ const Examination = () => {
 
     // Prevent Copy Paste
     useEffect(() => {
-        const handleCopy = (event:  any) => {
+        const handleCopy = (event: any) => {
             event.preventDefault();
         };
 
@@ -83,8 +84,19 @@ const Examination = () => {
 
     useEffect(() => {
         const olympiadData = JSON.parse(localStorage.getItem('olympd_prefix') || '{}');
-        const olympiadName = olympiadData.olympiadName;
+        //const olympiadName = olympiadData.olympiadName;
 
+        const isTestMode = olympiadData.olympiad?.includes('testQuestions');
+        if (isTestMode) {
+            setJsonFileName('testQuestions.json');
+            setQuestions(testQuestions as ExamQuestionsType); // Use type assertion
+            setFilteredQuestions(testQuestions as ExamQuestionsType);
+            return; // Skip further loading
+        }
+
+        // If not test mode, load regular olympiad questions
+        const olympiadName = olympiadData.olympiadName;
+        
         import(`../../utils/${olympiadName}.json`)
             .then((module) => {
                 const jsonData = module.default;
@@ -124,7 +136,7 @@ const Examination = () => {
     useEffect(() => {
         if (selectedLevel) {
             const levelQuestions = ExamQuestions[selectedLevel as keyof ExamQuestionsByLevel] || [];
-    
+
             const filtered: ExamQuestionsType = levelQuestions.map((question) => ({
                 topic: question.topic || 'Unknown Topic',
                 question: question.question,
@@ -132,7 +144,7 @@ const Examination = () => {
                 type: question.type as 'radio' | 'checkbox', // Ensure correct type
                 answer: question.answer // This can be either string or string[]
             }));
-    
+
             setFilteredQuestions(filtered); // Now filtered is of type ExamQuestionsType
             setCurrentIndex(0);
             setAttempted(new Array(filtered.length).fill(false));
@@ -141,7 +153,7 @@ const Examination = () => {
             setFilteredQuestions(questions);
         }
     }, [selectedLevel, questions]);
-    
+
 
     const handleLevelSelect = (level: string) => {
         setSelectedLevel(level);
@@ -164,9 +176,9 @@ const Examination = () => {
     useEffect(() => {
         const savedAttempted = JSON.parse(localStorage.getItem('attempted') || '[]') as boolean[];
         const savedSelectedAnswers = JSON.parse(localStorage.getItem('selectedAnswers') || '{}') as SelectedAnswers;
-        const totalQuestions = selectedLevel 
-        ? (ExamQuestions[selectedLevel as keyof ExamQuestionsByLevel] || []).length 
-        : questions.length;
+        const totalQuestions = selectedLevel
+            ? (ExamQuestions[selectedLevel as keyof ExamQuestionsByLevel] || []).length
+            : questions.length;
         setAttempted(savedAttempted.length ? savedAttempted : new Array(totalQuestions).fill(false));
         setSelectedAnswers(savedSelectedAnswers);
     }, []);
@@ -231,7 +243,12 @@ const Examination = () => {
     };
 
     const submitReport = useCallback(async () => {
-        if (!startTime) return;
+        if (!startTime || jsonFileName === 'testQuestions.json') {
+            // If either condition is true, close the window without saving anything to Firestore
+            window.close();
+            return; // Exit early without submitting any data
+        }
+
         alert('Submitting the exam?')
         setLoading(true);
         const olympiadData = JSON.parse(localStorage.getItem('olympd_prefix') || '{}');
@@ -413,17 +430,17 @@ const Examination = () => {
                 <WebcamPermission />
             </div>
             <div className="question-list">
-                    <div className='listing'>
-                        {filteredQuestions.map((_, index) => (
-                            <button
-                                key={index}
-                                className={`question-item ${attempted[index] ? 'attempted' : 'not-attempted'}`}
-                                onClick={() => setCurrentIndex(index)}
-                            >
-                                {index + 1}
-                            </button>
-                        ))}
-                    </div>
+                <div className='listing'>
+                    {filteredQuestions.map((_, index) => (
+                        <button
+                            key={index}
+                            className={`question-item ${attempted[index] ? 'attempted' : 'not-attempted'}`}
+                            onClick={() => setCurrentIndex(index)}
+                        >
+                            {index + 1}
+                        </button>
+                    ))}
+                </div>
             </div>
         </div>
     );
