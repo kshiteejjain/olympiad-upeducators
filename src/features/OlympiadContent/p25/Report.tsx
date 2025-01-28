@@ -37,29 +37,29 @@ const Report = () => {
             <div className='flex-card'>
                 <CoursesCard />
             </div>
-            <p>At upEducators, we recognize the pivotal role of Math teachers in shaping young minds. Following the <strong>International Primary Teachers’ Olympiad</strong>, we are committed to providing each participant with a detailed Olympiad Excellence Report. This report is not just a reflection of your performance in the Olympiad; it's a roadmap for your ongoing professional journey in Math Education.</p>
-            <p><strong>What the Excellence Report Entails:</strong></p>
-            <p>Your personalized Excellence Report will offer a comprehensive evaluation across diverse, crucial parameters. It’s designed to highlight your strengths and identify potential areas for growth, empowering you to achieve excellence in Math Education.</p>
+            <p>At upEducators, we recognize Primary Teachers' vital role in shaping young minds and building their futures. Following the International Primary Teachers’ Olympiad, we are committed to providing each participant with a detailed Olympiad Excellence Report. This report goes beyond just assessing your performance—it serves as a strategic guide for your ongoing professional growth and success in primary education.</p>
+            <p><strong>What the Olympiad Excellence Report Entails:</strong></p>
+            <p>Your personalized competency report will provide an in-depth assessment across diverse and crucial parameters. It’s designed to highlight your strengths and identify potential areas for growth, enabling you to excel as a Primary Educator.</p>
             <p><strong>Key Evaluation Parameters:</strong></p>
-            <p>Pedagogical Knowledge: Deep understanding of mathematics-specific teaching theories, methodologies and practices that facilitate effective teaching and enhance student learning outcomes.</p>
+            <p>Child Development and Psychology: Comprehensive understanding of children's developmental stages and psychological principles to create a supportive and effective learning environment.</p>
 
-            <p><strong>Innovative Teaching Strategies:</strong> Ability to implement creative and effective methods that enhance mathematical understanding and problem-solving skills in students of varying abilities.</p>
+<p><strong>Primary Education Theories and Pedagogy:</strong> Exhibits a strong grasp of key educational theories and can employ diverse pedagogical approaches to address varied learning styles.</p>
 
-            <p><strong>Technology Integration:</strong> Proficiency in utilizing digital tools and platforms to enrich mathematics instruction and prepare students for a technology-driven world.</p>
+<p><strong>Lesson Planning, Assessment, and Feedback:</strong> Ability to design coherent lesson plans aligned with curriculum standards, utilize diverse assessment methods, and provide constructive feedback to support student growth.</p>
 
-            <p><strong>Classroom Management:</strong> Skill in creating a positive learning environment that fosters mathematical exploration, encourages participation, and maintains discipline conducive to effective learning.</p>
+<p><strong>Innovative Teaching Strategies and Student Engagement:</strong> Competence in integrating creative teaching techniques that make learning interactive and enjoyable, fostering high levels of student motivation and participation.</p>
 
-            <p><strong>Assessment and Evaluation:</strong> Competence in designing and implementing diverse assessment methods to accurately measure mathematical comprehension, skills, and progress.</p>
+<p><strong>Real-world Applications and Cross-Disciplinary Integration:</strong> Capacity to connect academic concepts to practical scenarios and incorporate interdisciplinary approaches, enhancing students' holistic understanding of subjects.</p>
 
-            <p><strong>Professional Development:</strong> Commitment to continuous learning and staying updated with the latest trends, research, and best practices in mathematics education.</p>
+<p><strong>Technology Integration in the Classroom:</strong> Proficiency in utilizing digital tools and resources to enrich the learning experience and ability to prepare students for a technology-driven future.</p>
 
-            <p><strong>Real-world Applications:</strong> Capacity to connect mathematical concepts with practical, everyday situations, enhancing student engagement and demonstrating the relevance of mathematics.</p>
+<p><strong>Classroom Management and Differentiated Instruction:</strong> Ability to maintain a positive, organized classroom environment and adapt instruction to meet diverse student needs, ensuring every learner can thrive.</p>
 
-            <p><strong>Inclusive Mathematics Education:</strong> Expertise in adapting teaching methods to accommodate diverse learning needs, ensuring equal access to quality mathematics education for all students.</p>
+<p><strong>Inclusive Education and Special Needs:</strong> Can effectively implement inclusive teaching practices and develop strategies to support students with special needs, ensuring equitable access to quality education for all.</p>
 
-            <p><strong>Cross-Disciplinary Integration:</strong> Ability to incorporate mathematical concepts into other subject areas, promoting holistic learning and demonstrating the universal applicability of mathematics.</p>
+<p><strong>Professional Development and Ethics:</strong> Demonstrates commitment to continuous learning and upholds high ethical standards, fostering trust and integrity within the educational community.</p>
 
-            <p><strong>Student Engagement and Differentiated Instruction:</strong> Skill in tailoring mathematical instruction to individual student needs, interests, and learning styles, while maintaining high levels of engagement across the classroom.</p>
+<p><strong>Parental Engagement and Community Involvement:</strong> Deep understanding of how to build strong partnerships with parents and leverage community resources to enhance the educational experience and support student learning.</p>
         </div>
     );
 };
