@@ -9,12 +9,7 @@ const CheckExamSystem = () => {
     const navigate = useNavigate();
 
     const openExamWindow = () => {
-        navigate('/CapturePhoto')
-        if (item) {
-            const data = JSON.parse(item);
-            data.olympiad = ['testQuestions'];
-            localStorage.setItem('olympd_prefix', JSON.stringify(data));
-        }
+        navigate('/CapturePhotoDemoExam')
     };
     useEffect(() => {
     if(item?.olympiadName === 'e25'){

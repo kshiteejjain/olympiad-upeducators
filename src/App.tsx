@@ -9,8 +9,10 @@ import UserProfile from './features/UserProfile/UserProfile';
 import AddUser from './features/AddUser/AddUser';
 import OlympiadContent from './features/OlympiadContent/OlympiadContent';
 import Examination from './features/Examination/Examination';
+import ExaminationDemoExam from './features/Examination/ExaminationDemoExam';
 import ExaminationRules from './features/Examination//ExaminationRules';
 import CapturePhoto from './features/Examination/CapturePhoto';
+import CapturePhotoDemoExam from './features/Examination/CapturePhotoDemoExam';
 import ThankYou from './features/ThankYou/ThankYou';
 
 import './App.css';
@@ -52,8 +54,10 @@ const App = () => {
           <Route path="/Admin" element={checkSession() ? <Admin /> : <Navigate to="/" replace />} />
           <Route path="/UserProfile" element={checkSession() ? <UserProfile /> : <Navigate to="/" replace />} />
           <Route path="/Examination" element={checkSession() ? <Examination /> : <Navigate to="/" replace />} />
+          <Route path="/ExaminationDemoExam" element={checkSession() ? <ExaminationDemoExam /> : <Navigate to="/" replace />} />
           <Route path="/ExaminationRules" element={checkSession() ? <ExaminationRules /> : <Navigate to="/" replace />} />
           <Route path="/CapturePhoto" element={checkSession() ? <CapturePhoto /> : <Navigate to="/" replace />} />
+          <Route path="/CapturePhotoDemoExam" element={checkSession() ? <CapturePhotoDemoExam /> : <Navigate to="/" replace />} />
         </Routes>
       </div>
     </div>
