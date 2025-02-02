@@ -36,7 +36,7 @@ type ExamQuestionsByLevel = {
 };
 
 const Examination = () => {
-    const examDurationInMinutes = 40;
+    const examDurationInMinutes = 50;
     const examDurationInSeconds = examDurationInMinutes * 60;
 
     const [questions, setQuestions] = useState<ExamQuestionsType>([]);

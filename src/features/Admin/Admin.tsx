@@ -515,7 +515,6 @@ const fetchData = async () => {
                     </div>
                 </>
             )}
-
             <ExamResults />
         </div>
     );

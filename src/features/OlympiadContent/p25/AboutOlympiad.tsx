@@ -55,12 +55,12 @@ const AboutOlympiad = () => {
                     <ul className='list'>
                         <li>Date: {formatDateTime(displayDate)}</li>
                         <li>Format: Multiple Choice Questions</li>
-                        <li>No. of Questions: 30</li>
-                        <li>Exam Duration: 40 Minutes</li>
+                        <li>No. of Questions: 40</li>
+                        <li>Exam Duration: 50 Minutes</li>
                         <li>Time: 5 PM</li>
                         <li>Mode: Online</li>
                         <li>Participation: Open to all Educators</li>
-                        <li>Date of Result: 8th March, 2025</li>
+                        <li>Date of Result: 11th March, 2025</li>
                         <li>Outcome:
                             <span>The Top 200 scorers will advance to the Primary Educator Excellence Award</span>
                         </li>
@@ -74,9 +74,9 @@ const AboutOlympiad = () => {
                     <ul className='list'>
                         <li>Task: Submission of a Lesson Plan using Innovative Teaching Practices, and a video of 3-5 minutes explaining the lesson.</li>
                         <li>Participation: Top 200 scorers will be eligible for participation</li>
-                        <li>Last date of Submission: 22th March, 2025</li>
+                        <li>Last date of Submission: 13th April, 2025</li>
                         <li>Goal: To highlight creativity, active engagement, and innovative practices in lesson planning.</li>
-                        <li>Result: 05th April, 2025</li>
+                        <li>Result: 03rd May, 2025</li>
                         <li>Rewards for all the selected participants:
                             <span>Certificate of Achievements</span>
                             <span>Access to India’s First AI Portal for Educators</span>

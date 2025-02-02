@@ -32,9 +32,9 @@ const ExamData = ({ onCheckDemoExam }: any) => {
             day: '2-digit',
             month: '2-digit',
             year: 'numeric',
-            hour: '2-digit',
-            minute: '2-digit',
-            hour12: true // Use 12-hour format
+            // hour: '2-digit',
+            // minute: '2-digit',
+            // hour12: true // Use 12-hour format
         });
     };
 
@@ -58,9 +58,9 @@ const ExamData = ({ onCheckDemoExam }: any) => {
 
                 const comparisonDate = new Date(compareDate); // Sept 30, 2024
                 if (retrievedUserDate < comparisonDate) {
-                    setExamMessage(`Exam Date: ${formatDateTime(targetDate)} IST`); // If user register is before 30th sept
+                    setExamMessage(`Exam Date: ${formatDateTime(targetDate)}`); // If user register is before 30th sept
                 } else {
-                    setExamMessage(`Exam Date: ${formatDateTime(olympiadBDate)} IST`); // If user register is after 30th sept
+                    setExamMessage(`Exam Date: ${formatDateTime(olympiadBDate)}`); // If user register is after 30th sept
                 }
             }
         } catch (error) {
@@ -94,13 +94,14 @@ const ExamData = ({ onCheckDemoExam }: any) => {
             <p className="startedNote">You have already completed the exam.</p>
         ) : (
             <>
-                {examMessage && <p>{examMessage}</p>} {/* Conditionally show the exam message */}
+                {examMessage && <p>{examMessage}</p>}
                 <div className="cta">
-                    <Button onClick={handleStartExamClick} isDisabled={!showStartExamButton} title="Start Exam" type="button" />
+                    <Button onClick={handleStartExamClick} isDisabled={!showStartExamButton} title="Start Final Exam" type="button" />
                     {isAdmin && (
                         <Button onClick={handleStartExamClick} title="Start Exam - Admin" type="button" />
                     )}
                 </div>
+                <p>Click on the Start Final Exam button between 4:30 pm and 6 pm IST. This is the final exam and Exam can be attempted only once</p>
             </>
         )
     );

@@ -2,7 +2,7 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { collection, getDocs, query, where } from 'firebase/firestore';
 import { firestore } from '../../utils/firebase';
-import { sendEmail } from "../SendEmail/SendEmail";
+// import { sendEmail } from "../SendEmail/SendEmail";
 import { Slide, ToastContainer, toast } from 'react-toastify';
 import Button from '../../components/Buttons/Button';
 import ErrorBoundary from "../../components/ErrorBoundary/ErrorBoundary";
@@ -15,7 +15,7 @@ const LoginWithEmail = () => {
     const [isError, setIsError] = useState(false);
     const [isLoader, setIsLoader] = useState(false);
     const navigate = useNavigate();
-    const generateOTP = Math.floor(Math.random() * 1000000).toString();
+    // const generateOTP = Math.floor(Math.random() * 1000000).toString();
 
     const handleSubmit = async (e: any) => {
         e.preventDefault();
@@ -52,17 +52,17 @@ const LoginWithEmail = () => {
                 olympdPrefix.olympiad = olympiad;
                 olympdPrefix.olympiadName = olympiadName
                 localStorage.setItem('olympd_prefix', JSON.stringify(olympdPrefix));
-                navigate('/EnterOTP');
+                navigate('/LMSForm');
                 // Send email
                 setUserDetails({
                     email: ''
                 });
-                await sendEmail(
-                    email,
-                    import.meta.env.VITE_OLYMPIAD_EMAIL_TEMPLATE,
-                    { generateOTP }
-                );
-                toast.success('Passcode sent to your email.');
+                // await sendEmail(
+                //     email,
+                //     import.meta.env.VITE_OLYMPIAD_EMAIL_TEMPLATE,
+                //     { generateOTP }
+                // );
+                // toast.success('Passcode sent to your email.');
                 setIsLoader(false)
             }
         } catch (error) {

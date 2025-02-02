@@ -149,10 +149,10 @@ const ExamResults = () => {
         return csvRows.join('\n');
     };
 
-    const exportToCSV = () => {
-        const csvData = jsonToCSV([...s24Results, ...m24Results, ...p25Results]);
+    const exportToCSV = (results: UserResult[], filename: string) => {
+        const csvData = jsonToCSV(results);
         const blob = new Blob([csvData], { type: 'text/csv;charset=utf-8' });
-        saveAs(blob, 'Exam_Results.csv');
+        saveAs(blob, `${filename}_Exam_Results.csv`);
     };
 
     const renderTable = (results: UserResult[], collectionName: string) => {
@@ -161,7 +161,7 @@ const ExamResults = () => {
         return (
             <>
                 <h2 className='flex'>{collectionName} Results ({results.length}) 
-                <Button type='button' title='Export to CSV' onClick={exportToCSV}/></h2>
+                <Button type='button' title={`${collectionName} - Export to CSV`} onClick={() => exportToCSV(results, collectionName)} /></h2>
                 <div className='table-wrapper'>
                     <table className='table'>
                         <thead>
