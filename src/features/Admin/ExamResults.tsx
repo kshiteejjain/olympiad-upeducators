@@ -22,6 +22,7 @@ type TopicDetail = {
 type UserResult = {
     email: string;
     name: string;
+    attemped_on: string,
     details: ResultDetail[];
     totalMarks: number;
     level: string;
@@ -45,6 +46,7 @@ const fetchResultsFromCollection = async (collectionName: string): Promise<UserR
             userResultsMap.set(email, {
                 email,
                 name: data.name || 'No Name Provided',
+                attemped_on: data.attemped_on,
                 details: data.details || [],
                 totalMarks: data.totalMarks || 0,
                 level: data.level,
@@ -125,17 +127,22 @@ const ExamResults = () => {
     };
 
     const jsonToCSV = (data: UserResult[]) => {
+
         const headers = [
-            'Name', 'Email', 'Start Time', 'End Time', 'Time Taken', 'Total Marks','level', ...getAllTopics(data)
+            'Name', 'Email', 'attemped_on', 'Start Time', 'End Time', 'Time Taken', 'Total Marks', 'level', ...getAllTopics(data)
         ];
 
         const csvRows = [];
         csvRows.push(headers.join(','));
 
         data.forEach(user => {
+            const formattedAttemptedOn = user.startTime
+                ? user.startTime.split('T')[0].split('-').reverse().join('-')  // Convert to dd-mm-yyyy
+                : 'N/A';
             const row = [
                 user.name,
                 user.email,
+                formattedAttemptedOn,
                 user.startTime ? new Date(user.startTime).toLocaleTimeString() : 'N/A',
                 user.endTime ? new Date(user.endTime).toLocaleTimeString() : 'N/A',
                 calculateTimeTaken(user.startTime, user.endTime),
@@ -160,14 +167,15 @@ const ExamResults = () => {
 
         return (
             <>
-                <h2 className='flex'>{collectionName} Results ({results.length}) 
-                <Button type='button' title={`${collectionName} - Export to CSV`} onClick={() => exportToCSV(results, collectionName)} /></h2>
+                <h2 className='flex'>{collectionName} Results ({results.length})
+                    <Button type='button' title={`${collectionName} - Export to CSV`} onClick={() => exportToCSV(results, collectionName)} /></h2>
                 <div className='table-wrapper'>
                     <table className='table'>
                         <thead>
                             <tr>
                                 <th>Email</th>
                                 <th>Name</th>
+                                <th>Attemped On</th>
                                 <th>Start Time</th>
                                 <th>End Time</th>
                                 <th>Time Taken</th>
@@ -183,6 +191,7 @@ const ExamResults = () => {
                                 <tr key={index}>
                                     <td>{userResult.email}</td>
                                     <td>{userResult.name}</td>
+                                    <td>{userResult.startTime?.split('T')[0].split('-').reverse().join('-')}</td>
                                     <td>{userResult.startTime ? new Date(userResult.startTime).toLocaleTimeString() : 'N/A'}</td>
                                     <td>{userResult.endTime ? new Date(userResult.endTime).toLocaleTimeString() : 'N/A'}</td>
                                     <td>{calculateTimeTaken(userResult.startTime, userResult.endTime)}</td>
