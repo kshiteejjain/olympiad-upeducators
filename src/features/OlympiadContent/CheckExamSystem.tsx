@@ -1,4 +1,5 @@
 import { useNavigate } from "react-router-dom";
+import { fetchUserRegistrationDate } from '../../utils/firebaseUtils';
 import CheckInternet from "../../utils/CheckInternet";
 import Button from "../../components/Buttons/Button";
 import { useEffect, useState } from "react";
@@ -7,15 +8,36 @@ const CheckExamSystem = () => {
     const [olympaidDate, setOlympaidDate] = useState('1 February, 2025');
     const item = JSON.parse(localStorage.getItem('olympd_prefix') || '{}');
     const navigate = useNavigate();
+    const COMPARE_DATE = new Date('2025-02-01T00:00:00');
+
+    useEffect(() => {
+        const userEmail = JSON.parse(localStorage.getItem('olympd_prefix') || '{}')?.email;
+        
+        if (userEmail) {
+            // Fetch user registration date
+            fetchUserRegistrationDate(userEmail)
+                .then(date => {
+                    // Compare the registration date with COMPARE_DATE and update olympiad date accordingly
+                    const finalDate = date && date < COMPARE_DATE ? '01-02-2025' : '08-02-2025';
+                    setOlympaidDate(finalDate);  // Set the correct Olympiad date
+                })
+                .catch(error => console.error("Error fetching user data:", error));
+        } else {
+            console.warn('No email found in local storage.');
+            setOlympaidDate('08-02-2025'); // Default to Olympiad B date if no email
+        }
+    }, []); // Empty dependency array, runs only once when the component mounts
 
     const openExamWindow = () => {
-        navigate('/CapturePhotoDemoExam')
+        navigate('/CapturePhotoDemoExam'); // Navigate to the demo exam page
     };
+
     useEffect(() => {
-    if(item?.olympiadName === 'e25'){
-        setOlympaidDate('15 February, 2025 at 5 PM IST')
-    }
-    },[])
+        if (item?.olympiadName === 'e25') {
+            setOlympaidDate('15 February, 2025 at 5 PM IST'); // Update olympiad date if condition is met
+        }
+    }, []); // Runs once to check and set the olympiad date for 'e25'
+
     return (
         <div className="content">
             <h2>Check Your System Guidelines</h2>
@@ -38,6 +60,6 @@ const CheckExamSystem = () => {
             </div>
         </div>
     );
-
 };
+
 export default CheckExamSystem;

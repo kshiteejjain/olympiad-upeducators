@@ -1,14 +1,16 @@
 import { useEffect, useState } from 'react';
 import Banner from '../../../assets/primary-banner.png';
-import { fetchUserRegistrationDate } from '../../../utils/firebaseUtils'; // Adjust the path as necessary
+import Primary_2_Banner from '../../../assets/primary_2-olympiad-image.jpg';
+import { fetchUserRegistrationDate } from '../../../utils/firebaseUtils';
 import Loader from '../../../components/Loader/Loader';
 
 const TARGET_DATE = new Date('2025-02-01T17:00:00');
-const OLYMPIAD_B_DATE = new Date('2025-02-01T17:00:00');
-const COMPARE_DATE = new Date('2024-09-30T00:00:00');
+const OLYMPIAD_B_DATE = new Date('2025-02-08T17:00:00');
+const COMPARE_DATE = new Date('2025-02-01T00:00:00');
 
 const AboutOlympiad = () => {
     const [displayDate, setDisplayDate] = useState<Date | null>(null);
+    const [bannerSrc, setBannerSrc] = useState('');
 
     useEffect(() => {
         const userEmail = JSON.parse(localStorage.getItem('olympd_prefix') || '{}')?.email;
@@ -17,6 +19,8 @@ const AboutOlympiad = () => {
                 .then(date => {
                     const finalDate = date && date < COMPARE_DATE ? TARGET_DATE : OLYMPIAD_B_DATE;
                     setDisplayDate(finalDate);
+                    setBannerSrc(date < COMPARE_DATE ? Banner : Primary_2_Banner)
+                    console.log('user registered', date < COMPARE_DATE)
                 })
                 .catch(error => console.error("Error fetching user data:", error));
         } else {
@@ -44,7 +48,7 @@ const AboutOlympiad = () => {
         <div className='content'>
             <h2>About the Olympiad</h2>
             <div className='olympiad-banner'>
-                <img src={Banner} alt="Olympiad Banner" />
+                <img src={bannerSrc} alt="Olympiad Banner" />
             </div>
             <h3>About</h3>
             <div className='faq'>
@@ -53,7 +57,7 @@ const AboutOlympiad = () => {
                     <p><strong>This Olympiad is divided into 2 phases:</strong></p>
                     <p><strong>Phase 1: The Instructional Proficiency Test</strong></p>
                     <ul className='list'>
-                        <li>Date: {formatDateTime(displayDate)}</li>
+                        <li>Date: {formatDateTime(displayDate)} IST</li>
                         <li>Format: Multiple Choice Questions</li>
                         <li>No. of Questions: 40</li>
                         <li>Exam Duration: 50 Minutes</li>
@@ -119,7 +123,7 @@ const AboutOlympiad = () => {
                         <li>Open Olympiad Portal 1 day before your scheduled exam.</li>
                         <li> Click 'Exam Corner' {'>'} 'Check Demo Exam' to verify your camera, microphone, and familiarize yourself with the interface to ensure a smooth experience during the main exam.</li>
                         <li>Please read all the instructions carefully and conduct a System check.</li>
-                        <li>At the exam time, click 'Exam Corner' {'>'} 'Start Exam' to begin</li>
+                        <li>At the exam time, click 'Exam Corner' {'>'} 'Start Final Exam' to begin</li>
                     </ul>
                     <p><strong>Exam Environment and Integrity:</strong></p>
                     <p>The Olympiad will be conducted in a secure online environment. To maintain the integrity of the exam:</p>

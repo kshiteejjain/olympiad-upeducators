@@ -8,11 +8,7 @@ const ExamData = ({ onCheckDemoExam }: any) => {
     const [showStartExamButton, setShowStartExamButton] = useState<boolean>(false);
     const [examMessage, setExamMessage] = useState<string | null>(null);
     const [emailFound, setEmailFound] = useState<boolean>(false);
-    const olympiadValue = JSON.parse(localStorage.getItem('olympd_prefix') || '{}').olympiadName || '';
-    const [targetDate, olympiadBDate] = olympiadValue === 'p25'
-        ? [new Date('2025-02-01T17:00:00'), new Date('2025-02-01T17:00:00')]
-        : [new Date('2025-02-15T17:00:00'), new Date('2025-02-15T17:00:00')];
-    const compareDate = '2024-11-05T00:00:00';
+    const compareDate = '2025-02-01T00:00:00';
 
     const loggedInUserEmail = JSON.parse(localStorage.getItem('olympd_prefix') || '{}').email;
 
@@ -56,11 +52,13 @@ const ExamData = ({ onCheckDemoExam }: any) => {
                     retrievedUserDate = new Date(userTimeStamp); // Assume it's a valid date string or timestamp
                 }
 
-                const comparisonDate = new Date(compareDate); // Sept 30, 2024
+                const comparisonDate = new Date(compareDate); // 01-02-2025
+
+                // Compare user registration date with comparisonDate (01-02-2025)
                 if (retrievedUserDate < comparisonDate) {
-                    setExamMessage(`Exam Date: ${formatDateTime(targetDate)}`); // If user register is before 30th sept
+                    setExamMessage(`Exam Date: ${formatDateTime(new Date('2025-02-01T17:00:00'))}`); // If user registered before 01-02-2025
                 } else {
-                    setExamMessage(`Exam Date: ${formatDateTime(olympiadBDate)}`); // If user register is after 30th sept
+                    setExamMessage(`Exam Date: ${formatDateTime(new Date('2025-02-08T17:00:00'))}`); // If user registered after 01-02-2025
                 }
             }
         } catch (error) {
