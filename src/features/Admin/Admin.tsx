@@ -437,7 +437,7 @@ const fetchData = async () => {
                             <thead>
                                 <tr>
                                     {[
-                                        'Sr.','Name', 'Email', 'Profile Picture', 'WhatsApp', 'Olympiad', 'Payment Id', 'Source', 'Registered Date',
+                                        'Sr.','Name', 'Email', 'from Webhook', 'Profile Picture', 'WhatsApp', 'Olympiad', 'Payment Id', 'Source', 'Registered Date',
                                         'Board', 'City', 'Country', 'Date of Birth', 'Grade Level',
                                         'Organization Name', 'Organization Type', 'Role', 'Action'
                                     ].map((header, index) => (
@@ -451,6 +451,7 @@ const fetchData = async () => {
                                         <td>{index + 1 + (recordsPerPage * (currentPage - 1))}</td>
                                         <td>{user?.name}</td>
                                         <td>{user?.email}</td>
+                                        <td>{user?.fromWebhook ? <span className='red'>Yes</span> : 'No'}</td>
                                         <td>
                                             {user?.profile?.image ? (
                                                 <a href="javascript:void(0)" onClick={() => handleImageClick(user?.profile?.image)}>Click Here</a>

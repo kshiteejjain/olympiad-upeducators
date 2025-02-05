@@ -5,7 +5,7 @@ import { fetchUserRegistrationDate } from '../../../utils/firebaseUtils';
 import Loader from '../../../components/Loader/Loader';
 
 const TARGET_DATE = new Date('2025-02-01T17:00:00');
-const OLYMPIAD_B_DATE = new Date('2025-02-08T17:00:00');
+const OLYMPIAD_B_DATE = new Date('2025-03-08T17:00:00');
 const COMPARE_DATE = new Date('2025-02-01T00:00:00');
 
 const AboutOlympiad = () => {
@@ -57,11 +57,11 @@ const AboutOlympiad = () => {
                     <p><strong>This Olympiad is divided into 2 phases:</strong></p>
                     <p><strong>Phase 1: The Instructional Proficiency Test</strong></p>
                     <ul className='list'>
-                        <li>Date: {formatDateTime(displayDate)} IST</li>
+                        <li>Date: {formatDateTime(displayDate)}</li>
                         <li>Format: Multiple Choice Questions</li>
                         <li>No. of Questions: 40</li>
                         <li>Exam Duration: 50 Minutes</li>
-                        <li>Time: 5 PM</li>
+                        <li>Time: 5 PM IST</li>
                         <li>Mode: Online</li>
                         <li>Participation: Open to all Educators</li>
                         <li>Date of Result: 11th March, 2025</li>

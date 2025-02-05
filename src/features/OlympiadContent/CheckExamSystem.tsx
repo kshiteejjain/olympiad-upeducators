@@ -5,38 +5,38 @@ import Button from "../../components/Buttons/Button";
 import { useEffect, useState } from "react";
 
 const CheckExamSystem = () => {
-    const [olympaidDate, setOlympaidDate] = useState('1 February, 2025');
+    const [olympaidDate, setOlympaidDate] = useState('1 February, 2025'); // Default date
     const item = JSON.parse(localStorage.getItem('olympd_prefix') || '{}');
     const navigate = useNavigate();
     const COMPARE_DATE = new Date('2025-02-01T00:00:00');
 
     useEffect(() => {
-        const userEmail = JSON.parse(localStorage.getItem('olympd_prefix') || '{}')?.email;
-        
+        const userEmail = item?.email;
+
+        // If there's a valid userEmail, fetch the user registration date and set the correct olympiad date
         if (userEmail) {
-            // Fetch user registration date
             fetchUserRegistrationDate(userEmail)
                 .then(date => {
-                    // Compare the registration date with COMPARE_DATE and update olympiad date accordingly
-                    const finalDate = date && date < COMPARE_DATE ? '01-02-2025' : '08-02-2025';
-                    setOlympaidDate(finalDate);  // Set the correct Olympiad date
+                    if (item?.olympiadName === 'p25') {
+                        // Handle the p25 olympiad case
+                        const finalDate = date && date > COMPARE_DATE ? '08-03-2024' : '01-02-2025';
+                        setOlympaidDate(finalDate); // Set the final Olympiad date for p25
+                    } else if (item?.olympiadName === 'e25') {
+                        // Handle the e25 olympiad case
+                        setOlympaidDate('15 February, 2025'); // Set the olympiad date for e25
+                    }
                 })
                 .catch(error => console.error("Error fetching user data:", error));
         } else {
             console.warn('No email found in local storage.');
-            setOlympaidDate('08-02-2025'); // Default to Olympiad B date if no email
+            setOlympaidDate('08-03-2025'); // Default to Olympiad B date if no email
         }
-    }, []); // Empty dependency array, runs only once when the component mounts
+
+    }, [item?.email, item?.olympiadName]); // Dependency array ensures effect runs when item changes
 
     const openExamWindow = () => {
-        navigate('/CapturePhotoDemoExam'); // Navigate to the demo exam page
+        navigate('/CapturePhotoDemoExam');
     };
-
-    useEffect(() => {
-        if (item?.olympiadName === 'e25') {
-            setOlympaidDate('15 February, 2025 at 5 PM IST'); // Update olympiad date if condition is met
-        }
-    }, []); // Runs once to check and set the olympiad date for 'e25'
 
     return (
         <div className="content">

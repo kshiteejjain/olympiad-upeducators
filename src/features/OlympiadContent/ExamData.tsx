@@ -58,7 +58,7 @@ const ExamData = ({ onCheckDemoExam }: any) => {
                 if (retrievedUserDate < comparisonDate) {
                     setExamMessage(`Exam Date: ${formatDateTime(new Date('2025-02-01T17:00:00'))}`); // If user registered before 01-02-2025
                 } else {
-                    setExamMessage(`Exam Date: ${formatDateTime(new Date('2025-02-08T17:00:00'))}`); // If user registered after 01-02-2025
+                    setExamMessage(`Exam Date: ${formatDateTime(new Date('2025-03-08T17:00:00'))}`); // If user registered after 01-02-2025
                 }
             }
         } catch (error) {
