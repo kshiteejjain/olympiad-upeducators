@@ -1,504 +1,1220 @@
-[
-  {
-    "topic": "Child Development and Psychology PP1",
-    "question": "Ms. Sita, an Early Childhood Care and Education (ECCE) teacher, has noticed that her students are exhibiting a range of developmental behaviours. She is particularly interested in understanding how to foster moral values and language development in her classroom. To tailor her teaching strategies effectively, she refers to Piaget's theory of cognitive development. Based on Piaget's theory of cognitive development, during which stage do children begin to develop moral values or language development?",
-    "options": [
-      "Sensorimotor stage",
-      "Concrete operational stage",
-      "Preoperational stage",
-      "Formal operational stage"
-    ],
-    "type": "radio",
-    "answer": "Preoperational stage"
-  },
-  {
-    "topic": "Child Development and Psychology PP1",
-    "question": "In fetal development, which principle accounts for the fact that the head and trunk are more developed before the limb buds begin to extend?",
-    "options": [
-      "Holistic development principle",
-      "Cephalocaudal principle",
-      "Lateralization principle",
-      "Proximodistal principle"
-    ],
-    "type": "radio",
-    "answer": "Cephalocaudal principle"
-  },
-  {
-    "topic": "Early Childhood Education Theories and Pedagogy PP1",
-    "question": "In a Reggio Emilia-inspired classroom, teachers document children's conversations and play to understand their thinking and learning processes. What purpose does this documentation primarily serve?",
-    "options": [
-      "To create a permanent record of student progress",
-      "To guide future planning and instruction based on children's interests",
-      "To assess children's academic achievement",
-      "To comply with educational standards"
-    ],
-    "type": "radio",
-    "answer": "To guide future planning and instruction based on children's interests"
-  },
-  {
-    "topic": "Early Childhood Education Theories and Pedagogy PP1",
-    "question": "A preschool teacher incorporates storytelling, music, physical activities, and group discussions into her lessons to address the diverse abilities and interests of her students. Which theory best supports this multi-faceted approach?",
-    "options": [
-      "Piaget's Cognitive Development Theory",
-      "Erikson's Psychosocial Development Theory",
-      "Gardner's Multiple Intelligences Theory",
-      "Bandura's Social Learning Theory"
-    ],
-    "type": "radio",
-    "answer": "Gardner's Multiple Intelligences Theory"
-  },
-  {
-    "topic": "Early Childhood Education Theories and Pedagogy PP1",
-    "question": "You are designing a curriculum that includes activities where children work in small groups to solve problems together. Which educational theory is primarily guiding your approach?",
-    "options": [
-      "Vygotsky's Sociocultural Theory",
-      "Piaget's Cognitive Development Theory",
-      "Skinner's Behaviourism",
-      "Gardner's Multiple Intelligences"
-    ],
-    "type": "radio",
-    "answer": "Vygotsky's Sociocultural Theory"
-  },
-  {
-    "topic": "Lesson Planning Assessment and Feedback PP1",
-    "question": "In the context of early childhood education, explain the difference between descriptive and evaluative feedback.",
-    "options": [
-      "Descriptive feedback focuses on providing specific information about a child's performance, while evaluative feedback involves making judgments or comparisons.",
-      "Descriptive feedback is general and vague, while evaluative feedback is detailed and specific.",
-      "Descriptive feedback involves praising the child's effort, while evaluative feedback involves pointing out areas for improvement.",
-      "Descriptive feedback focuses on correcting mistakes, while evaluative feedback focuses on highlighting strengths."
-    ],
-    "type": "radio",
-    "answer": "Descriptive feedback focuses on providing specific information about a child's performance, while evaluative feedback involves making judgments or comparisons."
-  },
-  {
-    "topic": "Lesson Planning Assessment and Feedback PP1",
-    "question": "You are conducting an assessment to measure the language development of a group of 4-year-olds. Select three specific strategies you could use to assess their language skills effectively.",
-    "options": [
-      "Ask open-ended questions, observe their conversations with peers, and analyze their artwork descriptions",
-      "Give them a written test, listen to them recite the alphabet, and compare their language skills to a standard checklist.",
-      "Conduct a group discussion, review their homework assignments, and administer a standardized language assessment.",
-      "Provide individual reading tasks, assess their ability to write sentences, and evaluate their comprehension through multiple-choice questions."
-    ],
-    "type": "radio",
-    "answer": "Ask open-ended questions, observe their conversations with peers, and analyze their artwork descriptions"
-  },
-  {
-    "topic": "Lesson Planning Assessment and Feedback PP1",
-    "question": "Ms. Nikita is creating a lesson plan focused on the five senses. She plans to have different stations where children can explore each sense: smelling flowers, tasting fruit, touching different textures, listening to sounds, and looking at pictures. What key component is Ms. Nikita's lesson plan missing?",
-    "options": [
-      "A lecture on how each sense works",
-      "A follow-up activity where children discuss their favourite senses",
-      "A video explaining the five senses",
-      "An art project related to the senses"
-    ],
-    "type": "radio",
-    "answer": "A follow-up activity where children discuss their favourite senses"
-  },
-  {
-    "topic": "Phonics Language and Literacy Development PP1",
-    "question": "How can 'Symbols' be used effectively in early childhood education?",
-    "options": [
-      "Simplify complex ideas through representation",
-      "Make lessons more complicated",
-      "Reduce the use of language",
-      "Enhance tactile learning for young learners"
-    ],
-    "type": "radio",
-    "answer": "Simplify complex ideas through representation"
-  },
-  {
-    "topic": "Phonics Language and Literacy Development PP1",
-    "question": "In a diverse kindergarten classroom, Ms. Patel integrates storytelling, vocabulary activities, and writing exercises to engage her students. What is the primary goal of literacy development in early childhood education?",
-    "options": [
-      "To ensure children can write full sentences fluently.",
-      "To help children understand and use language effectively.",
-      "To promote critical thinking through literary analysis.",
-      "To develop proficiency in multiple languages."
-    ],
-    "type": "radio",
-    "answer": "To help children understand and use language effectively."
-  },
-  {
-    "topic": "Technology Integration PP1",
-    "question": "Create an activity using the most effective digital tool that helps children understand the concept of plant growth. Which tool would you choose?",
-    "options": [
-      "Digital drawing app",
-      "Online encyclopedia",
-      "Time-lapse video creation tool",
-      "Interactive quiz maker"
-    ],
-    "type": "radio",
-    "answer": "Time-lapse video creation tool"
-  },
-  {
-    "topic": "Technology Integration PP1",
-    "question": "Which app or tool is most suitable for enhancing literacy skills in early childhood education by providing interactive reading experiences with feedback and support for young readers?",
-    "options": [
-      "YouTube Video",
-      "Jolly Phonic App",
-      "Random Word Generator",
-      "Read Along App"
-    ],
-    "type": "radio",
-    "answer": "Read Along App"
-  },
-  {
-    "topic": "Technology Integration PP1",
-    "question": "Which educational philosophy emphasizes self-directed activity and hands-on learning, and best supports the use of adaptive learning technology that personalizes educational experiences based on individual learner responses?",
-    "options": [
-      "Piaget Theory",
-      "Montessori Approach",
-      "Reggio Emilia",
-      "Waldorf Education"
-    ],
-    "type": "radio",
-    "answer": "Montessori Approach"
-  },
-  {
-    "topic": "Technology Integration PP1",
-    "question": "When integrating technology to enrich preschool lessons on cultural diversity, which tool enables young learners to virtually explore historical sites, cities, and natural landscapes across different cultures globally?",
-    "options": [
-      "Google Map",
-      "Make My Trip App",
-      "Google Earth",
-      "Expedia"
-    ],
-    "type": "radio",
-    "answer": "Google Earth"
-  },
-  {
-    "topic": "Parent and Community Involvement PP1",
-    "question": "Designing a program where parents regularly participate in classroom activities falls under which category of Epstein's framework for parental involvement?",
-    "options": [
-      "Parenting",
-      "Communicating",
-      "Volunteering",
-      "Collaborating with the community"
-    ],
-    "type": "radio",
-    "answer": "Volunteering"
-  },
-  {
-    "topic": "Parent and Community Involvement PP1",
-    "question": "At Little Explorers Early Childhood Education Center, the school management initially had a policy of assigning daily homework to young children. Concerned parents and community members noticed negative effects on the children's well-being and organized efforts to advocate for a change in the homework policy. They conducted surveys, compiled research, created a petition, and engaged with the school board. Eventually, the school management revised the homework policy to reduce the workload and align it more with play-based learning. Which of the following actions taken by the community and parents was the most critical in convincing the school management to change the homework policy?",
-    "options": [
-      "Organizing parent meetings to discuss the impact of homework",
-      "Conducting surveys to gather data on the effects of homework",
-      "Attending school board meetings and presenting their findings",
-      "Creating a petition signed by a large number of parents"
-    ],
-    "type": "radio",
-    "answer": "Attending school board meetings and presenting their findings"
-  },
-  {
-    "topic": "Parent and Community Involvement PP1",
-    "question": "During a parent-teacher conference, a teacher discusses a student's progress and areas of improvement. The teacher wants to ensure that the feedback is constructive and promotes a positive relationship with the parents. Which approach should the teacher take to make the feedback most effective?",
-    "options": [
-      "Focus solely on the areas needing improvement.",
-      "Provide a mix of positive achievements and areas for improvement, using specific examples for clarity.",
-      "Use technical jargon to explain the child's progress.",
-      "Deliver feedback in writing only, without a verbal discussion."
-    ],
-    "type": "radio",
-    "answer": "Provide a mix of positive achievements and areas for improvement, using specific examples for clarity."
-  },
-  {
-    "topic": "Experiential Learning and Engagement Activities PP1",
-    "question": "In the context of ECCE, which experiential learning activity best promotes social-emotional development?",
-    "options": [
-      "Participating in a role-playing exercise with peers",
-      "Engaging in solitary art projects",
-      "Listening to a teacher-led lecture",
-      "Working on individual puzzles"
-    ],
-    "type": "radio",
-    "answer": "Participating in a role-playing exercise with peers"
-  },
-  {
-    "topic": "Experiential Learning and Engagement Activities PP1",
-    "question": "During a class on outdoor learning activities, a teacher plans to take the children on a nature walk through a forest. She hands out worksheets to complete while walking to ensure they don't get bored. What should the teacher do instead?",
-    "options": [
-      "Encourage the children to observe and interact with the environment without worksheets.",
-      "Provide worksheets but allow time for free play.",
-      "Give a brief lecture about the forest before the walk.",
-      "Keep the children in a structured line and complete the worksheets in class."
-    ],
-    "type": "radio",
-    "answer": "Encourage the children to observe and interact with the environment without worksheets."
-  },
-  {
-    "topic": "Experiential Learning and Engagement Activities PP1",
-    "question": "Which of the following statements best describes the aim of both experiential learning and engagement activities in ECCE?",
-    "options": [
-      "To create a dynamic and effective learning environment by promoting active participation and application of knowledge.",
-      "To ensure that every child receives the same level of instruction.",
-      "To minimize the use of hands-on activities and focus on theoretical knowledge.",
-      "To standardize learning experiences across different classrooms."
-    ],
-    "type": "radio",
-    "answer": "To create a dynamic and effective learning environment by promoting active participation and application of knowledge."
-  },
-  {
-    "topic": "Early Intervention and Special Education PP1",
-    "question": "Which of the following abilities is NOT a common developmental delay targeted in early intervention programs?",
-    "options": [
-      "Delayed motor skills",
-      "Delayed language skills",
-      "Advanced cognitive abilities",
-      "Delayed social skills"
-    ],
-    "type": "radio",
-    "answer": "Advanced cognitive abilities"
-  },
-  {
-    "topic": "Child Welfare Health and Safety PP1",
-    "question": "In a community where child labour is prevalent, an ECCE teacher notices a decline in one of her student's attendance and performance. Upon further investigation, she discovers that the child is working long hours at a local factory to support his family financially. How might the child's involvement in child labour affect his overall development?",
-    "options": [
-      "It improves his cognitive skills through practical experience.",
-      "It hinders his ability to fully engage in learning activities, impacting his cognitive and emotional development.",
-      "It helps him develop better time management skills.",
-      "It has no significant impact on his development."
-    ],
-    "type": "radio",
-    "answer": "It hinders his ability to fully engage in learning activities, impacting his cognitive and emotional development."
-  },
-  {
-    "topic": "Child Welfare Health and Safety PP1",
-    "question": "In a preschool, the regular female attendant who typically accompanies children during school transportation is unavailable for the day. In the absence of an attendee, Suhani, a 5-year-old girl who lives a considerable distance from school, is alone during her drop-off and pick-up time. As a teacher, you are temporarily assigned to fill in for the attendant’s role. However, this responsibility conflicts with your other simultaneous duties. What is the most appropriate action for the teacher to ensure Suhani's safety and comfort during the school transport process in the attendant's absence?",
-    "options": [
-      "Arrange for another reliable adult, like a parent volunteer or another staff member, to accompany Suhani during transport.",
-      "Ask Suhani to wait alone until the regular attendant returns.",
-      "Leave Suhani in the school office until someone can pick her up.",
-      "Request parents to drop off and pick up their children themselves."
-    ],
-    "type": "radio",
-    "answer": "Arrange for another reliable adult, like a parent volunteer or another staff member, to accompany Suhani during transport."
-  },
-  {
-    "topic": "Child Welfare Health and Safety PP1",
-    "question": "Under the POCSO Act, what is the obligation of an early childhood educator if they suspect abuse or neglect involving a child?",
-    "options": [
-      "Directly report the suspicion to the police or child welfare committee",
-      "Inform the child's parents and ask them to address the issue",
-      "Wait until the situation escalates before taking any action",
-      "Discuss the issue with the child privately before reporting"
-    ],
-    "type": "radio",
-    "answer": "Directly report the suspicion to the police or child welfare committee"
-  },
-  {
-    "topic": "Child Welfare Health and Safety PP1",
-    "question": "Which number should be contacted in India for emergency child welfare support?",
-    "options": [
-      "102",
-      "1098",
-      "100",
-      "108"
-    ],
-    "type": "radio",
-    "answer": "1098"
-  },
-  {
-    "topic": "Classroom Management and Differentiated Learning PP1",
-    "question": "Ms. Revati is an experienced ECCE teacher working with a group of 4-year-old children. Recently, she noticed that one of her students, Ira, frequently disrupts circle time by talking out of turn and moving around. Despite using positive reinforcement and setting clear expectations, Ira's behaviour persists. Ms. Revati decides to implement a new strategy to address Ira's behaviour without disrupting the flow of the classroom. Which strategy would be most effective?",
-    "options": [
-      "Implement a quiet area where Ira can go to calm down when needed.",
-      "Increase the amount of circle time to better engage Ira.",
-      "Assign Ira additional tasks to keep her busy.",
-      "Implement a reward system for every minute Ira stays quiet."
-    ],
-    "type": "radio",
-    "answer": "Implement a quiet area where Ira can go to calm down when needed."
-  },
-  {
-    "topic": "Child Development and Psychology PP1",
-    "question": "You have introduced a new play-based learning game that involves sorting objects by colour and shape. Some children are engaged, while others seem disinterested or frustrated. How can you adapt the activity to ensure all children are engaged and learning effectively? (select all that apply)",
-    "options": [
-      "Modify the game rules to include team challenges or relay races",
-      "Introduce multisensory elements to the sorting game",
-      "Increase the complexity by adding multiple new sorting criteria",
-      "Participation is mandatory, implement the same by firm turn-taking rules"
-    ],
-    "type": "checkbox",
-    "answer": [
-      "Modify the game rules to include team challenges or relay races",
-      "Introduce multisensory elements to the sorting game"
-    ]
-  },
-  {
-    "topic": "Child Development and Psychology PP1",
-    "question": "During a parent-teacher meeting, Rahul's parents express concern about his aggressive behaviour towards other children in the classroom. They mention that Rahul often hits, pushes, or grabs toys from his peers during playtime. As an ECCE/Pre-Primary Educator, you consider various factors that may contribute to Rahul's behaviour. Which of the following could be potential reasons for Rahul's aggression? (select all that apply)",
-    "options": [
-      "Difficulty with emotional regulation",
-      "Lack of understanding of social norms",
-      "Exposure to violence or aggression at home",
-      "Underdeveloped communication skills"
-    ],
-    "type": "checkbox",
-    "answer": [
-      "Difficulty with emotional regulation",
-      "Lack of understanding of social norms",
-      "Exposure to violence or aggression at home",
-      "Underdeveloped communication skills"
-    ]
-  },
-  {
-    "topic": "Lesson Planning Assessment and Feedback PP1",
-    "question": "A teacher is planning activities to promote cognitive development in young children. The teacher wants to ensure that these activities challenge the children appropriately according to Bloom's Taxonomy. Which activities should the teacher include to promote higher-order thinking skills? (select all that apply)",
-    "options": [
-      "Storytelling followed by a Q&A session.",
-      "Sorting objects by size, colour, and shape.",
-      "Puzzles that require problem-solving.",
-      "Group discussions about a story’s moral or lesson."
-    ],
-    "type": "checkbox",
-    "answer": [
-      "Storytelling followed by a Q&A session.",
-      "Puzzles that require problem-solving.",
-      "Group discussions about a story’s moral or lesson."
-    ]
-  },
-  {
-    "topic": "Phonics Language and Literacy Development PP1",
-    "question": "A teacher notices that students are struggling with blending sounds to form words. The teacher decides to use a game where students blend sounds to create nonsense words (words without meaning). Is this an effective approach? (select all that apply)",
-    "options": [
-      "It allows students to focus on the phonetic process without the pressure of creating real words.",
-      "Students should only practice blending sounds with real words to ensure they understand the meaning.",
-      "Nonsense words can help students apply their blending skills in a fun and engaging way.",
-      "Games are not effective for teaching phonics and blending skills."
-    ],
-    "type": "checkbox",
-    "answer": [
-      "It allows students to focus on the phonetic process without the pressure of creating real words.",
-      "Nonsense words can help students apply their blending skills in a fun and engaging way."
-    ]
-  },
-  {
-    "topic": "Phonics Language and Literacy Development PP1",
-    "question": "In the context of early language development, which of the following activities are effective in promoting pre-reading skills among pre-primary children? (Select all that apply)",
-    "options": [
-      "Phonemic Awareness Games",
-      "Independent Reading of Complex Texts",
-      "Storytelling with Visual Aids",
-      "Decoding Activities with Manipulatives"
-    ],
-    "type": "checkbox",
-    "answer": [
-      "Phonemic Awareness Games",
-      "Storytelling with Visual Aids",
-      "Decoding Activities with Manipulatives"
-    ]
-  },
-  {
-    "topic": "Parent and Community Involvement PP1",
-    "question": "If a child is showing signs of frustration and reluctance towards writing, what emotional support strategies should be implemented to improve their experience? (Select all that apply)",
-    "options": [
-      "Acknowledge and validate the child’s feelings",
-      "Encourage the child to take breaks when needed",
-      "Push the child to practice writing even when upset",
-      "Celebrate small milestones to boost the child’s confidence"
-    ],
-    "type": "checkbox",
-    "answer": [
-      "Acknowledge and validate the child’s feelings",
-      "Encourage the child to take breaks when needed",
-      "Celebrate small milestones to boost the child’s confidence"
-    ]
-  },
-  {
-    "topic": "Experiential Learning and Engagement Activities PP1",
-    "question": "A teacher plans a storytelling session but initially considers just reading from a book. Which of the following strategies would enhance the storytelling experience for the children? (Select all that apply)",
-    "options": [
-      "Use different voices for different characters to make the storytelling engaging.",
-      "Pause throughout the story to ask the children questions that encourage prediction and anticipation.",
-      "Assign roles to the children and act out the story together.",
-      "Allow the children to doodle freely while listening to the story."
-    ],
-    "type": "checkbox",
-    "answer": [
-      "Use different voices for different characters to make the storytelling engaging.",
-      "Pause throughout the story to ask the children questions that encourage prediction and anticipation.",
-      "Assign roles to the children and act out the story together."
-    ]
-  },
-  {
-    "topic": "Early Intervention and Special Education PP1",
-    "question": "Which of the following behaviours might indicate a need for further evaluation for Autism Spectrum Disorder (ASD)? (Select all that apply)",
-    "options": [
-      "Making consistent eye contact with peers and adults.",
-      "Demonstrating limited interest in social interactions or play.",
-      "Displaying inconsistent use of imaginative play skills across different settings.",
-      "Excelling in verbal communication skills but struggling with conversational turn-taking."
-    ],
-    "type": "checkbox",
-    "answer": [
-      "Demonstrating limited interest in social interactions or play.",
-      "Displaying inconsistent use of imaginative play skills across different settings.",
-      "Excelling in verbal communication skills but struggling with conversational turn-taking."
-    ]
-  },
-  {
-    "topic": "Early Intervention and Special Education PP1",
-    "question": "Maya, a child with Down syndrome, attends an inclusive ECCE program where she actively participates in various learning activities alongside her peers. Despite initial concerns about her cognitive delays, Maya has demonstrated progress in communication skills and academic achievements with support from her teachers and classmates. What are the significant benefits of Maya's inclusion in this inclusive setting? (Select all that apply)",
-    "options": [
-      "Maya's classmates develop a sense of superiority over her.",
-      "Maya's presence fosters a culture of diversity and acceptance.",
-      "Maya learns from peer modelling and social interactions.",
-      "Maya's parents need not to find specialized schooling options."
-    ],
-    "type": "checkbox",
-    "answer": [
-      "Maya's presence fosters a culture of diversity and acceptance.",
-      "Maya learns from peer modelling and social interactions."
-    ]
-  },
-  {
-    "topic": "Early Intervention and Special Education PP1",
-    "question": "A group of parents expresses concerns about the inclusion of special children in their children's ECCE class, arguing that it detracts from the quality of education for typical children. How can the school administration effectively address these concerns and promote the importance of inclusive education? (Select all that apply)",
-    "options": [
-      "Organize parent workshops on the benefits of inclusive education.",
-      "Provide additional resources and support for teachers managing diverse classrooms.",
-      "Implement a policy to exclude special children from mainstream classes.",
-      "Highlight research findings that demonstrate the positive impact of inclusive education."
-    ],
-    "type": "checkbox",
-    "answer": [
-      "Organize parent workshops on the benefits of inclusive education.",
-      "Provide additional resources and support for teachers managing diverse classrooms.",
-      "Highlight research findings that demonstrate the positive impact of inclusive education."
-    ]
-  },
-  {
-    "topic": "Classroom Management and Differentiated Learning PP1",
-    "question": "Ms. Rekha, an ECCE teacher, has been working on implementing differentiated learning strategies in her classroom. Ms. Rekha provided the same set of materials and instructions to all students. Some children finished quickly and became disruptive, while others seemed overwhelmed and required constant assistance. Which of the following actions should Ms. Rekha take to correct the situation and better implement differentiated learning in her art activities? (Select all that apply)",
-    "options": [
-      "Provide more materials and give students additional time to work on their collages.",
-      "Offer different sets of materials and levels of guidance based on each student's individual needs and abilities.",
-      "Pair students so that those who finish quickly can assist those who are struggling.",
-      "Reduce the complexity of the collage instructions to ensure that all students can complete the activity independently."
-    ],
-    "type": "checkbox",
-    "answer": [
-      "Offer different sets of materials and levels of guidance based on each student's individual needs and abilities.",
-      "Pair students so that those who finish quickly can assist those who are struggling.",
-      "Reduce the complexity of the collage instructions to ensure that all students can complete the activity independently."
-    ]
-  },
-  {
-    "topic": "Classroom Management and Differentiated Learning PP1",
-    "question": "You are preparing for a day in your pre-primary classroom with the following considerations: One child is very active. Two children do not engage in writing activities. One child keeps running around the classroom. One child has ADHD. Which of the following preparations would be the most effective to ensure a smooth and productive classroom environment? (select 2)",
-    "options": [
-      "Develop a flexible schedule with various activities, including movement breaks, and prepare differentiated tasks to cater to individual needs.",
-      "Prepare a rigid, structured schedule with strict time allocations for each activity and limit free movement to control the classroom.",
-      "Set up individualized learning stations with clear instructions and a reward system for completing tasks to keep all children engaged.",
-      "Create a quiet area for the ADHD child to retreat to when feeling overwhelmed, and have one-on-one sessions for the children who do not write."
-    ],
-    "type": "checkbox",
-    "answer": [
-      "Develop a flexible schedule with various activities, including movement breaks, and prepare differentiated tasks to cater to individual needs.",
-      "Set up individualized learning stations with clear instructions and a reward system for completing tasks to keep all children engaged."
-    ]
-  }
-  
-]
+{
+   "Level1": [
+      {
+         "topic": "Pedagogical Knowledge",
+         "question": "Ms. Priya is an English language teacher who integrates Howard Gardner’s Theory of Multiple Intelligences into her lesson plans. She has designed the following activities to enhance her students’ language skills:\n\n1. Conducting interactive storytelling and dramatization\n2. Encouraging students to compose poems and essays\n3. Using songs and rhythm-based activities to teach phonetics\n4. Organizing debates and group discussions\n5. Assigning reflective journal writing and creative expression tasks\n\nBased on Gardner’s theory, which type of intelligence is NOT explicitly addressed by Ms. Priya’s planned activities?",
+         "options": [
+            "Musical Intelligence",
+            "Verbal-Linguistic Intelligence",
+            "Naturalistic Intelligence",
+            "Interpersonal Intelligence"
+         ],
+         "type": "radio",
+         "answer": "Naturalistic Intelligence",
+         "level": "Level1"
+      },
+      {
+         "topic": "Pedagogical Knowledge",
+         "question": "Assertion (A):\nScaffolding is an essential technique in language teaching that helps students progress toward independence in learning.\n\nReasoning (R):\nScaffolding involves giving students explicit grammar rules before allowing them to engage in communicative activities.\n\nWhich of the following options is correct?",
+         "options": [
+            "Both A and R are true",
+            "Both A and R are false",
+            "A is true, but R is false",
+            "A is false, but R is true"
+         ],
+         "type": "radio",
+         "answer": "A is true, but R is false",
+         "level": "Level1"
+      },
+      {
+         "topic": "Pedagogical Knowledge",
+         "question": "A primary teacher notices that her students often lose interest during traditional grammar lessons. To make the learning process more engaging, the teacher decides to incorporate play-based learning. Which of the following strategies would best achieve this goal?",
+         "options": [
+            "Designing interactive grammar worksheets for students to complete independently, incorporating colorful visuals and puzzles",
+            "Implementing a storytelling circle where students collaboratively create a story while applying grammatical rules naturally in conversation",
+            "Utilizing online grammar games that offer immediate feedback and track student progress, allowing for personalized learning pathways",
+            "Organizing a tournament-style grammar Jeopardy game where students compete in teams to answer grammar-related questions"
+         ],
+         "type": "radio",
+         "answer": "Implementing a storytelling circle where students collaboratively create a story while applying grammatical rules naturally in conversation",
+         "level": "Level1"
+      },
+      {
+         "topic": "Innovative Teaching Strategies",
+         "question": "As an English teacher, you aim to implement a teaching method that encourages students to independently explore concepts, make discoveries, and construct knowledge through active engagement rather than direct instruction. Which teaching strategy would best facilitate this process?",
+         "options": [
+            "Inquiry-Based Learning",
+            "Explicit Instruction",
+            "Project-Based Learning",
+            "Metacognitive Strategy Instruction"
+         ],
+         "type": "radio",
+         "answer": "Inquiry-Based Learning",
+         "level": "Level1"
+      },
+      {
+         "topic": "Innovative Teaching Strategies",
+         "question": "Which of the following strategies best reflects a critical principle of backward design in lesson planning?",
+         "options": [
+            "Begin with a detailed outline of daily lessons and activities before identifying assessment goals",
+            "Set clear, measurable learning objectives first, then plan assessments and instructional methods that align with those objectives",
+            "Focus primarily on teaching methods, and adjust assessments later based on student progress",
+            "Prioritize creating engaging activities that interest students, and assess their understanding based on their participation"
+         ],
+         "type": "radio",
+         "answer": "Set clear, measurable learning objectives first, then plan assessments and instructional methods that align with those objectives",
+         "level": "Level1"
+      },
+      {
+         "topic": "Innovative Teaching Strategies",
+         "question": "Ms. Aditi observes that her first-grade students struggle with reading fluency—they frequently stumble over words, lose their place, and read with little expression. She wants to implement an effective strategy to help them develop fluency in reading aloud while maintaining engagement and confidence. Which of the following strategies would be MOST effective in improving personal reading fluency?",
+         "options": [
+            "Implementing choral reading, where the class reads aloud together, allowing struggling students to follow along and develop rhythm and pace through collective practice",
+            "Encouraging silent independent reading to help students build confidence by reducing the pressure of reading aloud while allowing for private practice",
+            "Using repeated reading, where students practice the same passage multiple times, focusing on accuracy, speed, and expression with teacher guidance",
+            "Pairing students for peer reading practice, where stronger readers model fluent reading for struggling students, allowing them to learn through observation"
+         ],
+         "type": "radio",
+         "answer": "Using repeated reading, where students practice the same passage multiple times, focusing on accuracy, speed, and expression with teacher guidance",
+         "level": "Level1"
+      },
+      {
+         "topic": "Technology Integration in Language Learning",
+         "question": "Ms. Rhea, an English language teacher, leverages digital tools such as adaptive learning platforms, interactive whiteboards, and online discussion forums to personalize instruction and extend learning beyond the classroom. She ensures that students engage with digital content before in-class discussions and activities. Which pedagogical approach is most accurately exemplified by Ms. Rhea’s instructional strategy?",
+         "options": [
+            "Constructivist Learning",
+            "Blended Learning",
+            "TPACK Framework",
+            "Flipped Classroom"
+         ],
+         "type": "radio",
+         "answer": "Flipped Classroom",
+         "level": "Level1"
+      },
+      {
+         "topic": "Technology Integration in Language Learning",
+         "question": "Which of the following tech-integrated strategies would be the MOST effective for assessing primary students' comprehension of stories?",
+         "options": [
+            "Creating digital flashcards for key literary terms and definitions using platforms like Quizlet",
+            "Assigning a multimedia storytelling project (Book Creator, Canva, Padlet)",
+            "Using AI storytelling assistants (ChatGPT, Quillbot) to generate story summaries and highlight key themes for students to review",
+            "Giving students online multiple-choice quizzes with decontextualized questions"
+         ],
+         "type": "radio",
+         "answer": "Assigning a multimedia storytelling project (Book Creator, Canva, Padlet)",
+         "level": "Level1"
+      },
+      {
+         "topic": "Technology Integration in Language Learning",
+         "question": "What is the primary goal of using word games like Scrabble or Boggle in an English classroom?",
+         "options": [
+            "Enhancing students' memory skills through repetition, reinforcing previously learned vocabulary and spelling patterns",
+            "Encouraging critical thinking by challenging students to form words under specific thematic or contextual constraints",
+            "Assessing students’ ability to spell complex words, using word games as a diagnostic tool to identify common spelling errors and gaps",
+            "Promoting vocabulary building and encouraging students to engage with new words in a fun and interactive setting"
+         ],
+         "type": "radio",
+         "answer": "Promoting vocabulary building and encouraging students to engage with new words in a fun and interactive setting",
+         "level": "Level1"
+      },
+      {
+         "topic": "Language and Literacy Development",
+         "question": "Ms. Priya observes that some students in her English class give up easily when faced with difficult reading or writing tasks, while others persist and experiment with different strategies. Which of the following approaches would most effectively foster resilience and a growth mindset among all learners? (Select all that apply)",
+         "options": [
+            "Emphasize praising students for their innate abilities and talents, reinforcing their perceived intelligence and natural skills",
+            "Allow students to select only tasks within their comfort zone, ensuring they avoid frustration and maintain confidence",
+            "Establish a structured reward system that acknowledges students who engage with challenging tasks, regardless of the outcome",
+            "Design learning activities with multiple entry points and progressively scaffold tasks to support students in gradually building competence",
+            "Group students strictly by ability levels, ensuring they work at an optimal challenge level to prevent disengagement",
+            "Model different problem-solving approaches, verbalizing thought processes to help students understand how to tackle difficulties"
+         ],
+         "type": "checkbox",
+         "answer": [
+            "Establish a structured reward system that acknowledges students who engage with challenging tasks, regardless of the outcome",
+            "Design learning activities with multiple entry points and progressively scaffold tasks to support students in gradually building competence",
+            "Model different problem-solving approaches, verbalizing thought processes to help students understand how to tackle difficulties"
+         ],
+         "level": "Level1"
+      },
+      {
+         "topic": "Language and Literacy Development",
+         "question": "In teaching grammar, which strategy aligns best with the communicative approach?",
+         "options": [
+            "Using fill-in-the-blank grammar exercises reinforcing form and accuracy through repetitive practice",
+            "Embedding grammar lessons within speaking, writing, and listening activities",
+            "Asking students to construct isolated sentences based on grammatical rules, ensuring they can apply learned rules",
+            "Providing students with grammar drills that focus on error correction and sentence transformation"
+         ],
+         "type": "radio",
+         "answer": "Embedding grammar lessons within speaking, writing, and listening activities",
+         "level": "Level1"
+      },
+      {
+         "topic": "Language and Literacy Development",
+         "question": "Which of the following is an early indicator of a developmental delay in language acquisition?",
+         "options": [
+            "Exposure to multiple languages at an early age",
+            "Difficulty pronouncing age-appropriate words",
+            "Frequent engagement with literacy activities",
+            "A preference for solitary activities such as puzzles or drawing"
+         ],
+         "type": "radio",
+         "answer": "Difficulty pronouncing age-appropriate words",
+         "level": "Level1"
+      },
+      {
+         "topic": "Inclusive Education and Special Needs",
+         "question": "Match the principles of inclusive education (A-E) with their corresponding practices (i-v):\n\nPrinciples:\nA. Accessibility\nB. Equity\nC. Flexibility\nD. Collaborative learning\nE. Representation\n\nPractices:\ni. Offering multiple content formats (e.g., visual, auditory, tactile) to support different learning styles.\nii. Grouping students with mixed abilities to work together, fostering peer interaction and shared problem-solving.\niii. Adapting lesson plans and assessments to accommodate different learning paces and styles, ensuring all students can succeed.\niv. Providing equal opportunities for participation in classroom discussions, activities, and assessments, regardless of ability.\nv. Ensuring physical and digital learning tools (e.g., assistive technology, captioned videos, accessible e-books) are usable by all students.",
+         "options": [
+            "A → v, B → iv, C → iii, D → ii, E → i",
+            "A → i, B → iii, C → iv, D → v, E → ii",
+            "A → iii, B → v, C → i, D → iv, E → ii",
+            "A → iv, B → ii, C → v, D → i, E → iii"
+         ],
+         "type": "radio",
+         "answer": "A → v, B → iv, C → iii, D → ii, E → i",
+         "level": "Level1"
+      },
+      {
+         "topic": "Inclusive Education and Special Needs",
+         "question": "Match the inclusive English teaching strategies (1-6) with their primary benefits (A-F):\n\nStrategies:\n1. Think-aloud reading comprehension\n2. Use of reflective journals\n3. Universal Design for Learning (UDL)\n4. Incorporating hands-on and experiential activities (e.g., role-playing, interactive storytelling)\n5. Differentiated instruction and Individualized Education Plans (IEPs)\n6. Multi-sensory literacy instruction\n\nBenefits:\nA. Addresses multiple learning modalities (visual, auditory, kinesthetic)\nB. Provides multiple means of engagement, representation, and expression\nC. Enhances metacognitive skills and encourages deeper engagement with texts\nD. Models cognitive processes and active reading strategies\nE. Strengthens understanding through experiential and interactive learning\nF. Provides tailored support to students with specific learning needs.",
+         "options": [
+            "1 → E, 2 → F, 3 → C, 4 → A, 5 → D, 6 → B",
+            "1 → C, 2 → D, 3 → A, 4 → B, 5 → E, 6 → F",
+            "1 → B, 2 → A, 3 → F, 4 → D, 5 → C, 6 → E",
+            "1 → D, 2 → C, 3 → B, 4 → E, 5 → F, 6 → A"
+         ],
+         "type": "radio",
+         "answer": "1 → D, 2 → C, 3 → B, 4 → E, 5 → F, 6 → A",
+         "level": "Level1"
+      },
+      {
+         "topic": "Inclusive Education and Special Needs",
+         "question": "How can a primary school teacher best support a student with ADHD (Attention-Deficit-Hyperactivity Disorder)?",
+         "options": [
+            "Breaking assignments into smaller, manageable steps and providing clear, concise instructions",
+            "Implementing a peer tutoring program, pairing the student with a responsible and organized classmate",
+            "Allowing extended time on assignments and tests to compensate for his slower processing speed",
+            "Implementing a token economy system to reinforce staying on task and completing assignments"
+         ],
+         "type": "radio",
+         "answer": "Breaking assignments into smaller, manageable steps and providing clear, concise instructions",
+         "level": "Level1"
+      },
+      {
+         "topic": "Classroom Management and Differentiated Language Teaching",
+         "question": "Rank the following professional development strategies from most effective (1) to least effective (4) for enhancing your ability to differentiate instruction as an English Language Teacher:\n\n i) Participating in data analysis workshops to learn how to use student performance information to tailor instruction for diverse learners\n ii) Watching video tutorials of expert teachers explaining differentiated instructional strategies and language acquisition theories\n iii) Engaging with educational blogs, podcasts, and social media posts about differentiation during personal time\n iv) Observing experienced teachers implementing differentiated instruction in real classrooms and reflecting on their methods\n\n Which of the following ranks the strategies in order from most effective to least effective?",
+         "options": [
+            "1. iv, 2. i, 3. ii, 4. iii",
+            "1. i, 2. iv, 3. iii, 4. ii",
+            "1. ii, 2. i, 3. iv, 4. iii",
+            "1. iii, 2. ii, 3. i, 4. iv"
+         ],
+         "type": "radio",
+         "answer": "1. iv, 2. i, 3. ii, 4. iii",
+         "level": "Level1"
+      },
+      {
+         "topic": "Classroom Management and Differentiated Language Teaching",
+         "question": "Assertion (A): Implementing a token economy system improves student motivation and engagement in class activities.\n\n Reason (R): Extrinsic rewards are more effective than intrinsic motivation in shaping long-term student behavior.\n\n Which of the following options is correct?",
+         "options": [
+            "Both A and R are true, and R is the correct explanation of A",
+            "Both A and R are true, but R is NOT the correct explanation of A",
+            "A is true, but R is false",
+            "A is false, but R is true"
+         ],
+         "type": "radio",
+         "answer": "A is true, but R is false",
+         "level": "Level1"
+      },
+      {
+         "topic": "Classroom Management and Differentiated Language Teaching",
+         "question": "In the context of differentiated instruction in English language teaching, what does the term 'tiered assignment' mean?",
+         "options": [
+            "Assignments that are the same for all students to ensure uniformity in learning outcomes",
+            "Tasks designed with varying levels of complexity based on students’ readiness",
+            "Grouping students by ability and assigning them different reading or writing tasks based on their skill level",
+            "Conducting diagnostic assessments to identify students' literacy needs before planning instruction"
+         ],
+         "type": "radio",
+         "answer": "Tasks designed with varying levels of complexity based on students’ readiness",
+         "level": "Level1"
+      },
+      {
+         "topic": "Cross-Disciplinary Integration and Real-world Applications",
+         "question": "English teachers often integrate their subject with other disciplines to enhance learning, foster critical thinking, and provide students with real-world connections between literature, language, and other fields. However, some approaches may limit interdisciplinary learning rather than support it. Which of the following approaches is NOT effective when integrating English with other subjects?",
+         "options": [
+            "Teaching foundational language concepts in isolation before applying them across disciplines to preserve English’s unique methodologies and analytical frameworks",
+            "Designing cross-curricular projects that require students to apply English skills alongside another subject to solve complex, interdisciplinary problems",
+            "Using literary or linguistic examples from other subjects without shifting focus from core English learning objectives",
+            "Leveraging technology that integrates multiple subjects, allowing students to access interdisciplinary resources and tools that connect literature, writing, and real-world contexts"
+         ],
+         "type": "radio",
+         "answer": "Teaching foundational language concepts in isolation before applying them across disciplines to preserve English’s unique methodologies and analytical frameworks",
+         "level": "Level1"
+      },
+      {
+         "topic": "Cross-Disciplinary Integration and Real-world Applications",
+         "question": "Assertion (A): Integrating excessive cross-disciplinary projects in an English curriculum can take away from the development of core language skills, such as grammar, syntax, and structured writing.\n\nReasoning (R): Students may focus more on content from other subjects rather than mastering essential literacy skills, such as sentence structure, coherence, and textual analysis.\n\nWhich of the following options is correct?",
+         "options": [
+            "Both A and R are true, and R is the correct explanation of A",
+            "Both A and R are true, but R is not the correct explanation of A",
+            "A is true, but R is false",
+            "A is false, but R is true"
+         ],
+         "type": "radio",
+         "answer": "Both A and R are true, and R is the correct explanation of A",
+         "level": "Level1"
+      },
+      {
+         "topic": "Cross-Disciplinary Integration and Real-world Applications",
+         "question": "A primary-grade teacher wants to enhance student's ability to write cohesive essays by integrating real-world applications and cross-disciplinary connections. Which of the following interventions would be the MOST effective in improving students' ability to write cohesive essays?",
+         "options": [
+            "Integrating cross-disciplinary writing tasks, such as writing about a science experiment or summarizing a historical event",
+            "Encouraging students to independently revise their stories, fostering self-sufficiency in writing",
+            "Reading informational texts from different subjects helps students explore different writing styles and strengthen comprehension",
+            "Using peer-sharing and group writing activities to help students give feedback on each other’s work"
+         ],
+         "type": "radio",
+         "answer": "Integrating cross-disciplinary writing tasks, such as writing about a science experiment or summarizing a historical event",
+         "level": "Level1"
+      },
+      {
+         "topic": "Student Engagement",
+         "question": "Match the student engagement strategies (1-5) with their primary cognitive benefits (A-E) in an English classroom setting.\n\nStrategies:\n1. Think-Pair-Share \n2. Technology Integration\n3. Hands-on Activities\n4. Error Analysis Discussions \n5. Real-World Problem-Solving Projects \n\nCognitive Benefits:\nA. Enhances metacognitive skills and self-regulation, allowing students to reflect on their learning.\nB. Improves verbal reasoning and communication skills, fostering discussion and collaborative learning.\nC. Enhances practical understanding and kinesthetic learning, making abstract concepts more tangible.\nD. Strengthens analytical and critical thinking skills, requiring students to examine ideas in depth.\nE. Provides interactive and personalized learning experiences, using adaptive technologies to cater to individual learning needs.",
+         "options": [
+            "1 → B, 2 → E, 3 → C, 4 → A, 5 → D",
+            "1 → C, 2 → B, 3 → A, 4 → E, 5 → D",
+            "1 → A, 2 → D, 3 → B, 4 → C, 5 → E",
+            "1 → B, 2 → C, 3 → D, 4 → A, 5 → E"
+         ],
+         "type": "radio",
+         "answer": "1 → B, 2 → E, 3 → C, 4 → A, 5 → D",
+         "level": "Level1"
+      },
+      {
+         "topic": "Student Engagement",
+         "question": "Mr. Raj assigns a collaborative literary analysis project where students must work in groups to analyze a text using different critical perspectives. While some students thrive in this environment, others appear disengaged or overwhelmed. How can Mr. Raj modify the activity to ensure all students actively participate and benefit from the collaborative learning experience? (Select all that apply)",
+         "options": [
+            "Assign specific roles to each group member, such as discussion leader, researcher, note-taker, and presenter, to ensure equitable participation",
+            "Integrate digital tools (e.g., shared documents, online discussion boards, multimedia resources) to support diverse learning styles and engagement levels",
+            "Allow students to work independently if they feel uncomfortable participating in group activities, ensuring they can still complete the assignment",
+            "Provide scaffolding, such as guiding questions, structured templates, and clear rubrics, to help students navigate the analytical process effectively",
+            "Let students self-select their groups with minimal teacher guidance, prioritizing comfort over diverse perspectives and skill development"
+         ],
+         "type": "checkbox",
+         "answer": [
+            "Assign specific roles to each group member, such as discussion leader, researcher, note-taker, and presenter, to ensure equitable participation",
+            "Integrate digital tools (e.g., shared documents, online discussion boards, multimedia resources) to support diverse learning styles and engagement levels",
+            "Provide scaffolding, such as guiding questions, structured templates, and clear rubrics, to help students navigate the analytical process effectively"
+         ],
+         "level": "Level1"
+      },
+      {
+         "topic": "Student Engagement",
+         "question": "An English teacher seeks to develop metacognitive skills in students. Which strategy would be the most effective in fostering metacognition across different grade levels?",
+         "options": [
+            "Implement structured peer-led teaching sessions, where students take turns explaining literary concepts, grammar rules, or writing techniques, reinforcing their own understanding through articulation",
+            "Develop detailed, self-assessment rubrics and structured reflection checklists, enabling students to critically evaluate their work and track progress in comprehension, writing, and analysis",
+            "Guide students in maintaining reflective learning journals, where they document not just what they learned in reading or writing tasks, but also their problem-solving strategies, challenges, and adjustments in approach",
+            "Introduce visual thinking tools such as concept maps, comparative analysis charts, and literary theme organizers, helping students systematically structure and connect ideas in reading and writing"
+         ],
+         "type": "radio",
+         "answer": "Guide students in maintaining reflective learning journals, where they document not just what they learned in reading or writing tasks, but also their problem-solving strategies, challenges, and adjustments in approach",
+         "level": "Level1"
+      },
+      {
+         "topic": "Assessment and Evaluation",
+         "question": "Mr. Lee is an English teacher aiming to integrate technology into his assessment strategies to accommodate diverse learning styles and enhance student engagement. He seeks to identify the most effective technological assessment tools to implement in his classroom. Rank the following technological assessment tools from most effective (1) to least effective (4) for accommodating diverse learning styles in an English classroom.\n\nAssessment Techniques:\n\ni) Interactive quizzes using platforms like Kahoot! for real-time engagement\n\nii) Digital portfolios where students compile their work throughout the year\n\niii) Automated multiple-choice tests with instant grading\n\niv) Video-based presentations for students to demonstrate their understanding",
+         "options": [
+            "1. ii, 2. iv, 3. i, 4. iii",
+            "1. iii, 2. ii, 3. iv, 4. i",
+            "1. i, 2. iv, 3. iii, 4. ii",
+            "1. ii, 2. i, 3. iv, 4. iii"
+         ],
+         "type": "radio",
+         "answer": "1. ii, 2. iv, 3. i, 4. iii",
+         "level": "Level1"
+      },
+      {
+         "topic": "Assessment and Evaluation",
+         "question": "You are mentoring a new teacher who is struggling to effectively assess student understanding. Which of the following approaches would NOT be the most effective in helping them develop formative assessment skills?",
+         "options": [
+            "Encouraging the use of exit tickets and class discussions to regularly gauge student comprehension",
+            "Assisting in designing end-of-unit standardized tests to evaluate overall student performance",
+            "Providing access to a variety of formative assessment tools and strategies tailored to different subjects",
+            "Guiding the teacher in analyzing student responses and identifying common misconceptions to inform instruction"
+         ],
+         "type": "radio",
+         "answer": "Assisting in designing end-of-unit standardized tests to evaluate overall student performance",
+         "level": "Level1"
+      },
+      {
+         "topic": "Assessment and Evaluation",
+         "question": "Ms. Rivera is a primary-grade English teacher working with young learners who have diverse learning styles, including visual, auditory, kinesthetic, and reading/writing preferences. She wants to use developmentally appropriate assessment techniques that effectively engage young learners and accommodate their learning preferences.\n\nRank the following assessment techniques from most effective (1) to least effective (5) for accommodating diverse learning styles in a primary-grade English classroom.\n\nAssessment Techniques:\n\ni) Using hands-on, interactive assessments such as storytelling, drawing, and role-playing to demonstrate comprehension\n\nii) Using standardized reading comprehension and phonics assessments to measure literacy skills\n\niii) Providing opportunities for self-assessment and reflection through verbal check-ins and simple rubrics\n\niv) Providing worksheets that focus on grammar, phonics, and vocabulary exercises\n\nv) Facilitating group activities such as shared reading, think-pair-share, and collaborative storytelling to encourage engagement and discussion",
+         "options": [
+            "1. i, 2. ii, 3. v, 4. iv, 5. iii",
+            "1. v, 2. i, 3. iii, 4. iv, 5. ii",
+            "1. i, 2. v, 3. iii, 4. iv, 5. ii",
+            "1. iii, 2. i, 3. v, 4. ii, 5. iv"
+         ],
+         "type": "radio",
+         "answer": "1. i, 2. v, 3. iii, 4. iv, 5. ii",
+         "level": "Level1"
+      },
+      {
+         "topic": "Professional Development and Ethics",
+         "question": "Which of the following is NOT a key component of effective long-term professional development for English language teachers?",
+         "options": [
+            "Mentorship from an experienced educator and observing them in their classrooms",
+            "Regular analysis of student performance data to refine instructional strategies",
+            "Periodic rotation of teaching assignments across different grade levels or course types",
+            "Study of cognitive science principles related to language learning",
+            "Development and implementation of action research projects"
+         ],
+         "type": "radio",
+         "answer": "Periodic rotation of teaching assignments across different grade levels or course types",
+         "level": "Level1"
+      },
+      {
+         "topic": "Professional Development and Ethics",
+         "question": "Which approach to professional development is most likely to result in sustained improvement of English language teaching practices?",
+         "options": [
+            "Subscribing to a professional journal on English education to stay updated on emerging research and instructional strategies.",
+            "Engaging in action research within one’s own classroom to test, refine, and adapt teaching methodologies based on real student outcomes.",
+            "Attending annual English language and literature conferences to network with other educators and gain exposure to new teaching techniques.",
+            "Completing self-paced online courses on advanced linguistic theories, literature analysis, and pedagogical frameworks."
+         ],
+         "type": "radio",
+         "answer": "Engaging in action research within one’s own classroom to test, refine, and adapt teaching methodologies based on real student outcomes.",
+         "level": "Level1"
+      },
+      {
+         "topic": "Professional Development and Ethics",
+         "question": "A teacher notices a significant disparity in the academic performance of students from different socioeconomic backgrounds within her classroom. What is the most ethical approach to address this issue?",
+         "options": [
+            "Collaborate with community organizations to offer enrichment programs outside of the regular school hours",
+            "Adjust grading criteria to account for students' socioeconomic disadvantages to ensure equitable outcomes",
+            "Focus on providing equal learning opportunities for all students ignoring their background",
+            "Advocate for school-wide policies that address systemic inequities and provide additional resources"
+         ],
+         "type": "radio",
+         "answer": "Advocate for school-wide policies that address systemic inequities and provide additional resources",
+         "level": "Level1"
+      }
+   ],
+   "Level2": [
+      {
+         "topic": "Pedagogical Knowledge",
+         "question": "Ms. Priya is an English language teacher who integrates Howard Gardner’s Theory of Multiple Intelligences into her lesson plans. She has designed the following activities to enhance her students’ language skills:\n\n1. Conducting interactive storytelling and dramatization\n2. Encouraging students to compose poems and essays\n3. Using songs and rhythm-based activities to teach phonetics\n4. Organizing debates and group discussions\n5. Assigning reflective journal writing and creative expression tasks\n\nBased on Gardner’s theory, which type of intelligence is NOT explicitly addressed by Ms. Priya’s planned activities?",
+         "options": [
+            "Musical Intelligence",
+            "Verbal-Linguistic Intelligence",
+            "Naturalistic Intelligence",
+            "Interpersonal Intelligence"
+         ],
+         "type": "radio",
+         "answer": "Naturalistic Intelligence",
+         "level": "Level2"
+      },
+      {
+         "topic": "Pedagogical Knowledge",
+         "question": "Assertion (A):\nScaffolding is an essential technique in language teaching that helps students progress toward independence in learning.\n\nReasoning (R):\nScaffolding involves giving students explicit grammar rules before allowing them to engage in communicative activities.\n\nWhich of the following options is correct?",
+         "options": [
+            "Both A and R are true",
+            "Both A and R are false",
+            "A is true, but R is false",
+            "A is false, but R is true"
+         ],
+         "type": "radio",
+         "answer": "A is true, but R is false",
+         "level": "Level2"
+      },
+      {
+         "topic": "Pedagogical Knowledge",
+         "question": "Which of the following is the primary purpose of teaching literary analysis in secondary English classrooms?",
+         "options": [
+            "To equip students with the skills to appreciate the aesthetic qualities of language and narrative, fostering a lifelong love of reading",
+            "To ensure students can accurately summarize plot points and character traits",
+            "To develop students' ability to write academic essays that demonstrate their understanding of literary elements and rhetorical techniques",
+            "To enable students to critically examine and interpret texts on a deeper level by analyzing structure, themes, and authorial intent"
+         ],
+         "type": "radio",
+         "answer": "To enable students to critically examine and interpret texts on a deeper level by analyzing structure, themes, and authorial intent",
+         "level": "Level2"
+      },
+      {
+         "topic": "Innovative Teaching Strategies",
+         "question": "As an English teacher, you aim to implement a teaching method that encourages students to independently explore concepts, make discoveries, and construct knowledge through active engagement rather than direct instruction. Which teaching strategy would best facilitate this process?",
+         "options": [
+            "Inquiry-Based Learning",
+            "Explicit Instruction",
+            "Project-Based Learning",
+            "Metacognitive Strategy Instruction"
+         ],
+         "type": "radio",
+         "answer": "Inquiry-Based Learning",
+         "level": "Level2"
+      },
+      {
+         "topic": "Innovative Teaching Strategies",
+         "question": "Which of the following strategies best reflects a critical principle of backward design in lesson planning?",
+         "options": [
+            "Begin with a detailed outline of daily lessons and activities before identifying assessment goals",
+            "Set clear, measurable learning objectives first, then plan assessments and instructional methods that align with those objectives",
+            "Focus primarily on teaching methods, and adjust assessments later based on student progress",
+            "Prioritize creating engaging activities that interest students, and assess their understanding based on their participation"
+         ],
+         "type": "radio",
+         "answer": "Set clear, measurable learning objectives first, then plan assessments and instructional methods that align with those objectives",
+         "level": "Level2"
+      },
+      {
+         "topic": "Innovative Teaching Strategies",
+         "question": "Mr. Aditi observes that several of her secondary-grade students struggle with reading fluency—they hesitate while reading aloud, struggle with pacing, and read without natural expression or intonation. She wants to implement an effective strategy to help students develop fluent oral reading skills while maintaining motivation. Which of the following strategies would be MOST effective in improving reading fluency for secondary students?",
+         "options": [
+            "Incorporating choral reading, where students read a passage aloud together, reinforcing rhythm and pacing while allowing struggling readers to follow along",
+            "Encouraging silent independent reading, enabling students to build confidence and fluency at their own pace without the pressure of reading aloud",
+            "Using repeated reading, where students read a passage multiple times with guided feedback, focusing on accuracy, speed, expression, and phrasing",
+            "Pairing students for peer reading practice, where fluent readers model effective reading for struggling peers, who learn through observation"
+         ],
+         "type": "radio",
+         "answer": "Using repeated reading, where students read a passage multiple times with guided feedback, focusing on accuracy, speed, expression, and phrasing",
+         "level": "Level2"
+      },
+      {
+         "topic": "Technology Integration in Language Learning",
+         "question": "Ms. Rhea, an English language teacher, leverages digital tools such as adaptive learning platforms, interactive whiteboards, and online discussion forums to personalize instruction and extend learning beyond the classroom. She ensures that students engage with digital content before in-class discussions and activities. Which pedagogical approach is most accurately exemplified by Ms. Rhea’s instructional strategy?",
+         "options": [
+            "Constructivist Learning",
+            "Blended Learning",
+            "TPACK Framework",
+            "Flipped Classroom"
+         ],
+         "type": "radio",
+         "answer": "Flipped Classroom",
+         "level": "Level2"
+      },
+      {
+         "topic": "Technology Integration in Language Learning",
+         "question": "Which of the following tech-integrated strategies would be the most effective for assessing students’ ability to analyze complex literary concepts?",
+         "options": [
+            "Incorporating AI chatbots (ChatGPT, Quillbot) to generate literary summaries and analyze thematic elements for student reference.",
+            "Employing digital storytelling platforms (e.g., StoryboardThat, Pixton) for students to visually represent their interpretations",
+            "Using gamified vocabulary apps (Quizlet, Kahoot!) to reinforce literary terminology and definitions through interactive drills",
+            "Assigning a multimedia project (Google Docs, Canva, Padlet) to analyze authors' use of literary devices across texts"
+         ],
+         "type": "radio",
+         "answer": "Assigning a multimedia project (Google Docs, Canva, Padlet) to analyze authors' use of literary devices across texts",
+         "level": "Level2"
+      },
+      {
+         "topic": "Technology Integration in Language Learning",
+         "question": "Ms. Patel, a secondary English teacher, is preparing to teach a complex literary text and wants to ensure that her students stay engaged while also checking their comprehension in real time. She is looking for a digital tool that will allow her to create interactive quizzes and polls to assess students’ understanding of literary concepts. Which digital tool would BEST help Ms. Patel achieve this goal?",
+         "options": [
+            "Kahoot!",
+            "Google Classroom",
+            "Padlet",
+            "Flipgrid"
+         ],
+         "type": "radio",
+         "answer": "Kahoot!",
+         "level": "Level2"
+      },
+      {
+         "topic": "Language and Literacy Development",
+         "question": "Ms. Priya observes that some students in her English class give up easily when faced with difficult reading or writing tasks, while others persist and experiment with different strategies. Which of the following approaches would be most effective in fostering resilience and a growth mindset among all learners? (Select all that apply)",
+         "options": [
+            "Emphasize praising students for their innate abilities and talents, reinforcing their perceived intelligence and natural skills",
+            "Allow students to select only tasks within their comfort zone, ensuring they avoid frustration and maintain confidence",
+            "Establish a structured reward system that acknowledges students who engage with challenging tasks, regardless of the outcome",
+            "Design learning activities with multiple entry points and progressively scaffold tasks to support students in gradually building competence",
+            "Group students strictly by ability levels, ensuring they work at an optimal challenge level to prevent disengagement",
+            "Model different problem-solving approaches, verbalizing thought processes to help students understand how to tackle difficulties"
+         ],
+         "type": "checkbox",
+         "answer": [
+            "Establish a structured reward system that acknowledges students who engage with challenging tasks, regardless of the outcome",
+            "Design learning activities with multiple entry points and progressively scaffold tasks to support students in gradually building competence",
+            "Model different problem-solving approaches, verbalizing thought processes to help students understand how to tackle difficulties"
+         ],
+         "level": "Level2"
+      },
+      {
+         "topic": "Language and Literacy Development",
+         "question": "Which of the following strategies best aligns with the communicative approach to grammar instruction?",
+         "options": [
+            "Using fill-in-the-blank grammar exercises, reinforcing form and accuracy through repetitive practice to strengthen students' recognition of correct grammatical structures",
+            "Embedding grammar instruction within interactive speaking, writing, and listening tasks",
+            "Asking students to construct isolated sentences based on grammatical rules, ensuring they understand syntactic patterns",
+            "Providing students with structured grammar drills focusing on sentence transformation and error correction, reinforcing mastery of grammatical form"
+         ],
+         "type": "radio",
+         "answer": "Embedding grammar instruction within interactive speaking, writing, and listening tasks",
+         "level": "Level2"
+      },
+      {
+         "topic": "Language and Literacy Development",
+         "question": "Which of the following strategies best promotes inferential comprehension?",
+         "options": [
+            "Having students summarize and paraphrase key passages, ensuring they grasp the text’s core ideas before attempting deeper analysis",
+            "Directing students to extract and categorize explicitly stated details, reinforcing foundational comprehension as a precursor to interpretation",
+            "Encouraging students to examine subtle textual cues and justify their interpretations with evidence, linking underlying meanings to broader literary themes",
+            "Requiring students to research and define unfamiliar words, improving their grasp of the author's language, tone, and style before analyzing meaning"
+         ],
+         "type": "radio",
+         "answer": "Encouraging students to examine subtle textual cues and justify their interpretations with evidence, linking underlying meanings to broader literary themes",
+         "level": "Level2"
+      },
+      {
+         "topic": "Inclusive Education and Special Needs",
+         "question": "Match the principles of inclusive education (A-E) with their corresponding practices (i-v):\n\nPrinciples:\nA. Accessibility\nB. Equity\nC. Flexibility\nD. Collaborative learning\nE. Representation\n\nPractices:\ni. Offering multiple content formats (e.g., visual, auditory, tactile) to support different learning styles.\nii. Grouping students with mixed abilities to work together, fostering peer interaction and shared problem-solving.\niii. Adapting lesson plans and assessments to accommodate different learning paces and styles, ensuring all students can succeed.\niv. Providing equal opportunities for participation in classroom discussions, activities, and assessments, regardless of ability.\nv. Ensuring physical and digital learning tools (e.g., assistive technology, captioned videos, accessible e-books) are usable by all students.",
+         "options": [
+            "A → v, B → iv, C → iii, D → ii, E → i",
+            "A → i, B → iii, C → iv, D → v, E → ii",
+            "A → iii, B → v, C → i, D → iv, E → ii",
+            "A → iv, B → ii, C → v, D → i, E → iii"
+         ],
+         "type": "radio",
+         "answer": "A → v, B → iv, C → iii, D → ii, E → i",
+         "level": "Level2"
+      },
+      {
+         "topic": "Inclusive Education and Special Needs",
+         "question": "Match the inclusive English teaching strategies (1-6) with their primary benefits (A-F):\n\nStrategies:\n1. Think-aloud reading comprehension\n2. Use of reflective journals\n3. Universal Design for Learning (UDL)\n4. Incorporating hands-on and experiential activities (e.g., role-playing, interactive storytelling)\n5. Differentiated instruction and Individualized Education Plans (IEPs)\n6. Multi-sensory literacy instruction\n\nBenefits:\nA. Addresses multiple learning modalities (visual, auditory, kinesthetic)\nB. Provides multiple means of engagement, representation, and expression\nC. Enhances metacognitive skills and encourages deeper engagement with texts\nD. Models cognitive processes and active reading strategies\nE. Strengthens understanding through experiential and interactive learning\nF. Provides tailored support to students with specific learning needs.",
+         "options": [
+            "1 → E, 2 → F, 3 → C, 4 → A, 5 → D, 6 → B",
+            "1 → C, 2 → D, 3 → A, 4 → B, 5 → E, 6 → F",
+            "1 → B, 2 → A, 3 → F, 4 → D, 5 → C, 6 → E",
+            "1 → D, 2 → C, 3 → B, 4 → E, 5 → F, 6 → A"
+         ],
+         "type": "radio",
+         "answer": "1 → D, 2 → C, 3 → B, 4 → E, 5 → F, 6 → A",
+         "level": "Level2"
+      },
+      {
+         "topic": "Inclusive Education and Special Needs",
+         "question": "During a teacher's meeting, Ms. Kavita discusses her student, Arjun, who has been showing signs of anxiety and withdrawal in the classroom. She considers various strategies for addressing his anxiety. Which of the following could be the most effective initial strategy for addressing his anxiety within the classroom setting?",
+         "options": [
+            "Implementing a full-scale individualized education program (IEP) with a focus on social-emotional learning, involving curriculum modifications",
+            "Establish a predictable classroom routine, incorporate mindfulness exercises, and provide a designated 'safe space' for breaks",
+            "Contacting Arjun's parents immediately to recommend professional counseling and suggesting changes in the family environment",
+            "Implementing a peer mentoring program to enhance Arjun's social connections and provide him with a support system"
+         ],
+         "type": "radio",
+         "answer": "Establish a predictable classroom routine, incorporate mindfulness exercises, and provide a designated 'safe space' for breaks",
+         "level": "Level2"
+      },
+      {
+         "topic": "Classroom Management and Differentiated Language Teaching",
+         "question": "Rank the following professional development strategies from most effective (1) to least effective (4) for enhancing your ability to differentiate instruction as an English Language Teacher:\n\ni) Participating in data analysis workshops to learn how to use student performance information to tailor instruction for diverse learners\nii) Watching video tutorials of expert teachers explaining differentiated instructional strategies and language acquisition theories\niii) Engaging with educational blogs, podcasts, and social media posts about differentiation during personal time\niv) Observing experienced teachers implementing differentiated instruction in real classrooms and reflecting on their methods\n\nWhich of the following ranks the strategies in order from most effective to least effective?",
+         "options": [
+            "1. iv, 2. i, 3. ii, 4. iii",
+            "1. i, 2. iv, 3. iii, 4. ii",
+            "1. ii, 2. i, 3. iv, 4. iii",
+            "1. iii, 2. ii, 3. i, 4. iv"
+         ],
+         "type": "radio",
+         "answer": "1. iv, 2. i, 3. ii, 4. iii",
+         "level": "Level2"
+      },
+      {
+         "topic": "Classroom Management and Differentiated Language Teaching",
+         "question": "Assertion (A): Implementing a token economy system improves student motivation and engagement in class activities.\n\nReason (R): Extrinsic rewards are more effective than intrinsic motivation in shaping long-term student behavior.\n\nWhich of the following options is correct?",
+         "options": [
+            "Both A and R are true, and R is the correct explanation of A",
+            "Both A and R are true, but R is NOT the correct explanation of A",
+            "A is true, but R is false",
+            "A is false, but R is true"
+         ],
+         "type": "radio",
+         "answer": "A is true, but R is false",
+         "level": "Level2"
+      },
+      {
+         "topic": "Classroom Management and Differentiated Language Teaching",
+         "question": "In the context of differentiated instruction in English language teaching, what best defines a 'tiered assignment'?",
+         "options": [
+            "A uniform assignment was given to all students to maintain consistency in learning objectives and assessments",
+            "A set of tasks designed with varying levels of complexity based on students’ readiness",
+            "The practice of grouping students by proficiency level and providing distinct learning activities tailored to their skill set",
+            "A method of pre-assessment used to determine students' strengths and weaknesses before instructional planning"
+         ],
+         "type": "radio",
+         "answer": "A set of tasks designed with varying levels of complexity based on students’ readiness",
+         "level": "Level2"
+      },
+      {
+         "topic": "Cross-Disciplinary Integration and Real-World Applications",
+         "question": "English teachers often integrate their subject with other disciplines to enhance learning, foster critical thinking, and provide students with real-world connections between literature, language, and other fields. However, some approaches may limit interdisciplinary learning rather than support it. Which of the following approaches is NOT effective when integrating English with other subjects?",
+         "options": [
+            "Teaching foundational language concepts in isolation before applying them across disciplines to preserve English’s unique methodologies and analytical frameworks",
+            "Designing cross-curricular projects that require students to apply English skills alongside another subject to solve complex, interdisciplinary problems",
+            "Using literary or linguistic examples from other subjects without shifting focus from core English learning objectives",
+            "Leveraging technology that integrates multiple subjects, allowing students to access interdisciplinary resources and tools that connect literature, writing, and real-world contexts"
+         ],
+         "type": "radio",
+         "answer": "Teaching foundational language concepts in isolation before applying them across disciplines to preserve English’s unique methodologies and analytical frameworks",
+         "level": "Level2"
+      },
+      {
+         "topic": "Cross-Disciplinary Integration and Real-World Applications",
+         "question": "Assertion (A): Integrating excessive cross-disciplinary projects in an English curriculum can take away from the development of core language skills, such as grammar, syntax, and structured writing.\n\nReasoning (R): Students may focus more on content from other subjects rather than mastering essential literacy skills, such as sentence structure, coherence, and textual analysis.\n\nWhich of the following options is correct?",
+         "options": [
+            "Both A and R are true, and R is the correct explanation of A",
+            "Both A and R are true, but R is not the correct explanation of A",
+            "A is true, but R is false",
+            "A is false, but R is true"
+         ],
+         "type": "radio",
+         "answer": "Both A and R are true, and R is the correct explanation of A",
+         "level": "Level2"
+      },
+      {
+         "topic": "Cross-Disciplinary Integration and Real-World Applications",
+         "question": "A teacher wants to enhance students' ability to write cohesive essays by integrating real-world applications and cross-disciplinary connections. Which of the following interventions would be the MOST effective in improving students' ability to write cohesive essays?",
+         "options": [
+            "Integrating cross-disciplinary writing tasks, such as historical analysis essays, science reports, or persuasive arguments based on real-world issues",
+            "Encouraging students to independently revise their essays based on prior feedback, promoting self-sufficiency in writing",
+            "Analyzing published essays from different disciplines (e.g., scientific papers, historical arguments, opinion pieces), strengthening comprehension of various writing styles",
+            "Using peer-review and collaborative editing to encourage critical feedback and revision across subjects"
+         ],
+         "type": "radio",
+         "answer": "Integrating cross-disciplinary writing tasks, such as historical analysis essays, science reports, or persuasive arguments based on real-world issues",
+         "level": "Level2"
+      },
+      {
+         "topic": "Student Engagement",
+         "question": "Match the student engagement strategies (1-5) with their primary cognitive benefits (A-E) in an English classroom setting.\n\nStrategies:\n1. Think-Pair-Share \n2. Technology Integration\n3. Hands-on Activities\n4. Error Analysis Discussions \n5. Real-World Problem-Solving Projects \n\nCognitive Benefits:\nA. Enhances metacognitive skills and self-regulation, allowing students to reflect on their learning.\nB. Improves verbal reasoning and communication skills, fostering discussion and collaborative learning.\nC. Enhances practical understanding and kinesthetic learning, making abstract concepts more tangible.\nD. Strengthens analytical and critical thinking skills, requiring students to examine ideas in depth.\nE. Provides interactive and personalized learning experiences, using adaptive technologies to cater to individual learning needs.",
+         "options": [
+            "1 → B, 2 → E, 3 → C, 4 → A, 5 → D",
+            "1 → C, 2 → B, 3 → A, 4 → E, 5 → D",
+            "1 → A, 2 → D, 3 → B, 4 → C, 5 → E",
+            "1 → B, 2 → C, 3 → D, 4 → A, 5 → E"
+         ],
+         "type": "radio",
+         "answer": "1 → B, 2 → E, 3 → C, 4 → A, 5 → D",
+         "level": "Level2"
+      },
+      {
+         "topic": "Student Engagement",
+         "question": "Mr. Raj assigns a collaborative literary analysis project where students must work in groups to analyze a text using different critical perspectives. While some students thrive in this environment, others appear disengaged or overwhelmed. How can Mr. Raj modify the activity to ensure all students actively participate and benefit from the collaborative learning experience? (Select all that apply)",
+         "options": [
+            "Assign specific roles to each group member, such as discussion leader, researcher, note-taker, and presenter, to ensure equitable participation",
+            "Integrate digital tools (e.g., shared documents, online discussion boards, multimedia resources) to support diverse learning styles and engagement levels",
+            "Allow students to work independently if they feel uncomfortable participating in group activities, ensuring they can still complete the assignment",
+            "Provide scaffolding, such as guiding questions, structured templates, and clear rubrics, to help students navigate the analytical process effectively",
+            "Let students self-select their groups with minimal teacher guidance, prioritizing comfort over diverse perspectives and skill development"
+         ],
+         "type": "checkbox",
+         "answer": [
+            "Assign specific roles to each group member, such as discussion leader, researcher, note-taker, and presenter, to ensure equitable participation",
+            "Integrate digital tools (e.g., shared documents, online discussion boards, multimedia resources) to support diverse learning styles and engagement levels",
+            "Provide scaffolding, such as guiding questions, structured templates, and clear rubrics, to help students navigate the analytical process effectively"
+         ],
+         "level": "Level2"
+      },
+      {
+         "topic": "Student Engagement",
+         "question": "An English teacher seeks to develop metacognitive skills in students. Which strategy would be the most effective in fostering metacognition across different grade levels?",
+         "options": [
+            "Implement structured peer-led teaching sessions, where students take turns explaining literary concepts, grammar rules, or writing techniques, reinforcing their own understanding through articulation",
+            "Develop detailed, self-assessment rubrics and structured reflection checklists, enabling students to critically evaluate their work and track progress in comprehension, writing, and analysis",
+            "Guide students in maintaining reflective learning journals, where they document not just what they learned in reading or writing tasks, but also their problem-solving strategies, challenges, and adjustments in approach",
+            "Introduce visual thinking tools such as concept maps, comparative analysis charts, and literary theme organizers, helping students systematically structure and connect ideas in reading and writing"
+         ],
+         "type": "radio",
+         "answer": "Guide students in maintaining reflective learning journals, where they document not just what they learned in reading or writing tasks, but also their problem-solving strategies, challenges, and adjustments in approach",
+         "level": "Level2"
+      },
+      {
+         "topic": "Assessment and Evaluation",
+         "question": "Mr. Lee is an English teacher aiming to integrate technology into his assessment strategies to accommodate diverse learning styles and enhance student engagement. He seeks to identify the most effective technological assessment tools to implement in his classroom. Rank the following technological assessment tools from most effective (1) to least effective (4) for accommodating diverse learning styles in an English classroom.\n\nAssessment Techniques:\ni) Interactive quizzes using platforms like Kahoot! for real-time engagement\nii) Digital portfolios where students compile their work throughout the year\niii) Automated multiple-choice tests with instant grading\niv) Video-based presentations for students to demonstrate their understanding",
+         "options": [
+            "1. ii, 2. iv, 3. i, 4. iii",
+            "1. iii, 2. ii, 3. iv, 4. i",
+            "1. iii, 2. iv, 3. i, 4. ii",
+            "1. ii, 2. i, 3. iv, 4. iii"
+         ],
+         "type": "radio",
+         "answer": "1. ii, 2. iv, 3. i, 4. iii",
+         "level": "Level2"
+      },
+      {
+         "topic": "Assessment and Evaluation",
+         "question": "You are mentoring a new teacher who is struggling to effectively assess student understanding. Which of the following approaches would NOT be the most effective in helping them develop formative assessment skills?",
+         "options": [
+            "Encouraging the use of exit tickets and class discussions to regularly gauge student comprehension",
+            "Assisting in designing end-of-unit standardized tests to evaluate overall student performance",
+            "Providing access to a variety of formative assessment tools and strategies tailored to different subjects",
+            "Guiding the teacher in analyzing student responses and identifying common misconceptions to inform instruction"
+         ],
+         "type": "radio",
+         "answer": "Assisting in designing end-of-unit standardized tests to evaluate overall student performance",
+         "level": "Level2"
+      },
+      {
+         "topic": "Assessment and Evaluation",
+         "question": "Ms. Rivera is an English teacher teaching students with varied learning styles, including visual, auditory, kinesthetic, and reading/writing preferences. She aims to utilize assessment techniques that effectively accommodate these diverse learning styles.\n\nRank the following assessment techniques from most effective (1) to least effective (5) for accommodating diverse learning styles in an English classroom.\n\nAssessment Techniques:\ni) Offering a variety of assessment formats (e.g., essays, presentations, debates, creative projects).\nii) Using standardized timed tests to assess reading comprehension and writing skills.\niii) Providing opportunities for self-assessment and reflection on learning.\niv) Providing worksheets that focus on grammar and vocabulary exercises.\nv) Facilitating group discussions to gauge verbal understanding and interpersonal skills.",
+         "options": [
+            "1. i, 2. ii, 3. v, 4. iv, 5. iii",
+            "1. v, 2. i, 3. iii, 4. iv, 5. ii",
+            "1. i, 2. v, 3. iii, 4. iv, 5. ii",
+            "1. iii, 2. i, 3. v, 4. ii, 5. iv"
+         ],
+         "type": "radio",
+         "answer": "1. i, 2. v, 3. iii, 4. iv, 5. ii",
+         "level": "Level2"
+      },
+      {
+         "topic": "Professional Development and Ethics",
+         "question": "Which of the following is NOT a key component of effective long-term professional development for English language teachers?",
+         "options": [
+            "Mentorship from experienced educators and observing them in their classrooms",
+            "Regular analysis of student performance data to refine instructional strategies",
+            "Periodic rotation of teaching assignments across different grade levels or course types",
+            "Study of cognitive science principles related to language learning",
+            "Development and implementation of action research projects"
+         ],
+         "type": "radio",
+         "answer": "Periodic rotation of teaching assignments across different grade levels or course types",
+         "level": "Level2"
+      },
+      {
+         "topic": "Professional Development and Ethics",
+         "question": "Which approach to professional development is most likely to result in sustained improvement of English language teaching practices?",
+         "options": [
+            "Subscribing to a professional journal on English education to stay updated on emerging research and instructional strategies.",
+            "Engaging in action research within one’s own classroom to test, refine, and adapt teaching methodologies based on real student outcomes.",
+            "Attending annual English language and literature conferences to network with other educators and gain exposure to new teaching techniques.",
+            "Completing self-paced online courses on advanced linguistic theories, literature analysis, and pedagogical frameworks."
+         ],
+         "type": "radio",
+         "answer": "Engaging in action research within one’s own classroom to test, refine, and adapt teaching methodologies based on real student outcomes.",
+         "level": "Level2"
+      },
+      {
+         "topic": "Professional Development and Ethics",
+         "question": "A teacher notices a significant disparity in the academic performance of students from different socioeconomic backgrounds within her classroom. What is the most ethical approach to address this issue?",
+         "options": [
+            "Collaborate with community organizations to offer enrichment programs outside of the regular school hours",
+            "Adjust grading criteria to account for students' socioeconomic disadvantages to ensure equitable outcomes",
+            "Focus on providing equal learning opportunities for all students, ignoring their background",
+            "Advocate for school-wide policies that address systemic inequities and provide additional resources"
+         ],
+         "type": "radio",
+         "answer": "Advocate for school-wide policies that address systemic inequities and provide additional resources",
+         "level": "Level2"
+      }
+   ],
+   "Level3": [
+      {
+         "topic": "Pedagogical Knowledge",
+         "question": "Ms. Priya is an English language teacher who integrates Howard Gardner’s Theory of Multiple Intelligences into her lesson plans. She has designed the following activities to enhance her students’ language skills:\n\n1. Conducting interactive storytelling and dramatization\n2. Encouraging students to compose poems and essays\n3. Using songs and rhythm-based activities to teach phonetics\n4. Organizing debates and group discussions\n5. Assigning reflective journal writing and creative expression tasks\n\nBased on Gardner’s theory, which type of intelligence is NOT explicitly addressed by Ms. Priya’s planned activities?",
+         "options": [
+            "Musical Intelligence",
+            "Verbal-Linguistic Intelligence",
+            "Naturalistic Intelligence",
+            "Interpersonal Intelligence"
+         ],
+         "type": "radio",
+         "answer": "Naturalistic Intelligence",
+         "level": "Level3"
+      },
+      {
+         "topic": "Pedagogical Knowledge",
+         "question": "Assertion (A): Scaffolding is an essential technique in language teaching that helps students progress toward independence in learning.\n\nReasoning (R): Scaffolding involves giving students explicit grammar rules before allowing them to engage in communicative activities.\n\nWhich of the following options is correct?",
+         "options": [
+            "Both A and R are true",
+            "Both A and R are false",
+            "A is true, but R is false",
+            "A is false, but R is true"
+         ],
+         "type": "radio",
+         "answer": "A is true, but R is false",
+         "level": "Level3"
+      },
+      {
+         "topic": "Pedagogical Knowledge",
+         "question": "A higher secondary English teacher aims to foster deeper engagement and critical discussions about a novel students are analyzing. The goal is to encourage students to articulate nuanced interpretations, support arguments with textual evidence, and engage in collaborative meaning-making.\n\nWhich of the following strategies is MOST effective in facilitating meaningful dialogue and analytical thinking?",
+         "options": [
+            "Leading a whole-class Socratic seminar where students generate and respond to open-ended questions, encouraging deep inquiry and exploration of different perspectives",
+            "Assigning students to independently annotate key passages, followed by a literary critique based on their notes, ensuring personal engagement with the text and structured argumentation",
+            "Using AI-based discussion tools that allow students to pose and respond to complex literary questions asynchronously, ensuring participation from all students, including those who may hesitate in live discussions",
+            "Requiring students to compose an analytical essay responding to a teacher-given prompt about key themes in the novel, reinforcing structured writing and textual analysis"
+         ],
+         "type": "radio",
+         "answer": "Leading a whole-class Socratic seminar where students generate and respond to open-ended questions, encouraging deep inquiry and exploration of different perspectives",
+         "level": "Level3"
+      },
+      {
+         "topic": "Innovative Teaching Strategies",
+         "question": "As an English teacher, you aim to implement a teaching method that encourages students to independently explore concepts, make discoveries, and construct knowledge through active engagement rather than direct instruction. Which teaching strategy would best facilitate this process?",
+         "options": [
+            "Inquiry-Based Learning",
+            "Explicit Instruction",
+            "Project-Based Learning",
+            "Metacognitive Strategy Instruction"
+         ],
+         "type": "radio",
+         "answer": "Inquiry-Based Learning",
+         "level": "Level3"
+      },
+      {
+         "topic": "Innovative Teaching Strategies",
+         "question": "Which of the following strategies best reflects a critical principle of backward design in lesson planning?",
+         "options": [
+            "Begin with a detailed outline of daily lessons and activities before identifying assessment goals",
+            "Set clear, measurable learning objectives first, then plan assessments and instructional methods that align with those objectives",
+            "Focus primarily on teaching methods, and adjust assessments later based on student progress",
+            "Prioritize creating engaging activities that interest students, and assess their understanding based on their participation"
+         ],
+         "type": "radio",
+         "answer": "Set clear, measurable learning objectives first, then plan assessments and instructional methods that align with those objectives",
+         "level": "Level3"
+      },
+      {
+         "topic": "Innovative Teaching Strategies",
+         "question": "In a higher secondary English class studying a Shakespearean tragedy, the teacher aims to promote critical thinking and higher-order thinking skills, such as analysis, evaluation, and synthesis. Which of the following learning activities would be MOST effective in achieving this goal?",
+         "options": [
+            "Assigning a literary analysis essay where students write a structured response on the themes, motifs, and character development in the tragedy, using textual evidence",
+            "Assigning students to research the Elizabethan era to understand the sociopolitical influences on Shakespeare’s works and their relevance to the play’s themes",
+            "Creating a class wiki where students collaboratively define and explain key literary terms in the play",
+            "Organizing a student-led debate on the central conflict of the play, requiring students to support their arguments with textual evidence and reasoned analysis"
+         ],
+         "type": "radio",
+         "answer": "Organizing a student-led debate on the central conflict of the play, requiring students to support their arguments with textual evidence and reasoned analysis",
+         "level": "Level3"
+      },
+      {
+         "topic": "Technology Integration in Language Learning",
+         "question": "Ms. Rhea, an English language teacher, leverages digital tools such as adaptive learning platforms, interactive whiteboards, and online discussion forums to personalize instruction and extend learning beyond the classroom. She ensures that students engage with digital content before in-class discussions and activities. Which pedagogical approach is most accurately exemplified by Ms. Rhea’s instructional strategy?",
+         "options": [
+            "Constructivist Learning",
+            "Blended Learning",
+            "TPACK Framework",
+            "Flipped Classroom"
+         ],
+         "type": "radio",
+         "answer": "Flipped Classroom",
+         "level": "Level3"
+      },
+      {
+         "topic": "Technology Integration in Language Learning",
+         "question": "Mr. Sharma wants to assess his students' ability to analyze complex literary concepts. He aims to integrate technology-driven strategies that encourage critical thinking, creativity, and engagement while ensuring students apply literary analysis effectively. Which of the following tech-integrated strategies would be the MOST effective for assessing students' ability to analyze complex literary concepts?",
+         "options": [
+            "Using AI chatbots (ChatGPT, Quillbot) to generate literary summaries and analyze thematic elements, providing students with automated insights for reference",
+            "Employing digital storytelling tools (StoryboardThat, Pixton) for students to create visual representations of symbolism, themes, and character relationships",
+            "Using gamified vocabulary apps (Quizlet, Kahoot!) to reinforce literary terminology and definitions through interactive drills, improving recall but offering minimal analytical depth",
+            "Assigning a multimedia comparative analysis project (Google Docs, Canva, Padlet) where students critically examine how different authors employ literary devices across multiple texts"
+         ],
+         "type": "radio",
+         "answer": "Assigning a multimedia comparative analysis project (Google Docs, Canva, Padlet) where students critically examine how different authors employ literary devices across multiple texts",
+         "level": "Level3"
+      },
+      {
+         "topic": "Technology Integration in Language Learning",
+         "question": "Ms. Carter wants her students to engage in asynchronous literary discussions where they can post insights, respond to peers, and build on one another’s interpretations of a novel. She is searching for a digital discussion tool that supports text-based reflection and interaction over time. Which tool would be MOST effective?",
+         "options": [
+            "Padlet",
+            "Socrative",
+            "Kahoot!",
+            "Nearpod"
+         ],
+         "type": "radio",
+         "answer": "Padlet",
+         "level": "Level3"
+      },
+      {
+         "topic": "Language and Literacy Development",
+         "question": "Ms. Priya observes that some students in her English class give up easily when faced with difficult reading or writing tasks, while others persist and experiment with different strategies. Which of the following approaches would be most effective in fostering resilience and a growth mindset among all learners? (Select all that apply)",
+         "options": [
+            "Emphasize praising students for their innate abilities and talents, reinforcing their perceived intelligence and natural skills",
+            "Allow students to select only tasks within their comfort zone, ensuring they avoid frustration and maintain confidence",
+            "Establish a structured reward system that acknowledges students who engage with challenging tasks, regardless of the outcome",
+            "Design learning activities with multiple entry points and progressively scaffold tasks to support students in gradually building competence",
+            "Group students strictly by ability levels, ensuring they work at an optimal challenge level to prevent disengagement",
+            "Model different problem-solving approaches, verbalizing thought processes to help students understand how to tackle difficulties"
+         ],
+         "type": "checkbox",
+         "answer": [
+            "Establish a structured reward system that acknowledges students who engage with challenging tasks, regardless of the outcome",
+            "Design learning activities with multiple entry points and progressively scaffold tasks to support students in gradually building competence",
+            "Model different problem-solving approaches, verbalizing thought processes to help students understand how to tackle difficulties"
+         ],
+         "level": "Level3"
+      },
+      {
+         "topic": "Language and Literacy Development",
+         "question": "Which of the following strategies best aligns with the communicative approach to grammar instruction?",
+         "options": [
+            "Using fill-in-the-blank grammar exercises, reinforcing form and accuracy through repetitive practice to strengthen students' recognition of correct grammatical structures",
+            "Embedding grammar instruction within interactive speaking, writing, and listening tasks",
+            "Asking students to construct isolated sentences based on grammatical rules, ensuring they understand syntactic patterns",
+            "Providing students with structured grammar drills focusing on sentence transformation and error correction, reinforcing mastery of grammatical form"
+         ],
+         "type": "radio",
+         "answer": "Embedding grammar instruction within interactive speaking, writing, and listening tasks",
+         "level": "Level3"
+      },
+      {
+         "topic": "Language and Literacy Development",
+         "question": "Which of the following strategies best promotes inferential comprehension?",
+         "options": [
+            "Asking students to paraphrase and summarize key passages in their own words, ensuring they grasp the basic storyline before attempting deeper analysis",
+            "Requiring students to extract and categorize explicitly stated details from the text, reinforcing foundational comprehension before engaging in interpretation",
+            "Guiding students to analyze subtle textual cues and justify their interpretations using evidence, connecting underlying meanings to broader literary themes",
+            "Having students research and define unfamiliar words, strengthening their understanding of the author’s language and style"
+         ],
+         "type": "radio",
+         "answer": "Guiding students to analyze subtle textual cues and justify their interpretations using evidence, connecting underlying meanings to broader literary themes",
+         "level": "Level3"
+      },
+      {
+         "topic": "Inclusive Education and Special Needs",
+         "question": "Match the principles of inclusive education (A-E) with their corresponding practices (i-v):\n\nPrinciples:\nA. Accessibility\nB. Equity\nC. Flexibility\nD. Collaborative learning\nE. Representation\n\nPractices:\ni. Offering multiple content formats (e.g., visual, auditory, tactile) to support different learning styles.\nii. Grouping students with mixed abilities to work together, fostering peer interaction and shared problem-solving.\niii. Adapting lesson plans and assessments to accommodate different learning paces and styles, ensuring all students can succeed.\niv. Providing equal opportunities for participation in classroom discussions, activities, and assessments, regardless of ability.\nv. Ensuring physical and digital learning tools (e.g., assistive technology, captioned videos, accessible e-books) are usable by all students.",
+         "options": [
+            "A → v, B → iv, C → iii, D → ii, E → i",
+            "A → i, B → iii, C → iv, D → v, E → ii",
+            "A → iii, B → v, C → i, D → iv, E → ii",
+            "A → iv, B → ii, C → v, D → i, E → iii"
+         ],
+         "type": "radio",
+         "answer": "A → v, B → iv, C → iii, D → ii, E → i",
+         "level": "Level3"
+      },
+      {
+         "topic": "Inclusive Education and Special Needs",
+         "question": "Match the inclusive English teaching strategies (1-6) with their primary benefits (A-F):\n\nStrategies:\n1. Think-aloud reading comprehension\n2. Use of reflective journals\n3. Universal Design for Learning (UDL)\n4. Incorporating hands-on and experiential activities (e.g., role-playing, interactive storytelling)\n5. Differentiated instruction and Individualized Education Plans (IEPs)\n6. Multi-sensory literacy instruction\n\nBenefits:\nA. Addresses multiple learning modalities (visual, auditory, kinesthetic)\nB. Provides multiple means of engagement, representation, and expression\nC. Enhances metacognitive skills and encourages deeper engagement with texts\nD. Models cognitive processes and active reading strategies\nE. Strengthens understanding through experiential and interactive learning\nF. Provides tailored support to students with specific learning needs",
+         "options": [
+            "1 → E, 2 → F, 3 → C, 4 → A, 5 → D, 6 → B",
+            "1 → C, 2 → D, 3 → A, 4 → B, 5 → E, 6 → F",
+            "1 → B, 2 → A, 3 → F, 4 → D, 5 → C, 6 → E",
+            "1 → D, 2 → C, 3 → B, 4 → E, 5 → F, 6 → A"
+         ],
+         "type": "radio",
+         "answer": "1 → D, 2 → C, 3 → B, 4 → E, 5 → F, 6 → A",
+         "level": "Level3"
+      },
+      {
+         "topic": "Inclusive Education and Special Needs",
+         "question": "Mr. Lewis teaches English to a diverse group of learners, including a student with a hearing impairment and another with a mild intellectual disability. As students in higher grades are expected to engage in higher-order literary analysis, argumentative writing, and critical discussions, Mr. Lewis needs to implement inclusive instructional adaptations that promote accessibility, engagement, and equitable learning outcomes for all students.\nWhich of the following instructional adaptations should Mr. Lewis prioritize to support these students while maintaining academic rigor? (Select all that apply)",
+         "options": [
+            "Using AI-generated text-to-speech tools and closed-captioning software for classroom discussions, lectures, and video content to support comprehension",
+            "Modifying assessment criteria by lowering the complexity of essay prompts and analytical tasks for the student with an intellectual disability",
+            "Implementing flexible deadlines and extended time for complex reading and writing assignments",
+            "Allowing the student with a hearing impairment to rely exclusively on written transcripts, minimizing their reliance on spoken communication.",
+            "Encouraging students to submit responses in diverse formats (e.g., written essays, audio recordings, or video presentations) to accommodate different learning strengths",
+            "Encouraging peer collaboration without assigning specific roles or responsibilities, allowing students to navigate group dynamics on their own."
+         ],
+         "type": "checkbox",
+         "answer": [
+            "Using AI-generated text-to-speech tools and closed-captioning software for classroom discussions, lectures, and video content to support comprehension",
+            "Implementing flexible deadlines and extended time for complex reading and writing assignments",
+            "Encouraging students to submit responses in diverse formats (e.g., written essays, audio recordings, or video presentations) to accommodate different learning strengths"
+         ],
+         "level": "Level3"
+      },
+      {
+         "topic": "Classroom Management and Differentiated Language Teaching",
+         "question": "Rank the following professional development strategies from most effective (1) to least effective (4) for enhancing your ability to differentiate instruction as an English Language Teacher:\n\ni) Participating in data analysis workshops to learn how to use student performance information to tailor instruction for diverse learners\nii) Watching video tutorials of expert teachers explaining differentiated instructional strategies and language acquisition theories\niii) Engaging with educational blogs, podcasts, and social media posts about differentiation during personal time\niv) Observing experienced teachers implementing differentiated instruction in real classrooms and reflecting on their methods\n\nWhich of the following ranks the strategies in order from most effective to least effective?",
+         "options": [
+            "1. iv, 2. i, 3. ii, 4. iii",
+            "1. i, 2. iv, 3. iii, 4. ii",
+            "1. ii, 2. i, 3. iv, 4. iii",
+            "1. iii, 2. ii, 3. i, 4. iv"
+         ],
+         "type": "radio",
+         "answer": "1. iv, 2. i, 3. ii, 4. iii",
+         "level": "Level3"
+      },
+      {
+         "topic": "Classroom Management and Differentiated Language Teaching",
+         "question": "Assertion (A): Implementing a token economy system improves student motivation and engagement in class activities.\n\nReason (R): Extrinsic rewards are more effective than intrinsic motivation in shaping long-term student behavior.\n\nWhich of the following options is correct?",
+         "options": [
+            "Both A and R are true, and R is the correct explanation of A",
+            "Both A and R are true, but R is NOT the correct explanation of A",
+            "A is true, but R is false",
+            "A is false, but R is true"
+         ],
+         "type": "radio",
+         "answer": "A is true, but R is false",
+         "level": "Level3"
+      },
+      {
+         "topic": "Classroom Management and Differentiated Language Teaching",
+         "question": "In English instruction, differentiation is critical to fostering higher-order thinking and academic rigor. Which statement best describes a 'tiered assignment' in this context?",
+         "options": [
+            "A structured set of tasks that maintains uniformity in learning objectives and assessment criteria, ensuring all students engage with the same material at the same cognitive level",
+            "A scaffolding strategy where students are assigned different levels of complexity and cognitive demand within the same conceptual framework, allowing for differentiated depth of analysis, synthesis, and application",
+            "A proficiency-based grouping method where students with similar skill levels are given distinct assignments that cater to their specific learning needs, ensuring equitable progress in literacy and textual analysis",
+            "A diagnostic assessment technique used to identify students’ cognitive and linguistic readiness levels before assigning differentiated tasks tailored to their individual learning trajectories"
+         ],
+         "type": "radio",
+         "answer": "A scaffolding strategy where students are assigned different levels of complexity and cognitive demand within the same conceptual framework, allowing for differentiated depth of analysis, synthesis, and application",
+         "level": "Level3"
+      },
+      {
+         "topic": "Cross-Disciplinary Integration and Real-world Applications",
+         "question": "English teachers often integrate their subject with other disciplines to enhance learning, foster critical thinking, and provide students with real-world connections between literature, language, and other fields. However, some approaches may limit interdisciplinary learning rather than support it. Which of the following approaches is NOT effective when integrating English with other subjects?",
+         "options": [
+            "Teaching foundational language concepts in isolation before applying them across disciplines to preserve English’s unique methodologies and analytical frameworks",
+            "Designing cross-curricular projects that require students to apply English skills alongside another subject to solve complex, interdisciplinary problems",
+            "Using literary or linguistic examples from other subjects without shifting focus from core English learning objectives",
+            "Leveraging technology that integrates multiple subjects, allowing students to access interdisciplinary resources and tools that connect literature, writing, and real-world contexts"
+         ],
+         "type": "radio",
+         "answer": "Teaching foundational language concepts in isolation before applying them across disciplines to preserve English’s unique methodologies and analytical frameworks",
+         "level": "Level3"
+      },
+      {
+         "topic": "Cross-Disciplinary Integration and Real-world Applications",
+         "question": "Assertion (A): Integrating excessive cross-disciplinary projects in an English curriculum can take away from the development of core language skills, such as grammar, syntax, and structured writing.\n\nReasoning (R): Students may focus more on content from other subjects rather than mastering essential literacy skills, such as sentence structure, coherence, and textual analysis.\n\nWhich of the following options is correct?",
+         "options": [
+            "Both A and R are true, and R is the correct explanation of A",
+            "Both A and R are true, but R is not the correct explanation of A",
+            "A is true, but R is false",
+            "A is false, but R is true"
+         ],
+         "type": "radio",
+         "answer": "Both A and R are true, and R is the correct explanation of A",
+         "level": "Level3"
+      },
+      {
+         "topic": "Cross-Disciplinary Integration and Real-world Applications",
+         "question": "A teacher wants to enhance students' ability to write cohesive essays by integrating real-world applications and cross-disciplinary connections. Which of the following interventions would be the MOST effective in improving students' ability to write cohesive essays?",
+         "options": [
+            "Designing cross-disciplinary writing tasks, such as historical analysis essays, scientific research reports, or persuasive arguments on socio-political issues",
+            "Encouraging independent revision based on prior feedback, fostering self-sufficiency in writing",
+            "Examining published essays from diverse disciplines (e.g., scientific articles, historical arguments, legal case studies), enhancing comprehension of various writing styles",
+            "Implementing peer review and collaborative editing across disciplines to improve writing clarity and coherence, reinforcing teamwork"
+         ],
+         "type": "radio",
+         "answer": "Designing cross-disciplinary writing tasks, such as historical analysis essays, scientific research reports, or persuasive arguments on socio-political issues",
+         "level": "Level3"
+      },
+      {
+         "topic": "Student Engagement",
+         "question": "Match the student engagement strategies (1-5) with their primary cognitive benefits (A-E) in an English classroom setting.\n\nStrategies:\n1. Think-Pair-Share \n2. Technology Integration\n3. Hands-on Activities\n4. Error Analysis Discussions \n5. Real-World Problem-Solving Projects \n\nCognitive Benefits:\nA. Enhances metacognitive skills and self-regulation, allowing students to reflect on their learning.\nB. Improves verbal reasoning and communication skills, fostering discussion and collaborative learning.\nC. Enhances practical understanding and kinesthetic learning, making abstract concepts more tangible.\nD. Strengthens analytical and critical thinking skills, requiring students to examine ideas in depth.\nE. Provides interactive and personalized learning experiences, using adaptive technologies to cater to individual learning needs.",
+         "options": [
+            "1 → B, 2 → E, 3 → C, 4 → A, 5 → D",
+            "1 → C, 2 → B, 3 → A, 4 → E, 5 → D",
+            "1 → A, 2 → D, 3 → B, 4 → C, 5 → E",
+            "1 → B, 2 → C, 3 → D, 4 → A, 5 → E"
+         ],
+         "type": "radio",
+         "answer": "1 → B, 2 → E, 3 → C, 4 → A, 5 → D",
+         "level": "Level3"
+      },
+      {
+         "topic": "Student Engagement",
+         "question": "Mr. Raj assigns a collaborative literary analysis project where students must work in groups to analyze a text using different critical perspectives. While some students thrive in this environment, others appear disengaged or overwhelmed. How can Mr. Raj modify the activity to ensure all students actively participate and benefit from the collaborative learning experience? (Select all that apply)",
+         "options": [
+            "Assign specific roles to each group member, such as discussion leader, researcher, note-taker, and presenter, to ensure equitable participation",
+            "Integrate digital tools (e.g., shared documents, online discussion boards, multimedia resources) to support diverse learning styles and engagement levels",
+            "Allow students to work independently if they feel uncomfortable participating in group activities, ensuring they can still complete the assignment",
+            "Provide scaffolding, such as guiding questions, structured templates, and clear rubrics, to help students navigate the analytical process effectively",
+            "Let students self-select their groups with minimal teacher guidance, prioritizing comfort over diverse perspectives and skill development"
+         ],
+         "type": "checkbox",
+         "answer": [
+            "Assign specific roles to each group member, such as discussion leader, researcher, note-taker, and presenter, to ensure equitable participation",
+            "Integrate digital tools (e.g., shared documents, online discussion boards, multimedia resources) to support diverse learning styles and engagement levels",
+            "Provide scaffolding, such as guiding questions, structured templates, and clear rubrics, to help students navigate the analytical process effectively"
+         ],
+         "level": "Level3"
+      },
+      {
+         "topic": "Student Engagement",
+         "question": "An English teacher seeks to develop metacognitive skills in students. Which strategy would be the most effective in fostering metacognition across different grade levels?",
+         "options": [
+            "Implement structured peer-led teaching sessions, where students take turns explaining literary concepts, grammar rules, or writing techniques, reinforcing their own understanding through articulation",
+            "Develop detailed, self-assessment rubrics and structured reflection checklists, enabling students to critically evaluate their work and track progress in comprehension, writing, and analysis",
+            "Guide students in maintaining reflective learning journals, where they document not just what they learned in reading or writing tasks, but also their problem-solving strategies, challenges, and adjustments in approach",
+            "Introduce visual thinking tools such as concept maps, comparative analysis charts, and literary theme organizers, helping students systematically structure and connect ideas in reading and writing"
+         ],
+         "type": "radio",
+         "answer": "Guide students in maintaining reflective learning journals, where they document not just what they learned in reading or writing tasks, but also their problem-solving strategies, challenges, and adjustments in approach",
+         "level": "Level3"
+      },
+      {
+         "topic": "Assessment and Evaluation",
+         "question": "Mr. Lee is an English teacher aiming to integrate technology into his assessment strategies to accommodate diverse learning styles and enhance student engagement. He seeks to identify the most effective technological assessment tools to implement in his classroom. Rank the following technological assessment tools from most effective (1) to least effective (4) for accommodating diverse learning styles in an English classroom.\n\nAssessment Techniques:\ni) Interactive quizzes using platforms like Kahoot! for real-time engagement\nii) Digital portfolios where students compile their work throughout the year\niii) Automated multiple-choice tests with instant grading\niv) Video-based presentations for students to demonstrate their understanding.",
+         "options": [
+            "1. ii, 2. iv, 3. i, 4. iii",
+            "1. iii, 2. ii, 3. iv, 4. i",
+            "1. iv, 2. iii, 3. i, 4. ii",
+            "1. ii, 2. i, 3. iv, 4. iii"
+         ],
+         "type": "radio",
+         "answer": "1. ii, 2. iv, 3. i, 4. iii",
+         "level": "Level3"
+      },
+      {
+         "topic": "Assessment and Evaluation",
+         "question": "You are mentoring a new teacher who is struggling to effectively assess student understanding. Which of the following approaches would NOT be the most effective in helping them develop formative assessment skills?",
+         "options": [
+            "Encouraging the use of exit tickets and class discussions to regularly gauge student comprehension",
+            "Assisting in designing end-of-unit standardized tests to evaluate overall student performance",
+            "Providing access to a variety of formative assessment tools and strategies tailored to different subjects",
+            "Guiding the teacher in analyzing student responses and identifying common misconceptions to inform instruction"
+         ],
+         "type": "radio",
+         "answer": "Assisting in designing end-of-unit standardized tests to evaluate overall student performance",
+         "level": "Level3"
+      },
+      {
+         "topic": "Assessment and Evaluation",
+         "question": "Ms. Rivera is an English teacher instructing students in Grades 11 and above, where learners exhibit a range of learning preferences, including visual, auditory, kinesthetic, and reading/writing styles. She seeks to implement advanced assessment techniques that effectively accommodate diverse learning needs while also fostering critical thinking, analytical skills, and academic rigor. Rank the following assessment techniques from most effective (1) to least effective (5) for accommodating diverse learning styles in an advanced English classroom.\n\nAssessment Techniques:\ni) Implementing diverse assessment formats (e.g., literary analysis essays, research-based presentations, structured debates, and creative projects) to allow for differentiated demonstration of understanding.\nii) Using standardized exams with time constraints to measure analytical reading, writing proficiency, and comprehension under pressure.\niii) Providing structured self-assessment and reflective writing exercises that encourage students to critically evaluate their own growth and learning strategies.\niv) Assigning independent grammar and vocabulary exercises with worksheets to reinforce technical language skills.\nv) Engaging students in formal academic discussions, Socratic seminars, and peer-led literary critiques to develop higher-order analytical and verbal reasoning skills.",
+         "options": [
+            "1. i, 2. ii, 3. v, 4. iv, 5. iii",
+            "1. v, 2. i, 3. iii, 4. iv, 5. ii",
+            "1. i, 2. v, 3. iii, 4. iv, 5. ii",
+            "1. iii, 2. i, 3. v, 4. ii, 5. iv"
+         ],
+         "type": "radio",
+         "answer": "1. i, 2. v, 3. iii, 4. iv, 5. ii",
+         "level": "Level3"
+      },
+      {
+         "topic": "Professional Development and Ethics",
+         "question": "Which of the following is NOT a key component of effective long-term professional development for English language teachers?",
+         "options": [
+            "Mentorship from experienced educators and observing them in their classrooms",
+            "Regular analysis of student performance data to refine instructional strategies",
+            "Periodic rotation of teaching assignments across different grade levels or course types",
+            "Study of cognitive science principles related to language learning",
+            "Development and implementation of action research projects"
+         ],
+         "type": "radio",
+         "answer": "Periodic rotation of teaching assignments across different grade levels or course types",
+         "level": "Level3"
+      },
+      {
+         "topic": "Professional Development and Ethics",
+         "question": "Which approach to professional development is most likely to result in sustained improvement of English language teaching practices?",
+         "options": [
+            "Subscribing to a professional journal on English education to stay updated on emerging research and instructional strategies.",
+            "Engaging in action research within one’s own classroom to test, refine, and adapt teaching methodologies based on real student outcomes.",
+            "Attending annual English language and literature conferences to network with other educators and gain exposure to new teaching techniques.",
+            "Completing self-paced online courses on advanced linguistic theories, literature analysis, and pedagogical frameworks."
+         ],
+         "type": "radio",
+         "answer": "Engaging in action research within one’s own classroom to test, refine, and adapt teaching methodologies based on real student outcomes.",
+         "level": "Level3"
+      },
+      {
+         "topic": "Professional Development and Ethics",
+         "question": "A teacher notices a significant disparity in the academic performance of students from different socioeconomic backgrounds within her classroom. What is the most ethical approach to address this issue?",
+         "options": [
+            "Collaborate with community organizations to offer enrichment programs outside of the regular school hours",
+            "Adjust grading criteria to account for students' socioeconomic disadvantages to ensure equitable outcomes",
+            "Focus on providing equal learning opportunities for all students while ignoring their background",
+            "Advocate for school-wide policies that address systemic inequities and provide additional resources"
+         ],
+         "type": "radio",
+         "answer": "Advocate for school-wide policies that address systemic inequities and provide additional resources",
+         "level": "Level3"
+      }
+   ]
+}

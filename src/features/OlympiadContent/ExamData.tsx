@@ -11,6 +11,7 @@ const ExamData = ({ onCheckDemoExam }: any) => {
     const compareDate = '2025-02-01T00:00:00';
 
     const loggedInUserEmail = JSON.parse(localStorage.getItem('olympd_prefix') || '{}').email;
+    const olympiadName = JSON.parse(localStorage.getItem('olympd_prefix') || '{}').olympiadName;
 
     const adminEmails = [
         'kshiteejjain@gmail.com',
@@ -36,6 +37,10 @@ const ExamData = ({ onCheckDemoExam }: any) => {
 
     const userTimestampLogic = async (userEmail: string) => {
         try {
+            if (olympiadName === 'e25') {
+                setExamMessage(`Exam Date: ${formatDateTime(new Date('2025-03-22T17:00:00'))}`);
+                return;
+            }
             const userQuery = query(collection(firestore, 'OlympiadUsers'), where('email', '==', userEmail));
             const userSnapshot = await getDocs(userQuery);
             if (!userSnapshot.empty) {
@@ -70,8 +75,6 @@ const ExamData = ({ onCheckDemoExam }: any) => {
         const checkUserEmail = async () => {
             const olympdPrefixData = JSON.parse(localStorage.getItem('olympd_prefix') || '{}');
             const userEmail = olympdPrefixData.email;
-            const olympiadName = olympdPrefixData.olympiadName;
-
             if (userEmail) {
                 const q = query(collection(firestore, `${olympiadName}Result`), where('email', '==', userEmail));
                 const querySnapshot = await getDocs(q);
@@ -95,11 +98,16 @@ const ExamData = ({ onCheckDemoExam }: any) => {
                 {examMessage && <p>{examMessage}</p>}
                 <div className="cta">
                     <Button onClick={handleStartExamClick} isDisabled={!showStartExamButton} title="Start Final Exam" type="button" />
+                    
+                    {/* Change in olympiad name below and make enable the button and commant above one */}
+                    
+                    {olympiadName === 'e25' && <Button onClick={handleStartExamClick} title="Start Final Exam" type="button" />}
+                    
                     {isAdmin && (
                         <Button onClick={handleStartExamClick} title="Start Exam - Admin" type="button" />
                     )}
                 </div>
-                <p>Click on the Start Final Exam button between 4:30 pm and 6 pm IST. This is the final exam and Exam can be attempted only once</p>
+                <p>Click on the Start Final Exam button between 5 pm and 7 pm IST. This is the final exam and Exam can be attempted only once</p>
             </>
         )
     );

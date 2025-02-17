@@ -94,7 +94,7 @@ const LoginWithEmail = () => {
                         onChange={handleInputChange}
                     />
                     {isError && <ErrorBoundary message={'Please enter registered email.'} />}
-                    <p className="input-note">Note: You will get notifications on email. <br /> It may take 5 minutes to get the passcode on your email.</p>
+                    {/* <p className="input-note">Note: You will get notifications on email. <br /> It may take 5 minutes to get the passcode on your email.</p> */}
                 </div>
                 <Button title='Send' type='submit' />
             </form>

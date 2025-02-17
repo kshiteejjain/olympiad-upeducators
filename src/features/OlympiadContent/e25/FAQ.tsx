@@ -38,7 +38,7 @@ const FAQ: FC = () => {
                 },
                 {
                     summary: 'Can I change the Registered Email ID?',
-                    answer: 'You need to mail to olympiad@upeducators.com before 25th January 2025 along with the payment receipt. After the deadline, your details will not be changed in any case.',
+                    answer: 'You need to mail to olympiad@upeducators.com before 22 March 2025 along with the payment receipt. After the deadline, your details will not be changed in any case.',
                 }
             ],
         },
@@ -52,7 +52,7 @@ const FAQ: FC = () => {
                 },
                 {
                     summary: 'Will I get sample questions for the Olympiad preparation?',
-                    answer: 'Yes, you will get sample questions once you register for the Olympiad.',
+                    answer: 'Yes, To check Sample papers, please click on About Olympiad and check ‘Sample Papers’ section',
                 },
                 {
                     summary: 'What if I am not available at the exam time, can the exam date/time be changed?',
@@ -72,7 +72,7 @@ const FAQ: FC = () => {
                 },
                 {
                     summary: 'How the Top 3 Winners will be Decided?',
-                    answer: 'All the Participants will be attempting the Olympiad exam (Phase 1). The top 200 participants will then be selected for the English Educator Excellence Award. The selected educators need to submit a Lesson Plan using Innovative Language Teaching Practices and a video of 3-5 minutes explaining the lesson. The submitted Lesson plan will be evaluated by a Team of National Awardee Teachers and Top English Educators in India. After the evaluation, one winner will be selected from each grade level category (Eg. Grade 1 to 5, Grade 6 to 10, Grade 11 and above). Each winner will receive a cash prize of Rs. 50,000.',
+                    answer: 'All the Participants will be attempting the Olympiad exam (Phase 1). The top 200 participants will then be selected for the English Educator Excellence Award. The selected educators need to submit a Lesson Plan using Innovative Language Teaching Practices and a video of 3-5 minutes explaining the lesson. The submitted Lesson plan will be evaluated by a Team of National Awardee Teachers and Top English Educators in India. After the evaluation, one winner will be selected from each grade level category (Eg. Grade 1 to 5, Grade 6 to 10, Grade 11 and above). Each winner will receive a cash prize of Rs. 30,000.',
                 }
             ],
         },

@@ -7,6 +7,7 @@ import Loader from '../../components/Loader/Loader';
 import WebcamPermission from './WebcamPermission';
 import CheckInternet from '../../utils/CheckInternet';
 import testQuestions from '../../utils/testQuestions.json';
+import Modal from '../../components/Modal/Modal';
 
 import './Examination.css';
 
@@ -17,6 +18,7 @@ type Question = {
     options: string[];
     type: 'radio' | 'checkbox';
     answer: string | string[];
+    level: string
 };
 type ExamQuestionsType = Question[];
 type SelectedAnswers = { [key: number]: Option[] | Option };
@@ -36,7 +38,7 @@ type ExamQuestionsByLevel = {
 };
 
 const Examination = () => {
-    const examDurationInMinutes = 50;
+    const examDurationInMinutes = 40;
     const examDurationInSeconds = examDurationInMinutes * 60;
 
     const [questions, setQuestions] = useState<ExamQuestionsType>([]);
@@ -54,6 +56,11 @@ const Examination = () => {
     const [selectedLevel, setSelectedLevel] = useState<string | null>(null);
     const [filteredQuestions, setFilteredQuestions] = useState<ExamQuestionsType>([]);
     const [hasLevels, setHasLevels] = useState<boolean>(false);
+    const [isModalOpen, setIsModalOpen] = useState(false);
+
+    const closeModal = () => {
+        setIsModalOpen(false);
+    };
 
     // Prevent Copy Paste
     useEffect(() => {
@@ -96,31 +103,31 @@ const Examination = () => {
 
         // If not test mode, load regular olympiad questions
         const olympiadName = olympiadData.olympiadName;
-        
+
         import(`../../utils/${olympiadName}.json`)
             .then((module) => {
                 const jsonData = module.default;
                 const levelsExist = jsonData.Level1 || jsonData.Level2 || jsonData.Level3;
+
                 setHasLevels(levelsExist);
                 setJsonFileName(`${olympiadName}.json`);
-                if (levelsExist) {
-                    const allQuestions = [
-                        ...(jsonData.Level1 || []),
-                        ...(jsonData.Level2 || []),
-                        ...(jsonData.Level3 || [])
-                    ];
-                    setQuestions(allQuestions);
-                    setFilteredQuestions(allQuestions);
-                } else {
-                    setQuestions(jsonData);
-                    setFilteredQuestions(jsonData);
-                    setStartTime(Date.now());
-                }
+
+                // Ensure levels have the correct level value for each question
+                const allQuestions = [
+                    ...(jsonData.Level1 || []).map((q: any) => ({ ...q, level: 'Level1' })),
+                    ...(jsonData.Level2 || []).map((q: any) => ({ ...q, level: 'Level2' })),
+                    ...(jsonData.Level3 || []).map((q: any) => ({ ...q, level: 'Level3' })),
+                ];
+
+                setQuestions(allQuestions);
+                setFilteredQuestions(allQuestions);
             })
             .catch((error) => {
                 console.error('Error loading JSON file:', error);
             });
+
     }, []);
+
 
     useEffect(() => {
         const olympd_prefix = localStorage.getItem('olympd_prefix');
@@ -133,16 +140,19 @@ const Examination = () => {
         }
     }, []);
 
+
     useEffect(() => {
         if (selectedLevel) {
-            const levelQuestions = ExamQuestions[selectedLevel as keyof ExamQuestionsByLevel] || [];
-
+            const levelQuestions = questions.filter(item => {
+                return item.level === selectedLevel; // Ensures correct level matching
+            }) || [];
             const filtered: ExamQuestionsType = levelQuestions.map((question) => ({
                 topic: question.topic || 'Unknown Topic',
                 question: question.question,
                 options: question.options,
-                type: question.type as 'radio' | 'checkbox', // Ensure correct type
-                answer: question.answer // This can be either string or string[]
+                type: question.type as 'radio' | 'checkbox',
+                answer: question.answer,
+                level: question.level || 'Unknown Level',
             }));
 
             setFilteredQuestions(filtered); // Now filtered is of type ExamQuestionsType
@@ -153,6 +163,8 @@ const Examination = () => {
             setFilteredQuestions(questions);
         }
     }, [selectedLevel, questions]);
+
+
 
 
     const handleLevelSelect = (level: string) => {
@@ -242,30 +254,33 @@ const Examination = () => {
         }
     };
 
+    const hanldeSubmit = () => {
+        setIsModalOpen(true);
+    }
+
     const submitReport = useCallback(async () => {
         if (!startTime || jsonFileName === 'testQuestions.json') {
             // If either condition is true, close the window without saving anything to Firestore
             window.close();
             return; // Exit early without submitting any data
         }
-
-        alert('Submitting the exam?')
+        setIsModalOpen(false);
         setLoading(true);
         const olympiadData = JSON.parse(localStorage.getItem('olympd_prefix') || '{}');
         const olympiadName = olympiadData?.olympiadName || 'm24';
         const userEmail = olympiadData?.email || 'defaultUser';
         const userName = olympiadData?.name;
 
-        const report = questions.map((question, index) => {
+        const report = filteredQuestions.map((question, index) => {
             const userAnswer = selectedAnswers[index] !== undefined ? selectedAnswers[index] : '';
             const correctAnswer = question.answer;
 
             const isCorrect = Array.isArray(correctAnswer)
                 ? Array.isArray(userAnswer) && correctAnswer.every(a => userAnswer.includes(a)) && userAnswer.every(a => correctAnswer.includes(a))
                 : userAnswer === correctAnswer;
-
             return {
                 questionIndex: index,
+                question: question.question || 'No question text provided',
                 topic: question.topic || 'Unknown Topic',
                 chosenAnswer: userAnswer,
                 correctAnswer: correctAnswer || 'N/A',
@@ -356,7 +371,7 @@ const Examination = () => {
                             <div className="level-selection">
                                 <h3>Select Your Level For Question Paper:</h3>
                                 <Button type="button" title="Grade 1 to 5" onClick={() => handleLevelSelect('Level1')} />
-                                <Button type="button" title="Grade 6 to 1" onClick={() => handleLevelSelect('Level2')} />
+                                <Button type="button" title="Grade 6 to 10" onClick={() => handleLevelSelect('Level2')} />
                                 <Button type="button" title="Grade 11 and above" onClick={() => handleLevelSelect('Level3')} />
                             </div>
                         ) : (
@@ -419,7 +434,8 @@ const Examination = () => {
                                                 isDisabled={currentIndex === filteredQuestions.length - 1}
                                             />
                                         </div>
-                                        <Button type="button" title="Submit Exam" onClick={() => submitReport()} />
+                                        <br /><br /><br />
+                                        <Button type="button" title="Submit Exam" onClick={hanldeSubmit} />
                                         <CheckInternet />
                                     </>
                                 )}
@@ -431,17 +447,30 @@ const Examination = () => {
             </div>
             <div className="question-list">
                 <div className='listing'>
-                    {filteredQuestions.map((_, index) => (
-                        <button
-                            key={index}
-                            className={`question-item ${attempted[index] ? 'attempted' : 'not-attempted'}`}
-                            onClick={() => setCurrentIndex(index)}
-                        >
-                            {index + 1}
-                        </button>
-                    ))}
+                    {selectedLevel &&
+                        filteredQuestions.map((_, index) => (
+                            <button
+                                key={index}
+                                className={`question-item ${attempted[index] ? 'attempted' : 'not-attempted'}`}
+                                onClick={() => setCurrentIndex(index)}
+                            >
+                                {index + 1}
+                            </button>
+                        ))
+                    }
                 </div>
             </div>
+            <Modal
+                modalTitle="Exam Submission Confirmation"
+                title="Are you sure you want to submit your exam?"
+                open={isModalOpen}
+                onClose={closeModal}
+                data={`Please confirm if you would like to submit your exam.`}
+            >
+                <Button title="Confirm Submission" type="button" onClick={() => submitReport()} />
+                <Button title="Cancel" isSecondary type="button" onClick={closeModal} />
+            </Modal>
+
         </div>
     );
 };

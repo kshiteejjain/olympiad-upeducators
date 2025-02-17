@@ -33,6 +33,7 @@ const loadComponent = (componentName: string) => {
     }
 
     const olympiadName = olympdPrefix.olympiadName; // Get olympiadName from localStorage
+    console.log('olympiadName', olympiadName)
     return lazy(() => import(`./${olympiadName}/${componentName}.tsx`)); // Load other components dynamically
 };
 

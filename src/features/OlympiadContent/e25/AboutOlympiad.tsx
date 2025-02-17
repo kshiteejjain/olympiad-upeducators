@@ -3,9 +3,9 @@ import Banner from '../../../assets/english-banner.png';
 import { fetchUserRegistrationDate } from '../../../utils/firebaseUtils'; // Adjust the path as necessary
 import Loader from '../../../components/Loader/Loader';
 
-const TARGET_DATE = new Date('2025-02-15T17:00:00');
-const OLYMPIAD_B_DATE = new Date('2025-02-15T17:00:00');
-const COMPARE_DATE = new Date('2024-09-30T00:00:00');
+const TARGET_DATE = new Date('2025-03-22T17:00:00');
+const OLYMPIAD_B_DATE = new Date('2025-03-22T17:00:00');
+const COMPARE_DATE = new Date('2025-02-16T00:00:00');
 
 const AboutOlympiad = () => {
     const [displayDate, setDisplayDate] = useState<Date | null>(null);

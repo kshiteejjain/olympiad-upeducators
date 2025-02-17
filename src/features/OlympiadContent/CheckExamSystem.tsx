@@ -23,7 +23,7 @@ const CheckExamSystem = () => {
                         setOlympaidDate(finalDate); // Set the final Olympiad date for p25
                     } else if (item?.olympiadName === 'e25') {
                         // Handle the e25 olympiad case
-                        setOlympaidDate('15 February, 2025'); // Set the olympiad date for e25
+                        setOlympaidDate('22 March, 2025'); // Set the olympiad date for e25
                     }
                 })
                 .catch(error => console.error("Error fetching user data:", error));
@@ -44,7 +44,7 @@ const CheckExamSystem = () => {
             <p><strong>Please Read all the instructions carefully and click on ‘Next’ Button below.</strong></p>
             <div className="exam-rules">
                 <p><strong>1. This is a Demo Exam</strong>: This is a System Check/Demo Exam. In this, we have given you 5 random questions to check your system settings and familiarize yourself with the exam interface to ensure a smooth experience during the main exam. This is a MUST DO Process before starting the Olympiad exam.</p>
-                <p><strong>2. Exam Start Time</strong>: Click on 'Start Final Exam' button on {olympaidDate} between 4:30 pm and 6 pm IST to start the Olympiad Exam. Do not attempt to start the exam before this time.</p>
+                <p><strong>2. Exam Start Time</strong>: Click on 'Start Final Exam' button on {olympaidDate} between 5 pm and 7 pm IST to start the Olympiad Exam. Do not attempt to start the exam before this time.</p>
                 <p><strong>3. Use a Laptop or Computer with a Webcam</strong>: Ensure you have a functioning Laptop or Desktop with a working webcam and microphone. These are mandatory for the exam.</p>
                 <p><strong>4. Keep a Govt-issued ID Ready</strong>: Have a valid government-issued ID (Driving License, Passport, Aadhar, etc.) on hand before starting the exam.</p>
                 <p><strong>5. Recommended Browser</strong>: Use Google Chrome or Microsoft Edge browser only to give the exam.</p>
