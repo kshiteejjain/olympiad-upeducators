@@ -17,6 +17,15 @@ const formatDate = (dateString: string): string => {
     return date.toLocaleDateString('en-GB'); // Simplified date formatting
 };
 
+const formatDisplayDate = (dbValue: any) => {
+    const s = String(dbValue).trim();
+    const prefix = s.slice(0, 3); // "p25" or "e25"
+    const isoDateStr = s.slice(3); // "2025-02-18T11:52:47.304Z"
+    const [datePart] = isoDateStr.split("T"); // "2025-02-18"
+    const [year, month, day] = datePart.split("-");
+    return `${prefix}-${day}/${month}/${year}`;
+};
+
 // Utility function to convert JSON data to CSV
 const jsonToCSV = (data: DocumentData[]) => {
     const headers = [
@@ -68,7 +77,7 @@ const Admin = () => {
     const [totalRecords, setTotalRecords] = useState<number>(0);
     const [currentPage, setCurrentPage] = useState(1);
     const [lastVisible, setLastVisible] = useState<QueryDocumentSnapshot<DocumentData> | null>(null);
-    const recordsPerPage = 100; 
+    const recordsPerPage = 100;
     const [buttonState, setButtonState] = useState({
         text: 'Export Users',
         counter: 1
@@ -80,69 +89,67 @@ const Admin = () => {
         fetchData();
     }, [currentPage]);
 
-   const fetchTotalCount = async () => {
-    try {
-        const q = query(collection(firestore, 'OlympiadUsers'));
-        const snapshot = await getCountFromServer(q);
-        setTotalRecords(snapshot.data().count);
-    } catch (err) {
-        console.log('Error getting total count:', err);
-    }
-};
-
+    const fetchTotalCount = async () => {
+        try {
+            const q = query(collection(firestore, 'OlympiadUsers'));
+            const snapshot = await getCountFromServer(q);
+            setTotalRecords(snapshot.data().count);
+        } catch (err) {
+            console.log('Error getting total count:', err);
+        }
+    };
 
     // Pagination function: update the page number
-const handlePageChange = (page: number) => {
-    setCurrentPage(page);
-};
+    const handlePageChange = (page: number) => {
+        setCurrentPage(page);
+    };
 
-// Ensure that the fetchData fetches the correct slice of data for the current page
-const fetchData = async () => {
-    try {
-        setLoading(true);
+    // Ensure that the fetchData fetches the correct slice of data for the current page
+    const fetchData = async () => {
+        try {
+            setLoading(true);
 
-        // Construct the query
-        let q;
+            // Construct the query
+            let q;
 
-        if (lastVisible) {
-            // If lastVisible exists, paginate with startAfter
-            q = query(
-                collection(firestore, 'OlympiadUsers'),
-                orderBy('timeStamp', 'desc'),  // Order by 'timeStamp' descending
-                limit(recordsPerPage),
-                startAfter(lastVisible) // Fetch from the last visible document
-            );
-        } else {
-            // For the first load, do not use startAfter, just get the first set of data
-            q = query(
-                collection(firestore, 'OlympiadUsers'),
-                orderBy('timeStamp', 'desc'),  // Order by 'timeStamp' descending
-                limit(recordsPerPage)
-            );
+            if (lastVisible) {
+                // If lastVisible exists, paginate with startAfter
+                q = query(
+                    collection(firestore, 'OlympiadUsers'),
+                    orderBy('timeStamp', 'desc'),  // Order by 'timeStamp' descending
+                    limit(recordsPerPage),
+                    startAfter(lastVisible) // Fetch from the last visible document
+                );
+            } else {
+                // For the first load, do not use startAfter, just get the first set of data
+                q = query(
+                    collection(firestore, 'OlympiadUsers'),
+                    orderBy('timeStamp', 'desc'),  // Order by 'timeStamp' descending
+                    limit(recordsPerPage)
+                );
+            }
+
+            const querySnapshot = await getDocs(q);
+            const usersData = querySnapshot.empty ? [] : querySnapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }));
+
+            // Check if there is data
+            if (usersData.length > 0) {
+                setData(usersData);
+                setFilteredData(usersData);
+                // Update the lastVisible for pagination
+                const lastVisibleDoc = querySnapshot.docs[querySnapshot.docs.length - 1];
+                setLastVisible(lastVisibleDoc);
+            } else {
+                setFilteredData([]);
+            }
+
+        } catch (err) {
+            console.log('Error fetching data:', err);
+            setError('Error fetching data');
+        } finally {
+            setLoading(false);
         }
-
-        const querySnapshot = await getDocs(q);
-        const usersData = querySnapshot.empty ? [] : querySnapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }));
-
-        // Check if there is data
-        if (usersData.length > 0) {
-            setData(usersData);
-            setFilteredData(usersData);
-            // Update the lastVisible for pagination
-            const lastVisibleDoc = querySnapshot.docs[querySnapshot.docs.length - 1];
-            setLastVisible(lastVisibleDoc);
-        } else {
-            setFilteredData([]);
-        }
-
-    } catch (err) {
-        console.log('Error fetching data:', err);
-        setError('Error fetching data');
-    } finally {
-        setLoading(false);
-    }
-};
-
+    };
 
 
     // Utility function to convert a UTC date string to IST (Indian Standard Time)
@@ -311,31 +318,31 @@ const fetchData = async () => {
         let allData: DocumentData[] = [];
         let lastVisible = null;
         let fetching = true;
-    
+
         while (fetching) {
             let q = query(
                 collection(firestore, 'OlympiadUsers'),
                 orderBy('timeStamp'),
                 limit(batchSize)
             );
-    
+
             if (lastVisible) {
                 q = query(q, startAfter(lastVisible));
             }
-    
+
             const snapshot = await getDocs(q);
-    
+
             if (snapshot.empty) {
                 fetching = false;
                 break;
             }
-    
+
             snapshot.docs.forEach(doc => {
                 allData.push(doc.data());
             });
-    
+
             lastVisible = snapshot.docs[snapshot.docs.length - 1];
-    
+
             // Increment the processing counter after each batch is fetched
             setButtonState(prevState => {
                 const newCounter = prevState.counter + 1;
@@ -345,15 +352,15 @@ const fetchData = async () => {
                 };
             });
         }
-    
+
         // Once all data is fetched, convert to CSV and download
         const csvData = jsonToCSV(allData);
         const blob = new Blob([csvData], { type: 'text/csv;charset=utf-8' });
         saveAs(blob, 'Olympiad_Users.csv');
-    
+
         setButtonState({ text: 'Export Users', counter: 1 });  // Reset the button text and counter after the download is triggered
     };
-    
+
 
     return (
         <div className="content">
@@ -437,8 +444,8 @@ const fetchData = async () => {
                             <thead>
                                 <tr>
                                     {[
-                                        'Sr.','Name', 'Email', 'from Webhook', 'Profile Picture', 'WhatsApp', 'Olympiad', 'Payment Id', 'Source', 'Registered Date',
-                                        'Board', 'City', 'Country', 'Date of Birth', 'Grade Level',
+                                        'Sr.', 'Name', 'Email', 'from Webhook', 'Profile Picture', 'WhatsApp', 'Olympiad', 'Payment Id', 'Source', 'Registered Date',
+                                        'olympiad Register', 'Board', 'City', 'Country', 'Date of Birth', 'Grade Level',
                                         'Organization Name', 'Organization Type', 'Role', 'Action'
                                     ].map((header, index) => (
                                         <th key={index}>{header}</th>
@@ -473,6 +480,11 @@ const fetchData = async () => {
                                         <td>{user.paymentId || 'NA'}</td>
                                         <td>{user.source || 'NA'}</td>
                                         <td>{formatDate(user.timeStamp)}</td>
+                                        <td>
+                                            {Array.isArray(user.olympiadRegister)
+                                                ? user.olympiadRegister.map(formatDisplayDate).join(', ')
+                                                : formatDisplayDate(user.olympiadRegister || 'NA')}
+                                        </td>
                                         <td>{user?.profile?.board}</td>
                                         <td>{user?.profile?.city}</td>
                                         <td>{user?.profile?.country}</td>

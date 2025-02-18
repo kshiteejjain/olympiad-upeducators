@@ -53,8 +53,9 @@ const PaymentGateway = () => {
   const [urlParams, setUrlParams] = useState<UrlParams>({ referralCode: null, source: null, olympiad: null });
   const totalPrice =
     urlParams?.olympiad === 'e25' ? 379 :
-      urlParams?.olympiad === 'p25' ? 369 : 369;
-  const olympiadDate = urlParams?.olympiad === 'p25' ? '1st Feb 2025, 5:00pm IST' : '15th Feb 2025, 5:00pm IST';
+    urlParams?.olympiad === 'p25' ? 369 :
+    urlParams?.olympiad === 's25' ? 389 : 369;
+  const olympiadDate = urlParams?.olympiad === 'p25' ? '1st Feb 2025, 5:00pm IST' : '15th March 2025, 5:00pm IST';
   const [discountedPrice, setDiscountedPrice] = useState(totalPrice);
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
@@ -162,6 +163,13 @@ const PaymentGateway = () => {
       if (paymentId) {
         docData.paymentId = paymentId;  // Store the payment ID in Firestore
       }
+
+      if (!Array.isArray(docData.olympiadRegister)) {
+        docData.olympiadRegister = [];
+      }
+
+      // Add a new entry to the olympiadRegister array
+      docData.olympiadRegister.push(olympiadId + new Date().toISOString());
 
       await setDoc(docRef, {
         ...docData,

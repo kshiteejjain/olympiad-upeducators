@@ -19,7 +19,7 @@ const CheckExamSystem = () => {
                 .then(date => {
                     if (item?.olympiadName === 'p25') {
                         // Handle the p25 olympiad case
-                        const finalDate = date && date > COMPARE_DATE ? '08-03-2024' : '01-02-2025';
+                        const finalDate = date && date > COMPARE_DATE ? '08-03-2025' : '01-02-2025';
                         setOlympaidDate(finalDate); // Set the final Olympiad date for p25
                     } else if (item?.olympiadName === 'e25') {
                         // Handle the e25 olympiad case

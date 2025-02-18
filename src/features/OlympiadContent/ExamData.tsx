@@ -8,7 +8,7 @@ const ExamData = ({ onCheckDemoExam }: any) => {
     const [showStartExamButton, setShowStartExamButton] = useState<boolean>(false);
     const [examMessage, setExamMessage] = useState<string | null>(null);
     const [emailFound, setEmailFound] = useState<boolean>(false);
-    const compareDate = '2025-02-01T00:00:00';
+    // const compareDate = '2025-02-15T00:00:00';
 
     const loggedInUserEmail = JSON.parse(localStorage.getItem('olympd_prefix') || '{}').email;
     const olympiadName = JSON.parse(localStorage.getItem('olympd_prefix') || '{}').olympiadName;
@@ -37,39 +37,45 @@ const ExamData = ({ onCheckDemoExam }: any) => {
 
     const userTimestampLogic = async (userEmail: string) => {
         try {
-            if (olympiadName === 'e25') {
-                setExamMessage(`Exam Date: ${formatDateTime(new Date('2025-03-22T17:00:00'))}`);
-                return;
-            }
-            const userQuery = query(collection(firestore, 'OlympiadUsers'), where('email', '==', userEmail));
-            const userSnapshot = await getDocs(userQuery);
-            if (!userSnapshot.empty) {
-                const userDoc = userSnapshot.docs[0];
-                const userTimeStamp = userDoc.data().timeStamp;
-
-                // Check if userTimeStamp is a Firestore Timestamp or a Date
-                let retrievedUserDate;
-                if (userTimeStamp instanceof Date) {
-                    retrievedUserDate = userTimeStamp; // It's already a Date
-                } else if (userTimeStamp.toDate) {
-                    retrievedUserDate = userTimeStamp.toDate(); // Firestore Timestamp
-                } else {
-                    retrievedUserDate = new Date(userTimeStamp); // Assume it's a valid date string or timestamp
-                }
-
-                const comparisonDate = new Date(compareDate); // 01-02-2025
-
-                // Compare user registration date with comparisonDate (01-02-2025)
-                if (retrievedUserDate < comparisonDate) {
-                    setExamMessage(`Exam Date: ${formatDateTime(new Date('2025-02-01T17:00:00'))}`); // If user registered before 01-02-2025
-                } else {
-                    setExamMessage(`Exam Date: ${formatDateTime(new Date('2025-03-08T17:00:00'))}`); // If user registered after 01-02-2025
+            const olympiadDates = {
+                e25: ['2025-02-15T17:00:00', '2025-03-22T17:00:00'],
+                p25: ['2025-02-01T17:00:00', '2024-03-08T17:00:00'],
+            };
+    
+            const olympiadDateRange = olympiadDates[olympiadName as keyof typeof olympiadDates];
+    
+            if (olympiadName === 'e25' || olympiadName === 'p25') {
+                const userQuery = query(collection(firestore, 'OlympiadUsers'), where('email', '==', userEmail));
+                const userSnapshot = await getDocs(userQuery);
+    
+                if (!userSnapshot.empty) {
+                    const userDoc = userSnapshot.docs[0];
+                    const userTimeStamp = userDoc.data().timeStamp;
+    
+                    let retrievedUserDate;
+                    if (userTimeStamp instanceof Date) {
+                        retrievedUserDate = userTimeStamp;
+                    } else if (userTimeStamp.toDate) {
+                        retrievedUserDate = userTimeStamp.toDate();
+                    } else {
+                        retrievedUserDate = new Date(userTimeStamp);
+                    }
+    
+                    const olympiadStartDate = new Date(olympiadDateRange[0]);
+                    const olympiadFallbackDate = new Date(olympiadDateRange[1]);
+    
+                    if (retrievedUserDate < olympiadStartDate) {
+                        setExamMessage(`Exam Date: ${formatDateTime(olympiadStartDate)}`);
+                    } else {
+                        setExamMessage(`Exam Date: ${formatDateTime(olympiadFallbackDate)}`);
+                    }
                 }
             }
         } catch (error) {
             console.error("Error fetching user data:", error);
         }
     };
+    
 
     useEffect(() => {
         const checkUserEmail = async () => {
@@ -101,7 +107,9 @@ const ExamData = ({ onCheckDemoExam }: any) => {
                     
                     {/* Change in olympiad name below and make enable the button and commant above one */}
                     
-                    {olympiadName === 'e25' && <Button onClick={handleStartExamClick} title="Start Final Exam" type="button" />}
+                    {/* {olympiadName === 'e25' ? <Button onClick={handleStartExamClick} title="Start Final Exam" type="button" /> :
+                    <Button onClick={handleStartExamClick} isDisabled={!showStartExamButton} title="Start Final Exam" type="button" />
+                    } */}
                     
                     {isAdmin && (
                         <Button onClick={handleStartExamClick} title="Start Exam - Admin" type="button" />
