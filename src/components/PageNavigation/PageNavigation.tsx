@@ -9,7 +9,7 @@ const PageNavigation = ({ navPath }: any) => {
         navPath(path);
     };
 
-    const paths = ['/AboutOlympiad', '/ReferEarn', '/Awards', '/FAQ', '/LiveMasterClass', '/Report', '/AboutupEducators', '/CoursesForEducators'];
+    const paths = ['/AboutOlympiad', '/ExamData', '/ReferEarn', '/Awards', '/FAQ', '/LiveMasterClass', '/Report', '/AboutupEducators', '/CoursesForEducators'];
     const formatPathName = (path: string) => {
         // Special case for 'AboutupEducators'
         if (path === '/AboutupEducators') {
@@ -29,14 +29,14 @@ const PageNavigation = ({ navPath }: any) => {
                         {formatPathName(path)}
                     </button>
                     {/* Add Start Exam button after AboutOlympiad */}
-                    {path === '/AboutOlympiad' && (
+                    {/* {path === '/AboutOlympiad' && (
                         <button
                             className={activeButton === '/ExamData' ? 'active' : ''}
                             onClick={() => handleClick('/ExamData')}
                         >
                             Exam Corner
                         </button>
-                    )}
+                    )} */}
                 </>
             ))}
         </div>
