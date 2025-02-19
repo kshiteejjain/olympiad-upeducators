@@ -164,12 +164,7 @@ const PaymentGateway = () => {
         docData.paymentId = paymentId;  // Store the payment ID in Firestore
       }
 
-      if (!Array.isArray(docData.olympiadRegister)) {
-        docData.olympiadRegister = [];
-      }
-
-      // Add a new entry to the olympiadRegister array
-      docData.olympiadRegister.push(olympiadId + new Date().toISOString());
+      docData[urlParams.olympiad + 'Register'] = new Date().toISOString();
 
       await setDoc(docRef, {
         ...docData,

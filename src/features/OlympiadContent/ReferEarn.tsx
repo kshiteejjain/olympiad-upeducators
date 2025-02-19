@@ -48,13 +48,13 @@ const ReferEarn = () => {
   const olympdPrefix = JSON.parse(localStorage.getItem('olympd_prefix') || '{}');
   const { email, olympiadName } = olympdPrefix;
 
-  const detailVideo = olympiadName === 'e25' 
-  ? 'https://youtube.com/shorts/ucqKAeBt1vE?feature=share'
-  : olympiadName === 'p25' 
-    ? 'https://youtube.com/shorts/x4199aehS08?feature=share'
-    : 'https://youtube.com/shorts/defaultVideo?feature=share';
+  const detailVideo = olympiadName === 'e25'
+    ? 'https://youtube.com/shorts/ucqKAeBt1vE?feature=share'
+    : olympiadName === 'p25'
+      ? 'https://youtube.com/shorts/x4199aehS08?feature=share'
+      : 'https://youtube.com/shorts/defaultVideo?feature=share';
 
-  let olympiadLabelName = olympiadName === 'e25' ? 'English 2025' :
+  const olympiadLabelName = olympiadName === 'e25' ? 'English 2025' :
     olympiadName === 'm24' ? 'Maths 2024' :
       olympiadName === 'p25' ? 'Primary 2025' :
         olympiadName === 'e25_2' ? 'English 2025 - 2' :
@@ -150,6 +150,7 @@ If you like it too, you can use my referral link for a 10% discount.\n\n`;
     try {
       await navigator.clipboard.writeText(`${referral}${referralUrl}`); // Use the state variable for the URL
       toast.success('Message copied! You can now share it with others.');
+      setIsModal(false);
     } catch (err) {
       toast.success('Failed to copy: ' + err);
     }
@@ -157,19 +158,24 @@ If you like it too, you can use my referral link for a 10% discount.\n\n`;
 
   const handleCloseModal = () => setIsModal(false);
 
+  const handleModal = () => {
+    setIsModal(true);
+  }
+
   return (
     <div className='content'>
       {isLoading && <Loader title='Loading...' />}
-      {isModal && (
+      {isModal &&
         <Modal
           modalTitle="Referral"
           title="Copy to clipboard"
+          open={isModal}
           data={`${referral} <br /> <strong>Registration Link:</strong> ${referralUrl}`}
           onClose={handleCloseModal}
         >
           <Button title="Copy Referral Message" type="button" isIcon iconPath={CopyClipboard} onClick={handleCopyToClipboard} />
         </Modal>
-      )}
+      }
 
       <h2>Refer & Earn</h2>
       <div className='earning-box'>
@@ -189,7 +195,7 @@ If you like it too, you can use my referral link for a 10% discount.\n\n`;
                 {!hasReferral ? (
                   <Button title='Generate Referral Code' type='button' onClick={updateReferral} />
                 ) : (
-                  <Button title='Copy Referral Message' type='button' isIcon iconPath={WhatsappIcon} onClick={() => setIsModal(true)} />
+                  <Button title='Copy Referral Message' type='button' isIcon iconPath={WhatsappIcon} onClick={handleModal} />
                 )}
               </div>
             </div>
