@@ -2,12 +2,10 @@ import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { firestore } from '../../../utils/firebase';
 import { getDocs, collection, query, where } from 'firebase/firestore';
-import { fetchExamDateForUser } from './dateUtils';
 import Button from "../../../components/Buttons/Button";
 
 const ExamData = ({ onCheckDemoExam }: any) => {
     const [showStartExamButton, setShowStartExamButton] = useState<boolean>(false);
-    const [examMessage, setExamMessage] = useState<string | null>(null);
     const [emailFound, setEmailFound] = useState<boolean>(false);
     const loggedInUserEmail = JSON.parse(localStorage.getItem('olympd_prefix') || '{}').email;
     const olympiadName = JSON.parse(localStorage.getItem('olympd_prefix') || '{}').olympiadName;
@@ -20,20 +18,6 @@ const ExamData = ({ onCheckDemoExam }: any) => {
     ];
     const isAdmin = adminEmails.includes(loggedInUserEmail);
     const navigate = useNavigate();
-
-    useEffect(() => {
-        const checkUserEmail = async () => {
-            if (loggedInUserEmail) {
-                const examDate = await fetchExamDateForUser(loggedInUserEmail);
-                if (examDate) {
-                    setExamMessage(`Exam Date: ${examDate.toLocaleString('en-GB', { day: '2-digit', month: '2-digit', year: 'numeric' })}`);
-                    setEmailFound(true);
-                }
-            }
-        };
-        checkUserEmail();
-    }, [loggedInUserEmail]);
-
     useEffect(() => {
         const checkUserEmail = async () => {
             const olympdPrefixData = JSON.parse(localStorage.getItem('olympd_prefix') || '{}');
@@ -57,7 +41,7 @@ const ExamData = ({ onCheckDemoExam }: any) => {
             <p className="startedNote">You have already completed the exam.</p>
         ) : (
             <>
-                {examMessage && <p>{examMessage}</p>}
+               <p>Exam Date: 08/03/2025, 5:00pm IST</p>
                 <div className="cta">
                     <Button onClick={handleStartExamClick} isDisabled={!showStartExamButton} title="Start Final Exam" type="button" />
                     {isAdmin && (
@@ -71,7 +55,7 @@ const ExamData = ({ onCheckDemoExam }: any) => {
 
     return (
         <div className='how-it-works content'>
-            <h3>Check Exam System Guidelines English</h3>
+            <h3>Check Exam System Guidelines</h3>
             <div className='works-card'>
                 <div className='works-card-title'>
                     <div className='works-card-description'>

@@ -103,7 +103,6 @@ const Examination = () => {
 
         // If not test mode, load regular olympiad questions
         const olympiadName = olympiadData.olympiadName;
-
         import(`../../utils/${olympiadName}.json`)
             .then((module) => {
                 const jsonData = module.default;
@@ -111,7 +110,6 @@ const Examination = () => {
 
                 setHasLevels(levelsExist);
                 setJsonFileName(`${olympiadName}.json`);
-
                 // Ensure levels have the correct level value for each question
                 const allQuestions = [
                     ...(jsonData.Level1 || []).map((q: any) => ({ ...q, level: 'Level1' })),

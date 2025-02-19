@@ -17,15 +17,6 @@ const formatDate = (dateString: string): string => {
     return date.toLocaleDateString('en-GB'); // Simplified date formatting
 };
 
-const formatDisplayDate = (dbValue: any) => {
-    const s = String(dbValue).trim();
-    const prefix = s.slice(0, 3); // "p25" or "e25"
-    const isoDateStr = s.slice(3); // "2025-02-18T11:52:47.304Z"
-    const [datePart] = isoDateStr.split("T"); // "2025-02-18"
-    const [year, month, day] = datePart.split("-");
-    return `${prefix}-${day}/${month}/${year}`;
-};
-
 // Utility function to convert JSON data to CSV
 const jsonToCSV = (data: DocumentData[]) => {
     const headers = [
@@ -445,7 +436,7 @@ const Admin = () => {
                                 <tr>
                                     {[
                                         'Sr.', 'Name', 'Email', 'from Webhook', 'Profile Picture', 'WhatsApp', 'Olympiad', 'Payment Id', 'Source', 'Registered Date',
-                                        'olympiad Register', 'Board', 'City', 'Country', 'Date of Birth', 'Grade Level',
+                                        'e25 Register', 'p25 Register', 's25 Register', 'Board', 'City', 'Country', 'Date of Birth', 'Grade Level',
                                         'Organization Name', 'Organization Type', 'Role', 'Action'
                                     ].map((header, index) => (
                                         <th key={index}>{header}</th>
@@ -480,11 +471,9 @@ const Admin = () => {
                                         <td>{user.paymentId || 'NA'}</td>
                                         <td>{user.source || 'NA'}</td>
                                         <td>{formatDate(user.timeStamp)}</td>
-                                        <td>
-                                            {Array.isArray(user.olympiadRegister)
-                                                ? user.olympiadRegister.map(formatDisplayDate).join(', ')
-                                                : formatDisplayDate(user.olympiadRegister || 'NA')}
-                                        </td>
+                                        <td>{new Date(user.e25Register).toLocaleDateString('en-GB').replace(/\//g, '-') || "NA"} </td>
+                                        <td>{new Date(user.p25Register).toLocaleDateString('en-GB').replace(/\//g, '-') || "NA"}</td>
+                                        <td>{new Date(user.s25Register).toLocaleDateString('en-GB').replace(/\//g, '-') || "NA"}</td>
                                         <td>{user?.profile?.board}</td>
                                         <td>{user?.profile?.city}</td>
                                         <td>{user?.profile?.country}</td>

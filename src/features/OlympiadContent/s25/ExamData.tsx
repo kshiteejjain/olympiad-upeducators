@@ -1,18 +1,14 @@
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { firestore } from '../../utils/firebase';
+import { firestore } from '../../../utils/firebase';
 import { getDocs, collection, query, where } from 'firebase/firestore';
-import Button from "../../components/Buttons/Button";
+import Button from "../../../components/Buttons/Button";
 
 const ExamData = ({ onCheckDemoExam }: any) => {
     const [showStartExamButton, setShowStartExamButton] = useState<boolean>(false);
-    const [examMessage, setExamMessage] = useState<string | null>(null);
     const [emailFound, setEmailFound] = useState<boolean>(false);
-    // const compareDate = '2025-02-15T00:00:00';
-
     const loggedInUserEmail = JSON.parse(localStorage.getItem('olympd_prefix') || '{}').email;
     const olympiadName = JSON.parse(localStorage.getItem('olympd_prefix') || '{}').olympiadName;
-
     const adminEmails = [
         'kshiteejjain@gmail.com',
         'anjalis@upeducators.com',
@@ -22,61 +18,6 @@ const ExamData = ({ onCheckDemoExam }: any) => {
     ];
     const isAdmin = adminEmails.includes(loggedInUserEmail);
     const navigate = useNavigate();
-
-    // Helper function to format date in DD-MM-YY format
-    const formatDateTime = (date: any) => {
-        return date.toLocaleString('en-GB', {
-            day: '2-digit',
-            month: '2-digit',
-            year: 'numeric',
-            // hour: '2-digit',
-            // minute: '2-digit',
-            // hour12: true // Use 12-hour format
-        });
-    };
-
-    const userTimestampLogic = async (userEmail: string) => {
-        try {
-            const olympiadDates = {
-                e25: ['2025-02-15T17:00:00', '2025-03-22T17:00:00'],
-                p25: ['2025-02-01T17:00:00', '2024-03-08T17:00:00'],
-            };
-    
-            const olympiadDateRange = olympiadDates[olympiadName as keyof typeof olympiadDates];
-    
-            if (olympiadName === 'e25' || olympiadName === 'p25') {
-                const userQuery = query(collection(firestore, 'OlympiadUsers'), where('email', '==', userEmail));
-                const userSnapshot = await getDocs(userQuery);
-    
-                if (!userSnapshot.empty) {
-                    const userDoc = userSnapshot.docs[0];
-                    const userTimeStamp = userDoc.data().timeStamp;
-    
-                    let retrievedUserDate;
-                    if (userTimeStamp instanceof Date) {
-                        retrievedUserDate = userTimeStamp;
-                    } else if (userTimeStamp.toDate) {
-                        retrievedUserDate = userTimeStamp.toDate();
-                    } else {
-                        retrievedUserDate = new Date(userTimeStamp);
-                    }
-    
-                    const olympiadStartDate = new Date(olympiadDateRange[0]);
-                    const olympiadFallbackDate = new Date(olympiadDateRange[1]);
-    
-                    if (retrievedUserDate < olympiadStartDate) {
-                        setExamMessage(`Exam Date: ${formatDateTime(olympiadStartDate)}`);
-                    } else {
-                        setExamMessage(`Exam Date: ${formatDateTime(olympiadFallbackDate)}`);
-                    }
-                }
-            }
-        } catch (error) {
-            console.error("Error fetching user data:", error);
-        }
-    };
-    
-
     useEffect(() => {
         const checkUserEmail = async () => {
             const olympdPrefixData = JSON.parse(localStorage.getItem('olympd_prefix') || '{}');
@@ -85,32 +26,24 @@ const ExamData = ({ onCheckDemoExam }: any) => {
                 const q = query(collection(firestore, `${olympiadName}Result`), where('email', '==', userEmail));
                 const querySnapshot = await getDocs(q);
                 setEmailFound(!querySnapshot.empty);
-                await userTimestampLogic(userEmail);
             }
         };
-
         checkUserEmail();
-    }, []);
+    }, [olympiadName]);
 
     const handleStartExamClick = () => {
         navigate('/ExaminationRules');
         setShowStartExamButton(false);
     };
+
     const renderExamButton = () => (
         emailFound ? (
             <p className="startedNote">You have already completed the exam.</p>
         ) : (
             <>
-                {examMessage && <p>{examMessage}</p>}
+               <p>Exam Date: 26/04/2025, 5:00pm IST</p>
                 <div className="cta">
                     <Button onClick={handleStartExamClick} isDisabled={!showStartExamButton} title="Start Final Exam" type="button" />
-                    
-                    {/* Change in olympiad name below and make enable the button and commant above one */}
-                    
-                    {/* {olympiadName === 'e25' ? <Button onClick={handleStartExamClick} title="Start Final Exam" type="button" /> :
-                    <Button onClick={handleStartExamClick} isDisabled={!showStartExamButton} title="Start Final Exam" type="button" />
-                    } */}
-                    
                     {isAdmin && (
                         <Button onClick={handleStartExamClick} title="Start Exam - Admin" type="button" />
                     )}
@@ -119,10 +52,10 @@ const ExamData = ({ onCheckDemoExam }: any) => {
             </>
         )
     );
+
     return (
         <div className='how-it-works content'>
             <h3>Check Exam System Guidelines</h3>
-
             <div className='works-card'>
                 <div className='works-card-title'>
                     <div className='works-card-description'>
@@ -144,6 +77,7 @@ const ExamData = ({ onCheckDemoExam }: any) => {
                 </div>
             </div>
         </div>
-    )
+    );
 };
+
 export default ExamData;

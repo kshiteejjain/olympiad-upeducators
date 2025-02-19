@@ -48,11 +48,11 @@ const FAQ: FC = () => {
             questions: [
                 {
                     summary: 'What kind of preparation is required for the Olympiad?',
-                    answer: 'No special preparation is required for this Olympiad. The competition is designed to evaluate your existing knowledge, teaching methodologies, and ability to foster language and communication skills in learners. However, familiarity with key concepts, best practices in English education, and innovative strategies for language teaching will be advantageous.',
+                    answer: 'No special preparation is required for this Olympiad. The competition is designed to evaluate your existing knowledge, teaching methodologies, and ability to foster 21st-century skills in learners. However, familiarity with key concepts, best practices in science education, and innovative teaching strategies will be advantageous.',
                 },
                 {
                     summary: 'Will I get sample questions for the Olympiad preparation?',
-                    answer: 'Yes, To check Sample papers, please click on About Olympiad and check ‘Sample Papers’ section',
+                    answer: 'Yes, To check Sample papers, please click on About Olympiad and check the ‘Sample Papers’ section.',
                 },
                 {
                     summary: 'What if I am not available at the exam time, can the exam date/time be changed?',
@@ -60,11 +60,11 @@ const FAQ: FC = () => {
                 },
                 {
                     summary: 'Where can I attempt this test?',
-                    answer: 'You can attempt this test on your Windows Desktop or Laptop with a working webcam.',
+                    answer: 'You can attempt this test on your Desktop or Laptop with a working webcam.',
                 },
                 {
                     summary: 'Can I attempt this exam on my mobile?',
-                    answer: 'No, this exam can be given only on a Windows Laptop or Desktop with a functional webcam.',
+                    answer: 'No, this exam can be given only on a Laptop or Desktop with a functional webcam.',
                 },
                 {
                     summary: 'Will I be getting any certificate?',
@@ -72,7 +72,7 @@ const FAQ: FC = () => {
                 },
                 {
                     summary: 'How the Top 3 Winners will be Decided?',
-                    answer: 'All the Participants will be attempting the Olympiad exam (Phase 1). The top 200 participants will then be selected for the English Educator Excellence Award. The selected educators need to submit a Lesson Plan using Innovative Language Teaching Practices and a video of 3-5 minutes explaining the lesson. The submitted Lesson plan will be evaluated by a Team of National Awardee Teachers and Top English Educators in India. After the evaluation, one winner will be selected from each grade level category (Eg. Grade 1 to 5, Grade 6 to 10, Grade 11 and above). Each winner will receive a cash prize of Rs. 30,000.',
+                    answer: 'All the Participants will be attempting the Olympiad exam (Phase 1). The top 200 participants will then be selected for the Science Educator Excellence Award. The selected educators need to submit a Lesson Plan using Innovative Language Teaching Practices and a video of 3-5 minutes explaining the lesson. The submitted Lesson plan will be evaluated by a Team of National Awardee Teachers and Top Science Educators in India. After the evaluation, one winner will be selected from each grade level category (Eg. Grade 1 to 5, Grade 6 to 10, Grade 11 and above). Each winner will receive a cash prize of Rs. 35,000.',
                 }
             ],
         },
@@ -82,7 +82,7 @@ const FAQ: FC = () => {
             questions: [
                 {
                     summary: 'Will I have to pay additional fees for attending the Live Training Sessions?',
-                    answer: 'No additional fee payments are required for attending the Live Training Sessions. These enriching educational experiences are included in the Registration Fee of Rs. 379/- without any hidden or extra charges.',
+                    answer: 'No additional fee payments are required for attending the Live Training Sessions. These enriching educational experiences are included in the Registration Fee of Rs. 389/- without any hidden or extra charges.',
                 },
                 {
                     summary: 'When will I get the Masterclasses?',
@@ -94,7 +94,7 @@ const FAQ: FC = () => {
                 },
             ],
         },
-    ];
+    ];    
 
     const extractTextFromAnswer = (answer: string | JSX.Element): string => {
         if (typeof answer === 'string') {

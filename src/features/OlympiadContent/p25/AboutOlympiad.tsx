@@ -1,54 +1,12 @@
-import { useEffect, useState } from 'react';
-import Banner from '../../../assets/primary-banner.png';
-import Primary_2_Banner from '../../../assets/primary_2-olympiad-image.jpg';
-import { fetchUserRegistrationDate } from '../../../utils/firebaseUtils';
-import Loader from '../../../components/Loader/Loader';
-
-const TARGET_DATE = new Date('2025-02-01T17:00:00');
-const OLYMPIAD_B_DATE = new Date('2025-03-08T17:00:00');
-const COMPARE_DATE = new Date('2025-02-01T00:00:00');
+import Banner from '../../../assets/primary_2-olympiad-image.jpg';
 
 const AboutOlympiad = () => {
-    const [displayDate, setDisplayDate] = useState<Date | null>(null);
-    const [bannerSrc, setBannerSrc] = useState('');
-
-    useEffect(() => {
-        const userEmail = JSON.parse(localStorage.getItem('olympd_prefix') || '{}')?.email;
-        if (userEmail) {
-            fetchUserRegistrationDate(userEmail)
-                .then(date => {
-                    const finalDate = date && date < COMPARE_DATE ? TARGET_DATE : OLYMPIAD_B_DATE;
-                    setDisplayDate(finalDate);
-                    setBannerSrc(date < COMPARE_DATE ? Banner : Primary_2_Banner)
-                    console.log('user registered', date < COMPARE_DATE)
-                })
-                .catch(error => console.error("Error fetching user data:", error));
-        } else {
-            console.warn('No email found in local storage.');
-            setDisplayDate(OLYMPIAD_B_DATE); // Default to Olympiad B date if no email
-        }
-    }, []);
-
-    if (!displayDate) {
-        return <Loader />; // Loading state while fetching the date
-    }
-
-    const formatDateTime = (date: any) => {
-        return date.toLocaleString('en-GB', {
-            day: '2-digit',
-            month: '2-digit',
-            year: 'numeric',
-            hour: '2-digit',
-            minute: '2-digit',
-            hour12: true // Use 12-hour format
-        });
-    };
 
     return (
         <div className='content'>
             <h2>About the Olympiad</h2>
             <div className='olympiad-banner'>
-                <img src={bannerSrc} alt="Olympiad Banner" />
+                <img src={Banner} alt="Olympiad Banner" />
             </div>
             <h3>About</h3>
             <div className='faq'>
@@ -57,7 +15,7 @@ const AboutOlympiad = () => {
                     <p><strong>This Olympiad is divided into 2 phases:</strong></p>
                     <p><strong>Phase 1: The Instructional Proficiency Test</strong></p>
                     <ul className='list'>
-                        <li>Date: {formatDateTime(displayDate)}</li>
+                        <li>Date: 08/03/2025</li>
                         <li>Format: Multiple Choice Questions</li>
                         <li>No. of Questions: 40</li>
                         <li>Exam Duration: 50 Minutes</li>

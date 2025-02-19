@@ -58,6 +58,7 @@ const ReferEarn = () => {
     olympiadName === 'm24' ? 'Maths 2024' :
       olympiadName === 'p25' ? 'Primary 2025' :
         olympiadName === 'e25_2' ? 'English 2025 - 2' :
+        olympiadName === 's25' ? 'Science 2025' :
           olympiadName === 'm24_2' ? 'Maths 2024 - 2' :
             olympiadName === 'p25_2' ? 'Primary 2025 - 2' :
               olympiadName;

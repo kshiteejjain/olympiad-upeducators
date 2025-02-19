@@ -15,25 +15,17 @@ const loadComponent = (componentName: string) => {
         console.error('Olympiad name is undefined!');
         return lazy(() => import(`./defaultOlympiad/${componentName}.tsx`)); // Fallback path
     }
-
-    if (componentName === 'ExamData') {
-        return lazy(() => import(`./ExamData.tsx`));
-    }
     if (componentName === 'CoursesForEducators') {
         return lazy(() => import(`./CoursesForEducators.tsx`));
     }
     if (componentName === 'AboutupEducators') {
         return lazy(() => import(`./AboutUpEducators.tsx`));
     }
-    if (componentName === 'CheckExamSystem') {
-        return lazy(() => import(`./CheckExamSystem.tsx`));
-    }
     if (componentName === 'ReferEarn') {
         return lazy(() => import(`./ReferEarn.tsx`));
     }
 
     const olympiadName = olympdPrefix.olympiadName; // Get olympiadName from localStorage
-    console.log('olympiadName', olympiadName)
     return lazy(() => import(`./${olympiadName}/${componentName}.tsx`)); // Load other components dynamically
 };
 
@@ -143,6 +135,7 @@ const OlympiadContent = () => {
                                     >
                                         {olympiad === 'p25' ? 'Primary 2025'
                                             : olympiad === 'm24' ? 'Maths 2024'
+                                            : olympiad === 's25' ? 'Science 2025'
                                                 : olympiad === 'e25' ? 'English 2025'
                                                     : olympiad}
                                     </li>

@@ -52,10 +52,17 @@ const PaymentGateway = () => {
   const [isFormValid, setIsFormValid] = useState(false);
   const [urlParams, setUrlParams] = useState<UrlParams>({ referralCode: null, source: null, olympiad: null });
   const totalPrice =
-    urlParams?.olympiad === 'e25' ? 379 :
-    urlParams?.olympiad === 'p25' ? 369 :
-    urlParams?.olympiad === 's25' ? 389 : 369;
-  const olympiadDate = urlParams?.olympiad === 'p25' ? '1st Feb 2025, 5:00pm IST' : '15th March 2025, 5:00pm IST';
+    urlParams?.olympiad === 'e25' ? 389 :
+    urlParams?.olympiad === 'p25' ? 1 :
+    urlParams?.olympiad === 's25' ? 1 : 369;
+    const olympiadDate = urlParams?.olympiad === 'p25'
+    ? '08th March 2025, 5:00pm IST'
+    : urlParams?.olympiad === 'e25'
+    ? '22nd March 2025, 5:00pm IST'
+    : urlParams?.olympiad === 's25'
+    ? '26th April 2025, 5:00pm IST'
+    : 'NA'; // fallback date
+  
   const [discountedPrice, setDiscountedPrice] = useState(totalPrice);
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
@@ -163,8 +170,8 @@ const PaymentGateway = () => {
       if (paymentId) {
         docData.paymentId = paymentId;  // Store the payment ID in Firestore
       }
-
-      docData[urlParams.olympiad + 'Register'] = new Date().toISOString();
+      // Add a new entry to the olympiadRegister array
+      docData[`${olympiadId}Register`] = new Date().toISOString();
 
       await setDoc(docRef, {
         ...docData,
@@ -242,6 +249,7 @@ const PaymentGateway = () => {
         olympiadId === 'e25' ? 'English 2025' :
           olympiadId === 'm24' ? 'Maths 2024' :
             olympiadId === 'p25' ? 'Primary 2025' :
+            olympiadId === 's25' ? 'Science 2025' :
               olympiadId === 'e25_2' ? 'English 2025 - 2' :
                 olympiadId === 'm24_2' ? 'Maths 2024 - 2' :
                   olympiadId === 'p25_2' ? 'Primary 2025 - 2' :

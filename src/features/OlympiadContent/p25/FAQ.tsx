@@ -38,7 +38,7 @@ const FAQ: FC = () => {
                 },
                 {
                     summary: 'Can I change the Registered Email id?',
-                    answer: 'You need to mail at olympiad@upeducators.com before 2nd March 2025 along with the payment receipt. After the deadline, your details will not be changed in any case.',
+                    answer: 'You need to mail at olympiad@upeducators.com atleast one week before along with the payment receipt. After the deadline, your details will not be changed in any case.',
                 }
             ],
         },

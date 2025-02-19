@@ -1,45 +1,6 @@
-import { useEffect, useState } from 'react';
 import Banner from '../../../assets/english-banner.png';
-import { fetchUserRegistrationDate } from '../../../utils/firebaseUtils'; // Adjust the path as necessary
-import Loader from '../../../components/Loader/Loader';
-
-const TARGET_DATE = new Date('2025-03-22T17:00:00');
-const OLYMPIAD_B_DATE = new Date('2025-03-22T17:00:00');
-const COMPARE_DATE = new Date('2025-02-16T00:00:00');
 
 const AboutOlympiad = () => {
-    const [displayDate, setDisplayDate] = useState<Date | null>(null);
-
-    useEffect(() => {
-        const userEmail = JSON.parse(localStorage.getItem('olympd_prefix') || '{}')?.email;
-        if (userEmail) {
-            fetchUserRegistrationDate(userEmail)
-                .then(date => {
-                    const finalDate = date && date < COMPARE_DATE ? TARGET_DATE : OLYMPIAD_B_DATE;
-                    setDisplayDate(finalDate);
-                })
-                .catch(error => console.error("Error fetching user data:", error));
-        } else {
-            console.warn('No email found in local storage.');
-            setDisplayDate(OLYMPIAD_B_DATE); // Default to Olympiad B date if no email
-        }
-    }, []);
-
-    if (!displayDate) {
-        return <Loader />; // Loading state while fetching the date
-    }
-
-    const formatDateTime = (date: any) => {
-        return date.toLocaleString('en-GB', {
-            day: '2-digit',
-            month: '2-digit',
-            year: 'numeric',
-            hour: '2-digit',
-            minute: '2-digit',
-            hour12: true // Use 12-hour format
-        });
-    };
-
     return (
         <div className='content'>
             <h2>About the Olympiad</h2>
@@ -53,7 +14,7 @@ const AboutOlympiad = () => {
                     <p><strong>This Olympiad is divided into 2 phases:</strong></p>
                     <p><strong>Phase 1: The Instructional Proficiency Test</strong></p>
                     <ul className='list'>
-                        <li>Date: {formatDateTime(displayDate)}</li>
+                        <li>Date: 22-03-2025</li>
                         <li>Format: Multiple Choice Questions</li>
                         <li>No. of Questions: 30</li>
                         <li>Exam Duration: 40 Minutes</li>
